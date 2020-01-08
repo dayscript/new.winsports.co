@@ -15,7 +15,9 @@ libraries:
 # Regions are output in the page.html.twig
 
 regions:
+  tool_meta_header: 'Tool Meta Header'
   meta_header: 'Meta Header'
+  sub_meta_header: 'Sub Meta Header'
   header: Header
   help: Help
   page_top: 'Page top'

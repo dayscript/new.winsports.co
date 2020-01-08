@@ -1,0 +1,25 @@
+
+
+#block-toolheadermenu {
+    .menu{
+        @include menu-items-align( left, uppercase, $win-menu-small );
+        
+    }
+    padding-left: 0!important;
+    
+}
+ 
+
+#block-toolheadermenuaux{
+    .menu{
+        @include menu-items-align( right, uppercase, $win-menu-small )
+    }
+    
+}
+
+#block-navegacionprincipal{
+    .menu{
+        @include menu-items-align( left, uppercase, $win-menu )
+    }
+    
+}

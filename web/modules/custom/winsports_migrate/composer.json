@@ -1,0 +1,13 @@
+{
+    "name": "winsports_migrate",
+    "type": "drupal-module",
+    "description": "This module migrate information the nodes and taxonomies from winsports (drupal 7)",
+    "keywords": [
+    ],
+    "homepage": "https://www.drupal.org/project/winsports_migrate",
+    "minimum-stability": "dev",
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/winsports_migrate",
+        "source": "http://cgit.drupalcode.org/winsports_migrate"
+    }
+}

@@ -1,0 +1,10 @@
+name: 'Winsports Migrate'
+type: module
+description: 'This module migrate information the nodes and taxonomies from winsports (drupal 7)'
+core: 8.x
+package: 'dayscript'
+dependencies:
+  - config_devel
+  - migrate_tools
+  - migrate_plus
+  - migrate

@@ -1,0 +1,20 @@
+
+
+
+/*
+*  $aling : 'left' or 'right'
+*  $text-transform :  'uppercase' or 'lowercase' or ...
+*  $font-size: 0.6vw;
+*/
+@mixin menu-items-align($align, $text-transform, $font-size) {
+    
+    li{
+        float: $align;
+        a{
+            text-transform: $text-transform;
+            font-size: $font-size;
+        }
+    }
+    
+    
+}
