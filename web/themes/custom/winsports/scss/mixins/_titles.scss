@@ -1,0 +1,21 @@
+
+/*
+*
+*   font-size: 0.9vw;
+*   color: white;
+*   font-weight: 600;
+*   text-transform: capitalize;
+*
+*/
+
+
+@mixin title-block( $color, $font-size, $font-weight, $text-transform ){
+
+    h2{
+        font-size: $font-size;
+        color: $color;
+        font-weight: $font-weight;
+        text-transform: $text-transform;
+    }
+
+}
