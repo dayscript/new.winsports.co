@@ -67,7 +67,7 @@
 
     <div class="off-canvas-content" data-off-canvas-content>
       {% if page.tool_meta_header %}
-        <div class="full-width">
+        <div class="full-width tool-meta-header">
           <div class="row">
             <div class="large-12 columns">
                 {{ page.tool_meta_header }}
@@ -77,7 +77,7 @@
       {% endif %}
 
       {% if page.meta_header %}
-        <div class="full-width">
+        <div class="full-width meta-header">
           {% if meta_header_grid %}
             <div class="row">
               <div class="large-12 columns">
@@ -91,7 +91,7 @@
       {% endif %}
       
       {% if page.sub_meta_header %}
-      <div class="full-width">
+      <div class="full-width sub-meta-header">
         <div class="row">
           <div class="large-12 columns">
               {{ page.sub_meta_header }}
@@ -198,31 +198,40 @@
         {% endif %}
       </div>
       {% if page.footer_first or page.footer_middle or page.footer_last %}
-        <footer class="row">
+        <footer >
           {% if page.footer_first %}
-            <div id="footer-first" class="large-4 columns">
-              {{ page.footer_first }}
+            <div class="row">
+              <div id="footer-first" class="large-12 columns">
+                <div class="large-12 columns">
+                  {{ page.footer_first }}
+                </div>
+                <div class="large-12 columns text-center">
+                  <div class="row">
+                    <div class="large-12 columns">
+                    <span class="copy-rights">Copyrigth&copy  {{ "now"|date('Y') }}, Bogotá-Colombia. {{ 'All rights reserved.'|t }} Está prohibida la reprodución total o parcial de la página</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           {% endif %}
           {% if page.footer_middle %}
-            <div id="footer-middle" class="large-4 columns">
-              {{ page.footer_middle }}
+            <div class="row">
+              <div id="footer-middle" class="large-12 columns">
+                {{ page.footer_middle }}
+              </div>
             </div>
           {% endif %}
           {% if page.footer_last %}
-            <div id="footer-last" class="large-4 columns">
-              {{ page.footer_last }}
+            <div class="row">  
+              <div id="footer-last" class="large-12 columns">
+                {{ page.footer_last }}
+              </div>
             </div>
           {% endif %}
         </footer>
       {% endif %}
-      <div class="bottom-bar callout secondary">
-        <div class="row">
-          <div class="large-12 columns">
-          &copy; {{ "now"|date('Y') }} {{ site_name }} {{ 'All rights reserved.'|t }}
-          </div>
-        </div>
-      </div>
+      
     </div>
   </div>
 </div>

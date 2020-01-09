@@ -2,7 +2,7 @@
 
 #block-toolheadermenu {
     .menu{
-        @include menu-items-align( left, uppercase, $win-menu-small );
+        @include menu-items-align( left, uppercase, $win-menu-small, white );
         
     }
     padding-left: 0!important;
@@ -12,14 +12,20 @@
 
 #block-toolheadermenuaux{
     .menu{
-        @include menu-items-align( right, uppercase, $win-menu-small )
+        @include menu-items-align( right, uppercase, $win-menu-small, white )
     }
     
 }
 
 #block-navegacionprincipal{
     .menu{
-        @include menu-items-align( left, uppercase, $win-menu )
+        @include menu-items-align( left, uppercase, $win-menu, white )
     }
     
+}
+
+#block-footermenu{
+    .menu{
+        @include menu-items-align( center, capitalize, $win-menu, $win-green-ligth )
+    }
 }

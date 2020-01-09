@@ -6,13 +6,21 @@
 *  $text-transform :  'uppercase' or 'lowercase' or ...
 *  $font-size: 0.6vw;
 */
-@mixin menu-items-align($align, $text-transform, $font-size) {
-    
+@mixin menu-items-align($align, $text-transform, $font-size, $color-font) {
+
+    @if $align == center {
+        float: none;
+        text-align: $align;
+        display: inline-block;
+    }
+
     li{
+      
         float: $align;
         a{
             text-transform: $text-transform;
             font-size: $font-size;
+            color:$color-font;
         }
     }
     

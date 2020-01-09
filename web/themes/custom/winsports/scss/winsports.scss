@@ -153,19 +153,20 @@
 // Layout
 // Each section of the document has it's own partial seperated out to improve
 // developer experience. Additionally, grids can be declared in layouts as well.
+@import 'base/win-colors';
+
+@import 'mixins/menus';
 @import 'layout/header';
 @import 'layout/main';
 @import 'layout/aside';
 @import 'layout/footer';
 
-@import 'base/win-colors';
 
-
-@import 'mixins/menus';
 
 // Modules
 // @import 'modules/block';
 // @import 'modules/button';
+@import 'modules/block';
 @import 'modules/menu_block';
 
 

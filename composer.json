@@ -40,6 +40,7 @@
         "drupal/pathauto": "^1.6",
         "drupal/sitemap": "^1.5",
         "drupal/smart_date": "^1.1",
+        "drupal/social_media_links": "^2.6",
         "drupal/stickynav": "^1.1",
         "drupal/yoast_seo": "^1.5",
         "drupal/zurb_foundation": "^6.0",
