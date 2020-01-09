@@ -26,6 +26,8 @@ regions:
   content: Content
   sidebar_first: 'Left Sidebar'
   sidebar_second: 'Right Sidebar'
+  after_content: 'After Content'
+  pre_footer: 'Pre Footer'
   footer_first: 'Footer first column'
   footer_middle: 'Footer middle column'
   footer_last: 'Footer last column'

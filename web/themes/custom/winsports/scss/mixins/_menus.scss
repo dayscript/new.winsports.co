@@ -2,7 +2,7 @@
 
 
 /*
-*  $aling : 'left' or 'right'
+*  $aling : 'left' or 'right' or 'center'
 *  $text-transform :  'uppercase' or 'lowercase' or ...
 *  $font-size: 0.6vw;
 */
@@ -13,6 +13,8 @@
         text-align: $align;
         display: inline-block;
     }
+
+    
 
     li{
       

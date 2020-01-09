@@ -197,8 +197,29 @@
           </div>
         {% endif %}
       </div>
+
+      {% if page.after_content %}
+        <div class="full-width after-content">
+          <div class="row">
+            <div id="after-content" class="large-12 columns sidebar">
+              {{ page.after_content }}
+            </div>
+          </div>
+        </div>
+      {% endif %} 
+
+      {% if page.pre_footer %}
+        <div class="full-width pre-footer">
+          <div class="row">
+            <div id="pre-footer" class="large-12 columns sidebar">
+              {{ page.pre_footer }}
+            </div>
+          </div>
+        </div>
+      {% endif %}
+
       {% if page.footer_first or page.footer_middle or page.footer_last %}
-        <footer >
+        <footer class="full-width">
           {% if page.footer_first %}
             <div class="row">
               <div id="footer-first" class="large-12 columns">

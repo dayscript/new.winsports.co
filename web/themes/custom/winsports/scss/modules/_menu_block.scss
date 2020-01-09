@@ -18,6 +18,8 @@
 }
 
 #block-navegacionprincipal{
+    margin: 13px 0px;
+    
     .menu{
         @include menu-items-align( left, uppercase, $win-menu, white )
     }
@@ -29,3 +31,74 @@
         @include menu-items-align( center, capitalize, $win-menu, $win-green-ligth )
     }
 }
+
+#block-futbolcolombiano{
+    @include title-block(white, 0.9vw, 600, capitalize)
+    .menu{
+        @include menu-items-align( left, capitalize, $win-menu, gray )
+        li{
+            display: inline-block;
+            width:100%;
+        }
+    }
+
+    
+}
+
+#block-futbolinternacional{
+
+    @include title-block(white, 0.9vw, 600, capitalize)
+    .menu{
+        @include menu-items-align( left, capitalize, $win-menu, gray )
+        li{
+            display: inline-block;
+            width:100%;
+            a{ 
+                padding: 0.7rem 0rem
+            }
+        }
+    }
+
+}
+
+#block-masdeportes{
+    @include title-block(white, 0.9vw, 600, capitalize)
+    .menu{
+        @include menu-items-align( left, capitalize, $win-menu, gray )
+        li{
+            display: inline-block;
+            width:100%;
+            a{ 
+                padding: 0.7rem 0rem
+            }
+        }
+    }
+}
+
+#block-videos{
+    @include title-block(white, 0.9vw, 600, capitalize)
+    .menu{
+        @include menu-items-align( left, capitalize, $win-menu, gray )
+        li{
+            display: inline-block;
+            width:100%;
+            a{ 
+                padding: 0.7rem 0rem
+            }
+        }
+    }
+}
+
+#block-opinion{
+    @include title-block(white, 0.9vw, 600, capitalize)
+    .menu{
+        @include menu-items-align( left, capitalize, $win-menu, gray )
+        li{
+            display: inline-block;
+            width:100%;
+            a{ 
+                padding: 0.7rem 0rem
+            }
+        }
+    }
+} 
