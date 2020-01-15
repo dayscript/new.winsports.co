@@ -143,3 +143,10 @@ To prevent this you can add this code to specify the PHP version you want to use
     }
 },
 ```
+
+
+Migrate Drupal Upgrade
+
+Update migration group
+
+vendor/drush/drush/drush migrate-upgrade --legacy-db-url=mysql://winsports_d7:winsports_d7@172.27.0.5/winsports_d7 --legacy-root=https://www.winsports.co --configure-only

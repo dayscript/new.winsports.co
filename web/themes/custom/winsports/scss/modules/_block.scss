@@ -16,3 +16,47 @@
     }
     
 }
+
+.more-link{
+
+    @include buttons($win-green-ligth, 10px, 76px, $win-green )
+
+}
+
+#block-views-block-goles-liga-aguila-block-1{
+
+}
+
+#block-views-block-lo-ultimo-block-1{
+
+}
+
+#block-views-block-equipos-home-block-1{
+    ul{
+        text-align: center;
+        li{
+            display: inline-block;
+        }
+    }
+}
+
+
+h3 {
+    &.slider-items-title{
+        font-size: 12px;
+    }
+}
+
+.list-decoration-none{
+    .item-list{
+        ul{
+            margin: 0;
+            padding: 0;
+            li{
+                padding: 0;
+                list-style: none;
+            }
+        }
+    }
+
+}

@@ -22,11 +22,14 @@ regions:
   help: Help
   page_top: 'Page top'
   page_bottom: 'Page bottom'
-  highlighted: Highlighted
-  content: Content
+  highlighted: 'Highlighted'
+  content: 'Content'
   sidebar_first: 'Left Sidebar'
   sidebar_second: 'Right Sidebar'
   after_content: 'After Content'
+  second_content: 'Second Content'
+  second_sidebar_first: 'Second Left Sidebar'
+  second_sidebar_second: 'Second Right Sidebar'
   pre_footer: 'Pre Footer'
   footer_first: 'Footer first column'
   footer_middle: 'Footer middle column'

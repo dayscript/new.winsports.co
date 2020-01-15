@@ -9,6 +9,13 @@
 */
 
 
+h1,h2,h3,h4{
+    color: $win-title-color;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+
 @mixin title-block( $color, $font-size, $font-weight, $text-transform ){
 
     h2{

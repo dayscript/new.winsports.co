@@ -89,7 +89,8 @@
           {% endif %}
         </div>
       {% endif %}
-      
+
+           
       {% if page.sub_meta_header %}
       <div class="full-width sub-meta-header">
         <div class="row">
@@ -98,6 +99,12 @@
           </div>
         </div>
       </div>
+      {% endif %}
+
+      {% if page.highlighted %}
+        {% spaceless %}
+          {{ page.highlighted }}
+        {% endspaceless %}
       {% endif %}
 
       <header class="row" role="banner" aria-label="{{ 'Site header'|t }}">
@@ -165,21 +172,8 @@
       </div>
       {% endif %}
 
-      {% if page.help %}
-      <div class="l-help row">
-        <div class="large-12 columns">
-          {{ page.help }}
-        </div>
-      </div>
-      {% endif %}
-
       <div class="row">
         <main id="main" class="{{ main_grid }} columns" role="main">
-          {% if page.highlighted %}
-            {% spaceless %}
-              {{ page.highlighted }}
-            {% endspaceless %}
-          {% endif %}
           <a id="main-content"></a>
           {% if breadcrumb %} {{ breadcrumb }} {% endif %}
           <section>
@@ -198,6 +192,14 @@
         {% endif %}
       </div>
 
+      {% if page.help %}
+      <div class="l-help row">
+        <div class="large-12 columns">
+          {{ page.help }}
+        </div>
+      </div>
+      {% endif %}
+
       {% if page.after_content %}
         <div class="full-width after-content">
           <div class="row">
@@ -207,6 +209,24 @@
           </div>
         </div>
       {% endif %} 
+
+      <div class="row">
+        <main id="main" class="{{ main_grid }} columns" role="main">
+          <section>
+            {{ page.second_content }}
+          </section>
+        </main>
+        {% if page.second_sidebar_first %}
+          <div id="sidebar-first" class="{{ sidebar_first_grid }} columns sidebar ">
+            {{ page.second_sidebar_first }}
+          </div>
+        {% endif %}
+        {% if page.second_sidebar_second %}
+          <div id="sidebar-second" class="{{ sidebar_sec_grid }} columns sidebar">
+            {{ page.second_sidebar_second }}
+          </div>
+        {% endif %}
+      </div>
 
       {% if page.pre_footer %}
         <div class="full-width pre-footer">

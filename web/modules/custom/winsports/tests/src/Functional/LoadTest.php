@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\Tests\winsports_migrate\Functional;
+namespace Drupal\Tests\winsports\Functional;
 
 use Drupal\Core\Url;
 use Drupal\Tests\BrowserTestBase;
@@ -8,7 +8,7 @@ use Drupal\Tests\BrowserTestBase;
 /**
  * Simple test to ensure that main page loads with module enabled.
  *
- * @group winsports_migrate
+ * @group winsports
  */
 class LoadTest extends BrowserTestBase {
 
@@ -17,7 +17,7 @@ class LoadTest extends BrowserTestBase {
    *
    * @var array
    */
-  public static $modules = ['winsports_migrate'];
+  public static $modules = ['winsports'];
 
   /**
    * A user with permission to administer site configuration.

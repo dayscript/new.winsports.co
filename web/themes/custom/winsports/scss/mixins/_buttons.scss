@@ -1,0 +1,14 @@
+
+
+@mixin buttons($background-color, $padding-left, $padding-rigth, $text-color){
+    text-align: center;
+
+    a{
+        font-weight: 600;
+        color: $text-color;
+        background: $background-color;
+        display: inline-block;
+        padding: $padding-left $padding-rigth;
+    }
+
+}

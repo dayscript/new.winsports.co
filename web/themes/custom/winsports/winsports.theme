@@ -36,6 +36,11 @@ function winsports_preprocess_node(&$variables) {
  * Add convenience variables and template suggestions
  */
 function winsports_preprocess_page(&$variables) {
+
+    //dump($variables['page']);
+    if($variables['is_front']){
+        unset($variables['page']['content']['system_main']);
+      }
 }
 
 /**
