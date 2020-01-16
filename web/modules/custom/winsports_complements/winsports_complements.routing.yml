@@ -1,0 +1,9 @@
+winsports_complements.players_config_form:
+  path: '/admin/config/winsports-complements/players-config'
+  defaults:
+    _form: '\Drupal\winsports_complements\Form\PlayersConfigForm'
+    _title: 'PlayersConfigForm'
+  requirements:
+    _permission: 'access administration pages'
+  options:
+    _admin_route: TRUE
