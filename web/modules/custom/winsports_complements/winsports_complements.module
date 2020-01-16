@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains winsports.module.
+ * Contains winsports_complements.module.
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;
@@ -10,10 +10,10 @@ use Drupal\Core\Routing\RouteMatchInterface;
 /**
  * Implements hook_help().
  */
-function winsports_help($route_name, RouteMatchInterface $route_match) {
+function winsports_complements_help($route_name, RouteMatchInterface $route_match) {
   switch ($route_name) {
-    // Main module help for the winsports module.
-    case 'help.page.winsports':
+    // Main module help for the winsports_complements module.
+    case 'help.page.winsports_complements':
       $output = '';
       $output .= '<h3>' . t('About') . '</h3>';
       $output .= '<p>' . t('This module allow render players in the display suite presentation') . '</p>';
@@ -26,9 +26,9 @@ function winsports_help($route_name, RouteMatchInterface $route_match) {
 /**
  * Implements hook_theme().
  */
-function winsports_theme() {
+function winsports_complements_theme() {
   return [
-    'winsports' => [
+    'winsports_complements' => [
       'render element' => 'children',
     ],
   ];

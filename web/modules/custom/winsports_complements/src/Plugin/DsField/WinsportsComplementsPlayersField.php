@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\winsports\Plugin\DsField;
+namespace Drupal\winsports_complements\Plugin\DsField;
 
 use Drupal\Component\Utility\Html;
 use Drupal\Core\Form\FormStateInterface;
@@ -18,13 +18,13 @@ use Drupal\Core\Session\AccountProxyInterface;
  * Plugin that renders the terms inside a chosen taxonomy vocabulary.
  *
  * @DsField(
- *   id = "winsports_players_field",
- *   title = @Translation("Winsports Players Field"),
+ *   id = "winsports_complements_players_field",
+ *   title = @Translation("Winsports Complements Players Field"),
  *   entity_type = "node",
  *   provider = "node"
  * )
  */
-class WinsportsPlayersField extends DsFieldBase implements ContainerFactoryPluginInterface{
+class WinsportsComplementsPlayersField extends DsFieldBase implements ContainerFactoryPluginInterface{
 
 
   /**

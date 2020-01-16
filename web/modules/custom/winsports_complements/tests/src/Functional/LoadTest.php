@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\Tests\winsports\Functional;
+namespace Drupal\Tests\winsports_complements\Functional;
 
 use Drupal\Core\Url;
 use Drupal\Tests\BrowserTestBase;
@@ -8,7 +8,7 @@ use Drupal\Tests\BrowserTestBase;
 /**
  * Simple test to ensure that main page loads with module enabled.
  *
- * @group winsports
+ * @group winsports_complements
  */
 class LoadTest extends BrowserTestBase {
 
@@ -17,7 +17,7 @@ class LoadTest extends BrowserTestBase {
    *
    * @var array
    */
-  public static $modules = ['winsports'];
+  public static $modules = ['winsports_complements'];
 
   /**
    * A user with permission to administer site configuration.
