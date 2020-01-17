@@ -85,22 +85,22 @@ class WinsportsComplementsPlayersField extends DsFieldBase implements ContainerF
    */
   public function build() {
     $config = $this->getConfiguration();
-    if (!isset($config['vocabulary']) || !$config['vocabulary']) {
-      return;
-    }
+    // if (!isset($config['vocabulary']) || !$config['vocabulary']) {
+    //   return;
+    // }
 
-    $query = \Drupal::entityQuery('taxonomy_term')
-      ->condition('vid', $config['vocabulary']);
+    // $query = \Drupal::entityQuery('taxonomy_term')
+    //   ->condition('vid', $config['vocabulary']);
 
-    $tids = $query->execute();
-    if (!$tids) {
-      return;
-    }
+    // $tids = $query->execute();
+    // if (!$tids) {
+    //   return;
+    // }
 
-    $terms = Term::loadMultiple($tids);
-    if (!$terms) {
-      return;
-    }
+    // $terms = Term::loadMultiple($tids);
+    // if (!$terms) {
+    //   return;
+    // }
 
     return array(
       '#theme' => 'jw_player',
