@@ -14,6 +14,12 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 
 use Drupal\Core\Session\AccountProxy;
 use Drupal\Core\Session\AccountProxyInterface;
+
+use Drupal\Core\Config\ConfigFactory;
+use Drupal\Core\Config\ConfigFactoryInterface;
+
+
+
 /**
  * Plugin that renders the terms inside a chosen taxonomy vocabulary.
  *
@@ -32,6 +38,12 @@ class WinsportsComplementsPlayersField extends DsFieldBase implements ContainerF
    */
   protected $account;
 
+    /**
+   * @var $configManager Drupal\Core\Config\ConfigFactoryInterface.
+   *
+   * 
+   */
+  protected $configManager;
 
   /**
    * @param \Symfony\Component\DependencyInjection\ContainerInterface $container
@@ -46,7 +58,9 @@ class WinsportsComplementsPlayersField extends DsFieldBase implements ContainerF
       $configuration,
       $plugin_id,
       $plugin_definition,
-      $container->get('current_user')
+      $container->get('current_user'),
+      $container->get('config.factory')
+
     );
   }
 
@@ -57,9 +71,11 @@ class WinsportsComplementsPlayersField extends DsFieldBase implements ContainerF
    * @param mixed $plugin_definition
    * @param \Drupal\Core\Session\AccountProxyInterface $account
    */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, AccountProxyInterface $account) {
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, AccountProxyInterface $account , ConfigFactoryInterface $configManager ) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
     $this->account = $account;
+    $this->configManager = $configManager;
+    
   }
   
   /**
@@ -87,8 +103,8 @@ class WinsportsComplementsPlayersField extends DsFieldBase implements ContainerF
     }
 
     return array(
-      '#theme' => 'item_list',
-      '#items' => $this->buildTermList($terms),
+      '#theme' => 'jw_player',
+      //'#items' => $this->buildTermList($terms),
     );
   }
 
@@ -128,19 +144,14 @@ class WinsportsComplementsPlayersField extends DsFieldBase implements ContainerF
    * {@inheritdoc}
    */
   public function settingsForm($form, FormStateInterface $form_state) {
-    $config = $this->getConfiguration();
 
-    $names = taxonomy_vocabulary_get_names();
-    $players = [ 'JW Player', 'MediaStream' ]; // Should use dependency injection rather.
-    $options = array();
-    foreach ($players as $player) {
-      $options[$player] = $player;
-    }
+    $config = $this->getConfiguration();
+    
     $settings['players'] = array(
       '#type' => 'select',
       '#title' => t('Player'),
       '#default_value' => $config['players'],
-      '#options' => $options,
+      '#options' => self::getPlayersConfig('name'),
     );
 
     return $settings;
@@ -153,12 +164,11 @@ class WinsportsComplementsPlayersField extends DsFieldBase implements ContainerF
     
     $config = $this->getConfiguration();
     
-    $no_selection = array('No player selected.');
+    $no_selection = array( t('No player selected.') );
 
     if (isset($config['players']) && $config['players']) {
-      //$vocabulary = Vocabulary::load($config['players']);
       $player = $config['players'];
-      return $player ? array('Player: ' . $player) : $no_selection;
+      return $player ? array( t('Player: ') . $player) : $no_selection;
     }
 
     return $no_selection;
@@ -183,4 +193,17 @@ class WinsportsComplementsPlayersField extends DsFieldBase implements ContainerF
     return array('on_demand' => 'On Demand', 'on_load' => 'On Load');
   }
 
+
+  private function getPlayersConfig( $property = null ){
+    $config = $this->configManager->get('winsports_complements.playersconfig')->get('players_plugins');
+    
+    if(!is_null($property))  {
+      foreach($config as $key => $value){
+        $values[$value['id']] = $value[$property]; 
+      }
+      return $values;
+    }
+    return $config;
+  
+  }
 }

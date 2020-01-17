@@ -7,3 +7,10 @@ winsports_complements.players_config_form:
     _permission: 'access administration pages'
   options:
     _admin_route: TRUE
+winsports_complements.default_form:
+  path: '/winsports_complements/form/default'
+  defaults:
+    _form: '\Drupal\winsports_complements\Form\DefaultForm'
+    _title: 'DefaultForm'
+  requirements:
+    _access: 'TRUE'

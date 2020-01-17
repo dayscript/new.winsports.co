@@ -27,9 +27,22 @@ function winsports_complements_help($route_name, RouteMatchInterface $route_matc
  * Implements hook_theme().
  */
 function winsports_complements_theme() {
-  return [
+  $config = \Drupal::config('winsports_complements.playersconfig')->get('players_plugins');
+  
+  $theme = [
     'winsports_complements' => [
       'render element' => 'children',
     ],
   ];
+  
+  foreach( $config as $key => $player){
+    $theme[$player['id']] = [
+      'render element' => 'children',
+      'template' => 'player-'.str_replace('_','-',$player['id']),
+      'variables' => [ 'player' => NULL ]
+    ];
+  }
+
+  dump($theme);
+  return $theme;
 }
