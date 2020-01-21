@@ -13,6 +13,9 @@ h1,h2,h3,h4{
     color: $win-title-color;
     text-transform: uppercase;
     font-weight: 600;
+    a{
+        color: $win-title-color;
+    }
 }
 
 
