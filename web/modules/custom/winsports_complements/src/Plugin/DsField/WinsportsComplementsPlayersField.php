@@ -18,6 +18,9 @@ use Drupal\Core\Session\AccountProxyInterface;
 use Drupal\Core\Config\ConfigFactory;
 use Drupal\Core\Config\ConfigFactoryInterface;
 
+use Drupal\Core\Entity\EntityManager;
+use Drupal\Core\Entity\EntityManagerInterface;
+
 
 
 /**
@@ -45,6 +48,13 @@ class WinsportsComplementsPlayersField extends DsFieldBase implements ContainerF
    */
   protected $configManager;
 
+      /**
+   * @var $configManager Drupal\Core\Config\EntityManagerInterface.
+   *
+   * 
+   */
+  protected $entityManager;
+
   /**
    * @param \Symfony\Component\DependencyInjection\ContainerInterface $container
    * @param array $configuration
@@ -59,7 +69,8 @@ class WinsportsComplementsPlayersField extends DsFieldBase implements ContainerF
       $plugin_id,
       $plugin_definition,
       $container->get('current_user'),
-      $container->get('config.factory')
+      $container->get('config.factory'),
+      $container->get('entity.manager')
 
     );
   }
@@ -71,10 +82,13 @@ class WinsportsComplementsPlayersField extends DsFieldBase implements ContainerF
    * @param mixed $plugin_definition
    * @param \Drupal\Core\Session\AccountProxyInterface $account
    */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, AccountProxyInterface $account , ConfigFactoryInterface $configManager ) {
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, AccountProxyInterface $account , ConfigFactoryInterface $configManager, EntityManagerInterface $entityManager ) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
     $this->account = $account;
     $this->configManager = $configManager;
+    $this->entityManager = $entityManager;
+    
+
     
   }
   
@@ -84,60 +98,32 @@ class WinsportsComplementsPlayersField extends DsFieldBase implements ContainerF
    * 
    */
   public function build() {
-    $config = $this->getConfiguration();
-    // if (!isset($config['vocabulary']) || !$config['vocabulary']) {
-    //   return;
-    // }
+    $ds_config = $this->getConfiguration();
+    $plugin_config = $this->configManager->get('winsports_complements.playersconfig')->get('players_plugins');
+    $plugin_config_pos = array_search($ds_config['field']['settings']['players'], array_column($plugin_config, 'id'));
+    $plugin_config = $plugin_config[$plugin_config_pos];
+    // dump($ds_config);
+    // dump($plugin_config);
 
-    // $query = \Drupal::entityQuery('taxonomy_term')
-    //   ->condition('vid', $config['vocabulary']);
+    $style = $this->entityManager->getStorage('image_style')->load('destacado_a_854_x_480');
+    $url =  file_url_transform_relative($style->buildUrl(file_load($ds_config['entity']->field_image[0]->target_id)->getFileUri()));
 
-    // $tids = $query->execute();
-    // if (!$tids) {
-    //   return;
-    // }
-
-    // $terms = Term::loadMultiple($tids);
-    // if (!$terms) {
-    //   return;
-    // }
+    $data = [
+      'plugin_conf' => $plugin_config,
+      'entity'      => (object)[
+        'nid' =>  $ds_config['entity']->nid->value,
+        'image' =>  (object)[ 
+          'uri' =>  file_url_transform_relative($style->buildUrl(file_load($ds_config['entity']->field_image[0]->target_id)->getFileUri())),
+          'metadata' => $ds_config['entity']->field_image[0],
+        ],
+      'formater'    => $ds_config['field']['formatter'] 
+      ]
+    ];
 
     return array(
       '#theme' => 'jw_player',
-      //'#items' => $this->buildTermList($terms),
+      '#player' => $data,
     );
-  }
-
-  /**
-   * Builds a term list to be used with #theme => 'item_list
-   *
-   * @param array $terms
-   * @return array
-   */
-  private function buildTermList(array $terms) {
-    $config = $this->getConfiguration();
-    $formatter = isset($config['field']['formatter']) && $config['field']['formatter'] ? $config['field']['formatter'] : 'unlinked';
-    $items = array();
-    foreach ($terms as $term) {
-      $items[] = $this->buildTermListItem($term, $formatter);
-    }
-
-    return $items;
-  }
-
-  /**
-   * Builds an individual term item for the term item list depending on the formatter.
-   *
-   * @param \Drupal\taxonomy\Entity\Term $term
-   * @return string
-   */
-  private function buildTermListItem(Term $term, $formatter) {
-    if ($formatter === 'linked') {
-      $link_url = Url::fromRoute('entity.taxonomy_term.canonical', array('taxonomy_term' => $term->id()));
-      return \Drupal::l($term->label(), $link_url);
-    }
-
-    return HTML::escape($term->label());
   }
 
   /**

@@ -1,1 +1,13 @@
-<div> Players </div>
+<script src="{{player['plugin_conf']['inline_script']}}"></script>
+
+<div data-quickedit-field-id="node/{{ player['entity'].nid }}/field_image/es/video_player"
+  class="field-wrapper image field field-node--field-image field-name-field-image field-type-image field-label-hidden">
+  <div class="field-items">
+    <div class="field-item">
+      <img src="{{player['entity'].image.uri}}" width="854" height="480" alt="{{player['entity'].image.metadata.alt}}"
+        title="{{player['entity'].image.metadata.title}}">
+        <span class="win-play" style="height: 77px;"></span>
+    </div>
+  </div>
+</div>
+

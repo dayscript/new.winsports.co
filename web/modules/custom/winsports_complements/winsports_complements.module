@@ -43,6 +43,6 @@ function winsports_complements_theme() {
     ];
   }
 
-  dump($theme);
+  
   return $theme;
 }
