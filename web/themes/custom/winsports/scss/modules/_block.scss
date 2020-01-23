@@ -31,7 +31,7 @@
 
 }
 
-#block-views-block-equipos-home-block-1{
+#block-views-block-equipos-home-block-1,#block-views-block-equipos-home-block-1-2{
     ul{
         text-align: center;
         li{
@@ -72,4 +72,12 @@ h3 {
     right: 0;
     bottom: 0;
     margin: auto;
+}
+
+#block-views-block-patrocinadores-block-1{
+    h2{
+        display: inline-block;
+        width: 30%;
+        float: left;
+    }
 }

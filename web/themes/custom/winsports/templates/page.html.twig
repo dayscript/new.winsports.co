@@ -211,22 +211,32 @@
       {% endif %} 
 
       <div class="row">
-        <main id="main" class="{{ main_grid }} columns" role="main">
+        <main id="main" class="{{ second_main_grid }} columns" role="main">
           <section>
             {{ page.second_content }}
           </section>
         </main>
         {% if page.second_sidebar_first %}
-          <div id="sidebar-first" class="{{ sidebar_first_grid }} columns sidebar ">
+          <div id="second-sidebar-first" class="{{ second_sidebar_first_grid }} columns sidebar ">
             {{ page.second_sidebar_first }}
           </div>
         {% endif %}
         {% if page.second_sidebar_second %}
-          <div id="sidebar-second" class="{{ sidebar_sec_grid }} columns sidebar">
+          <div id="second-sidebar-second" class="{{ second_sidebar_sec_grid }} columns sidebar">
             {{ page.second_sidebar_second }}
           </div>
         {% endif %}
       </div>
+
+       {% if page.sub_after_content %}
+        <div class="full-width after-content">
+          <div class="row">
+            <div id="after-content" class="large-12 columns sidebar">
+              {{ page.sub_after_content }}
+            </div>
+          </div>
+        </div>
+      {% endif %} 
 
       {% if page.pre_footer %}
         <div class="full-width pre-footer">

@@ -41,6 +41,38 @@ function winsports_preprocess_page(&$variables) {
     if($variables['is_front']){
         unset($variables['page']['content']['system_main']);
       }
+
+    // Convenience variables
+    if (isset($variables['page']['second_sidebar_first'])) {
+      $left = $variables['page']['second_sidebar_first'];
+    }
+    if (isset($variables['page']['second_sidebar_second'])) {
+      $right = $variables['page']['second_sidebar_second'];
+    }
+
+
+      // Dynamic sidebars
+    if (!empty($left) && !empty($right)) {
+      $variables['second_main_grid'] = 'medium-6 medium-push-3';
+      $variables['second_sidebar_first_grid'] = 'medium-3 medium-pull-6';
+      $variables['second_sidebar_sec_grid'] = 'medium-3';
+    }
+    elseif (empty($left) && !empty($right)) {
+      $variables['second_main_grid'] = 'medium-9';
+      $variables['second_sidebar_first_grid'] = '';
+      $variables['second_sidebar_sec_grid'] = 'medium-3';
+    }
+    elseif (!empty($left) && empty($right)) {
+      $variables['second_main_grid'] = 'medium-9 medium-push-3';
+      $variables['second_sidebar_first_grid'] = 'medium-3 medium-pull-9';
+      $variables['second_sidebar_sec_grid'] = '';
+    }
+    else {
+      $variables['second_main_grid'] = 'large-12';
+      $variables['second_sidebar_first_grid'] = '';
+      $variables['second_sidebar_sec_grid'] = '';
+    }
+
 }
 
 /**

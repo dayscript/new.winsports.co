@@ -23,6 +23,7 @@
         "drupal/adminimal_theme": "^1.5",
         "drupal/better_exposed_filters": "^4.0",
         "drupal/block_class": "^1.1",
+        "drupal/cdn": "^3.4",
         "drupal/config_delete": "^1.14",
         "drupal/config_devel": "^1.4",
         "drupal/console": "^1.0.2",
