@@ -48,6 +48,8 @@
         "drupal/owlcarousel": "^1.0",
         "drupal/owlcarousel2": "^1.0",
         "drupal/pathauto": "^1.6",
+        "drupal/pdb": "^1.0@alpha",
+        "drupal/pdb_vue": "^1.0@alpha",
         "drupal/sitemap": "^1.5",
         "drupal/smart_date": "^1.1",
         "drupal/social_media_links": "^2.6",
