@@ -5,15 +5,23 @@ new Vue({
     loading: 0,
     tournament_season: '',
     tournaments: [],
+    phases: [],
     teams: [],
+    players: [],
     selected_phase_id: '',
     selected_option: '',
     options: [{key: 'positions', label: 'Posiciones'},
-      {key: 'results', label: 'Resultados'},
+      // {key: 'results', label: 'Resultados'},
       {key: 'decline', label: 'Descenso'},
       {key: 'reclassification', label: 'Reclasificación'},
       {key: 'scorers', label: 'Goleadores'}
-    ]
+    ],
+    positions:{
+      Forward: 'Delantero',
+      Striker: 'Delantero',
+      Midfielder: 'Volante',
+      Defender: 'Defensa',
+    }
   },
   beforeMount () {
     const id = this.$el.id
@@ -56,22 +64,39 @@ new Vue({
           ({data}) => {
             this.loading--
             let teams = []
+            let phases = []
+            let players = []
             let items = null
             if (typeof data.teams !== 'undefined') {
               items = Object.entries(data.teams)
-              items.sort(function (a, b) { return b[1].pos - a[1].pos})
+            }else if (typeof data.scorers !== 'undefined') {
+              items = Object.entries(data.scorers)
             } else {
               this.selected_phase_id = data.competition.active_phase_id
               if (typeof data.phases[this.selected_phase_id] === 'undefined') {
                 this.selected_phase_id = Object.keys(data.phases).pop()
               }
+              phases = data.phases
               items = Object.entries(data.phases[this.selected_phase_id].teams)
+            }
+            if(this.selected_option === 'decline'){
+              items.sort(function (a, b) { return b[1].pos - a[1].pos})
+            } else {
               items.sort(function (a, b) { return a[1].pos - b[1].pos})
             }
-            items.forEach(function (team) {
-              teams.push(team[1])
-            })
+            if(this.selected_option === 'scorers'){
+              items.forEach(function (player) {
+                players.push(player[1])
+              })
+            } else {
+              items.forEach(function (team) {
+                teams.push(team[1])
+              })  
+            }
+            
+            this.players = players
             this.teams = teams
+            this.phases = phases
           }
       ).catch((error) => {this.loading--})
     },
