@@ -1,0 +1,21 @@
+.opta-feeds-widget-positions{
+  color: #0B3B41;
+  .phase{
+    color: rgba(11,58,64,0.5);
+    border-bottom: 4px solid transparent;
+    &.active{
+      font-weight: 600;
+      color:rgba(11,58,64,1);
+      border-bottom: 4px solid #0A3B41;
+    }
+  }
+  .table-option{
+    background-color: #819A9F;
+    font-family: $font-family-title;
+    color: $pure-white;
+    &.active{
+      background-color: #0ef8c3;
+      color:rgba(11,58,64,1);
+    }
+  }
+}

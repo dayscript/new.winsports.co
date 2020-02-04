@@ -1,0 +1,16 @@
+name: Horizontal results
+machine_name: opta-feeds-horizontal-results
+type: pdb
+description: 'Display horizontal results'
+package: Vue
+core: '8.x'
+module_status: active
+template: template.html
+presentation: vue
+add_js:
+  footer:
+    'horizontal_results.js': {}
+libraries:
+  - optafeeds/axios
+  - optafeeds/tailwindcss
+  - optafeeds/momentjs

@@ -1,0 +1,25 @@
+axios:
+  remote: https://unpkg.com/axios/dist/axios.min.js
+  version: 0.17.1
+  license:
+    name: MIT
+  js:
+    https://unpkg.com/axios/dist/axios.min.js: { type: external, minified: true }
+  dependencies:
+    - core/jquery
+
+opta.widgets:
+  remote: https://secure.widget.cloud.opta.net/v3/v3.opta-widgets.js
+  version: 3
+  license:
+    name: MIT
+  css:
+    theme:
+      https://secure.widget.cloud.opta.net/v3/css/v3.football.opta-widgets.css : { type: external, minified: true }
+  js:
+    https://secure.widget.cloud.opta.net/v3/v3.opta-widgets.js: { type: external, minified: true }
+
+opta.settings:
+  version: 1.x
+  js:
+    js/optasettings.js: {}

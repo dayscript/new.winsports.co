@@ -1,0 +1,18 @@
+name: Opta Match Provisional lineup
+machine_name: opta-match-provisional-lineup
+type: pdb
+description: 'Opta Match Provisional lineup widget block. Should be placed in match node page with opta fields.'
+package: Vue
+core: '8.x'
+module_status: active
+template: template.html
+presentation: vue
+contexts:
+  entity: node
+add_js:
+  footer:
+    'opta_match_provisional_lineup_block.js': {}
+libraries:
+  - optawidgets/axios
+  - optawidgets/opta.widgets
+  - optawidgets/opta.settings

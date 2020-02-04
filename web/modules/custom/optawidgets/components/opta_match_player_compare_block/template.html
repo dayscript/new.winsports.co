@@ -1,0 +1,10 @@
+<div>
+    <div v-if="competition>0 && season>0 && match>0">
+        <opta-widget widget="match_player_compare" :competition="competition" :season="season" :match="match" template="normal" live="true" navigation="tabs_more" default_nav="1" show_match_header="false" show_selects="true" show_images="false" show_crests="false" show_competition_name="false" competition_naming="full" team_naming="full" player_naming="full" show_date="true" date_format="dddd D MMMM YYYY" show_logo="false" show_title="true" breakpoints="400, 700" sport="football"></opta-widget>
+    </div>
+    <div v-else>
+        <div style="color:white;background-color: rgba(78,165,255,0.45);padding: 10px;">
+            <small>Opta fields not found or incorrect</small>
+        </div>
+    </div>
+</div>

@@ -142,7 +142,13 @@
 // parametrics.
 // Optional.
 // @import 'base/common';
-
+@import url("https://fonts.googleapis.com/css?family=Passion+One|Source+Sans+Pro&display=swap");
+$font-family-source: 'Source Sans Pro', sans-serif;
+$font-family-title: 'Passion One', cursive;
+.font-title{
+  font-family: $font-family-title;
+  letter-spacing: 0.025em;
+}
 // Drupal specific styles (to fix Drupalisms).
 @import 'base/drupal';
 
@@ -172,6 +178,7 @@
 @import 'modules/block';
 @import 'modules/menu_block';
 @import 'modules/topbar';
+@import 'modules/widgets';
 
 
 

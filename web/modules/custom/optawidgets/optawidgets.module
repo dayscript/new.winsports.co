@@ -1,0 +1,17 @@
+<?php
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function optawidgets_help($route_name, RouteMatchInterface $route_match) {
+    switch ($route_name) {
+        case 'help.page.optawidgets':
+            return t('
+        <h2>Opta widgets blocks</h2>
+        <h3>Instructions</h3>
+        <p>Enable module to activate available blocks.</p>
+      ');
+    }
+}

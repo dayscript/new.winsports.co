@@ -1,0 +1,18 @@
+name: Opta Tournament Scorers
+machine_name: opta-tournament-scorers
+type: pdb
+description: 'Opta Tournament Scorers widget block. Should be placed in tournament node page with opta fields.'
+package: Vue
+core: '8.x'
+module_status: active
+template: template.html
+presentation: vue
+contexts:
+  entity: node
+add_js:
+  footer:
+    'opta_tournament_scorers_block.js': {}
+libraries:
+  - optawidgets/axios
+  - optawidgets/opta.widgets
+  - optawidgets/opta.settings

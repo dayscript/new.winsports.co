@@ -34,6 +34,7 @@
         "drupal/devel_php": "^1.1",
         "drupal/domain_googlenews_sitemap": "^1.1",
         "drupal/ds": "^3.5",
+        "drupal/entityqueue": "^1.0@beta",
         "drupal/feeds": "^3.0",
         "drupal/feeds_ex": "^1.0@alpha",
         "drupal/feeds_tamper": "^2.0",
