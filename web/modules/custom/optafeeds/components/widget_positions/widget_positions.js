@@ -56,17 +56,16 @@ new Vue({
           ({data}) => {
             this.loading--
             let teams = []
+            let items = null
             if (typeof data.teams !== 'undefined') {
-              console.log('teams')
-              let items = Object.entries(data.teams)
+              items = Object.entries(data.teams)
               items.sort(function (a, b) { return b[1].pos - a[1].pos})
             } else {
-              console.log('phases')
               this.selected_phase_id = data.competition.active_phase_id
               if (typeof data.phases[this.selected_phase_id] === 'undefined') {
                 this.selected_phase_id = Object.keys(data.phases).pop()
               }
-              let items = Object.entries(data.phases[this.selected_phase_id].teams)
+              items = Object.entries(data.phases[this.selected_phase_id].teams)
               items.sort(function (a, b) { return a[1].pos - b[1].pos})
             }
             items.forEach(function (team) {
