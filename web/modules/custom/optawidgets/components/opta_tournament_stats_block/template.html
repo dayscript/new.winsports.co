@@ -1,0 +1,53 @@
+<div class="opta-widgets">
+    <div v-if="competition>0 && season>0">
+        <div class="flex flex-no-wrap overflow-x-auto w-full mb-px">
+            <div @click="selectOption(option.key)" v-for="option in options" class="whitespace-no-wrap py-3 px-6 font-title font-semibold cursor-pointer table-option" :class="selected_option == option.key?'active':''">{{ option.label }}</div>
+        </div>
+        <div v-show="selected_option == 'positions'">
+            <opta-widget widget="standings" sport="football" :competition="competition" :season="season" template="normal" live="true" default_nav="1" side="combined" data_detail="full" show_key="true"
+                         show_crests="true" points_in_first_column="true" lose_before_draw="true" competition_naming="full" team_naming="full" date_format="dddd D MMMM YYYY" sorting="false" show_live="true" show_relegation_average="false" show_logo="false" show_title="false"
+                         time_format="hh:mm A" breakpoints="400">
+            </opta-widget>
+        </div>
+        <div v-show="selected_option == 'calendar'">
+            <opta-widget sport="football" widget="fixtures" :competition="competition" :season="season" template="normal" live="true" show_venue="false" match_status="fixture" grouping="date" show_grouping="true"
+                         default_nav="1" start_on_current="true" switch_current="0" sub_grouping="date" show_subgrouping="false" order_by="date_ascending" show_crests="true" date_format="dddd D MMMM YYYY" time_format="hh:mm A" competition_naming="full" team_naming="full"
+                         pre_match="false" show_live="true" show_logo="false" show_title="false" breakpoints="400">
+            </opta-widget>
+        </div>
+        <div v-show="selected_option == 'results'">
+            <opta-widget sport="football" widget="fixtures" :competition="competition" :season="season" template="normal" live="true" show_venue="true" match_status="result,live" grouping="date" show_grouping="true"
+                         default_nav="1" start_on_current="true" switch_current="0" sub_grouping="date" show_subgrouping="true" order_by="date_descending" show_crests="true" date_format="dddd D MMMM YYYY" time_format="hh:mm A" month_date_format="MMMM" competition_naming="full"
+                         team_naming="full" pre_match="false" show_live="true" show_logo="false" show_title="false" time_format="hh:mm A" breakpoints="400">
+                <div>
+                    <opta-widget sport="football" widget="match_summary" template="normal" live="" competition="" season="" match="" show_match_header="false" show_attendance="true" show_cards="true" show_crests="false" show_goals="true" show_goals_combined="false" show_penalties_missed="false"
+                                 show_referee="true" show_subs="true" show_venue="true" show_shootouts="false" player_naming="last_name" player_link="" show_logo="falsee" time_format="hh:mm A" breakpoints="400">
+                    </opta-widget>
+                </div>
+            </opta-widget>
+        </div>
+        <div v-show="selected_option == 'season_standings'">
+            <opta-widget widget="season_standings" :competition="competition" :season="season" template="normal" show_competition_name="false" show_team_list="true" preselected_only="false" show_match_header="false" show_date="true" show_match_details="true" show_crests="false" show_axis_labels="true" show_plot_points="true" plot_curves="false" date_format="dddd D MMMM YYYY" competition_naming="full" team_naming="full" show_logo="false" show_title="false" breakpoints="400, 700" sport="football"></opta-widget>
+        </div>
+        <div v-show="selected_option == 'team_ranking'">
+            <opta-widget widget="team_ranking" :competition="competition" :season="season" template="normal" navigation="tabs_more" default_nav="1" show_crests="false" show_ranks="true" visible_categories="fouls,passing_accuracy,goals,goal_conversion,shots,passes" limit="10" hide_zeroes="true" team_naming="full" show_logo="false" show_title="false" breakpoints="400" sport="football"></opta-widget>
+        </div>
+        <div v-show="selected_option == 'scorers'">
+            <opta-widget widget="player_ranking" :competition="competition" :season="season" template="graph" navigation="tabs_more" orientation="horizontal" show_crests="false" show_images="true" show_ranks="true" show_appearances="true" visible_categories="goals" limit="20" hide_zeroes="true" show_team_names="true" team_naming="full" player_naming="full" show_logo="false" show_title="false" breakpoints="400" sport="football"></opta-widget>
+        </div>
+        <div v-show="selected_option == 'referees'">
+            <opta-widget widget="referees" :competition="competition" :season="season" template="normal" show_fouls="true" show_penalties="true" show_cards_yellow="true" show_cards_red="true" show_offsides="true" show_cards_per_game="true" show_fouls_per_card="true" show_cards_icons="true" sorting="false" player_naming="full" show_logo="false" show_title="false" breakpoints="400" sport="football"></opta-widget>
+        </div>
+        <div v-show="selected_option == 'player_ranking'">
+            <opta-widget widget="player_ranking" :competition="competition" :season="season" template="normal" navigation="tabs_more" show_crests="false" show_images="false" show_ranks="true" show_appearances="true" visible_categories="goals,goals_conceded,passes,cards_yellow,cards_red,saves" limit="10" hide_zeroes="true" show_team_names="true" team_naming="full" player_naming="full" show_logo="false" show_title="false" breakpoints="400" sport="football"></opta-widget>
+        </div>
+        <div v-show="selected_option == 'player_compare'">
+            <opta-widget widget="player_compare" :competition="competition" :season="season" template="dual" navigation="tabs_more" default_nav="1" show_selects="true" show_crests="false" show_images="false" show_graphs="true" graph_style="full" competition_naming="full" team_naming="full" player_naming="full" show_logo="false" show_title="false" breakpoints="400" sport="football"></opta-widget>
+        </div>
+    </div>
+    <div v-else>
+        <div style="color:white;background-color: rgba(78,165,255,0.45);padding: 10px;">
+            <small>Opta fields not found or incorrect</small>
+        </div>
+    </div>
+</div>

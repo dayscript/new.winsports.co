@@ -8,7 +8,7 @@ module_status: active
 template: template.html
 presentation: vue
 contexts:
-  entity: node
+#  entity: node
 add_js:
   footer:
     'opta_tournament_team_ranking_block.js': {}

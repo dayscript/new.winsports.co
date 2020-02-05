@@ -1,0 +1,84 @@
+.more-link {
+  clear: both;
+}
+
+.block-views-block-goles-liga-aguila-block-1 {
+  .video-home {
+    .field-node--node-title {
+      position: absolute;
+      bottom: 50px;
+      left: 30px;
+      font-size: 1.8rem;
+      line-height: 1;
+      font-weight: 600;
+
+      a {
+        color: $pure-white;
+      }
+    }
+
+    .video-home-attachment {
+      li {
+        margin-bottom: 17px;
+      }
+
+      .field-node--node-title {
+        position: relative;
+        font-size: 1rem;
+        bottom: auto;
+        left: auto;
+
+        a {
+          color: $text-color;
+        }
+
+      }
+    }
+  }
+
+  .field-node--winsports-complements-players-field {
+    .field-items {
+      background: rgb(0, 0, 0);
+      background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.623686974789916) 22%, rgba(255, 255, 255, 1) 53%);
+
+      .field-item {
+        opacity: 0.9;
+      }
+    }
+  }
+
+  .field-node--field-torneo {
+    position: absolute;
+    bottom: 115px;
+    left: 30px;
+    font-size: 1rem;
+    line-height: 1;
+    font-weight: 600;
+
+    a {
+      color: $pure-white;
+    }
+  }
+}
+
+.block-views-block-lo-ultimo-block-1 {
+  .field-node--field-categoria {
+    text-transform: uppercase;
+    font-weight: 500;
+
+    a {
+      color: $text-color;
+
+      &::before {
+        display: inline-block;
+        content: ' ';
+        background: url('/sites/default/files/icons/plus-yellow.png') no-repeat;
+        width: 30px;
+        height: 20px;
+      }
+    }
+  }
+  .field-node--node-title{
+    font-family: $font-family-title;
+  }
+}
