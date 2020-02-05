@@ -61,24 +61,38 @@
   }
 }
 
-.block-views-block-lo-ultimo-block-1 {
-  .field-node--field-categoria {
-    text-transform: uppercase;
-    font-weight: 500;
-
-    a {
-      color: $text-color;
-
-      &::before {
-        display: inline-block;
-        content: ' ';
-        background: url('/sites/default/files/icons/plus-yellow.png') no-repeat;
-        width: 30px;
-        height: 20px;
-      }
+.category-plus {
+  text-transform: uppercase;
+  font-weight: 500;
+  a {
+    display: flex;
+    color: $text-color;
+    align-items: center;
+    &::before {
+      display: inline-block;
+      content: ' ';
+      background: url('/sites/default/files/icons/plus-yellow.png') no-repeat;
+      width: 25px;
+      height: 20px;
     }
   }
+}
+.block-views-block-lo-ultimo-block-1 {
   .field-node--node-title{
     font-family: $font-family-title;
+    letter-spacing: 0.025em;
+    h3{
+      font-size: 1.4rem;
+      font-weight: 100;
+    }
+  }
+}
+
+.block-views-block-equipos-home-block-1{
+  .field-name-dynamic-token-fieldnode-field-logo-opta{
+    img {
+      height: 40px;
+      width: auto;
+    }
   }
 }

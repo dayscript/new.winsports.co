@@ -1,16 +1,19 @@
 .copy-rights {
   color: $pure-white;
 }
-.field-type-ds .field-label,.block-title{
+
+.field-type-ds .field-label, .block-title {
   font-family: $font-family-title;
   letter-spacing: 0.025em;
   font-weight: 500;
-  color:rgba(11,58,64,1);
+  color: $text-color;
 }
-.field-type-ds .field-label{
+
+.field-type-ds .field-label {
   font-size: 1.5rem;
   margin-bottom: 15px;
 }
+
 #block-socialmedialinks {
   text-align: center;
 
