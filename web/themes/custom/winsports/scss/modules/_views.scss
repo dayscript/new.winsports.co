@@ -68,6 +68,7 @@
     display: flex;
     color: $text-color;
     align-items: center;
+    font-size: 0.85rem;
     &::before {
       display: inline-block;
       content: ' ';
@@ -80,10 +81,22 @@
 .block-views-block-lo-ultimo-block-1 {
   .field-node--node-title{
     font-family: $font-family-title;
+    line-height: 1rem;
     letter-spacing: 0.025em;
     h3{
       font-size: 1.4rem;
       font-weight: 100;
+    }
+  }
+  .owl-slider-wrapper{
+    margin-top: 30px;
+    .field-node--field-image{
+      margin-bottom: 30px;
+    }
+    .slider-items-title{
+      font-family: $body-font-family;
+      font-size: 1rem;
+      text-transform: none;
     }
   }
 }
