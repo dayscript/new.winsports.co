@@ -31,9 +31,10 @@
 }
 
 .more-link {
-
+  white-space: nowrap;
+  clear: both;
   @include buttons($win-green-ligth, 10px, 76px, $win-green)
-
+  font-family: $font-family-title;
 }
 
 #block-views-block-goles-liga-aguila-block-1 {
@@ -94,5 +95,11 @@ h3 {
     display: inline-block;
     float: left;
     width: 30%;
+  }
+}
+
+.block-bannerpublicidad1-2{
+  .field-name-body{
+    margin-top: 30px;
   }
 }
