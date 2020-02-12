@@ -1,0 +1,18 @@
+name: Opta Tournament Referees
+machine_name: opta-tournament-referees
+type: pdb
+description: 'Opta Tournament Referees widget block. Should be placed in tournament node page with opta fields.'
+package: Vue
+core: '8.x'
+module_status: active
+template: template.html
+presentation: vue
+contexts:
+  entity: node
+add_js:
+  footer:
+    'opta_tournament_referees_block.js': {}
+libraries:
+  - optawidgets/axios
+  - optawidgets/opta.widgets
+  - optawidgets/opta.settings

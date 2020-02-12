@@ -1,0 +1,19 @@
+name: Opta Tournament Widgets
+machine_name: opta-tournament-stats
+type: pdb
+description: 'Opta Tournament widgets block. Should be placed in tournament node page with opta fields.'
+package: Vue
+core: '8.x'
+module_status: active
+template: template.html
+presentation: vue
+#contexts:
+#  entity: node
+add_js:
+  footer:
+    'opta_tournament_stats_block.js': {}
+libraries:
+  - optawidgets/axios
+  - optawidgets/opta.widgets
+  - optawidgets/opta.settings
+  - optafeeds/tailwindcss
