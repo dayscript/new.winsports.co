@@ -1,7 +1,0 @@
-name: 'Winsports Complements'
-type: module
-description: 'This module allow render players JWPlayer, MediaStream in the display suite presentation'
-core: 8.x
-package: 'Dayscript'
-dependencies:
-  - ds

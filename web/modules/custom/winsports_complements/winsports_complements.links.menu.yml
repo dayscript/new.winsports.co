@@ -1,6 +1,0 @@
-winsports_complements.players_config_form:
-  title: 'Winsports Complements Players Config Form'
-  route_name: winsports_complements.players_config_form
-  description: 'Add news players plugins'
-  parent: system.admin_config_system
-  weight: 99
