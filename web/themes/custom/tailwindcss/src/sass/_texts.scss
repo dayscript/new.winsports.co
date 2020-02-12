@@ -1,0 +1,53 @@
+.title {
+  font-family: $font-title;
+  @apply tw-text-primary tw-tracking-wide tw-leading-none;
+}
+h2.title{
+  @apply tw-text-5xl;
+}
+h3.title{
+  @apply tw-text-4xl;
+}
+.category{
+  @apply mb-2;
+  a{
+    @apply text-primary uppercase text-sm flex items-center;
+    &::before{
+      display: inline-block;
+      content: ' ';
+      background: url(/themes/custom/tailwindcss/images/icons/plus-yellow.png) no-repeat;
+      width: 25px;
+      height: 20px;
+    }
+  }
+}
+.lead{
+  @apply text-primary;
+}
+.body{
+  @apply text-primary leading-relaxed text-lg;
+  p{
+    @apply my-4;
+  }
+}
+.tags{
+  @apply text-primary border-t border-b;
+  .label{
+    font-family: $font-title;
+    @apply uppercase tracking-wide ;
+  }
+  div div{
+    @apply flex flex-wrap;
+    div{
+      @apply whitespace-no-wrap;
+    }
+    a{
+      @apply p-1 text-xs;
+    }
+  }
+}
+.comments{
+  iframe{
+    width:100% !important;
+  }
+}
