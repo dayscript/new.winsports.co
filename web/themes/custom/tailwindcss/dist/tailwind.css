@@ -643,19 +643,26 @@ input {
   line-height: 1.5;
 }
 
-#block-tailwindcss-local-tasks {
+#block-tailwindcss-local-tasks,
+#block-tailwindcss-local-actions {
   background-color: #ebf8ff;
   padding: 0.5rem;
   font-size: 0.75rem;
 }
 
-#block-tailwindcss-local-tasks ul:not(.contextual-links) {
+#block-tailwindcss-local-tasks ul:not(.contextual-links),
+#block-tailwindcss-local-tasks nav:not(.contextual-links),
+#block-tailwindcss-local-actions ul:not(.contextual-links),
+#block-tailwindcss-local-actions nav:not(.contextual-links) {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-#block-tailwindcss-local-tasks ul:not(.contextual-links) li a {
+#block-tailwindcss-local-tasks ul:not(.contextual-links) li a,
+#block-tailwindcss-local-tasks nav:not(.contextual-links) li a,
+#block-tailwindcss-local-actions ul:not(.contextual-links) li a,
+#block-tailwindcss-local-actions nav:not(.contextual-links) li a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -669,9 +676,46 @@ input {
   color: #fff;
 }
 
-#block-tailwindcss-local-tasks ul:not(.contextual-links) li a.is-active {
+#block-tailwindcss-local-tasks ul:not(.contextual-links) li a#block-tailwindcss-local-actions,
+#block-tailwindcss-local-tasks nav:not(.contextual-links) li a#block-tailwindcss-local-actions,
+#block-tailwindcss-local-actions ul:not(.contextual-links) li a#block-tailwindcss-local-actions,
+#block-tailwindcss-local-actions nav:not(.contextual-links) li a#block-tailwindcss-local-actions {
+  background-color: #f6ad55;
+}
+
+#block-tailwindcss-local-tasks ul:not(.contextual-links) li a.is-active,
+#block-tailwindcss-local-tasks nav:not(.contextual-links) li a.is-active,
+#block-tailwindcss-local-actions ul:not(.contextual-links) li a.is-active,
+#block-tailwindcss-local-actions nav:not(.contextual-links) li a.is-active {
   background-color: #2b6cb0;
   color: #fff;
+}
+
+#block-tailwindcss-local-tasks ul:not(.contextual-links) li a.is-active#block-tailwindcss-local-actions,
+#block-tailwindcss-local-tasks nav:not(.contextual-links) li a.is-active#block-tailwindcss-local-actions,
+#block-tailwindcss-local-actions ul:not(.contextual-links) li a.is-active#block-tailwindcss-local-actions,
+#block-tailwindcss-local-actions nav:not(.contextual-links) li a.is-active#block-tailwindcss-local-actions {
+  background-color: #c05621;
+}
+
+#block-tailwindcss-local-tasks#block-tailwindcss-local-actions,
+#block-tailwindcss-local-actions#block-tailwindcss-local-actions {
+  background-color: #fffaf0;
+}
+
+#block-tailwindcss-local-tasks#block-tailwindcss-local-actions nav:not(.contextual-links) li,
+#block-tailwindcss-local-actions#block-tailwindcss-local-actions nav:not(.contextual-links) li {
+  list-style-type: none;
+}
+
+#block-tailwindcss-local-tasks#block-tailwindcss-local-actions nav:not(.contextual-links) li a,
+#block-tailwindcss-local-actions#block-tailwindcss-local-actions nav:not(.contextual-links) li a {
+  background-color: #f6ad55;
+}
+
+#block-tailwindcss-local-tasks#block-tailwindcss-local-actions nav:not(.contextual-links) li a.is-active,
+#block-tailwindcss-local-actions#block-tailwindcss-local-actions nav:not(.contextual-links) li a.is-active {
+  background-color: #c05621;
 }
 
 .title {
