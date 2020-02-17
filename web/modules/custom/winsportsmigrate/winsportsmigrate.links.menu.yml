@@ -1,0 +1,6 @@
+winsports.admin:
+  title: 'Migración de contenido Winsports'
+  description: 'Ver migraciones de contenido del portal anterior'
+  parent: system.admin_config_development
+  route_name: winsports.migrate.goals
+  weight: 100

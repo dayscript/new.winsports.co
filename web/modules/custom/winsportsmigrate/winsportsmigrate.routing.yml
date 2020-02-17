@@ -1,0 +1,7 @@
+winsports.migrate.goals:
+  path: '/winsports-migrate-goals'
+  defaults:
+    _controller: '\Drupal\winsportsmigrate\Controller\MigrateController::goals'
+    _title: 'Winsports Migrate Goals'
+  requirements:
+    _permission: 'access content'

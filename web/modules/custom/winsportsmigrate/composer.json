@@ -1,0 +1,12 @@
+{
+    "name": "jcorrego/winsportsmigrate",
+    "require": {
+        "guzzlehttp/guzzle": "^6.5"
+    },
+    "authors": [
+        {
+            "name": "Juan Carlos Orrego",
+            "email": "jcorrego@gmail.com"
+        }
+    ]
+}
