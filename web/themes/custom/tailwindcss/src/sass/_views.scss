@@ -52,6 +52,14 @@
     }
   }
 }
+#block-views-block-equipos-del-home-block-1{
+  .contextual-region{
+    @apply flex justify-between items-center;
+    img{
+      @apply h-10;
+    }
+  }
+}
 .more-link{
   font-family: $font-title;
   @apply text-center w-full;
