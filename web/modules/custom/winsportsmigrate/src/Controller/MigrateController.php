@@ -111,6 +111,73 @@ class MigrateController {
     ];
   }
 
+  public function teams() {
+    $url     = 'https://admin.winsports.co/migrate/teams';
+    $res     = $this->client->get($url);
+    $results = [
+      'new'      => 0,
+      'existing' => 0,
+    ];
+    if ($res->getStatusCode() == 200) {
+      $response = json_decode($res->getBody(), TRUE);
+      foreach ($response['nodes'] as $item) {
+        $query = \Drupal::entityQuery('node');
+        $query->condition('title', $item['title']);
+        $query->condition('type', 'equipo');
+        $entity_ids = $query->execute();
+        if (count($entity_ids) == 0) {
+          $node = Node::create([
+            'type'                   => 'equipo',
+            'title'                  => $item['title'],
+            'body'                   => [
+              'value'  => $item['body'],
+              'format' => 'full_html',
+            ],
+            'field_pretitle'         => $item['website'],
+            'field_apodo'            => $item['apodo'],
+            'field_ciudad'           => $item['ciudad'],
+            'field_director_tecnico' => $item['director'],
+            'field_estadio'          => $item['estadio'],
+            'field_fundacion'        => $item['fundacion'],
+            'field_nombre_comun'     => $item['comun'],
+            'field_presidente'     => $item['presidente'],
+            'field_mediastream'     => $item['twitter'],
+            'uid'                    => 1,
+            'moderation_state'       => 'published',
+          ]);
+          $node->save();
+          if ($item['field_image']['src']) {
+            $image = file_get_contents($item['field_image']['src']);
+            if ($file = file_save_data($image, 'public://images/teams/' . $this->slug($item['title']) . '.png', FILE_EXISTS_REPLACE)) {
+              $node->field_image = [
+                'target_id' => $file->id(),
+                'alt'       => $item['title'],
+                'title'     => $item['title'],
+              ];
+            }
+          }
+          $date = $item['fecha'];
+          $node->set('created', $date);
+          $node->save();
+          $results['new']++;
+          if ($results['new'] >= $this->limit) {
+            break;
+          }
+        }
+        else {
+          $results['existing']++;
+        }
+      }
+    }
+
+
+    return [
+      '#type'   => 'markup',
+      '#markup' => t('Migracion de Equipos') . '<br>'
+                   . 'Nuevos: ' . $results['new'] . '<br>Existentes: ' . $results['existing'],
+    ];
+  }
+
   public function goals() {
     $url     = 'https://admin.winsports.co/migrate/goals';
     $res     = $this->client->get($url);

@@ -12,3 +12,10 @@ winsports.migrate.articles:
     _title: 'Winsports Migrate Articles'
   requirements:
     _permission: 'access content'
+winsports.migrate.temas:
+  path: '/winsports-migrate-teams'
+  defaults:
+    _controller: '\Drupal\winsportsmigrate\Controller\MigrateController::teams'
+    _title: 'Winsports Migrate Teams'
+  requirements:
+    _permission: 'access content'
