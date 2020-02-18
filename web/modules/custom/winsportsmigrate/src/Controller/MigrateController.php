@@ -146,6 +146,7 @@ class MigrateController {
             'moderation_state'       => 'published',
           ]);
           $node->save();
+          $this->attachPlayers($node, $item['players']);
           if ($item['field_image']['src']) {
             $image = file_get_contents($item['field_image']['src']);
             if ($file = file_save_data($image, 'public://images/teams/' . $this->slug($item['title']) . '.png', FILE_EXISTS_REPLACE)) {
@@ -246,6 +247,31 @@ class MigrateController {
         $term = Term::load(array_pop($entity_ids));
       }
       $node->field_tags[] = $term;
+      $node->save();
+    }
+  }
+  public function attachPlayers($node, $players) {
+    foreach (explode(',', $players) as $player_name) {
+      if (trim($player_name) == '') {
+        continue;
+      }
+      $query = \Drupal::entityQuery('node');
+      $query->condition('name', $player_name);
+      $query->condition('type', 'jugador');
+      $entity_ids = $query->execute();
+      if (count($entity_ids) == 0) {
+        $node = Node::create([
+          'type'                   => 'jugador',
+          'title'                  => $player_name,
+          'uid'                    => 1,
+          'moderation_state'       => 'published',
+        ]);
+        $node->save();
+      }
+      else {
+        $node = Node::load(array_pop($entity_ids));
+      }
+      $node->field_jugador[] = $node;
       $node->save();
     }
   }
