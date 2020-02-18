@@ -140,8 +140,8 @@ class MigrateController {
             'field_estadio'          => $item['estadio'],
             'field_fundacion'        => $item['fundacion'],
             'field_nombre_comun'     => $item['comun'],
-            'field_presidente'     => $item['presidente'],
-            'field_mediastream'     => $item['twitter'],
+            'field_presidente'       => $item['presidente'],
+            'field_mediastream'      => $item['twitter'],
             'uid'                    => 1,
             'moderation_state'       => 'published',
           ]);
@@ -157,6 +157,53 @@ class MigrateController {
               ];
             }
           }
+          $node->save();
+          $results['new']++;
+          if ($results['new'] >= $this->limit) {
+            break;
+          }
+        }
+        else {
+          $results['existing']++;
+        }
+      }
+    }
+
+
+    return [
+      '#type'   => 'markup',
+      '#markup' => t('Migracion de Equipos') . '<br>'
+                   . 'Nuevos: ' . $results['new'] . '<br>Existentes: ' . $results['existing'],
+    ];
+  }
+
+  public function schedule() {
+    $url     = 'https://admin.winsports.co/migrate/schedule';
+    $res     = $this->client->get($url);
+    $results = [
+      'new'      => 0,
+      'existing' => 0,
+    ];
+    if ($res->getStatusCode() == 200) {
+      $response = json_decode($res->getBody(), TRUE);
+      foreach ($response['nodes'] as $item) {
+        $date  = strtotime($item['date']);
+        $query = \Drupal::entityQuery('node');
+        $query->condition('title', $item['title']);
+        $query->condition('date', $date);
+        $query->condition('type', 'programacion');
+        $entity_ids = $query->execute();
+        if (count($entity_ids) == 0) {
+          $node = Node::create([
+            'type'             => 'programacion',
+            'title'            => $item['title'],
+            'field_date'       => $item['date'],
+            'uid'              => 1,
+            'moderation_state' => 'published',
+          ]);
+          $node->save();
+          $this->attachCanal($node, $item['canal']);
+          $this->attachTorneo($node, $item['torneo']);
           $node->save();
           $results['new']++;
           if ($results['new'] >= $this->limit) {
@@ -250,6 +297,7 @@ class MigrateController {
       $node->save();
     }
   }
+
   public function attachPlayers($node, $players) {
     foreach (explode(',', $players) as $player_name) {
       if (trim($player_name) == '') {
@@ -261,10 +309,10 @@ class MigrateController {
       $entity_ids = $query->execute();
       if (count($entity_ids) == 0) {
         $player = Node::create([
-          'type'                   => 'jugador',
-          'title'                  => $player_name,
-          'uid'                    => 1,
-          'moderation_state'       => 'published',
+          'type'             => 'jugador',
+          'title'            => $player_name,
+          'uid'              => 1,
+          'moderation_state' => 'published',
         ]);
         $player->save();
       }
@@ -290,6 +338,40 @@ class MigrateController {
       $term = Term::load(array_pop($entity_ids));
     }
     $node->field_category = $term;
+    $node->save();
+  }
+
+  public function attachCanal($node, $can) {
+    $query = \Drupal::entityQuery('taxonomy_term');
+    $query->condition('name', $can);
+    $query->condition('vid', 'canales');
+    $entity_ids = $query->execute();
+    if (count($entity_ids) == 0) {
+      $term = Term::create(['vid' => 'canales']);
+      $term->setName($can);
+      $term->save();
+    }
+    else {
+      $term = Term::load(array_pop($entity_ids));
+    }
+    $node->field_canal = $term;
+    $node->save();
+  }
+
+  public function attachTorneo($node, $tr) {
+    $query = \Drupal::entityQuery('taxonomy_term');
+    $query->condition('name', $tr);
+    $query->condition('vid', 'torneos');
+    $entity_ids = $query->execute();
+    if (count($entity_ids) == 0) {
+      $term = Term::create(['vid' => 'torneos']);
+      $term->setName($tr);
+      $term->save();
+    }
+    else {
+      $term = Term::load(array_pop($entity_ids));
+    }
+    $node->field_torneo_term = $term;
     $node->save();
   }
 

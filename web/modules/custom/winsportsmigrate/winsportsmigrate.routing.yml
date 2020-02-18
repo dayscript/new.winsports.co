@@ -19,3 +19,10 @@ winsports.migrate.temas:
     _title: 'Winsports Migrate Teams'
   requirements:
     _permission: 'access content'
+winsports.migrate.schedule:
+  path: '/winsports-migrate-schedule'
+  defaults:
+    _controller: '\Drupal\winsportsmigrate\Controller\MigrateController::schedule'
+    _title: 'Winsports Migrate Schedule'
+  requirements:
+    _permission: 'access content'
