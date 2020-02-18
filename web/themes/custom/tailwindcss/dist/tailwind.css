@@ -954,6 +954,76 @@ a {
   margin-top: 1rem;
 }
 
+#block-futbolcolombiano-estadisticas, .opta-widgets {
+  color: #0B3B41;
+}
+
+#block-futbolcolombiano-estadisticas .table-option, .opta-widgets .table-option {
+  background-color: #819A9F;
+  font-family: "Passion One", cursive;
+  letter-spacing: 0.025em;
+  font-weight: lighter;
+  color: #fff;
+}
+
+#block-futbolcolombiano-estadisticas .table-option a, .opta-widgets .table-option a {
+  color: #fff;
+}
+
+#block-futbolcolombiano-estadisticas .table-option a.is-active, .opta-widgets .table-option a.is-active {
+  color: #0b3a40;
+  background-color: #0ef8c3;
+}
+
+#block-futbolcolombiano-estadisticas .table-option.menu a, .opta-widgets .table-option.menu a {
+  text-transform: capitalize;
+  padding: 20px 30px;
+  width: 100%;
+  text-align: center;
+}
+
+#block-futbolcolombiano-estadisticas .table-option.active, #block-futbolcolombiano-estadisticas .table-option.is-active, .opta-widgets .table-option.active, .opta-widgets .table-option.is-active {
+  background-color: #0ef8c3;
+  color: #0b3a40;
+}
+
+#block-futbolcolombiano-estadisticas .table-option.active a, #block-futbolcolombiano-estadisticas .table-option.is-active a, .opta-widgets .table-option.active a, .opta-widgets .table-option.is-active a {
+  color: #0b3a40;
+}
+
+#block-futbolcolombiano-estadisticas .phase, .opta-widgets .phase {
+  color: rgba(11, 58, 64, 0.5);
+  border-bottom: 4px solid transparent;
+}
+
+#block-futbolcolombiano-estadisticas .phase.active, .opta-widgets .phase.active {
+  font-weight: 600;
+  color: #0b3a40;
+  border-bottom: 4px solid #0A3B41;
+}
+
+#block-futbolcolombiano-estadisticas .Opta > .Opta_W, .opta-widgets .Opta > .Opta_W {
+  margin-top: 0;
+}
+
+#block-futbolcolombiano-estadisticas .Opta .Opta-Nav li a, .opta-widgets .Opta .Opta-Nav li a {
+  background-color: #819A9F;
+  color: #fff;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+#block-futbolcolombiano-estadisticas .Opta .Opta-Nav li.Opta-On a, .opta-widgets .Opta .Opta-Nav li.Opta-On a {
+  background-color: #0ef8c3;
+  color: #0b3a40;
+}
+
+#block-futbolcolombiano-estadisticas .Opta .Opta_F_TR_N .Opta-Striped tbody tr.Opta-FeatureHeader td, #block-futbolcolombiano-estadisticas .Opta .Opta_F_TR_N .Opta-Striped tbody tr.Opta-FeatureHeader th,
+#block-futbolcolombiano-estadisticas .Opta .Opta-Ranking-Bars .Opta-FeatureHeader td, #block-futbolcolombiano-estadisticas .Opta .Opta-Ranking-Bars .Opta-FeatureHeader th, .opta-widgets .Opta .Opta_F_TR_N .Opta-Striped tbody tr.Opta-FeatureHeader td, .opta-widgets .Opta .Opta_F_TR_N .Opta-Striped tbody tr.Opta-FeatureHeader th,
+.opta-widgets .Opta .Opta-Ranking-Bars .Opta-FeatureHeader td, .opta-widgets .Opta .Opta-Ranking-Bars .Opta-FeatureHeader th {
+  background-color: #FACA32;
+  color: #0b3a40;
+}
+
 .tw-sr-only{
   position: absolute !important;
   width: 1px !important;

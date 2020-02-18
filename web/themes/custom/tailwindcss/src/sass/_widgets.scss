@@ -1,0 +1,69 @@
+
+#block-futbolcolombiano-estadisticas, .opta-widgets {
+  color: #0B3B41;
+  .table-option {
+    background-color: #819A9F;
+    font-family: $font-title;
+    letter-spacing: 0.025em;
+    font-weight: lighter;
+    @apply text-white;
+
+    a {
+      @apply text-white;
+
+      &.is-active {
+        color: rgba(11, 58, 64, 1);
+        background-color: #0ef8c3;
+      }
+    }
+    &.menu {
+      a {
+        text-transform: capitalize;
+        padding: 20px 30px;
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    &.active, &.is-active {
+      background-color: #0ef8c3;
+      color: rgba(11, 58, 64, 1);
+
+      a {
+        color: rgba(11, 58, 64, 1);
+      }
+    }
+  }
+
+  .phase {
+    color: rgba(11, 58, 64, 0.5);
+    border-bottom: 4px solid transparent;
+
+    &.active {
+      font-weight: 600;
+      color: rgba(11, 58, 64, 1);
+      border-bottom: 4px solid #0A3B41;
+    }
+  }
+
+  .Opta > .Opta_W {
+    margin-top: 0;
+  }
+
+  .Opta .Opta-Nav li a {
+    background-color: #819A9F;
+    @apply text-white;
+    font-family: $font-body;
+  }
+
+  .Opta .Opta-Nav li.Opta-On a {
+    background-color: #0ef8c3;
+    color: rgba(11, 58, 64, 1);
+  }
+
+  .Opta .Opta_F_TR_N .Opta-Striped tbody tr.Opta-FeatureHeader td, .Opta .Opta_F_TR_N .Opta-Striped tbody tr.Opta-FeatureHeader th,
+  .Opta .Opta-Ranking-Bars .Opta-FeatureHeader td, .Opta .Opta-Ranking-Bars .Opta-FeatureHeader th {
+    background-color: #FACA32;
+    color: rgba(11, 58, 64, 1);
+  }
+}
