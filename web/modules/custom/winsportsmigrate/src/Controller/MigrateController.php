@@ -130,7 +130,7 @@ class MigrateController {
             'type'                   => 'equipo',
             'title'                  => $item['title'],
             'body'                   => [
-              'value'  => $item['body'],
+              'value'  => $item['resena'],
               'format' => 'full_html',
             ],
             'field_pretitle'         => $item['website'],
@@ -156,8 +156,6 @@ class MigrateController {
               ];
             }
           }
-          $date = $item['fecha'];
-          $node->set('created', $date);
           $node->save();
           $results['new']++;
           if ($results['new'] >= $this->limit) {
