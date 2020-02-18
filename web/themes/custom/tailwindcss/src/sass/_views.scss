@@ -60,6 +60,10 @@
     }
   }
 }
+#block-publicidad1-2,
+#block-publicidad1{
+  @apply mb-4;
+}
 .more-link{
   font-family: $font-title;
   @apply text-center w-full;

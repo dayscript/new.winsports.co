@@ -932,6 +932,11 @@ a {
   width: 2.5rem;
 }
 
+#block-publicidad1-2,
+#block-publicidad1 {
+  margin-bottom: 1rem;
+}
+
 .more-link {
   font-family: "Passion One", cursive;
   text-align: center;
