@@ -70,5 +70,9 @@
   a{
     @apply inline-block whitespace-no-wrap mb-6 text-center clear-both bg-secondary text-primary px-6 py-3 w-64 mt-4;
   }
-  
+}
+.blocktabs{
+  &.ui-widget-content{
+    @apply border-0;
+  }
 }

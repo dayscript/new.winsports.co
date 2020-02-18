@@ -720,7 +720,7 @@ input {
 
 h2, .title {
   font-family: "Passion One", cursive;
-  font-size: 3rem;
+  font-size: 2.25rem;
   color: #0b3b41;
   letter-spacing: 0.025em;
   line-height: 1;
@@ -732,7 +732,7 @@ h2 {
 }
 
 h3.title {
-  font-size: 2.25rem;
+  font-size: 1.875rem;
 }
 
 a {
@@ -957,6 +957,10 @@ a {
   padding-bottom: 0.75rem;
   width: 16rem;
   margin-top: 1rem;
+}
+
+.blocktabs.ui-widget-content {
+  border-width: 0;
 }
 
 #block-futbolcolombiano-estadisticas, .opta-widgets {
