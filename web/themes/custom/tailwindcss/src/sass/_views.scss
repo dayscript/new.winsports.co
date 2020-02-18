@@ -25,11 +25,17 @@
   }
 }
 .gol-partido.teaser{
-  .image{
-    img{
+  .image {
+    img {
       @apply w-full;
     }
+    .play-icon{
+      
+      
+    }
   }
+  
+    
 }
 #block-views-block-goles-home-block-1{
   .contextual-region{

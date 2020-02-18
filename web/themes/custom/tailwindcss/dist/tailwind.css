@@ -718,15 +718,17 @@ input {
   background-color: #c05621;
 }
 
-.title {
+h2, .title {
   font-family: "Passion One", cursive;
+  font-size: 3rem;
   color: #0b3b41;
   letter-spacing: 0.025em;
   line-height: 1;
 }
 
-h2.title {
-  font-size: 3rem;
+h2 {
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
 }
 
 h3.title {
