@@ -256,7 +256,7 @@ class MigrateController {
         continue;
       }
       $query = \Drupal::entityQuery('node');
-      $query->condition('name', $player_name);
+      $query->condition('title', $player_name);
       $query->condition('type', 'jugador');
       $entity_ids = $query->execute();
       if (count($entity_ids) == 0) {
