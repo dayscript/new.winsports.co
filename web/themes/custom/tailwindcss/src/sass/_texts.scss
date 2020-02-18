@@ -8,6 +8,9 @@ h2.title{
 h3.title{
   @apply tw-text-4xl;
 }
+a{
+  @apply text-primary;
+}
 .category{
   @apply mb-2;
   a{

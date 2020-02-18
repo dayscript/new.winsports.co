@@ -1,0 +1,50 @@
+.gol-partido.video-player{
+  @apply relative;
+  .image{
+    img{
+      opacity: 0.8;
+      @apply w-full;
+    }
+  }
+  .title{
+    bottom: 50px;
+    left: 30px;
+    font-family: $font-body;
+    @apply absolute text-white text-3xl leading-none font-semibold;
+    a{
+      @apply text-white;
+    }
+  }
+  .torneo{
+    @apply absolute text-white text-base leading-none font-semibold;
+    bottom: 115px;
+    left: 30px;
+    a{
+      @apply text-white;
+    }
+  }
+}
+.gol-partido.teaser{
+  .image{
+    img{
+      @apply w-full;
+    }
+  }
+}
+#block-views-block-goles-home-block-1{
+  .contextual-region{
+    @apply flex;
+    .views-row{
+      @apply pr-4 w-2/3;
+    }
+    .views-element-container{
+      @apply w-1/3;
+      .views-row{
+        @apply w-full;
+      }
+      >div{
+       @apply flex flex-col h-full justify-between; 
+      }
+    }
+  }
+}
