@@ -7,10 +7,24 @@
 namespace Drupal\winsportsmigrate\Controller;
 
 use Drupal\node\Entity\Node;
+use Drupal\taxonomy\Entity\Term;
 use GuzzleHttp\Client;
-use http\Exception;
 
 class MigrateController {
+
+  public $client;
+
+  public $limit;
+
+  public function __construct() {
+    if (isset($_REQUEST['limit'])) {
+      $this->limit = $_REQUEST['limit'];
+    }
+    else {
+      $this->limit = 10;
+    }
+    $this->client = new Client();
+  }
 
   public function slug($title, $separator = '-', $language = 'en') {
     $flip  = $separator === '-' ? '_' : '-';
@@ -22,16 +36,84 @@ class MigrateController {
     return trim($title, $separator);
   }
 
+  public function articles() {
+    $url     = 'https://admin.winsports.co/migrate/articles/202002';
+    $res     = $this->client->get($url);
+    $results = [
+      'new'      => 0,
+      'existing' => 0,
+    ];
+    if ($res->getStatusCode() == 200) {
+      $response = json_decode($res->getBody(), TRUE);
+      foreach ($response['nodes'] as $item) {
+        $query = \Drupal::entityQuery('node');
+        $query->condition('title', $item['title']);
+        $query->condition('type', 'article');
+        $entity_ids = $query->execute();
+        if (count($entity_ids) == 0) {
+          $node = Node::create([
+            'type'                   => 'article',
+            'title'                  => $item['title'],
+            'field_pretitle'         => $item['pretitle'],
+            'body'                   => [
+              'value'  => $item['body'],
+              'format' => 'full_html',
+            ],
+            'field_lead'             => $item['lead'],
+            'field_url'              => $item['video'],
+            'field_is_video_article' => $item['is_video'],
+            'uid'                    => 1,
+            'moderation_state'       => 'published',
+          ]);
+          $node->save();
+          $this->attachTags($node, $item['tags']);
+          $this->attachCategory($node, $item['category']);
+          $this->attachSource($node, $item['fuente']);
+          if ($item['field_image']['src']) {
+            $image = file_get_contents($item['field_image']['src']);
+            if ($file = file_save_data($image, 'public://images/articles/' . $this->slug($item['title']) . '.jpg', FILE_EXISTS_REPLACE)) {
+              $node->field_image = [
+                'target_id' => $file->id(),
+                'alt'       => $item['title'],
+                'title'     => $item['title'],
+              ];
+            }
+          }
+          if ($item['imagen_h']['src']) {
+            $image = file_get_contents($item['imagen_h']['src']);
+            if ($file = file_save_data($image, 'public://images/articles/' . $this->slug($item['title']) . '_h.jpg', FILE_EXISTS_REPLACE)) {
+              $node->field_image_h = [
+                'target_id' => $file->id(),
+                'alt'       => $item['title'],
+                'title'     => $item['title'],
+              ];
+            }
+          }
+          $date = $item['fecha'];
+          $node->set('created', $date);
+          $node->save();
+          $results['new']++;
+          if ($results['new'] >= $this->limit) {
+            break;
+          }
+        }
+        else {
+          $results['existing']++;
+        }
+      }
+    }
+
+
+    return [
+      '#type'   => 'markup',
+      '#markup' => t('Migracion de Articulos') . '<br>'
+                   . 'Nuevos: ' . $results['new'] . '<br>Existentes: ' . $results['existing'],
+    ];
+  }
+
   public function goals() {
-    if (isset($_REQUEST['limit'])) {
-      $limit = $_REQUEST['limit'];
-    }
-    else {
-      $limit = 10;
-    }
-    $client  = new Client();
     $url     = 'https://admin.winsports.co/migrate/goals';
-    $res     = $client->get($url);
+    $res     = $this->client->get($url);
     $results = [
       'new'      => 0,
       'existing' => 0,
@@ -62,7 +144,7 @@ class MigrateController {
             ]);
             $node->save();
             $results['new']++;
-            if ($results['new'] >= $limit) {
+            if ($results['new'] >= $this->limit) {
               break;
             }
           }
@@ -79,6 +161,59 @@ class MigrateController {
       '#markup' => t('Migracion de Goles') . '<br>'
                    . 'Nuevos: ' . $results['new'] . '<br>Existentes: ' . $results['existing'],
     ];
+  }
+
+  public function attachTags($node, $tags) {
+    foreach (explode(',', $tags) as $tag_text) {
+      $query = \Drupal::entityQuery('taxonomy_term');
+      $query->condition('name', $tag_text);
+      $query->condition('vid', 'tags');
+      $entity_ids = $query->execute();
+      if (count($entity_ids) == 0) {
+        $term = Term::create(['vid' => 'tags']);
+        $term->setName($tag_text);
+        $term->save();
+      }
+      else {
+        $term = Term::load(array_pop($entity_ids));
+      }
+      $node->field_tags[] = $term;
+      $node->save();
+    }
+  }
+
+  public function attachCategory($node, $cat) {
+    $query = \Drupal::entityQuery('taxonomy_term');
+    $query->condition('name', $cat);
+    $query->condition('vid', 'categoria');
+    $entity_ids = $query->execute();
+    if (count($entity_ids) == 0) {
+      $term = Term::create(['vid' => 'categoria']);
+      $term->setName($cat);
+      $term->save();
+    }
+    else {
+      $term = Term::load(array_pop($entity_ids));
+    }
+    $node->field_category = $term;
+    $node->save();
+  }
+
+  public function attachSource($node, $cat) {
+    $query = \Drupal::entityQuery('taxonomy_term');
+    $query->condition('name', $cat);
+    $query->condition('vid', 'fuentes');
+    $entity_ids = $query->execute();
+    if (count($entity_ids) == 0) {
+      $term = Term::create(['vid' => 'fuentes']);
+      $term->setName($cat);
+      $term->save();
+    }
+    else {
+      $term = Term::load(array_pop($entity_ids));
+    }
+    $node->field_source = $term;
+    $node->save();
   }
 
 }

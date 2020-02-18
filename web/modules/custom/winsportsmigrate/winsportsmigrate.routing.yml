@@ -5,3 +5,10 @@ winsports.migrate.goals:
     _title: 'Winsports Migrate Goals'
   requirements:
     _permission: 'access content'
+winsports.migrate.articles:
+  path: '/winsports-migrate-articles'
+  defaults:
+    _controller: '\Drupal\winsportsmigrate\Controller\MigrateController::articles'
+    _title: 'Winsports Migrate Articles'
+  requirements:
+    _permission: 'access content'
