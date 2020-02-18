@@ -75,4 +75,13 @@
   &.ui-widget-content{
     @apply border-0;
   }
+  &.ui-widget{
+    font-family: $font-body;
+  }
+  &.ui-tabs{
+    @apply p-0;
+  }
+  .ui-widget-header{
+    @apply border-0 bg-transparent;
+  }
 }

@@ -963,6 +963,19 @@ a {
   border-width: 0;
 }
 
+.blocktabs.ui-widget {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+.blocktabs.ui-tabs {
+  padding: 0;
+}
+
+.blocktabs .ui-widget-header {
+  border-width: 0;
+  background-color: transparent;
+}
+
 #block-futbolcolombiano-estadisticas, .opta-widgets {
   color: #0B3B41;
 }
