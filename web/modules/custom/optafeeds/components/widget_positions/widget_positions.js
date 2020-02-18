@@ -3,7 +3,7 @@ new Vue({
   el: '.opta-feeds-widget-positions',
   data: {
     loading: 0,
-    tournament_season: '',
+    tournament_season: '0-0',
     tournaments: [],
     phases: [],
     teams: [],
@@ -35,7 +35,7 @@ new Vue({
     },
     selectOption (option_key) {
       this.selected_option = option_key
-      this.loadTable()
+      // this.loadTable()
     },
     loadTournaments () {
       this.loading++
@@ -44,8 +44,9 @@ new Vue({
             this.loading--
             this.tournaments = data;
             if (data.length > 0) {
-              this.tournament_season = data[0].field_id_equipo_opta + '-' + data[0].field_opta_season
+              this.tournament_season = data[0].field_opta_id + '-' + data[0].field_opta_season
               this.selected_option = 'positions'
+              console.log(this.tournament_season)
               // this.loadTable()
             }
           }
