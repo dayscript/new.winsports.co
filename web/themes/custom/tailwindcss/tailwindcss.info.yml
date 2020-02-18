@@ -17,3 +17,4 @@ regions:
   highlighted: 'Highlighted'
   primary_menu: 'Primary Menu'
   secondary_menu: 'Secondary Menu'
+  postcontent: 'After Main Content'

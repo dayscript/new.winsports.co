@@ -76,7 +76,6 @@
 
     <main role="main">
         <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
-
         <div>
             {{ page.fullcontent }}
         </div>
@@ -89,8 +88,6 @@
             <div class="md:tw-flex-1 tw-p-4">
                 {{ page.content }}
             </div>{# /.layout-content #}
-            
-
             {% if page.sidebar_second %}
                 <aside class="md:tw-w-1/4" role="complementary">
                     {{ page.sidebar_second }}
@@ -100,6 +97,13 @@
     </main>
 
 </div>{# /.layout-container #}
+{% if page.postcontent %}
+    <div class="tw-p-4 tw-bg-gray">
+        <div class="tw-container tw-mx-auto tw-p-2">
+            {{ page.postcontent }}
+        </div>
+    </div>
+{% endif %}
 <div>
     {% if page.footer %}
         <div class="tw-p-4 tw-bg-gray">
