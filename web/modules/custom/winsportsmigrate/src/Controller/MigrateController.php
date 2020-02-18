@@ -197,10 +197,10 @@ class MigrateController {
           $node = Node::create([
             'type'             => 'programacion',
             'title'            => $item['title'],
-            'field_date'       => $date,
             'uid'              => 1,
             'moderation_state' => 'published',
           ]);
+          $node->set('field_date', $item['fecha']);
           $node->save();
           $this->attachCanal($node, $item['canal']);
           $this->attachTorneo($node, $item['torneo']);
