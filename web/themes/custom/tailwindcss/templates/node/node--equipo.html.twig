@@ -78,7 +78,6 @@
         </h2>
     {% endif %}
     {{ title_suffix }}
-
     {% if display_submitted %}
         <footer>
             {{ author_picture }}
@@ -110,8 +109,3 @@
             </div>
         </div>
 </article>
-{% if page.fullcontent %}
-    <aside class="md:tw-w-1/4 tw-p-4" role="complementary">
-        {{ page.fullcontent }}
-    </aside>
-{% endif %}
