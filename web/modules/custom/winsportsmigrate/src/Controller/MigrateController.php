@@ -187,7 +187,7 @@ class MigrateController {
     if ($res->getStatusCode() == 200) {
       $response = json_decode($res->getBody(), TRUE);
       foreach ($response['nodes'] as $item) {
-        $date  = strtotime($item['date']);
+        $date  = strtotime($item['fecha']);
         $query = \Drupal::entityQuery('node');
         $query->condition('title', $item['title']);
         $query->condition('field_date', $date);
@@ -197,7 +197,7 @@ class MigrateController {
           $node = Node::create([
             'type'             => 'programacion',
             'title'            => $item['title'],
-            'field_date'       => $item['fecha'],
+            'field_date'       => $date,
             'uid'              => 1,
             'moderation_state' => 'published',
           ]);
