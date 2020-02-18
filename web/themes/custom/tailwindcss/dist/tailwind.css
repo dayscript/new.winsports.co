@@ -971,7 +971,7 @@ a {
   padding: 0;
 }
 
-.blocktabs .ui-widget-header.ui-tabs.ui-tabs-nav.ui-corner-all {
+.blocktabs .ui-widget-header.ui-tabs-nav.ui-corner-all {
   border-width: 0;
   background-color: transparent;
   border-radius: 0;
@@ -983,12 +983,12 @@ a {
       flex-wrap: nowrap;
 }
 
-.blocktabs .ui-widget-header.ui-tabs.ui-tabs-nav.ui-corner-all .ui-tabs-tab {
+.blocktabs .ui-widget-header.ui-tabs-nav.ui-corner-all .ui-tabs-tab {
   font-family: "Passion One", cursive;
   background-color: #819A9F;
 }
 
-.blocktabs .ui-widget-header.ui-tabs.ui-tabs-nav.ui-corner-all .ui-tabs-tab.ui-tabs-active {
+.blocktabs .ui-widget-header.ui-tabs-nav.ui-corner-all .ui-tabs-tab.ui-tabs-active {
   background-color: #0ef8c3;
 }
 

@@ -81,7 +81,7 @@
   &.ui-tabs{
     @apply p-0;
   }
-  .ui-widget-header.ui-tabs.ui-tabs-nav.ui-corner-all{
+  .ui-widget-header.ui-tabs-nav.ui-corner-all{
     @apply border-0 bg-transparent rounded-none p-0 flex flex-no-wrap;
     .ui-tabs-tab{
       font-family: $font-title;
