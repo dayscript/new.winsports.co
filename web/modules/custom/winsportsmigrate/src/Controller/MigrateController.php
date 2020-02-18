@@ -165,6 +165,9 @@ class MigrateController {
 
   public function attachTags($node, $tags) {
     foreach (explode(',', $tags) as $tag_text) {
+      if (trim($tag_text) == '') {
+        continue;
+      }
       $query = \Drupal::entityQuery('taxonomy_term');
       $query->condition('name', $tag_text);
       $query->condition('vid', 'tags');
