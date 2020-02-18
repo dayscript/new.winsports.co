@@ -260,18 +260,18 @@ class MigrateController {
       $query->condition('type', 'jugador');
       $entity_ids = $query->execute();
       if (count($entity_ids) == 0) {
-        $node = Node::create([
+        $player = Node::create([
           'type'                   => 'jugador',
           'title'                  => $player_name,
           'uid'                    => 1,
           'moderation_state'       => 'published',
         ]);
-        $node->save();
+        $player->save();
       }
       else {
-        $node = Node::load(array_pop($entity_ids));
+        $player = Node::load(array_pop($entity_ids));
       }
-      $node->field_jugador[] = $node;
+      $node->field_jugador[] = $player;
       $node->save();
     }
   }
