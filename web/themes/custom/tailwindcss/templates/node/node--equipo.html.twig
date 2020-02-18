@@ -109,14 +109,9 @@
                 <div class="body tw-text-white">{{ content.body }}</div>
             </div>
         </div>
-        {% if node.hasField('field_lead') %}
-            <div class="lead my-2">{{ content.field_lead }}</div>
-        {% endif %}
-        <div class="tags tw-flex tw-text-sm">
-            <div class="tw-whitespace-no-wrap tw-p-2 uppercase label">Tags relacionados</div>
-            <div>{{  content.field_tags }}</div>
-        </div>
-        <div class="comments">
-            <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-width="100%" data-numposts="5"></div>
-        </div>
 </article>
+{% if page.fullcontent %}
+    <aside class="md:tw-w-1/4 tw-p-4" role="complementary">
+        {{ page.fullcontent }}
+    </aside>
+{% endif %}
