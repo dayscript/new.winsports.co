@@ -56,7 +56,7 @@
   .contextual-region{
     @apply flex justify-between items-center;
     img{
-      @apply h-10;
+      @apply h-10 w-10;
     }
   }
 }
