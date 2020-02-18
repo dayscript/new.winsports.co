@@ -107,7 +107,16 @@
 {% if page.postcontent2 %}
     <div class="tw-p-4">
         <div class="tw-container tw-mx-auto tw-p-2">
-            {{ page.postcontent2 }}
+            <div class="md:tw-flex tw--mx-4">
+                {% if page.postcontent_sidebar %}
+                    <aside class="md:tw-w-1/4 tw-p-4" role="complementary">
+                        {{ page.postcontent_sidebar }}
+                    </aside>
+                {% endif %}
+                <div class="md:tw-flex-1 tw-p-4">
+                    {{ page.postcontent2 }}
+                </div>
+            </div>
         </div>
     </div>
 {% endif %}
