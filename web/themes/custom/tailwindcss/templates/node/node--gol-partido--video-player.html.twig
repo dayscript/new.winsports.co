@@ -1,5 +1,5 @@
 <div class="gol-partido video-player">
-    <div class="image" style="background: linear-gradient(0deg, #000 0%, rgba(0,0,0,0.623687) 22%, #fff 53%);">
+    <div class="image" style="background: linear-gradient(0deg, #000 0%, rgba(0,0,0,0.623687) 22%, #999 53%);">
         {% if node.hasField('field_image_h') %}
             {{ content.field_image_h }}
         {% elseif node.hasField('field_image') %}
@@ -9,8 +9,11 @@
             <a href="{{ url }}"><img src="/themes/custom/tailwindcss/images/icons/play.png" alt="Play" class="tw-h-24 tw-w-24"></a>
         </div>
     </div>
-    <div class="torneo category">{{ content.field_torneo }}</div>
-    <div class="title">
-        <a href="{{ url }}">{{ label }}</a>
+    
+    <div class="title max-w-xl">
+        <div class="tw-relative">
+            <div class="torneo category left-0">{{ content.field_torneo }}</div>
+            <a href="{{ url }}">{{ label }}</a>
+        </div>
     </div>
 </div>

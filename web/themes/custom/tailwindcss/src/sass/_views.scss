@@ -2,12 +2,12 @@
   @apply relative;
   .image{
     img{
-      opacity: 0.8;
+      opacity: 0.7;
       @apply w-full;
     }
   }
   .title{
-    bottom: 50px;
+    bottom: 30px;
     left: 30px;
     font-family: $font-body;
     @apply absolute text-white text-3xl leading-none font-semibold;
@@ -17,8 +17,7 @@
   }
   .torneo{
     @apply absolute text-white text-base leading-none font-semibold;
-    bottom: 115px;
-    left: 30px;
+    top: -30px;
     a{
       @apply text-white;
     }
@@ -34,12 +33,11 @@
       
     }
   }
-  
-    
 }
 #block-views-block-goles-home-block-1{
+  @apply border-b border-gray;
   .contextual-region{
-    @apply flex;
+    @apply flex flex-wrap;
     .views-row{
       @apply pr-4 w-2/3;
     }
@@ -53,4 +51,12 @@
       }
     }
   }
+}
+.more-link{
+  font-family: $font-title;
+  @apply text-center w-full;
+  a{
+    @apply inline-block whitespace-no-wrap mb-6 text-center clear-both bg-secondary text-primary px-6 py-3 w-64 mt-4;
+  }
+  
 }
