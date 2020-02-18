@@ -22,6 +22,7 @@
         "drupal/admin_toolbar": "^2.0",
         "drupal/admin_toolbar_links_access_filter": "^2.0",
         "drupal/admin_toolbar_tools": "^2.0",
+        "drupal/better_exposed_filters": "^4.0@alpha",
         "drupal/blocktabs": "^1.0@beta",
         "drupal/console": "^1.0.2",
         "drupal/core": "^8.8.0",
