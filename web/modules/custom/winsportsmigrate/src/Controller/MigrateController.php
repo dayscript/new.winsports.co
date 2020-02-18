@@ -190,14 +190,14 @@ class MigrateController {
         $date  = strtotime($item['date']);
         $query = \Drupal::entityQuery('node');
         $query->condition('title', $item['title']);
-        $query->condition('date', $date);
+        $query->condition('field_date', $date);
         $query->condition('type', 'programacion');
         $entity_ids = $query->execute();
         if (count($entity_ids) == 0) {
           $node = Node::create([
             'type'             => 'programacion',
             'title'            => $item['title'],
-            'field_date'       => $item['date'],
+            'field_date'       => $item['fecha'],
             'uid'              => 1,
             'moderation_state' => 'published',
           ]);
