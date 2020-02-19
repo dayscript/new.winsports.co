@@ -96,7 +96,10 @@
   }
 }
 #block-views-block-nomina-block-1{
+  display: inline-block;
   .img-jugador{
-    @apply w-1/12;
+    width: 8.333333%;
+    height: 130px;
+    float: left;
   }
 }
