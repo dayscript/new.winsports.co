@@ -1017,6 +1017,14 @@ a {
   margin-bottom: .5rem;
 }
 
+#block-views-block-videos-block-2 h2 {
+  margin-bottom: 2.5rem;
+}
+
+#block-views-block-noticias-block-1 h2 {
+  margin-bottom: 2.5rem;
+}
+
 #block-futbolcolombiano-estadisticas, .opta-widgets {
   color: #0B3B41;
 }
