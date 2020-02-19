@@ -1006,10 +1006,15 @@ a {
   display: inline-block;
 }
 
+#block-views-block-nomina-block-1 h2 {
+  margin-bottom: 2.5rem;
+}
+
 #block-views-block-nomina-block-1 .img-jugador {
   width: 8.333333%;
-  height: 130px;
+  min-height: 140px;
   float: left;
+  margin-bottom: .5rem;
 }
 
 #block-futbolcolombiano-estadisticas, .opta-widgets {
