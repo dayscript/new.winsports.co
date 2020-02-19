@@ -86,8 +86,17 @@
     .ui-tabs-tab{
       font-family: $font-title;
       @apply bg-gray-650;
+      li{
+        @apply m-0;
+        a{
+          @apply text-white;
+        }
+      }
       &.ui-tabs-active{
-        @apply bg-secondary;
+        @apply bg-secondary p-0 m-0;
+        a{
+          @apply text-primary;
+        }
       }
     }
   }

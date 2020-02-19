@@ -988,8 +988,22 @@ a {
   background-color: #819A9F;
 }
 
+.blocktabs .ui-widget-header.ui-tabs-nav.ui-corner-all .ui-tabs-tab li {
+  margin: 0;
+}
+
+.blocktabs .ui-widget-header.ui-tabs-nav.ui-corner-all .ui-tabs-tab li a {
+  color: #fff;
+}
+
 .blocktabs .ui-widget-header.ui-tabs-nav.ui-corner-all .ui-tabs-tab.ui-tabs-active {
   background-color: #0ef8c3;
+  padding: 0;
+  margin: 0;
+}
+
+.blocktabs .ui-widget-header.ui-tabs-nav.ui-corner-all .ui-tabs-tab.ui-tabs-active a {
+  color: #0b3b41;
 }
 
 #block-futbolcolombiano-estadisticas, .opta-widgets {
