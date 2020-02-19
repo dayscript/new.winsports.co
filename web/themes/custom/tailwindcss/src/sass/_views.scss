@@ -96,10 +96,14 @@
   }
 }
 #block-views-block-nomina-block-1{
+  h2{
+    @apply tw-m-10;
+  }
   display: inline-block;
   .img-jugador{
     width: 8.333333%;
-    height: 130px;
+    min-height: 140px;
     float: left;
+    margin-bottom: .5rem;
   }
 }
