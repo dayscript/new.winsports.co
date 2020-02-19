@@ -986,23 +986,19 @@ a {
 .blocktabs .ui-widget-header.ui-tabs-nav.ui-corner-all .ui-tabs-tab {
   font-family: "Passion One", cursive;
   background-color: #819A9F;
-}
-
-.blocktabs .ui-widget-header.ui-tabs-nav.ui-corner-all .ui-tabs-tab li {
   margin: 0;
-}
-
-.blocktabs .ui-widget-header.ui-tabs-nav.ui-corner-all .ui-tabs-tab li a {
   color: #fff;
 }
 
-.blocktabs .ui-widget-header.ui-tabs-nav.ui-corner-all .ui-tabs-tab.ui-tabs-active {
+.blocktabs .ui-widget-header.ui-tabs-nav.ui-corner-all .ui-tabs-tab.ui-state-active {
   background-color: #0ef8c3;
   padding: 0;
   margin: 0;
+  border-width: 0;
+  border-radius: 0;
 }
 
-.blocktabs .ui-widget-header.ui-tabs-nav.ui-corner-all .ui-tabs-tab.ui-tabs-active a {
+.blocktabs .ui-widget-header.ui-tabs-nav.ui-corner-all .ui-tabs-tab.ui-state-active a {
   color: #0b3b41;
 }
 

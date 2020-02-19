@@ -85,15 +85,9 @@
     @apply border-0 bg-transparent rounded-none p-0 flex flex-no-wrap;
     .ui-tabs-tab{
       font-family: $font-title;
-      @apply bg-gray-650;
-      li{
-        @apply m-0;
-        a{
-          @apply text-white;
-        }
-      }
-      &.ui-tabs-active{
-        @apply bg-secondary p-0 m-0;
+      @apply bg-gray-650 m-0 text-white;
+      &.ui-state-active{
+        @apply bg-secondary p-0 m-0 border-0 rounded-none;
         a{
           @apply text-primary;
         }
