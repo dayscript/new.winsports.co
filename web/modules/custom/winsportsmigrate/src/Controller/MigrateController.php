@@ -17,6 +17,8 @@ class MigrateController {
 
   public $limit;
 
+  public $offset;
+
   public $period;
 
   public function __construct() {
@@ -25,6 +27,12 @@ class MigrateController {
     }
     else {
       $this->limit = 10;
+    }
+    if (isset($_REQUEST['offset'])) {
+      $this->offset = $_REQUEST['offset'];
+    }
+    else {
+      $this->offset = 0;
     }
     if (isset($_REQUEST['period'])) {
       $this->period = $_REQUEST['period'];
@@ -110,6 +118,7 @@ class MigrateController {
           $node->save();
           $results['existing']++;
         }
+        $this->attachTeams($node, $item['equipos']);
         if ($results['new'] + $results['existing'] >= $this->limit) {
           break;
         }
@@ -448,6 +457,33 @@ class MigrateController {
         $player = Node::load(array_pop($entity_ids));
       }
       $node->field_jugador[] = $player;
+      $node->save();
+    }
+  }
+
+  public function attachTeams($node, $teams) {
+    $node->field_equipos = [];
+    foreach (explode(',', $teams) as $team_name) {
+      if (trim($team_name) == '') {
+        continue;
+      }
+      $query = \Drupal::entityQuery('node');
+      $query->condition('title', $team_name);
+      $query->condition('type', 'equipo');
+      $entity_ids = $query->execute();
+      if (count($entity_ids) == 0) {
+        $equipo = Node::create([
+          'type'             => 'equipo',
+          'title'            => $team_name,
+          'uid'              => 1,
+          'moderation_state' => 'published',
+        ]);
+        $equipo->save();
+      }
+      else {
+        $equipo = Node::load(array_pop($entity_ids));
+      }
+      $node->field_equipos[] = $equipo;
       $node->save();
     }
   }
