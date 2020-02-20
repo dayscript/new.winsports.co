@@ -26,3 +26,10 @@ winsports.migrate.schedule:
     _title: 'Winsports Migrate Schedule'
   requirements:
     _permission: 'access content'
+winsports.migrate.opinion:
+  path: '/winsports-migrate-opinion'
+  defaults:
+    _controller: '\Drupal\winsportsmigrate\Controller\MigrateController::opinion'
+    _title: 'Winsports Migrate Opinion'
+  requirements:
+    _permission: 'access content'

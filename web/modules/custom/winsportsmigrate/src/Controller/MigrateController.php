@@ -111,6 +111,67 @@ class MigrateController {
     ];
   }
 
+  public function opinion() {
+    $url     = 'https://admin.winsports.co/migrate/opinion/202002';
+    $res     = $this->client->get($url);
+    $results = [
+      'new'      => 0,
+      'existing' => 0,
+    ];
+    if ($res->getStatusCode() == 200) {
+      $response = json_decode($res->getBody(), TRUE);
+      foreach ($response['nodes'] as $item) {
+        $query = \Drupal::entityQuery('node');
+        $query->condition('title', $item['title']);
+        $query->condition('type', 'columna_blog');
+        $entity_ids = $query->execute();
+        if (count($entity_ids) == 0) {
+          $node = Node::create([
+            'type'                  => 'columna_blog',
+            'title'                 => $item['title'],
+            'field_pretitle'        => $item['pretitle'],
+            'field_tipo_de_opinion' => $item['tipo'],
+            'field_mediastream'     => $item['mediastream'],
+            'body'                  => [
+              'value'  => $item['body'],
+              'format' => 'full_html',
+            ],
+            'field_url'             => $item['video'],
+            'uid'                   => 1,
+            'moderation_state'      => 'published',
+          ]);
+          $node->save();
+          $this->attachTags($node, $item['tags']);
+          if ($item['field_image']['src']) {
+            $image = file_get_contents($item['field_image']['src']);
+            if ($file = file_save_data($image, 'public://images/columna_blog/' . $this->slug($item['title']) . '.jpg', FILE_EXISTS_REPLACE)) {
+              $node->field_image = [
+                'target_id' => $file->id(),
+                'alt'       => $item['title'],
+                'title'     => $item['title'],
+              ];
+            }
+          }
+          $node->save();
+          $results['new']++;
+          if ($results['new'] >= $this->limit) {
+            break;
+          }
+        }
+        else {
+          $results['existing']++;
+        }
+      }
+    }
+
+
+    return [
+      '#type'   => 'markup',
+      '#markup' => t('Migracion de columnas / blog') . '<br>'
+                   . 'Nuevos: ' . $results['new'] . '<br>Existentes: ' . $results['existing'],
+    ];
+  }
+
   public function teams() {
     $url     = 'https://admin.winsports.co/migrate/teams';
     $res     = $this->client->get($url);
