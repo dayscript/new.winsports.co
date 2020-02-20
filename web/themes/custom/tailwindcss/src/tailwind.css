@@ -44,9 +44,6 @@ input {
 .node {
   @apply mb-4
 }
-.md-grid-cols-12{
-  @apply md:grid-cols-12 
-}
 
 .node__content p,
 .node__content ul,
