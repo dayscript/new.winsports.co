@@ -959,6 +959,20 @@ a {
   margin-top: 1rem;
 }
 
+.blocktabs {
+  margin-bottom: 1rem;
+}
+
+.blocktabs .ui-tabs-panel {
+  background-color: #e3e3e3;
+}
+
+.blocktabs .ui-tabs-panel .views-row {
+  margin-bottom: 1rem;
+  background-color: #0b3b41;
+  color: #fff;
+}
+
 .blocktabs.ui-widget-content {
   border-width: 0;
 }
@@ -988,6 +1002,19 @@ a {
   background-color: #819A9F;
   margin: 0;
   color: #fff;
+  border-width: 0;
+  border-radius: 0;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 0%;
+          flex: 1 1 0%;
+}
+
+.blocktabs .ui-widget-header.ui-tabs-nav.ui-corner-all .ui-tabs-tab a {
+  color: #fff;
+  width: 100%;
+  text-align: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .blocktabs .ui-widget-header.ui-tabs-nav.ui-corner-all .ui-tabs-tab.ui-state-active {

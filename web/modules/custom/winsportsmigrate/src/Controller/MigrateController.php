@@ -219,7 +219,7 @@ class MigrateController {
 
     return [
       '#type'   => 'markup',
-      '#markup' => t('Migracion de Equipos') . '<br>'
+      '#markup' => t('Migracion de Proramacion') . '<br>'
                    . 'Nuevos: ' . $results['new'] . '<br>Existentes: ' . $results['existing'],
     ];
   }
