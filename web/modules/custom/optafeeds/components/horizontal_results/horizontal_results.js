@@ -18,7 +18,7 @@ Vue.filter('capitalize', function (value) {
     }
 )
 new Vue({
-  el: '.opta-feeds-horizontal-results',
+  el: '.opta-feeds-horizontal-results .whitespace-no-wrap .overflow-y-hidden',
   data: {
     loading: 0,
     id_tournament: 371,
