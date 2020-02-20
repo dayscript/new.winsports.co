@@ -35,6 +35,7 @@
         "drupal/pathauto": "^1.6",
         "drupal/pdb": "^1.0@alpha",
         "drupal/pdb_vue": "^1.0@alpha",
+        "drupal/responsive_menu": "^2.6",
         "drupal/tamper": "^1.0@alpha",
         "drupal/views_infinite_scroll": "^1.6",
         "drush/drush": "^9.7.1 | ^10.0.0",
