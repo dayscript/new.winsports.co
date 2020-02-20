@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7b92c3eba419c8aa3d870fe296b6530c",
+    "content-hash": "b6710a9b3fb33eb9ce6d4dedfb0426b4",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -3213,6 +3213,53 @@
             "homepage": "https://www.drupal.org/project/field_group",
             "support": {
                 "source": "https://git.drupalcode.org/project/field_group"
+            }
+        },
+        {
+            "name": "drupal/mobile_device_detection",
+            "version": "3.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/mobile_device_detection.git",
+                "reference": "8.x-3.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/mobile_device_detection-8.x-3.2.zip",
+                "reference": "8.x-3.2",
+                "shasum": "9ae6c5b044cd72aa6b01d962ac93fdb20e819c5e"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-3.x": "3.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-3.2",
+                    "datestamp": "1557809885",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "depthinteractive",
+                    "homepage": "https://www.drupal.org/user/3610350"
+                }
+            ],
+            "description": "This module can detect any mobile devices.",
+            "homepage": "https://www.drupal.org/project/mobile_device_detection",
+            "support": {
+                "source": "https://git.drupalcode.org/project/mobile_device_detection"
             }
         },
         {
