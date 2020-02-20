@@ -62,8 +62,13 @@ class MigrateController {
     ];
     if ($res->getStatusCode() == 200) {
       $response = json_decode($res->getBody(), TRUE);
+      $count    = 0;
       foreach ($response['nodes'] as $item) {
-        $date  = $item['created'];
+        $count++;
+        if ($this->offset > 0 && $count <= $this->offset) {
+          continue;
+        }
+        $date = $item['created'];
         $query = \Drupal::entityQuery('node');
         $query->condition('title', $item['title']);
         $query->condition('type', 'article');
