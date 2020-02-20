@@ -55,6 +55,7 @@ class MigrateController {
     if ($res->getStatusCode() == 200) {
       $response = json_decode($res->getBody(), TRUE);
       foreach ($response['nodes'] as $item) {
+        $date  = strtotime($item['date']);
         $query = \Drupal::entityQuery('node');
         $query->condition('title', $item['title']);
         $query->condition('type', 'article');
@@ -73,6 +74,7 @@ class MigrateController {
             'field_is_video_article' => $item['is_video'],
             'uid'                    => 1,
             'moderation_state'       => 'published',
+            'created'                => $date,
           ]);
           $node->save();
           $this->attachTags($node, $item['tags']);
@@ -98,18 +100,17 @@ class MigrateController {
               ];
             }
           }
-          $date = $item['fecha'];
-          $node->set('created', $date);
           $node->save();
           $results['new']++;
         }
         else {
           $node = Node::load(array_pop($entity_ids));
           $node->set('uid', $item['uid']);
+          $node->set('created', $date);
           $node->save();
           $results['existing']++;
         }
-        if ($results['new']+$results['existing']  >= $this->limit) {
+        if ($results['new'] + $results['existing'] >= $this->limit) {
           break;
         }
       }
