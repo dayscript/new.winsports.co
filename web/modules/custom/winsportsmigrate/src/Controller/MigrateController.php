@@ -134,7 +134,7 @@ class MigrateController {
     return [
       '#type'   => 'markup',
       '#markup' => t('Migracion de Articulos') . '<br>'
-                   . 'Nuevos: ' . $results['new'] . '<br>Existentes: ' . $results['existing'],
+                   . 'Nuevos: ' . $results['new'] . '<br>Existentes: ' . $results['existing']. '<br>Total: ' . $count,
     ];
   }
 
