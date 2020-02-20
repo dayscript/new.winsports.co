@@ -33,3 +33,10 @@ winsports.migrate.opinion:
     _title: 'Winsports Migrate Opinion'
   requirements:
     _permission: 'access content'
+winsports.migrate.users:
+  path: '/winsports-migrate-users'
+  defaults:
+    _controller: '\Drupal\winsportsmigrate\Controller\MigrateController::users'
+    _title: 'Winsports Migrate Users'
+  requirements:
+    _permission: 'access content'

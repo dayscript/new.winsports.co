@@ -8,6 +8,7 @@ namespace Drupal\winsportsmigrate\Controller;
 
 use Drupal\node\Entity\Node;
 use Drupal\taxonomy\Entity\Term;
+use Drupal\user\Entity\User;
 use GuzzleHttp\Client;
 
 class MigrateController {
@@ -233,8 +234,62 @@ class MigrateController {
 
     return [
       '#type'   => 'markup',
-      '#markup' => t('Migracion de Equipos') . '<br>'
-                   . 'Nuevos: ' . $results['new'] . '<br>Existentes: ' . $results['existing'],
+      '#markup' => t('Migracion de Equipos') . '<br>' . 'Nuevos: ' . $results['new'] . '<br>Existentes: ' . $results['existing'],
+    ];
+  }
+
+  public function users() {
+    $url     = 'https://admin.winsports.co/migrate/users';
+    $res     = $this->client->get($url);
+    $results = [
+      'new'      => 0,
+      'existing' => 0,
+    ];
+    if ($res->getStatusCode() == 200) {
+      $response = json_decode($res->getBody(), TRUE);
+      foreach ($response['nodes'] as $item) {
+        $query = \Drupal::entityQuery('user');
+        $query->condition('uid', $item['uid']);
+        $entity_ids = $query->execute();
+        if (count($entity_ids) == 0) {
+          $date = strtotime($item['fecha']);
+          $user = User::create([
+            'uid'           => $item['uid'],
+            'name'          => $item['name'],
+            'field_nombres' => $item['nombre_completo'],
+            'status'        => $item['activo'],
+            'mail'          => $item['mail'],
+            'field_twitter' => $item['twitter'],
+            'field_perfil‎' => $item['perfil'],
+            'created'       => $date,
+          ]);
+          $user->save();
+          if ($item['field_image']['src']) {
+            $image = file_get_contents($item['field_image']['src']);
+            if ($file = file_save_data($image, 'public://images/users/' . $this->slug($item['name']) . '.png', FILE_EXISTS_REPLACE)) {
+              $user->field_image = [
+                'target_id' => $file->id(),
+                'alt'       => $item['name'],
+                'title'     => $item['name'],
+              ];
+            }
+          }
+          $user->save();
+          $results['new']++;
+          if ($results['new'] >= $this->limit) {
+            break;
+          }
+        }
+        else {
+          $results['existing']++;
+        }
+      }
+    }
+
+
+    return [
+      '#type'   => 'markup',
+      '#markup' => t('Migracion de Equipos') . '<br>' . 'Nuevos: ' . $results['new'] . '<br>Existentes: ' . $results['existing'],
     ];
   }
 
