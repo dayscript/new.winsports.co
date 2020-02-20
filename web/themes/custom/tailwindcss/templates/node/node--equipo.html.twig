@@ -19,10 +19,10 @@
         {% if node.hasField('field_nombre_comun') %}
             <h2 class="title tw-mt-10 tw-mb-6">{{ content.field_nombre_comun }}</h2>
         {% endif %}
-<!--         <div class="tw-flex tw-flex-wrap tw-overflow-hidden tw-bg-gray-650 tw-py-4 tw-px-8 tw-mb-8">
-            <div class="tw-w-4/12 tw-overflow-hidden tw-flex tw-items-center tw-text-white tw-pr-6 border-r-2 border-gray-400 tw-my-4">
-                <div>{{ content.field_image }}</div>
-                <div class="ml-6 tw-text-sm">
+        <div class="tw-grid tw-grid-cols-12 tw-bg-gray-650">
+            <div class="tw-grid grid-cols-12 col-span-4 tw-items-center tw-text-white">
+                <div class="col-span-4">{{ content.field_image }}</div>
+                <div class="col-span-8 tw-text-sm">
                     <div><strong>{{ node.field_ciudad.fieldDefinition.label }}</strong>: {{ node.field_ciudad.value }}</div>
                     <div><strong>{{ node.field_fundacion.fieldDefinition.label }}</strong>: {{ node.field_fundacion.value }}</div>
                     <div><strong>{{ node.field_estadio.fieldDefinition.label }}</strong>: {{ node.field_estadio.value }}</div>
@@ -32,8 +32,8 @@
                     <div><strong>{{ node.field_pretitle.value }}</strong></div>
                 </div>
             </div>
-            <div class="tw-w-7/12 tw-overflow-hidden tw-ml-6">
+            <div class="col-span-8">
                 <div class="body tw-text-white tw-text-sm tw-leading-none">{{ content.body }}</div>
             </div>
-        </div> -->
+        </div>
 </article>
