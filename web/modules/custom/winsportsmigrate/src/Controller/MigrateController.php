@@ -138,7 +138,7 @@ class MigrateController {
               'format' => 'full_html',
             ],
             'field_url'             => $item['video'],
-            'uid'                   => 1,
+            'uid'                   => $item['autor_uid'],
             'moderation_state'      => 'published',
           ]);
           $node->save();
