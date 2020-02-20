@@ -102,15 +102,15 @@ class MigrateController {
           $node->set('created', $date);
           $node->save();
           $results['new']++;
-          if ($results['new'] >= $this->limit) {
-            break;
-          }
         }
         else {
           $node = Node::load(array_pop($entity_ids));
           $node->set('uid', $item['uid']);
           $node->save();
           $results['existing']++;
+        }
+        if ($results['new']+$results['existing']  >= $this->limit) {
+          break;
         }
       }
     }
