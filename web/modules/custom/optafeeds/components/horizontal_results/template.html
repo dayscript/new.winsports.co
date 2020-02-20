@@ -1,6 +1,6 @@
-<div class="sm:overflow-y-hidden sm:whitespace-no-wrap">
+<div class="overflow-y-hidden whitespace-no-wrap md:overflow-auto md:whitespace-normal">
     <div class="flex" v-if="!loading && matches">
-        <div class="flex-1 text-center mr-10 md:mr-0" v-for="match in matches">
+        <div class="flex-1 text-center mr-8 md:mr-0" v-for="match in matches">
             <div class="flex justify-center">
                 <img class="mr-2" :src="'//secure.omo.akamai.opta.net/image.php?secure=true&h=secure.omo.akamai.opta.net&sport=football&entity=team&description=badges&dimensions=20&id='+ match.home.id" :alt="match.home.name" :title="match.home.name">
                 <div class="font-bold" :class="match.period == 'FullTime'?'text-red-700':'text-gray-500'">
