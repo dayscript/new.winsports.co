@@ -17,12 +17,20 @@ class MigrateController {
 
   public $limit;
 
+  public $period;
+
   public function __construct() {
     if (isset($_REQUEST['limit'])) {
       $this->limit = $_REQUEST['limit'];
     }
     else {
       $this->limit = 10;
+    }
+    if (isset($_REQUEST['period'])) {
+      $this->period = $_REQUEST['period'];
+    }
+    else {
+      $this->period = '202002';
     }
     $this->client = new Client();
   }
@@ -38,7 +46,7 @@ class MigrateController {
   }
 
   public function articles() {
-    $url     = 'https://admin.winsports.co/migrate/articles/202002';
+    $url     = 'https://admin.winsports.co/migrate/articles/' . $this->period;
     $res     = $this->client->get($url);
     $results = [
       'new'      => 0,
@@ -99,6 +107,9 @@ class MigrateController {
           }
         }
         else {
+          $node = Node::load(array_pop($entity_ids));
+          $node->set('uid', $item['uid']);
+          $node->save();
           $results['existing']++;
         }
       }
@@ -113,7 +124,7 @@ class MigrateController {
   }
 
   public function opinion() {
-    $url     = 'https://admin.winsports.co/migrate/opinion/202002';
+    $url     = 'https://admin.winsports.co/migrate/opinion/' . $this->period;
     $res     = $this->client->get($url);
     $results = [
       'new'      => 0,
