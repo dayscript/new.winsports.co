@@ -1,55 +1,57 @@
-<div class="flex" v-if="!loading && matches">
-    <div class="flex-1 text-center" v-for="match in matches">
-        <div class="flex justify-center">
-            <img class="mr-2" :src="'//secure.omo.akamai.opta.net/image.php?secure=true&h=secure.omo.akamai.opta.net&sport=football&entity=team&description=badges&dimensions=20&id='+ match.home.id" :alt="match.home.name" :title="match.home.name">
-            <div class="font-bold" :class="match.period == 'FullTime'?'text-red-700':'text-gray-500'">
-                <small v-if="(match.home.pen_score > 0 || match.away.pen_score > 0)">({{ match.home.pen_score }})</small>
-                {{ match.home.score }} : {{ match.away.score }}
-                <small v-if="(match.home.pen_score > 0 || match.away.pen_score > 0)">({{ match.away.pen_score }})</small>
+<div class="overflow-y-hidden whitespace-no-wrap md:overflow-auto md:whitespace-normal">
+    <div class="flex" v-if="!loading && matches">
+        <div class="flex-1 text-center mr-8 md:mr-0" v-for="match in matches">
+            <div class="flex justify-center">
+                <img class="mr-2" :src="'//secure.omo.akamai.opta.net/image.php?secure=true&h=secure.omo.akamai.opta.net&sport=football&entity=team&description=badges&dimensions=20&id='+ match.home.id" :alt="match.home.name" :title="match.home.name">
+                <div class="font-bold" :class="match.period == 'FullTime'?'text-red-700':'text-gray-500'">
+                    <small v-if="(match.home.pen_score > 0 || match.away.pen_score > 0)">({{ match.home.pen_score }})</small>
+                    {{ match.home.score }} : {{ match.away.score }}
+                    <small v-if="(match.home.pen_score > 0 || match.away.pen_score > 0)">({{ match.away.pen_score }})</small>
+                </div>
+                <img class="ml-2" :src="'//secure.omo.akamai.opta.net/image.php?secure=true&h=secure.omo.akamai.opta.net&sport=football&entity=team&description=badges&dimensions=20&id='+ match.away.id" :alt="match.away.name" :title="match.away.name">
             </div>
-            <img class="ml-2" :src="'//secure.omo.akamai.opta.net/image.php?secure=true&h=secure.omo.akamai.opta.net&sport=football&entity=team&description=badges&dimensions=20&id='+ match.away.id" :alt="match.away.name" :title="match.away.name">
+            <div>
+                <small v-if="match.period == 'TBC' || match.period == 'Postponed'">{{ match.date | formatDate | capitalize }} - Por definir</small>
+                <small v-else-if="match.period == 'FullTime'">{{ match.date | formatDate | capitalize }} - Finalizado</small>
+                <small v-else-if="match.period != 'TBC' && match.date != 0 && match.period != 'Postponed'">{{ match.date | formatDate | capitalize }}, {{ match.date | formatHour }}</small>
+                <small v-else>{{ match.date | formatDate | capitalize }} {{ match.period }}</small>
+            </div>
+            <div class="flex items-center justify-center">
+                <a href="/partidos" class="flex">
+                <img src="/sites/default/files/widgets/play_button.png" alt="Resumen">
+                <span class="pl-1 text-xs font-medium title-color">Resumen</span>
+                </a>
+            </div>
+            <!--            <div class="row auto_size">-->
+            <!--                <a href="/partidos/liga-betplay-dimayor-2020-i/todos/fecha-2/once-caldas-atletico-bucaramanga-124446">-->
+            <!--                    <hr class="match">-->
+            <!--                    <div class="medium-2 columns text-left auto_size">-->
+            <!--                        <img src="//secure.omo.akamai.opta.net/image.php?secure=true&amp;h=secure.omo.akamai.opta.net&amp;sport=football&amp;entity=team&amp;description=badges&amp;dimensions=20&amp;id=2286">-->
+            <!--                    </div>-->
+            <!--                    <div class="medium-8 columns text-center marcador auto_size ng-binding finish" >-->
+            <!--                        1 - 1-->
+            <!--                    </div>-->
+            <!--                    <div class="medium-2 columns text-right auto_size">-->
+            <!--                        <img alt="Atl" title="Atlético Bucaramanga" src="//secure.omo.akamai.opta.net/image.php?secure=true&amp;h=secure.omo.akamai.opta.net&amp;sport=football&amp;entity=team&amp;description=badges&amp;dimensions=20&amp;id=2669">-->
+            <!--                    </div>-->
+            <!--                    <hr class="match">-->
+            <!--                    <div class="medium-12 columns text-center auto_size">-->
+            <!--                        <div class="hora finish ng-binding ng-scope">-->
+            <!--                            ene. 28 ,Finalizado-->
+            <!--                        </div>-->
+            <!--                    </div>-->
+            <!--                </a>-->
+            <!--                <hr class="match">-->
+            <!--                <div class="medium-12 columns text-center auto_size">-->
+            <!--                    <a ng-if="match.ruta_compact_video" href="/multimedia/galeria-compactos/liga-betplay-observa-aqui-los-goles-del-empate-entre-once-caldas-y-bucaramanga-125214" class="ver-goles columns medium-12 ng-scope">-->
+            <!--                    <div class="play-button-outer columns medium-3">-->
+            <!--                        <div class="play-button"></div>-->
+            <!--                    </div>-->
+            <!--                    <div class="columns medium-9 ver-goles-text">-->
+            <!--                        VER GOLES-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--            </div>-->
         </div>
-        <div>
-            <small v-if="match.period == 'TBC' || match.period == 'Postponed'">{{ match.date | formatDate | capitalize }} - Por definir</small>
-            <small v-else-if="match.period == 'FullTime'">{{ match.date | formatDate | capitalize }} - Finalizado</small>
-            <small v-else-if="match.period != 'TBC' && match.date != 0 && match.period != 'Postponed'">{{ match.date | formatDate | capitalize }}, {{ match.date | formatHour }}</small>
-            <small v-else>{{ match.date | formatDate | capitalize }} {{ match.period }}</small>
-        </div>
-        <div class="flex items-center justify-center">
-            <a href="/partidos" class="flex">
-            <img src="/sites/default/files/widgets/play_button.png" alt="Resumen">
-            <span class="pl-1 text-xs font-medium title-color">Resumen</span>
-            </a>
-        </div>
-        <!--            <div class="row auto_size">-->
-        <!--                <a href="/partidos/liga-betplay-dimayor-2020-i/todos/fecha-2/once-caldas-atletico-bucaramanga-124446">-->
-        <!--                    <hr class="match">-->
-        <!--                    <div class="medium-2 columns text-left auto_size">-->
-        <!--                        <img src="//secure.omo.akamai.opta.net/image.php?secure=true&amp;h=secure.omo.akamai.opta.net&amp;sport=football&amp;entity=team&amp;description=badges&amp;dimensions=20&amp;id=2286">-->
-        <!--                    </div>-->
-        <!--                    <div class="medium-8 columns text-center marcador auto_size ng-binding finish" >-->
-        <!--                        1 - 1-->
-        <!--                    </div>-->
-        <!--                    <div class="medium-2 columns text-right auto_size">-->
-        <!--                        <img alt="Atl" title="Atlético Bucaramanga" src="//secure.omo.akamai.opta.net/image.php?secure=true&amp;h=secure.omo.akamai.opta.net&amp;sport=football&amp;entity=team&amp;description=badges&amp;dimensions=20&amp;id=2669">-->
-        <!--                    </div>-->
-        <!--                    <hr class="match">-->
-        <!--                    <div class="medium-12 columns text-center auto_size">-->
-        <!--                        <div class="hora finish ng-binding ng-scope">-->
-        <!--                            ene. 28 ,Finalizado-->
-        <!--                        </div>-->
-        <!--                    </div>-->
-        <!--                </a>-->
-        <!--                <hr class="match">-->
-        <!--                <div class="medium-12 columns text-center auto_size">-->
-        <!--                    <a ng-if="match.ruta_compact_video" href="/multimedia/galeria-compactos/liga-betplay-observa-aqui-los-goles-del-empate-entre-once-caldas-y-bucaramanga-125214" class="ver-goles columns medium-12 ng-scope">-->
-        <!--                    <div class="play-button-outer columns medium-3">-->
-        <!--                        <div class="play-button"></div>-->
-        <!--                    </div>-->
-        <!--                    <div class="columns medium-9 ver-goles-text">-->
-        <!--                        VER GOLES-->
-        <!--                    </div>-->
-        <!--                </div>-->
-        <!--            </div>-->
     </div>
 </div>
