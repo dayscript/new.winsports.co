@@ -19,7 +19,7 @@
         {% if node.hasField('field_nombre_comun') %}
             <h2 class="title tw-mt-10 tw-mb-6">{{ content.field_nombre_comun }}</h2>
         {% endif %}
-        <div class="tw-grid tw-grid-cols-12 tw-bg-gray-650">
+        <div class="tw-grid tw-grid-cols-12 tw-bg-gray-650 p-10">
             <div class="tw-grid grid-cols-12 col-span-4 tw-items-center tw-text-white">
                 <div class="col-span-4">{{ content.field_image }}</div>
                 <div class="col-span-8 tw-text-sm">
@@ -33,7 +33,7 @@
                 </div>
             </div>
             <div class="col-span-8">
-                <div class="body tw-text-white tw-text-sm tw-leading-none">{{ content.body }}</div>
+                <div class="body tw-text-white tw-text-sm">{{ content.body }}</div>
             </div>
         </div>
 </article>
