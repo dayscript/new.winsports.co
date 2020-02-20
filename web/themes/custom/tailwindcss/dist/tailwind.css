@@ -973,6 +973,10 @@ a {
   color: #fff;
 }
 
+.blocktabs .ui-tabs-panel .views-row .views-field-title a {
+  color: #fff;
+}
+
 .blocktabs.ui-widget-content {
   border-width: 0;
 }
@@ -995,6 +999,7 @@ a {
   display: flex;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
+  margin-bottom: 0.5rem;
 }
 
 .blocktabs .ui-widget-header.ui-tabs-nav.ui-corner-all .ui-tabs-tab {

@@ -77,6 +77,11 @@
     @apply bg-gray;
     .views-row{
       @apply mb-4 bg-primary text-white;
+      .views-field-title{
+        a{
+          @apply text-white;
+        }
+      }
     }
   }
   &.ui-widget-content{
@@ -89,7 +94,7 @@
     @apply p-0;
   }
   .ui-widget-header.ui-tabs-nav.ui-corner-all{
-    @apply border-0 bg-transparent rounded-none p-0 flex flex-no-wrap;
+    @apply border-0 bg-transparent rounded-none p-0 flex flex-no-wrap mb-2;
     .ui-tabs-tab{
       font-family: $font-title;
       @apply bg-gray-650 m-0 text-white border-0 rounded-none flex-1;
