@@ -137,7 +137,9 @@
 }
 
 @screen md {
-  #block-views-block-videos-block-2 .contextual-region {
-    grid-template-columns: repeat(4,minmax(0,1fr));
+  #block-views-block-videos-block-2{
+    .md--col--4{
+      grid-template-columns: repeat(4,minmax(0,1fr));
+    }
   }
 }
