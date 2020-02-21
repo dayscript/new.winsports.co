@@ -1069,11 +1069,11 @@ a {
   margin-bottom: 2.5rem;
 }
 
-/* @screen md {
+@media (min-width: 640px) {
   #block-views-block-videos-block-2 .contextual-region {
-    @apply bg-blue-700;
+    background-color: #2b6cb0;
   }
-} */
+}
 
 #block-futbolcolombiano-estadisticas, .opta-widgets {
   color: #0B3B41;
