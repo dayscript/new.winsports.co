@@ -138,6 +138,6 @@
 
 @screen md {
   #block-views-block-videos-block-2 .contextual-region {
-    @apply bg-blue-700;
+    @apply grid grid-cols-4 gap-12;
   }
 }

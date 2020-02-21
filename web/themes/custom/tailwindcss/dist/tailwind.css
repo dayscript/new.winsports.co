@@ -1071,7 +1071,10 @@ a {
 
 @media (min-width: 768px) {
   #block-views-block-videos-block-2 .contextual-region {
-    background-color: #2b6cb0;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-gap: 3rem;
+    gap: 3rem;
   }
 }
 
