@@ -139,7 +139,14 @@
 @screen md {
   #block-views-block-videos-block-2{
     .md--col--4{
-      grid-template-columns: repeat(4,minmax(0,1fr));
+      @apply flex flex-wrap;
+      .views-row{
+        width: 25%;
+        padding: .5rem;
+      }
+      footer{
+        @apply w-full;
+      }
     }
   }
 }
