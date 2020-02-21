@@ -45,6 +45,12 @@ input {
   @apply mb-4
 }
 
+@screen md {
+  #block-views-block-videos-block-2 .contextual-region {
+    @apply bg-blue-700;
+  }
+}
+
 .node__content p,
 .node__content ul,
 .node__content ol {
