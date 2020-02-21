@@ -149,4 +149,16 @@
       }
     }
   }
+  #block-views-block-videos-block-2{
+    .md--col--4{
+      @apply flex flex-wrap;
+      .views-row{
+        width: 25%;
+        padding: .5rem;
+      }
+      li.pager__item{
+        @apply more-link;
+      }
+    }
+  }
 }

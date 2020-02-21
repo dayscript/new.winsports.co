@@ -1086,6 +1086,25 @@ a {
   #block-views-block-videos-block-2 .md--col--4 footer {
     width: 100%;
   }
+
+  #block-views-block-videos-block-2 .md--col--4 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+
+  #block-views-block-videos-block-2 .md--col--4 .views-row {
+    width: 25%;
+    padding: .5rem;
+  }
+
+  #block-views-block-videos-block-2 .md--col--4 li.pager__item {
+    font-family: "Passion One", cursive;
+    text-align: center;
+    width: 100%;
+  }
 }
 
 #block-futbolcolombiano-estadisticas, .opta-widgets {
