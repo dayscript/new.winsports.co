@@ -149,6 +149,9 @@
         }
         .views-field-nothing{
           @apply w-7/12 text-sm ml-4;
+          .category a{
+            @apply text-sm;
+          }
         }
       }  
     }
