@@ -1083,6 +1083,19 @@ a {
 }
 
 @media (min-width: 768px) {
+  #block-views-block-nomina-block-1 .md--col--4 .views-infinite-scroll-content-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+
+  #block-views-block-nomina-block-1 .md--col--4 .views-infinite-scroll-content-wrapper .views-row {
+    width: 8.333333%;
+    padding: .5rem;
+  }
+
   #block-views-block-videos-block-2 .md--col--4 {
     display: -webkit-box;
     display: -ms-flexbox;
