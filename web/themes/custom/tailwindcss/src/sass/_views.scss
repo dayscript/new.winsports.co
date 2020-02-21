@@ -123,12 +123,12 @@
   }
   .md--col--4{
     .views-row{
-      @apply flex items-center;
+      @apply flex items-center mb-4;
       .views-field-field-image{
         @apply w-5/12;
       }
       .views-field-title{
-        @apply w-7/12;
+        @apply w-7/12 text-sm ml-4;
       }
     }  
   }

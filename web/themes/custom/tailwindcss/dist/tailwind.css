@@ -1060,6 +1060,7 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-bottom: 1rem;
 }
 
 #block-views-block-videos-block-2 .md--col--4 .views-row .views-field-field-image {
@@ -1068,6 +1069,8 @@ a {
 
 #block-views-block-videos-block-2 .md--col--4 .views-row .views-field-title {
   width: 58.333333%;
+  font-size: 0.875rem;
+  margin-left: 1rem;
 }
 
 #block-views-block-noticias-block-1 {
