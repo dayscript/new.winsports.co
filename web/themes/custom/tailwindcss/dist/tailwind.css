@@ -1162,6 +1162,15 @@ a {
     padding: .5rem;
   }
 
+  #block-views-block-videos-block-2 .md--col--4 .views-row .views-field-field-image {
+    width: 100%;
+  }
+
+  #block-views-block-videos-block-2 .md--col--4 .views-row .views-field-title {
+    width: 100%;
+    margin-left: 0;
+  }
+
   #block-views-block-videos-block-2 .md--col--4 footer {
     width: 100%;
   }
@@ -1175,6 +1184,7 @@ a {
   }
 
   #block-views-block-noticias-block-1 .md--col--4 .views-infinite-scroll-content-wrapper .views-row {
+    display: block;
     width: 25%;
     padding: .5rem;
   }

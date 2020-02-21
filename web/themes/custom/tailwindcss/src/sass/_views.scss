@@ -204,6 +204,12 @@
       .views-row{
         width: 25%;
         padding: .5rem;
+      .views-field-field-image{
+        @apply w-full;
+      }
+      .views-field-title{
+        @apply w-full ml-0;
+      }
       }
       footer{
         @apply w-full;
@@ -215,6 +221,7 @@
       .views-infinite-scroll-content-wrapper{
         @apply flex flex-wrap;
         .views-row{
+          @apply block;
           width: 25%;
           padding: .5rem;
         }
