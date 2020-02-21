@@ -134,10 +134,24 @@
     }  
   }
 }
+
 #block-views-block-noticias-block-1{
   @apply my-8;
   h2{
     @apply mb-10;
+  }
+  .md--col--4{
+    .views-infinite-scroll-content-wrapper{
+      .views-row{
+        @apply flex items-center mb-4;
+        .views-field-field-image{
+          @apply w-5/12 mb-0;
+        }
+        .views-field-nothing{
+          @apply w-7/12 text-sm ml-4;
+        }
+      }  
+    }
   }
   ul.js-pager__items{
     @apply text-center;
