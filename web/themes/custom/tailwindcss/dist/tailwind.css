@@ -1062,7 +1062,11 @@ a {
   margin-bottom: 2.5rem;
 }
 
-#block-views-block-noticias-block-1 li.pager__item {
+#block-views-block-noticias-block-1 ul.js-pager__items {
+  text-align: center;
+}
+
+#block-views-block-noticias-block-1 ul.js-pager__items li.pager__item {
   display: inline-block;
   white-space: nowrap;
   margin-bottom: 1.5rem;
