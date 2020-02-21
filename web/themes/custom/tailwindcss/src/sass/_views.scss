@@ -253,4 +253,12 @@
       }
     }
   }
+  #block-views-block-videos-block-3{
+    .md--col--2{
+      @apply flex flex-wrap;
+      .views-row{
+        @apply w-6/12;
+      }
+    }
+  }
 }
