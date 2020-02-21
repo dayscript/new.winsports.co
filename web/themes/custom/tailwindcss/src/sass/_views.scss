@@ -136,23 +136,8 @@
   }
 }
 
-@screen sm {
-  #block-views-block-videos-block-2{
-    .sm--col--4{
-      .views-row{
-        @apply tw-grid tw-grid-cols-12 tw-items-center tw-mb-4;
-        .views-field-field-image{
-          @apply tw-col-span-5;
-        }
-        .views-field-title{
-          @apply  tw-col-span-7 tw-text-sm tw-ml-4;
-        }
-      }
-    }
+/* @screen md {
+  #block-views-block-videos-block-2 .contextual-region {
+    @apply bg-blue-700;
   }
-/*   .contextual-region {
-    .views-row{
-      @apply grid grid-cols-12 items-center;
-    }
-  } */
-}
+} */

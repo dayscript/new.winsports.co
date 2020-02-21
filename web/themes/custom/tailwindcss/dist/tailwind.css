@@ -1069,32 +1069,11 @@ a {
   margin-bottom: 2.5rem;
 }
 
-@media (min-width: 640px) {
-  #block-views-block-videos-block-2 .sm--col--4 .views-row {
-    display: grid;
-    grid-template-columns: repeat(12, minmax(0, 1fr));
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    margin-bottom: 1rem;
+/* @screen md {
+  #block-views-block-videos-block-2 .contextual-region {
+    @apply bg-blue-700;
   }
-
-  #block-views-block-videos-block-2 .sm--col--4 .views-row .views-field-field-image {
-    grid-column: span 5 / span 5;
-  }
-
-  #block-views-block-videos-block-2 .sm--col--4 .views-row .views-field-title {
-    grid-column: span 7 / span 7;
-    font-size: 0.875rem;
-    margin-left: 1rem;
-  }
-
-  /*   .contextual-region {
-    .views-row{
-      @apply grid grid-cols-12 items-center;
-    }
-  } */
-}
+} */
 
 #block-futbolcolombiano-estadisticas, .opta-widgets {
   color: #0B3B41;
