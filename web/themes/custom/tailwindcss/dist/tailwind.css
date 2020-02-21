@@ -1069,6 +1069,12 @@ a {
   margin-bottom: 2.5rem;
 }
 
+@media (min-width: 768px) {
+  #block-views-block-videos-block-2 .contextual-region {
+    background-color: #2b6cb0;
+  }
+}
+
 #block-futbolcolombiano-estadisticas, .opta-widgets {
   color: #0B3B41;
 }

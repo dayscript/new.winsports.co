@@ -135,3 +135,9 @@
     @apply mb-10;
   }
 }
+
+@screen md {
+  #block-views-block-videos-block-2 .contextual-region {
+    @apply bg-blue-700;
+  }
+}
