@@ -150,7 +150,7 @@
         .views-field-nothing{
           @apply w-7/12 text-sm ml-4;
           .category a{
-            @apply text-sm;
+            font-size: 0.6rem;
           }
         }
       }  
@@ -243,6 +243,12 @@
           @apply block;
           width: 25%;
           padding: .5rem;
+          .views-field-field-image{
+            @apply w-full;
+          }
+          .views-field-nothing{
+            @apply w-full ml-0;
+          }
         }
       }
     }
