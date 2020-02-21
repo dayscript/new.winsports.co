@@ -110,6 +110,7 @@
     }
   }
 }
+//cvillamil
 #block-views-block-nomina-block-1{
   @apply my-8;
   h2{
@@ -202,6 +203,7 @@
     .md--col--4{
       @apply flex flex-wrap;
       .views-row{
+        @apply block;
         width: 25%;
         padding: .5rem;
       .views-field-field-image{

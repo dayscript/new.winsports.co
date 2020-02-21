@@ -1158,6 +1158,7 @@ a {
   }
 
   #block-views-block-videos-block-2 .md--col--4 .views-row {
+    display: block;
     width: 25%;
     padding: .5rem;
   }
