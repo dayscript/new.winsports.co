@@ -150,10 +150,19 @@
 @screen md {
   #block-views-block-nomina-block-1{
     .md--col--4{
+      @apply flex flex-wrap;
+      .views-row{
+        width: 8.333333%;
+        padding: .5rem;
+      }
+    }
+  }
+  #block-views-block-nomina-block-2{
+    .md--col--4{
       .views-infinite-scroll-content-wrapper{
         @apply flex flex-wrap;
         .views-row{
-          width: 8.333333%;
+          width: 25%;
           padding: .5rem;
         }
       }
