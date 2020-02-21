@@ -121,6 +121,17 @@
   h2{
     @apply mb-10;
   }
+  .md--col--4{
+    .views-row{
+      @apply flex items-center;
+      .views-field-field-image{
+        @apply w-5/12;
+      }
+      .views-field-title{
+        @apply w-7/12;
+      }
+    }  
+  }
 }
 #block-views-block-noticias-block-1{
   @apply my-8;

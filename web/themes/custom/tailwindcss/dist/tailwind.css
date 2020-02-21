@@ -1053,6 +1053,23 @@ a {
   margin-bottom: 2.5rem;
 }
 
+#block-views-block-videos-block-2 .md--col--4 .views-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#block-views-block-videos-block-2 .md--col--4 .views-row .views-field-field-image {
+  width: 41.666667%;
+}
+
+#block-views-block-videos-block-2 .md--col--4 .views-row .views-field-title {
+  width: 58.333333%;
+}
+
 #block-views-block-noticias-block-1 {
   margin-top: 2rem;
   margin-bottom: 2rem;
