@@ -126,7 +126,7 @@
     .views-row{
       @apply flex items-center mb-4;
       .views-field-field-image{
-        @apply w-5/12;
+        @apply w-5/12 mb-0;
       }
       .views-field-title{
         @apply w-7/12 text-sm ml-4;
@@ -207,7 +207,7 @@
         width: 25%;
         padding: .5rem;
       .views-field-field-image{
-        @apply w-full;
+        @apply w-full mb-5;
       }
       .views-field-title{
         @apply w-full ml-0;

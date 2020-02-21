@@ -1065,6 +1065,7 @@ a {
 
 #block-views-block-videos-block-2 .md--col--4 .views-row .views-field-field-image {
   width: 41.666667%;
+  margin-bottom: 0;
 }
 
 #block-views-block-videos-block-2 .md--col--4 .views-row .views-field-title {
@@ -1165,6 +1166,7 @@ a {
 
   #block-views-block-videos-block-2 .md--col--4 .views-row .views-field-field-image {
     width: 100%;
+    margin-bottom: 1.25rem;
   }
 
   #block-views-block-videos-block-2 .md--col--4 .views-row .views-field-title {
