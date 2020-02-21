@@ -136,8 +136,8 @@
   }
 }
 
-@screen sm {
+@screen md {
   #block-views-block-videos-block-2 .contextual-region {
-    @apply bg-blue-700;
+    grid-template-columns: repeat(4,minmax(0,1fr));
   }
 }
