@@ -115,13 +115,6 @@
   h2{
     @apply mb-10;
   }
-/*   display: inline-block;
-  .img-jugador{
-    width: 8.333333%;
-    min-height: 140px;
-    float: left;
-    margin-bottom: .5rem;
-  } */
 }
 #block-views-block-videos-block-2{
   @apply my-8 pb-8;
@@ -149,7 +142,7 @@
       }
     }
   }
-  #block-views-block-videos-block-2{
+  .block-views-block-noticias-block-1{
     .md--col--4{
       @apply flex flex-wrap;
       .views-row{
