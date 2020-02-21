@@ -159,10 +159,12 @@
   }
   #block-views-block-noticias-block-1{
     .md--col--4{
-      @apply flex flex-wrap;
-      .views-row{
-        width: 25%;
-        padding: .5rem;
+      .views-infinite-scroll-content-wrapper{
+        @apply flex flex-wrap;
+        .views-row{
+          width: 25%;
+          padding: .5rem;
+        }
       }
     }
   }

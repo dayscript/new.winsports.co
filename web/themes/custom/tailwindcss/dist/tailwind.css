@@ -1096,7 +1096,7 @@ a {
     width: 100%;
   }
 
-  #block-views-block-noticias-block-1 .md--col--4 {
+  #block-views-block-noticias-block-1 .md--col--4 .views-infinite-scroll-content-wrapper {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1104,7 +1104,7 @@ a {
         flex-wrap: wrap;
   }
 
-  #block-views-block-noticias-block-1 .md--col--4 .views-row {
+  #block-views-block-noticias-block-1 .md--col--4 .views-infinite-scroll-content-wrapper .views-row {
     width: 25%;
     padding: .5rem;
   }
