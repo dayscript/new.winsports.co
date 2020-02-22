@@ -254,11 +254,10 @@
     }
   }
   #block-positionstableswidget-2{
-    @apply w-6/12;
+    @apply w-6/12 float-left;
   }
   #block-views-block-videos-block-3{
-    @apply w-6/12;
-    @apply float-left;
+    @apply w-6/12 float-left;
     .md--col--2{
       @apply flex flex-wrap;
       .views-row{
@@ -267,12 +266,13 @@
     }
   }
   #block-views-block-noticias-block-2{
-    @apply w-6/12;
-    @apply float-left;
+    @apply w-6/12 float-left;
     .md--col--2{
-      @apply flex flex-wrap;
-      .views-row{
-        @apply w-6/12 p-2;
+      .views-infinite-scroll-content-wrapper{
+        @apply flex flex-wrap;
+        .views-row{
+          @apply w-6/12 p-2;
+        }
       }
     }
   }

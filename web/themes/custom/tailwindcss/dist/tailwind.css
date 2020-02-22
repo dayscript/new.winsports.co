@@ -1228,6 +1228,7 @@ a {
 
   #block-positionstableswidget-2 {
     width: 50%;
+    float: left;
   }
 
   #block-views-block-videos-block-3 {
@@ -1253,7 +1254,7 @@ a {
     float: left;
   }
 
-  #block-views-block-noticias-block-2 .md--col--2 {
+  #block-views-block-noticias-block-2 .md--col--2 .views-infinite-scroll-content-wrapper {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1261,7 +1262,7 @@ a {
         flex-wrap: wrap;
   }
 
-  #block-views-block-noticias-block-2 .md--col--2 .views-row {
+  #block-views-block-noticias-block-2 .md--col--2 .views-infinite-scroll-content-wrapper .views-row {
     width: 50%;
     padding: 0.5rem;
   }
