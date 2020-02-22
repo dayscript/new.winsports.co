@@ -205,6 +205,28 @@
     }
   }
 }
+#block-views-block-noticias-block-2{
+  .md--col--2{
+    ul.js-pager__items{
+      @apply text-center;
+      li.pager__item{
+        display: inline-block;
+        white-space: nowrap;
+        margin-bottom: 1.5rem;
+        text-align: center;
+        clear: both;
+        background-color: #0ef8c3;
+        color: #0b3b41;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+        width: 16rem;
+        margin-top: 1rem;
+      }
+    }
+  }
+}
 
 @screen md {
   #block-views-block-nomina-block-1{
