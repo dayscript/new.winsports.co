@@ -45,7 +45,7 @@
 }
 #block-views-block-goles-home-block-1{
   @apply border-b border-gray;
-  .contextual-region{
+  div div{
     @apply flex flex-wrap;
     .views-row{
       @apply pr-4 w-2/3;
@@ -62,7 +62,7 @@
   }
 }
 #block-views-block-equipos-del-home-block-1{
-  .contextual-region{
+  div div{
     @apply flex justify-between items-center;
     img{
       @apply h-10 w-10;
