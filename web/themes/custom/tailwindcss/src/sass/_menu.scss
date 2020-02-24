@@ -12,3 +12,18 @@
 #block-toplinks{
   @apply text-sm;
 }
+#block-futbolcolombiano{
+  ul:not(.contextual-links){
+    @apply flex bg-gray-650 text-white justify-between;
+    li{
+      @apply flex-1;
+      a{
+        @apply text-white px-10 py-4 inline-block w-full text-center;
+        font-family:$font-title;
+        &.is-active{
+          @apply bg-secondary text-primary;
+        }
+      }
+    }
+  }
+}

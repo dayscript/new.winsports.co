@@ -298,15 +298,6 @@
   #block-positionstableswidget-2{
     @apply w-6/12 float-left;
   }
-  #block-views-block-videos-block-3{
-    @apply w-6/12 float-left;
-    .md--col--2{
-      @apply flex flex-wrap;
-      .views-row{
-        @apply w-6/12 p-2;
-      }
-    }
-  }
   #block-views-block-noticias-block-2{
     @apply w-6/12 float-left;
     .md--col--2{
@@ -418,5 +409,12 @@
   .canal-winsportsplus{
     @apply h-full w-32;
     background: url('/themes/custom/tailwindcss/images/logos/canal-winsportsplus.png') no-repeat center center;
+  }
+}
+.torneo-videos-list,
+.torneo-noticias-list .views-infinite-scroll-content-wrapper{
+  @apply flex flex-wrap;
+  .views-row{
+    @apply w-1/2 px-2 mb-4;
   }
 }
