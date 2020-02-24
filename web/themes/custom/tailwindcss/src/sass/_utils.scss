@@ -1,16 +1,16 @@
 input {
-  @apply border border-gray-500  
+  @apply border border-gray-500;
 }
 
 .block,
 .node {
-  @apply mb-4
+  @apply mb-4;
 }
 
 .node__content p,
 .node__content ul,
 .node__content ol {
-  @apply mb-4 leading-normal
+  @apply mb-4 leading-normal;
 }
 #block-tailwindcss-local-tasks,
 #block-tailwindcss-local-actions{

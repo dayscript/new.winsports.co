@@ -1,0 +1,14 @@
+name: Reload block
+machine_name: opta-feeds-reload
+type: pdb
+description: 'Reload the page'
+package: Vue
+core: '8.x'
+module_status: active
+template: template.html
+presentation: vue
+add_js:
+  footer:
+    'reload.js': {}
+libraries:
+  - optafeeds/tailwindcss

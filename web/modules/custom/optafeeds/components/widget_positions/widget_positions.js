@@ -3,6 +3,7 @@ new Vue({
   el: '.opta-feeds-widget-positions',
   data: {
     loading: 0,
+    max_rows: 10,
     tournament_season: '0-0',
     tournaments: [],
     phases: [],
@@ -16,7 +17,7 @@ new Vue({
       {key: 'reclassification', label: 'Reclasificación'},
       {key: 'scorers', label: 'Goleadores'}
     ],
-    positions:{
+    positions: {
       Forward: 'Delantero',
       Striker: 'Delantero',
       Midfielder: 'Volante',
@@ -70,9 +71,11 @@ new Vue({
             let items = null
             if (typeof data.teams !== 'undefined') {
               items = Object.entries(data.teams)
-            }else if (typeof data.scorers !== 'undefined') {
+            }
+            else if (typeof data.scorers !== 'undefined') {
               items = Object.entries(data.scorers)
-            } else {
+            }
+            else {
               this.selected_phase_id = data.competition.active_phase_id
               if (typeof data.phases[this.selected_phase_id] === 'undefined') {
                 this.selected_phase_id = Object.keys(data.phases).pop()
@@ -80,21 +83,23 @@ new Vue({
               phases = data.phases
               items = Object.entries(data.phases[this.selected_phase_id].teams)
             }
-            if(this.selected_option === 'decline'){
+            if (this.selected_option === 'decline') {
               items.sort(function (a, b) { return b[1].pos - a[1].pos})
-            } else {
+            }
+            else {
               items.sort(function (a, b) { return a[1].pos - b[1].pos})
             }
-            if(this.selected_option === 'scorers'){
+            if (this.selected_option === 'scorers') {
               items.forEach(function (player) {
                 players.push(player[1])
               })
-            } else {
+            }
+            else {
               items.forEach(function (team) {
                 teams.push(team[1])
-              })  
+              })
             }
-            
+
             this.players = players
             this.teams = teams
             this.phases = phases

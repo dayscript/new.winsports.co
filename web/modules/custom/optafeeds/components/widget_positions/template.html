@@ -41,7 +41,7 @@
                 <div class="flex-1">GD</div>
             </div>
         </div>
-        <div v-for="row in teams" class="ml-1 flex border-b-1 p-1 justify-between text-sm">
+        <div v-for="(row,index) in teams" v-if="index<max_rows" class="ml-1 flex border-b-1 p-1 justify-between text-sm">
             <div class="w-1/2 flex items-center">
                 <div class="w-1/6 text-center px-2"><strong>{{ row.pos }}</strong></div>
                 <div class="w-5/6 truncate ml-1">{{ row.name }}</div>
@@ -67,7 +67,8 @@
                 <div class="flex-1">{{ row.gd }}</div>
             </div>
         </div>
-        <div v-for="row in players" class="ml-1 flex border-b-1 p-1 justify-between text-sm">
+        <div v-for="row in players" v-if="index<max" class="ml-1 flex border-b-1 p-1 justify-between text-sm">
+            Index: {{ index }}
             <div class="w-1/2 flex items-center">
                 <div class="w-1/6 text-center px-2"><strong>{{ row.pos }}</strong></div>
                 <div class="w-5/6 truncate ml-1">{{ row.name }}</div>
@@ -79,4 +80,5 @@
             </div>
         </div>
     </div>
+    <div class="more-link full"><a href="/futbol-colombiano">Todas las estadísticas</a></div>
 </div>

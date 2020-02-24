@@ -1,7 +1,7 @@
 .gol-partido.video-player{
   @apply relative;
   .image{
-    img{
+    img:not(.play-icon){
       opacity: 0.7;
       @apply w-full;
     }
@@ -18,6 +18,15 @@
   .torneo{
     @apply absolute text-white text-base leading-none font-semibold;
     top: -30px;
+    a{
+      @apply text-white;
+    }
+  }
+}
+.opinion.teaser{
+  .title{
+    font-family:$font-title;
+    @apply text-white;
     a{
       @apply text-white;
     }
@@ -70,11 +79,16 @@
   a{
     @apply inline-block whitespace-no-wrap mb-6 text-center clear-both bg-secondary text-primary px-6 py-3 w-64 mt-4;
   }
+  &.full{
+    a{
+      @apply w-full mb-0;  
+    }
+  }
 }
 .blocktabs{
-  @apply mb-4;
+  @apply mb-6;
   .ui-tabs-panel{
-    @apply bg-gray;
+    @apply p-0;
     .views-row{
       @apply mb-4 bg-primary text-white;
       .views-field-title{
@@ -303,5 +317,106 @@
         }
       }
     }
+  }
+}
+#block-views-block-lo-ultimo-block-1,
+#block-views-block-lo-ultimo-block-2,
+#block-views-block-lo-ultimo-block-3,
+#block-views-block-lo-ultimo-block-4,
+#block-views-block-lo-ultimo-block-5{
+  .home-destacado{
+    @apply mb-4;
+  }
+  .more-link{
+    @apply text-left;
+  }
+}
+
+.owl-controls{
+  @apply mb-6;
+  .owl-buttons{
+    font-family: $font-title;
+    div.owl-next, div.owl-prev{
+      @apply text-primary absolute top-0 h-full rounded-none m-0 opacity-100 pt-24;
+      font-size: 2.5rem;
+      font-weight: 100;
+      width: 100px;
+    }
+    div.owl-next{
+      @apply right-0 text-right;
+      background: linear-gradient(270deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 55, 0) 100%);
+    }
+    div.owl-prev{
+      @apply left-0 text-left;
+      background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 55, 0) 100%);
+    }
+  }
+}
+.front-page{
+  #block-contenidoprincipaldelapagina{
+    @apply hidden;
+  }  
+}
+
+.lista-torneos{
+  @apply flex flex-wrap bg-primary p-6 mb-4;
+  header {
+    font-family: $font-title;
+    @apply text-white w-full text-4xl;
+  }
+}
+.block-title-no-caps{
+  h2 {
+    @apply normal-case;
+  }
+}
+#block-views-block-opinion-block-1{
+  @apply bg-primary text-white mb-6 pt-4;
+  .views-row{
+    @apply px-6 pt-6;
+  }
+  h2{
+    @apply text-white h-20 flex items-center p-6;;
+    background: url('/themes/custom/tailwindcss/images/icons/plus-plus-plus.png') no-repeat right center;
+  }
+  .more-link{
+    a{
+      @apply w-full mb-0;
+    }
+  }
+}
+#blocktabs-programacion{
+  .more-link{
+    a{ 
+      @apply w-full my-0;
+    }
+  }
+  .views-row{
+    @apply relative p-4;
+    .views-field-title{
+      font-family:$font-title;
+      @apply text-xl;
+    }
+  }
+  .views-field-field-torneo{
+    a{
+      @apply uppercase text-secondary;
+    }
+  }
+  .views-field-nothing,
+  .views-field-field-canal{
+    @apply tw-absolute tw-right-0 tw-top-0 uppercase text-white text-center h-full;
+    font-family:$font-title;
+  }
+  .views-field-field-canal{
+    @apply tw-w-20 flex items-center justify-center;
+  }
+  .canal-winsports{
+    @apply h-full w-32;
+    background: url('/themes/custom/tailwindcss/images/logos/canal-winsports.png') no-repeat center center;
+  }
+  .canal-winsportsplus{
+    @apply h-full w-32;
+    background: url('/themes/custom/tailwindcss/images/logos/canal-winsportsplus.png') no-repeat center center;
   }
 }

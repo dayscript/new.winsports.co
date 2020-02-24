@@ -1,4 +1,4 @@
-<article{{ attributes.addClass('node') }}>
+<div{{ attributes.addClass('node') }}>
     {{ title_prefix }}
     {% if not page %}
         <h2{{ title_attributes }}>
@@ -6,15 +6,6 @@
         </h2>
     {% endif %}
     {{ title_suffix }}
-    {% if display_submitted %}
-        <footer>
-            {{ author_picture }}
-            <div{{ author_attributes }}>
-                {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
-                {{ metadata }}
-            </div>
-        </footer>
-    {% endif %}
     <div{{ content_attributes.addClass('node-content') }}>
         {% if node.hasField('field_nombre_comun') %}
             <h2 class="title tw-mt-10 tw-mb-6">{{ content.field_nombre_comun }}</h2>
@@ -36,4 +27,5 @@
                 <div class="body tw-text-white tw-text-sm">{{ content.body }}</div>
             </div>
         </div>
-</article>
+    </div>
+</div>
