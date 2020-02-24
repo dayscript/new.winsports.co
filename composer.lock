@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9e973ee35e57ee17529f346302fc775c",
+    "content-hash": "6fdab7600fb7374cb194f7eec5d1a89c",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -3692,6 +3692,57 @@
             "support": {
                 "source": "https://cgit.drupalcode.org/responsive_menu",
                 "issues": "https://drupal.org/project/issues/responsive_menu"
+            }
+        },
+        {
+            "name": "drupal/single_image_formatter",
+            "version": "1.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/single_image_formatter.git",
+                "reference": "8.x-1.5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/single_image_formatter-8.x-1.5.zip",
+                "reference": "8.x-1.5",
+                "shasum": "6b1edb8a2701a6d7122dee7961a4d6b17e2f10a0"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.5",
+                    "datestamp": "1547629680",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "gun_dose",
+                    "homepage": "https://www.drupal.org/user/3103547"
+                }
+            ],
+            "description": "Provides formatter for image that displays only first value of multi-valued image field",
+            "homepage": "https://www.drupal.org/project/single_image_formatter",
+            "keywords": [
+                "Drupal"
+            ],
+            "support": {
+                "source": "http://cgit.drupalcode.org/single_image_formatter",
+                "issues": "https://www.drupal.org/project/issues/single_image_formatter"
             }
         },
         {

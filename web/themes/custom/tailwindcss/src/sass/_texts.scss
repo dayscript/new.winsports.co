@@ -1,22 +1,26 @@
-h2, .title{
+h2, .title {
   font-family: $font-title;
   @apply tw-text-4xl;
   @apply tw-text-primary tw-tracking-wide tw-leading-none;
 }
-h2{
+
+h2 {
   @apply uppercase mb-2;
 }
-h3.title{
+
+h3.title {
   @apply tw-text-3xl;
 }
-a{
+
+a {
   @apply text-primary;
 }
-.category{
+
+.category {
   @apply mb-2;
-  a{
+  a {
     @apply text-primary uppercase text-sm flex items-center;
-    &::before{
+    &::before {
       display: inline-block;
       content: ' ';
       background: url(/themes/custom/tailwindcss/images/icons/plus-yellow.png) no-repeat;
@@ -25,33 +29,50 @@ a{
     }
   }
 }
-.lead{
+
+.published_date {
+  @apply text-primary text-sm flex items-center;
+  &::before {
+    display: inline-block;
+    content: ' ';
+    background: url(/themes/custom/tailwindcss/images/icons/clock.png) no-repeat;
+    width: 20px;
+    height: 14px;
+  }
+}
+
+.lead {
   @apply text-primary;
 }
-.body{
+
+.body {
   @apply text-primary leading-relaxed text-lg;
-  p{
+  p {
     @apply my-4;
   }
 }
-.tags{
+
+.tags {
   @apply text-primary border-t border-b;
-  .label{
+  .label {
     font-family: $font-title;
     @apply uppercase tracking-wide ;
   }
-  div div{
+
+  div div {
     @apply flex flex-wrap;
-    div{
+    div {
       @apply whitespace-no-wrap;
     }
-    a{
+
+    a {
       @apply p-1 text-xs;
     }
   }
 }
-.comments{
-  iframe{
-    width:100% !important;
+
+.comments {
+  iframe {
+    width: 100% !important;
   }
 }

@@ -40,3 +40,17 @@ winsports.migrate.users:
     _title: 'Winsports Migrate Users'
   requirements:
     _permission: 'access content'
+winsports.migrate.tournaments:
+  path: '/winsports-migrate-tournaments'
+  defaults:
+    _controller: '\Drupal\winsportsmigrate\Controller\MigrateController::tournaments'
+    _title: 'Winsports Migrate Tournaments'
+  requirements:
+    _permission: 'access content'
+winsports.migrate.galeries:
+  path: '/winsports-migrate-galeries'
+  defaults:
+    _controller: '\Drupal\winsportsmigrate\Controller\MigrateController::galeries'
+    _title: 'Winsports Migrate Galeries'
+  requirements:
+    _permission: 'access content'

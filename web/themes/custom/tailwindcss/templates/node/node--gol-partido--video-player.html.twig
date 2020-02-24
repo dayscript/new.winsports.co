@@ -1,4 +1,4 @@
-<div class="gol-partido video-player">
+<div class="gol-partido video-player" {{ attributes.addClass(classes) }}>
     <div class="image" style="background: linear-gradient(0deg, #000 0%, rgba(0,0,0,0.623687) 22%, #999 53%);">
         {% if node.hasField('field_image_h') %}
             {{ content.field_image_h }}
@@ -6,10 +6,9 @@
             {{ content.field_image }}
         {% endif %}
         <div class="tw-absolute tw-top-0 tw-left-0 play-icon tw-w-full tw-h-full tw-flex tw-items-center tw-justify-center">
-            <a href="{{ url }}"><img src="/themes/custom/tailwindcss/images/icons/play.png" alt="Play" class="tw-h-24 tw-w-24"></a>
+            <a href="{{ url }}"><img src="/themes/custom/tailwindcss/images/icons/play.png" alt="Play" class="play-icon tw-h-24 tw-w-24 opacity-100"></a>
         </div>
     </div>
-    
     <div class="title max-w-xl">
         <div class="tw-relative">
             <div class="torneo category left-0">{{ content.field_torneo }}</div>
