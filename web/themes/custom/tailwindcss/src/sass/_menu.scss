@@ -12,7 +12,8 @@
 #block-toplinks{
   @apply text-sm;
 }
-#block-futbolcolombiano{
+#block-futbolcolombiano,
+#block-futbolinternacional{
   ul:not(.contextual-links){
     @apply flex bg-gray-650 text-white justify-between;
     li{
