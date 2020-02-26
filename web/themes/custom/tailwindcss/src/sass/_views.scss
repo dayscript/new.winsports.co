@@ -252,6 +252,24 @@
     }
   }
 }
+//Sección Selección colombia
+.seleccion-colombia{
+  @apply flex flex-wrap;
+  > .views-row{
+    @apply flex flex-wrap;
+    padding-right: 1rem;
+    width: 66.666667%;
+  }
+  .views-element-container{
+    @apply w-1/3;
+    .views-row{
+      @apply w-full;
+    }
+    >div{
+     @apply flex flex-col h-full justify-between; 
+    }
+  }
+}
 
 @screen md {
   #block-views-block-nomina-block-1{
