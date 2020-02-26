@@ -99,8 +99,13 @@
             {% endif %}
         </div>
     </main>
-
 </div>{# /.layout-container #}
+{% if page.sub_content %}
+    <div>
+        {{ page.sub_content }}
+    </div>
+{% endif %}
+
 {% if page.postcontent %}
     <div class="tw-p-4 tw-bg-gray">
         <div class="tw-container tw-mx-auto tw-p-2">

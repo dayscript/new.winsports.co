@@ -8,6 +8,7 @@ libraries:
 regions:
   fullcontent: '01 - Contenido a 1 Columna'
   content: '02 - Contenido principal'
+  sub_content: 'Sub Content'
   postcontent: '03 - Gris - Ancho completo'
   postcontent_sidebar: '04 - Extra Columna izquierda'
   postcontent2: '05 - Extra - Columna derecha'
