@@ -721,14 +721,21 @@ input {
 h2, .title {
   font-family: "Passion One", cursive;
   font-size: 2.25rem;
+  margin-bottom: 2rem;
   color: #0b3b41;
-  letter-spacing: 0.025em;
+  line-height: 1;
+}
+
+.title-article {
+  font-family: "Passion One", cursive;
+  font-size: 2.25rem;
+  margin-bottom: 1rem;
+  color: #0b3b41;
   line-height: 1;
 }
 
 h2 {
   text-transform: uppercase;
-  margin-bottom: 0.5rem;
 }
 
 h3.title {
@@ -746,7 +753,7 @@ a {
 .category a {
   color: #0b3b41;
   text-transform: uppercase;
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -830,7 +837,6 @@ a {
   width: 100% !important;
 }
 
-#block-tailwindcss-main-menu ul:not(.contextual-links),
 #block-toplinks ul:not(.contextual-links) {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -841,12 +847,27 @@ a {
   background-color: #0b3b41;
 }
 
-#block-tailwindcss-main-menu ul:not(.contextual-links) li a,
 #block-toplinks ul:not(.contextual-links) li a {
   text-transform: uppercase;
   color: #fff;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-right: 1.5rem;
+}
+
+#block-tailwindcss-main-menu ul:not(.contextual-links) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  background-color: #0b3b41;
+}
+
+#block-tailwindcss-main-menu ul:not(.contextual-links) li a {
+  text-transform: uppercase;
+  color: #fff;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
 #block-toplinks {
@@ -926,6 +947,10 @@ a {
 
 .gol-partido.video-player .torneo a {
   color: #fff;
+}
+
+.article.teaser .image {
+  margin-bottom: 0.75rem;
 }
 
 .opinion.teaser .title {
@@ -1013,6 +1038,7 @@ a {
   display: inline-block;
   white-space: nowrap;
   margin-bottom: 1.5rem;
+  font-size: 1.25rem;
   text-align: center;
   clear: both;
   background-color: #0ef8c3;
@@ -1346,7 +1372,7 @@ a {
 #block-views-block-lo-ultimo-block-3 .home-destacado,
 #block-views-block-lo-ultimo-block-4 .home-destacado,
 #block-views-block-lo-ultimo-block-5 .home-destacado {
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 #block-views-block-lo-ultimo-block-1 .more-link,
@@ -1387,6 +1413,7 @@ a {
 }
 
 .owl-controls .owl-buttons div.owl-prev {
+  display: none;
   left: 0;
   text-align: left;
   background: -webkit-gradient(linear, left top, right top, from(white), color-stop(50%, white), to(rgba(255, 255, 55, 0)));
@@ -1523,6 +1550,10 @@ a {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
   margin-bottom: 1rem;
+}
+
+iframe.iframe-futbolred body {
+  padding: 0 !important;
 }
 
 #block-futbolcolombiano-estadisticas, .opta-widgets {

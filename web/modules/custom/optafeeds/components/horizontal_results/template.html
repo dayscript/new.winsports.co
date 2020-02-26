@@ -11,9 +11,9 @@
                 <img class="ml-2" :src="'//secure.omo.akamai.opta.net/image.php?secure=true&h=secure.omo.akamai.opta.net&sport=football&entity=team&description=badges&dimensions=20&id='+ match.away.id" :alt="match.away.name" :title="match.away.name">
             </div>
             <div>
-                <small v-if="match.period == 'TBC' || match.period == 'Postponed'">{{ match.date | formatDate | capitalize }} - Por definir</small>
-                <small v-else-if="match.period == 'FullTime'">{{ match.date | formatDate | capitalize }} - Finalizado</small>
-                <small v-else-if="match.period != 'TBC' && match.date != 0 && match.period != 'Postponed'">{{ match.date | formatDate | capitalize }}, {{ match.date | formatHour }}</small>
+                <small class="pl-1 text-xs font-medium lead" v-if="match.period == 'TBC' || match.period == 'Postponed'">{{ match.date | formatDate | capitalize }} - Por definir</small>
+                <small class="pl-1 text-xs font-medium lead" v-else-if="match.period == 'FullTime'">{{ match.date | formatDate | capitalize }} - Finalizado</small>
+                <small class="pl-1 text-xs font-medium lead"v-else-if="match.period != 'TBC' && match.date != 0 && match.period != 'Postponed'">{{ match.date | formatDate | capitalize }}, {{ match.date | formatHour }}</small>
                 <small v-else>{{ match.date | formatDate | capitalize }} {{ match.period }}</small>
             </div>
             <div class="flex items-center justify-center">

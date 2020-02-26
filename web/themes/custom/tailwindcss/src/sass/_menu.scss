@@ -1,10 +1,19 @@
-#block-tailwindcss-main-menu, 
 #block-toplinks{
   ul:not(.contextual-links){
     @apply flex justify-start bg-primary;
     li{
       a{
-        @apply uppercase text-white px-4;
+        @apply uppercase text-white pr-6;
+      }
+    }
+  }
+}
+#block-tailwindcss-main-menu {
+  ul:not(.contextual-links){
+    @apply flex justify-start bg-primary;
+    li{
+      a{
+        @apply uppercase text-white px-6;
       }
     }
   }
@@ -20,7 +29,7 @@
       @apply flex-1;
       a{
         @apply text-white px-10 py-4 inline-block w-full text-center;
-        font-family:$font-title;
+        font-family:$font-title; 
         &.is-active{
           @apply bg-secondary text-primary;
         }

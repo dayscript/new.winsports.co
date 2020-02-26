@@ -1,14 +1,14 @@
 <div class="article home-destacado flex" {{ attributes.addClass(classes) }}>
-    <div class="image tw-w-3/5">
+    <div class="image tw-w-6/12">
         {% if node.hasField('field_image') %}
             {{ content.field_image }}
         {% endif %}
     </div>
-    <div class="ml-4">
+    <div class="ml-4 tw-w-6/12">
         {% if node.hasField('field_category') %}
             <div class="torneo category">{{ content.field_category }}</div>
         {% endif %}
-        <div class="title max-w-xl"><a href="{{ url }}">{{ label }}</a></div>
+        <div class="title-article max-w-xl"><a href="{{ url }}">{{ label }}</a></div>
         <div class="lead tw-my-4">{{ content.field_lead }}</div>
         <div class="published_date">{{ node.getCreatedTime() | format_date('complete_date') }}</div>
     </div>

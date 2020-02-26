@@ -23,6 +23,11 @@
     }
   }
 }
+.article.teaser {
+  .image{
+    @apply mb-3;
+  }
+}
 .opinion.teaser{
   .title{
     font-family:$font-title;
@@ -77,7 +82,7 @@
   font-family: $font-title;
   @apply text-center w-full;
   a{
-    @apply inline-block whitespace-no-wrap mb-6 text-center clear-both bg-secondary text-primary px-6 py-3 w-64 mt-4;
+    @apply inline-block whitespace-no-wrap mb-6 tw-text-xl text-center clear-both bg-secondary text-primary px-6 py-3 w-64 mt-4;
   }
   &.full{
     a{
@@ -316,7 +321,7 @@
 #block-views-block-lo-ultimo-block-4,
 #block-views-block-lo-ultimo-block-5{
   .home-destacado{
-    @apply mb-4;
+    @apply mb-8;
   }
   .more-link{
     @apply text-left;
@@ -338,6 +343,7 @@
       background: linear-gradient(270deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 55, 0) 100%);
     }
     div.owl-prev{
+      display: none;
       @apply left-0 text-left;
       background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 55, 0) 100%);
     }
@@ -417,4 +423,9 @@
   .views-row{
     @apply w-1/2 px-2 mb-4;
   }
+}
+iframe.iframe-futbolred {
+  body {
+    padding: 0 !important;
+}
 }
