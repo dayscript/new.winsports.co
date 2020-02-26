@@ -925,10 +925,10 @@ a {
   bottom: 30px;
   left: 30px;
   font-family: "Source Sans Pro", sans-serif;
+  line-height: 1.2em;
   position: absolute;
   color: #fff;
   font-size: 1.875rem;
-  line-height: 1;
   font-weight: 600;
 }
 
@@ -1096,7 +1096,7 @@ a {
   display: flex;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .blocktabs .ui-widget-header.ui-tabs-nav.ui-corner-all .ui-tabs-tab {
