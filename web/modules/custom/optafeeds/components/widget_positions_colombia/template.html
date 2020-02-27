@@ -1,0 +1,84 @@
+<div class="opta-widgets" style="background-color: #ededed;">
+    <div class="p-4">
+        <select class="m-0 w-full appearance-none py-3 px-4" @change="loadTable" v-model="tournament_season" name="id_tournament" id="widget_tournament_id">
+            <option :value="tour.field_opta_id + '-' + tour.field_opta_season" v-for="tour in tournaments">{{ tour.title }}</option>
+        </select>    
+    </div>
+    <div class="flex flex-no-wrap overflow-x-auto w-full">
+        <div @click="selectOption(option.key)" v-for="option in options" class="py-3 px-6 font-title cursor-pointer table-option" :class="selected_option == option.key?'active':''">{{ option.label }}</div>
+    </div>
+    <div class="flex " style="background-color: #0ef8c3;" v-if="phases">
+        <div @click="selectPhase(phase.phase.id)" v-for="phase in phases" v-if="phase.teams && Object.keys(phase.teams).length" class="cursor-pointer phase p-2" :class="selected_phase_id == phase.phase.id?'active':''">
+            {{ phase.phase.type }}
+        </div>
+    </div>
+    <div class="border-l-8 my-6" style="border-color: #FACA32;">
+        <div class="ml-1 flex border-b-1 p-1 justify-between text-sm">
+            <div class="w-1/2 flex"></div>
+            <div v-if="selected_option == 'decline'" class="w-1/2 flex text-center justify-between pb-1 border-b" style="border-color: rgba(10,59,65,0.2);">
+                <div class="flex-1">Pts</div>
+                <div class="flex-1">Prom</div>
+                <div class="flex-1">PJ</div>
+            </div>
+            <div v-else-if="selected_option == 'reclassification'" class="w-1/2 flex text-center justify-between pb-1 border-b" style="border-color: rgba(10,59,65,0.2);">
+                <div class="flex-1">Pts</div>
+                <div class="flex-1">PJ</div>
+                <div class="flex-1">GF</div>
+                <div class="flex-1">GC</div>
+                <div class="flex-1">DG</div>
+            </div>
+            <div v-else-if="selected_option == 'scorers'" class="w-1/2 flex text-center justify-between pb-1 border-b" style="border-color: rgba(10,59,65,0.2);">
+                <div class="flex-1">Posición</div>
+                <div class="flex-1">TG</div>
+                <div class="flex-1">PJ</div>
+            </div>
+            <div v-else class="w-1/2 flex text-center justify-between pb-1 border-b" style="border-color: rgba(10,59,65,0.2);">
+                <div class="flex-1">J</div>
+                <div class="flex-1">V</div>
+                <div class="flex-1">D</div>
+                <div class="flex-1">E</div>
+                <div class="flex-1"><strong>Pts</strong></div>
+                <div class="flex-1">GD</div>
+            </div>
+        </div>
+        <div v-for="(row,index) in teams" v-if="index<max_rows" class="ml-1 flex border-b-1 p-1 justify-between text-sm">
+            <div class="w-1/2 flex items-center">
+                <div class="w-1/6 text-center px-2"><strong>{{ row.pos }}</strong></div>
+                <div class="w-5/6 truncate ml-1">{{ row.name }}</div>
+            </div>
+            <div v-if="selected_option == 'decline'" class="w-1/2 flex text-center justify-between pb-1 border-b" style="border-color: rgba(10,59,65,0.2);">
+                <div class="flex-1">{{ row.pt }}</div>
+                <div class="flex-1">{{ row.prom }}</div>
+                <div class="flex-1">{{ row.pj }}</div>
+            </div>
+            <div v-else-if="selected_option == 'reclassification'" class="w-1/2 flex text-center justify-between pb-1 border-b" style="border-color: rgba(10,59,65,0.2);">
+                <div class="flex-1">{{ row.pt }}</div>
+                <div class="flex-1">{{ row.pj }}</div>
+                <div class="flex-1">{{ row.gf }}</div>
+                <div class="flex-1">{{ row.gc }}</div>
+                <div class="flex-1">{{ row.gd }}</div>
+            </div>
+            <div v-else class="w-1/2 flex text-center justify-between pb-1 border-b" style="border-color: rgba(10,59,65,0.2);">
+                <div class="flex-1">{{ row.pj }}</div>
+                <div class="flex-1">{{ row.pg }}</div>
+                <div class="flex-1">{{ row.pp }}</div>
+                <div class="flex-1">{{ row.pe }}</div>
+                <div class="flex-1"><strong>{{ row.pt }}</strong></div>
+                <div class="flex-1">{{ row.gd }}</div>
+            </div>
+        </div>
+        <div v-for="row in players" v-if="index<max" class="ml-1 flex border-b-1 p-1 justify-between text-sm">
+            Index: {{ index }}
+            <div class="w-1/2 flex items-center">
+                <div class="w-1/6 text-center px-2"><strong>{{ row.pos }}</strong></div>
+                <div class="w-5/6 truncate ml-1">{{ row.name }}</div>
+            </div>
+            <div class="w-1/2 flex text-center justify-between pb-1 border-b" style="border-color: rgba(10,59,65,0.2);">
+                <div class="flex-1">{{ positions[row.position] || row.position }}</div>
+                <div class="flex-1">{{ row.goals }}</div>
+                <div class="flex-1">{{ row.games_played }}</div>
+            </div>
+        </div>
+    </div>
+    <div class="more-link full"><a href="/futbol-colombiano">Todas las estadísticas</a></div>
+</div>

@@ -1,0 +1,16 @@
+name: Positions Tables Widget Colombia
+machine_name: opta-feeds-widget-positions-colombia
+type: pdb
+description: 'Positions tables widget seleccion colombia'
+package: Vue
+core: '8.x'
+module_status: active
+template: template.html
+presentation: vue
+add_js:
+  footer:
+    'widget_positions_colombia.js': {}
+libraries:
+  - optafeeds/axios
+  - optafeeds/tailwindcss
+  - optafeeds/momentjs
