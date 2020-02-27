@@ -13,5 +13,11 @@
         <div class="tw-w-1/2 tw-text-base tw-pl-2">
             <a href="{{ url }}">{{ label }}</a>
         </div>
+        <div class="mediastream tw-absolute">
+            {% if node.hasField('field_mediastream') %}
+                {{ content.field_mediastream }}
+            {% endif %}    
+        </div>
+        
     </div>
 </div>

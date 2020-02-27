@@ -68,7 +68,8 @@
 }
 
 #block-views-block-goles-home-block-1,
-#block-views-block-videos-opinion-block-1{
+#block-views-block-videos-opinion-block-1
+.player-goles{
   @apply border-b border-gray;
   div div{
     @apply flex flex-wrap;

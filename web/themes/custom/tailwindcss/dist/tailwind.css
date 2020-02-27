@@ -986,13 +986,15 @@ a {
 }
 
 #block-views-block-goles-home-block-1,
-#block-views-block-videos-opinion-block-1 {
+#block-views-block-videos-opinion-block-1
+.player-goles {
   border-bottom-width: 1px;
   border-color: #e3e3e3;
 }
 
 #block-views-block-goles-home-block-1 div div,
-#block-views-block-videos-opinion-block-1 div div {
+#block-views-block-videos-opinion-block-1
+.player-goles div div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1001,23 +1003,27 @@ a {
 }
 
 #block-views-block-goles-home-block-1 div div .views-row,
-#block-views-block-videos-opinion-block-1 div div .views-row {
+#block-views-block-videos-opinion-block-1
+.player-goles div div .views-row {
   padding-right: 1rem;
   width: 66.666667%;
 }
 
 #block-views-block-goles-home-block-1 div div .views-element-container,
-#block-views-block-videos-opinion-block-1 div div .views-element-container {
+#block-views-block-videos-opinion-block-1
+.player-goles div div .views-element-container {
   width: 33.333333%;
 }
 
 #block-views-block-goles-home-block-1 div div .views-element-container .views-row,
-#block-views-block-videos-opinion-block-1 div div .views-element-container .views-row {
+#block-views-block-videos-opinion-block-1
+.player-goles div div .views-element-container .views-row {
   width: 100%;
 }
 
 #block-views-block-goles-home-block-1 div div .views-element-container > div,
-#block-views-block-videos-opinion-block-1 div div .views-element-container > div {
+#block-views-block-videos-opinion-block-1
+.player-goles div div .views-element-container > div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
