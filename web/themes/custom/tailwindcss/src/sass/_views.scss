@@ -66,10 +66,24 @@
     @apply w-1/3 pr-4;
   }
 }
-
+.player-goles{
+  @apply flex flex-wrap;
+  .views-row{
+    @apply pr-4 w-2/3;
+  }
+  .views-element-container{
+    @apply w-1/3;
+    .views-row{
+      @apply w-full;
+    }
+    >div{
+      @apply flex flex-col h-full justify-between;
+    }
+  }
+}
 #block-views-block-goles-home-block-1,
 #block-views-block-videos-opinion-block-1
-.player-goles{
+{
   @apply border-b border-gray;
   div div{
     @apply flex flex-wrap;
