@@ -29,7 +29,7 @@
     @apply mb-3;
   }
 }
-.opinion.teaser{
+.opinion.home-destacado{
   .title{
     font-family:$font-title;
     @apply text-white;
@@ -49,6 +49,24 @@
     }
   }
 }
+#block-views-block-opinion-block-2,
+#block-views-block-opinion-block-3{
+  div div{
+    @apply flex flex-wrap;
+  }
+}
+#block-views-block-opinion-block-2{
+  .views-row{
+    @apply w-1/2 pr-10;
+  }  
+}
+
+#block-views-block-opinion-block-3{
+  .views-row{
+    @apply w-1/3 pr-4;
+  }
+}
+
 #block-views-block-goles-home-block-1{
   @apply border-b border-gray;
   div div{
@@ -79,7 +97,7 @@
 #block-publicidad1{
   @apply mb-4;
 }
-.more-link{
+.more-link, .js-pager__items.pager{
   font-family: $font-title;
   @apply text-center w-full;
   a{

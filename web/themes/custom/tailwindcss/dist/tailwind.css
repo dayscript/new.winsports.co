@@ -953,17 +953,36 @@ a {
   margin-bottom: 0.75rem;
 }
 
-.opinion.teaser .title {
+.opinion.home-destacado .title {
   font-family: "Passion One", cursive;
   color: #fff;
 }
 
-.opinion.teaser .title a {
+.opinion.home-destacado .title a {
   color: #fff;
 }
 
 .gol-partido.teaser .image img {
   width: 100%;
+}
+
+#block-views-block-opinion-block-2 div div,
+#block-views-block-opinion-block-3 div div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+#block-views-block-opinion-block-2 .views-row {
+  width: 50%;
+  padding-right: 2.5rem;
+}
+
+#block-views-block-opinion-block-3 .views-row {
+  width: 33.333333%;
+  padding-right: 1rem;
 }
 
 #block-views-block-goles-home-block-1 {
@@ -1028,13 +1047,13 @@ a {
   margin-bottom: 1rem;
 }
 
-.more-link {
+.more-link, .js-pager__items.pager {
   font-family: "Passion One", cursive;
   text-align: center;
   width: 100%;
 }
 
-.more-link a {
+.more-link a, .js-pager__items.pager a {
   display: inline-block;
   white-space: nowrap;
   margin-bottom: 1.5rem;
@@ -1051,7 +1070,7 @@ a {
   margin-top: 1rem;
 }
 
-.more-link.full a {
+.more-link.full a, .js-pager__items.pager.full a {
   width: 100%;
   margin-bottom: 0;
 }
