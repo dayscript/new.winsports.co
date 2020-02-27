@@ -1617,6 +1617,10 @@ a {
   margin-bottom: 1rem;
 }
 
+.torneo-videos-list .views-field-field-image {
+  margin-bottom: 1rem;
+}
+
 iframe.iframe-futbolred body {
   padding: 0 !important;
 }
