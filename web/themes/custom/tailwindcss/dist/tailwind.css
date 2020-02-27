@@ -1647,8 +1647,7 @@ a {
 .torneo-videos-list .views-row,
 .torneo-noticias-list .views-infinite-scroll-content-wrapper .views-row {
   width: 50%;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  padding-right: 1rem;
   margin-bottom: 1rem;
 }
 
