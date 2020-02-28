@@ -842,7 +842,7 @@ class MigrateController {
           ]);
           $node_torneo->save();
         } else {
-          $node_torneo = Node::load(array_pop($entity_ids));
+          $node_torneo = Node::load(array_pop($node_torneo));
         }
         
         // $node->field_opta_match_id = $item['match_id'];
