@@ -826,8 +826,27 @@ class MigrateController {
         $node->set('field_away', $item['away']);
         $node->set('field_date', $date);
         $node->save();
+        $query = \Drupal::entityQuery('node');
+        $query->condition('field_opta_id', $item['competition_id']);
+        $query->condition('field_opta_season', $item['season_id']);
+        $query->condition('type', 'torneo');
+        $torneo_ids = $query->execute();
+        if (count($torneo_ids) == 0) {
+          $node_torneo = Node::create([
+            'type'              => 'torneo',
+            'title'             => 'Torneo ' . $item['competition_id'] . ' Season ' . $item['season_id'],
+            'field_opta_id'     => $item['opta_id'],
+            'field_opta_season' => $item['opta_season'],
+            'uid'               => 1,
+            'moderation_state'  => 'published',
+          ]);
+          $node_torneo->save();
+        } else {
+          $node_torneo = Node::load(array_pop($entity_ids));
+        }
+        
         // $node->field_opta_match_id = $item['match_id'];
-        dd($node);
+        dd($node_torneo);
         //        $this->attachTeams($node, $item['equipos']);
         //        if ($results['new'] + $results['existing'] >= $this->limit) {
         //          break;
