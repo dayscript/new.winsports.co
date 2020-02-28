@@ -765,7 +765,7 @@ class MigrateController {
       $response = json_decode($res->getBody(), TRUE);
       foreach ($response['matches'] as $item) {
         $date = DrupalDateTime::createFromTimestamp(strtotime($item['date']))
-                               ->format(DATETIME_DATETIME_STORAGE_FORMAT);
+                              ->format(DATETIME_DATETIME_STORAGE_FORMAT);
 
         $query = \Drupal::entityQuery('node');
         $query->condition('title', $item['title']);
@@ -774,14 +774,14 @@ class MigrateController {
         $entity_ids = $query->execute();
         if (count($entity_ids) == 0) {
           $node = Node::create([
-            'type'              => 'partido',
-            'title'             => $item['title'],
-            'body'              => [
+            'type'             => 'partido',
+            'title'            => $item['title'],
+            'body'             => [
               'value'  => $item['description'],
               'format' => 'full_html',
             ],
-            'uid'               => 1,
-            'moderation_state'  => 'published',
+            'uid'              => 1,
+            'moderation_state' => 'published',
           ]);
           $node->save();
           //          $this->attachTags($node, $item['tags']);
@@ -841,11 +841,26 @@ class MigrateController {
             'moderation_state'  => 'published',
           ]);
           $node_torneo->save();
-        } else {
+        }
+        else {
           $node_torneo = Node::load(array_pop($torneo_ids));
         }
         $node->field_torneo_node = $node_torneo;
         $node->save();
+        $alias_path = pathauto_cleanstring('/matches/' . $item['match_id']);
+        $path       = [
+          'source' => "node/" . $node->id,
+          'alias'  => trim($alias_path),
+        ];
+
+        $obj_alias = path_load($path['source']);
+        if (empty($obj_alias)) {
+          dd(' Saved Succesfully');
+          path_save($path);
+        }
+        else {
+          dd( 'Exists Already !');
+        }
         // $node->field_opta_match_id = $item['match_id'];
         //        $this->attachTeams($node, $item['equipos']);
         //        if ($results['new'] + $results['existing'] >= $this->limit) {
