@@ -57,7 +57,9 @@ a {
     @apply my-4;
   }
 }
-
+.body{
+  line-height: 1.5em !important; 
+}
 .tags {
   @apply text-primary border-t border-b;
   .label {
