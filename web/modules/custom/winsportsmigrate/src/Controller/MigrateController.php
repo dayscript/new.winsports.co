@@ -844,9 +844,9 @@ class MigrateController {
         } else {
           $node_torneo = Node::load(array_pop($torneo_ids));
         }
-        
+        $node->field_torneo_node = $node_torneo;
+        $node->save();
         // $node->field_opta_match_id = $item['match_id'];
-        dd($node_torneo);
         //        $this->attachTeams($node, $item['equipos']);
         //        if ($results['new'] + $results['existing'] >= $this->limit) {
         //          break;
