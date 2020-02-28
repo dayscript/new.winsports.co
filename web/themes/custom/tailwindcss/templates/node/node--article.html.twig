@@ -14,7 +14,7 @@
         {% if node.hasField('field_category') %}
             <div class="category">{{ content.field_category }}</div>
         {% endif %}
-        <h2 class="title">{{ label }}</h2>
+        <h2 class="title-article">{{ label }}</h2>
         <div class="tw-flex tw-items-center tw-text-primary tw-text-sm tw-my-4">
             <div class="tw-mr-6 published_date">{{ node.getCreatedTime() | format_date('complete_date') }}</div>
             {% if node.hasField('field_source') %}
@@ -25,16 +25,16 @@
             {% endif %}
         </div>
         {% if node.hasField('field_lead') %}
-            <div class="lead my-2">{{ content.field_lead }}</div>
+            <div class="lead my-2 tw-text-lg italic mb-8">{{ content.field_lead }}</div>
         {% endif %}
         {% if node.hasField('field_image_h') %}
             <div class="tw-my-4">{{ content.field_image_h }}</div>
-            <div class="tw-text-primary tw-text-sm tw-mb-2">{{ node.field_image_h.title }}</div>
+            <div class="tw-text-gray-650 tw-text-sm tw-mb-4">{{ node.field_image_h.title }}</div>
         {% elseif node.hasField('field_image') %}
             <div class="tw-mt-4 tw-mb-2">{{ content.field_image }}</div>
             <div class="tw-text-primary tw-text-sm tw-mb-2">{{ node.field_image.title }}</div>
         {% endif %}
-        <div class="body">{{ content.body }}</div>
+        <div class="body tw-text-xl">{{ content.body }}</div>
         <div class="tags tw-flex tw-text-sm tw-items-center">
             <div class="tw-whitespace-no-wrap tw-p-2 uppercase label">Tags relacionados</div>
             <div>{{  content.field_tags }}</div>

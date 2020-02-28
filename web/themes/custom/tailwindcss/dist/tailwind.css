@@ -804,6 +804,10 @@ a {
   margin-bottom: 1rem;
 }
 
+.body {
+  line-height: 1.5em !important;
+}
+
 .tags {
   color: #0b3b41;
   border-top-width: 1px;
