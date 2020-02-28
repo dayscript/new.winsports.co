@@ -848,7 +848,9 @@ class MigrateController {
         }
         $node->field_torneo_node = $node_torneo;
         $node->save();
-        $redirects = redirect_load_by_source('/node/' . $node->id());
+
+        $redirects = \Drupal::service('redirect.repository')->findBySourcePath('node/'.$node->id());
+
         dd($redirects);
 //        Redirect::create([
 //          'redirect_source'   => 'matches/' . $item['match_id'],
