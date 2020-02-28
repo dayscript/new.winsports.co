@@ -9,6 +9,13 @@ h2, .title {
   @apply tw-text-4xl mb-4;
   @apply tw-text-primary tw-leading-none;
 }
+h2.title-news {
+  font-family: $font-title;
+  @apply tw-text-5xl mb-4;
+  @apply tw-text-primary tw-leading-none;
+  text-transform: none !important; 
+}
+
 
 h2 {
   @apply uppercase;
