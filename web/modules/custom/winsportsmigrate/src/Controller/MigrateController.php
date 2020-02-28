@@ -820,6 +820,10 @@ class MigrateController {
         $node->set('field_opta_match_id', $item['match_id']);
         $node->set('field_opta_id', $item['competition_id']);
         $node->set('field_opta_season', $item['season_id']);
+        $node->set('field_round', $item['round']);
+        $node->set('field_phase', $item['phase']);
+        $node->set('field_home', $item['home']);
+        $node->set('field_away', $item['away']);
         $node->set('field_date', $date);
         $node->save();
         // $node->field_opta_match_id = $item['match_id'];
