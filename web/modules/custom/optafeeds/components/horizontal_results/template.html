@@ -17,7 +17,7 @@
                 <small v-else>{{ match.date | formatDate | capitalize }} {{ match.period }}</small>
             </div>
             <div class="flex items-center justify-center">
-                <a href="/partidos" class="flex">
+                <a :href="'/matches/'+match.id" class="flex">
                 <img src="/sites/default/files/widgets/play_button.png" alt="Resumen">
                 <span class="pl-1 text-xs font-medium title-color">Resumen</span>
                 </a>
