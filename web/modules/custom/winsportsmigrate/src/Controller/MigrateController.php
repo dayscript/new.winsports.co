@@ -848,7 +848,7 @@ class MigrateController {
         $node->field_torneo_node = $node_torneo;
         $node->save();
 
-        dd($node->nid);
+        dd($node->nid[0]['value']);
         if(!\Drupal::service('path.alias_storage')->aliasExists("/matches/" . $item['match_id'],'es')){
           $path = \Drupal::service('path.alias_storage')
                          ->save("/node/" . $node->nid, "/matches/" . $item['match_id'], 'es');  
