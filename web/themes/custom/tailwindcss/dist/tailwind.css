@@ -734,6 +734,15 @@ h2, .title {
   line-height: 1;
 }
 
+h2.title-news {
+  font-family: "Passion One", cursive;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #0b3b41;
+  line-height: 1;
+  text-transform: none !important;
+}
+
 h2 {
   text-transform: uppercase;
 }
