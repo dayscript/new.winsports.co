@@ -837,6 +837,14 @@ a {
   width: 100% !important;
 }
 
+.font-title {
+  font-family: "Passion One", cursive;
+}
+
+.font-body {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
 #block-toplinks ul:not(.contextual-links) {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -875,7 +883,8 @@ a {
 }
 
 #block-futbolcolombiano ul:not(.contextual-links),
-#block-futbolinternacional ul:not(.contextual-links) {
+#block-futbolinternacional ul:not(.contextual-links),
+.menu-secundario ul:not(.contextual-links) {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -887,14 +896,16 @@ a {
 }
 
 #block-futbolcolombiano ul:not(.contextual-links) li,
-#block-futbolinternacional ul:not(.contextual-links) li {
+#block-futbolinternacional ul:not(.contextual-links) li,
+.menu-secundario ul:not(.contextual-links) li {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 0%;
           flex: 1 1 0%;
 }
 
 #block-futbolcolombiano ul:not(.contextual-links) li a,
-#block-futbolinternacional ul:not(.contextual-links) li a {
+#block-futbolinternacional ul:not(.contextual-links) li a,
+.menu-secundario ul:not(.contextual-links) li a {
   color: #fff;
   padding-left: 2.5rem;
   padding-right: 2.5rem;
@@ -903,13 +914,42 @@ a {
   display: inline-block;
   width: 100%;
   text-align: center;
+  cursor: pointer;
   font-family: "Passion One", cursive;
 }
 
 #block-futbolcolombiano ul:not(.contextual-links) li a.is-active,
-#block-futbolinternacional ul:not(.contextual-links) li a.is-active {
+#block-futbolinternacional ul:not(.contextual-links) li a.is-active,
+.menu-secundario ul:not(.contextual-links) li a.is-active {
   background-color: #0ef8c3;
   color: #0b3b41;
+}
+
+#block-futbolcolombiano .teams-list,
+#block-futbolinternacional .teams-list,
+.menu-secundario .teams-list {
+  background-color: #0b3b41;
+  color: #fff;
+  padding: 1.5rem;
+}
+
+#block-futbolcolombiano .teams-list .team-item,
+#block-futbolinternacional .teams-list .team-item,
+.menu-secundario .teams-list .team-item {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+#block-futbolcolombiano .teams-list .team-item a img,
+#block-futbolinternacional .teams-list .team-item a img,
+.menu-secundario .teams-list .team-item a img {
+  opacity: 0.5;
+}
+
+#block-futbolcolombiano .teams-list .team-item a.is-active img,
+#block-futbolinternacional .teams-list .team-item a.is-active img,
+.menu-secundario .teams-list .team-item a.is-active img {
+  opacity: 1;
 }
 
 .gol-partido.video-player {

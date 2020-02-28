@@ -1,0 +1,20 @@
+name: Opta General Stats
+machine_name: opta-general-stats
+type: pdb
+description: 'Opta General widgets block.'
+package: Vue
+core: '8.x'
+module_status: active
+template: template.html
+presentation: vue
+contexts:
+  entity: node
+add_js:
+  footer:
+    'opta_general_stats_block.js': {}
+libraries:
+  - optawidgets/axios
+  - optawidgets/opta.widgets
+  - optawidgets/opta.settings
+  - optafeeds/tailwindcss
+  - optafeeds/axios

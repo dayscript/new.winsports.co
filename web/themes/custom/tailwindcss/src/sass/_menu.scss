@@ -22,16 +22,33 @@
   @apply text-sm;
 }
 #block-futbolcolombiano,
-#block-futbolinternacional{
+#block-futbolinternacional,
+.menu-secundario{
   ul:not(.contextual-links){
     @apply flex bg-gray-650 text-white justify-between;
     li{
       @apply flex-1;
       a{
-        @apply text-white px-10 py-4 inline-block w-full text-center;
+        @apply text-white px-10 py-4 inline-block w-full text-center cursor-pointer;
         font-family:$font-title; 
         &.is-active{
           @apply bg-secondary text-primary;
+        }
+      }
+    }
+  }
+  .teams-list{
+    @apply bg-primary text-white p-6;
+    .team-item{
+      @apply px-4;
+      a{
+        img {
+          @apply opacity-50;
+        }  
+        &.is-active{
+          img {
+            @apply opacity-100;
+          }
         }
       }
     }
