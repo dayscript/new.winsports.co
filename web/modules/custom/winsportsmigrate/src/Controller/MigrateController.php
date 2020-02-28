@@ -831,7 +831,6 @@ class MigrateController {
         $query->condition('field_opta_season', $item['season_id']);
         $query->condition('type', 'torneo');
         $torneo_ids = $query->execute();
-        dd($torneo_ids);
         if (count($torneo_ids) == 0) {
           $node_torneo = Node::create([
             'type'              => 'torneo',
@@ -843,7 +842,7 @@ class MigrateController {
           ]);
           $node_torneo->save();
         } else {
-          $node_torneo = Node::load(array_pop($node_torneo));
+          $node_torneo = Node::load(array_pop($torneo_ids));
         }
         
         // $node->field_opta_match_id = $item['match_id'];
