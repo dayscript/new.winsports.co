@@ -848,7 +848,11 @@ class MigrateController {
         $node->field_torneo_node = $node_torneo;
         $node->save();
 
-        $path = \Drupal::service('path.alias_storage')->save("/node/" . $node->id, "/matches/" . $item['match_id']);
+        
+        if(!\Drupal::service('path.alias_storage')->aliasExists("/matches/" . $item['match_id'],'es')){
+          $path = \Drupal::service('path.alias_storage')
+                         ->save("/node/" . $node->nid, "/matches/" . $item['match_id'], 'es');  
+        }
         // $node->field_opta_match_id = $item['match_id'];
         //        $this->attachTeams($node, $item['equipos']);
         //        if ($results['new'] + $results['existing'] >= $this->limit) {
