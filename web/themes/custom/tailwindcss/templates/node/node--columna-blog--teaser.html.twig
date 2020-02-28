@@ -4,10 +4,10 @@
             {{ content.field_image }}
         {% endif %}
     </div>
-    <div class="tw-text-sm">
+    <div class="tw-mr-6 published_date">{{ node.getCreatedTime() | format_date('complete_date') }}</div>
+    <div class="tw-text-base mb-4">
         <a href="{{ url }}">{{ label }}</a>
     </div>
-    <div class="tw-mr-6 published_date">{{ node.getCreatedTime() | format_date('complete_date') }}</div>
     <div class="pb-4" {{ author_attributes }}>
         {{ author_picture }}
     </div>

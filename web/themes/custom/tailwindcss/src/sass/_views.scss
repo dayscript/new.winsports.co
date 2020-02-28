@@ -38,6 +38,20 @@
     }
   }
 }
+.opinion.teaser{
+  .image{
+    @apply mb-4;
+  }
+}
+#footer-first{
+  > div {
+    @apply flex;
+    #block-futbolcolombiano-2,
+    #block-futbolinternacional-2{
+      @apply flex-1;
+    }
+  }
+}
 .gol-partido.teaser{
   .image {
     img {
