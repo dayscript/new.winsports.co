@@ -764,7 +764,12 @@ class MigrateController {
     ];
     if ($res->getStatusCode() == 200) {
       $response = json_decode($res->getBody(), TRUE);
+      $count    = 0;
       foreach ($response['matches'] as $item) {
+        $count++;
+        if ($this->offset > 0 && $count <= $this->offset) {
+          continue;
+        }
         $date = DrupalDateTime::createFromTimestamp(strtotime($item['date']))
                               ->format(DATETIME_DATETIME_STORAGE_FORMAT);
 
