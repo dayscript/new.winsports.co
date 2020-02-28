@@ -769,7 +769,6 @@ class MigrateController {
         $query->condition('type', 'partido');
         $query->condition('field_opta_match_id', $item['match_id']);
         $entity_ids = $query->execute();
-        dd($item);
         if (count($entity_ids) == 0) {
           $node = Node::create([
             'type'                   => 'partido',
