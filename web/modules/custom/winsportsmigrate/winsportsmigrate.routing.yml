@@ -54,3 +54,10 @@ winsports.migrate.galeries:
     _title: 'Winsports Migrate Galeries'
   requirements:
     _permission: 'access content'
+winsports.migrate.matches:
+  path: '/winsports-migrate-matches'
+  defaults:
+    _controller: '\Drupal\winsportsmigrate\Controller\MigrateController::matches'
+    _title: 'Winsports Migrate Matches'
+  requirements:
+    _permission: 'access content'

@@ -461,8 +461,10 @@ class MigrateController {
           continue;
         }
         $date  = $item['created'];
-        $date1 = DrupalDateTime::createFromTimestamp(strtotime($item['fecha']))->format(DATETIME_DATETIME_STORAGE_FORMAT);
-        $date2 = DrupalDateTime::createFromTimestamp(strtotime($item['end_date']))->format(DATETIME_DATETIME_STORAGE_FORMAT);
+        $date1 = DrupalDateTime::createFromTimestamp(strtotime($item['fecha']))
+                               ->format(DATETIME_DATETIME_STORAGE_FORMAT);
+        $date2 = DrupalDateTime::createFromTimestamp(strtotime($item['end_date']))
+                               ->format(DATETIME_DATETIME_STORAGE_FORMAT);
         $query = \Drupal::entityQuery('node');
         $query->condition('title', $item['title']);
         $query->condition('field_date', $date1);
@@ -506,7 +508,7 @@ class MigrateController {
     return [
       '#type'   => 'markup',
       '#markup' => t('Migracion de Programacion') . '<br>'
-                   . 'Nuevos: ' . $results['new'] . '<br>Existentes: ' . $results['existing']. '<br>Total: ' . $count,
+                   . 'Nuevos: ' . $results['new'] . '<br>Existentes: ' . $results['existing'] . '<br>Total: ' . $count,
     ];
   }
 
@@ -715,7 +717,7 @@ class MigrateController {
 
   public function attachTorneo($node, $tr) {
     if (trim($tr) == '') {
-      return false;
+      return FALSE;
     }
     $query = \Drupal::entityQuery('taxonomy_term');
     $query->condition('name', $tr);
@@ -748,6 +750,85 @@ class MigrateController {
     }
     $node->field_source = $term;
     $node->save();
+  }
+
+  public function matches() {
+    $opta_id     = 371;
+    $opta_season = 2020;
+    $url         = 'https://winsports.dayscript.com/competitions/' . $opta_id . '/' . $opta_season . '/generate-winsports';
+    $res         = $this->client->get($url);
+    $results     = [
+      'new'      => 0,
+      'existing' => 0,
+    ];
+    if ($res->getStatusCode() == 200) {
+      $response = json_decode($res->getBody(), TRUE);
+      foreach ($response['matches'] as $item) {
+        $query = \Drupal::entityQuery('node');
+        $query->condition('title', $item['title']);
+        $query->condition('type', 'partido');
+        $query->condition('field_opta_match_id', $item['match_id']);
+        $entity_ids = $query->execute();
+        dd($item);
+        if (count($entity_ids) == 0) {
+          $node = Node::create([
+            'type'                   => 'partido',
+            'title'                  => $item['title'],
+            'field_opta_match_id'         => $item['match_id'],
+            'body'                   => [
+              'value'  => $item['description'],
+              'format' => 'full_html',
+            ],
+            'field_opta_id'             => $item['competition_id'],
+            'field_opta_season'              => $item['season_id'],
+            'uid'                    => 1,
+            'moderation_state'       => 'published',
+          ]);
+          $node->save();
+//          $this->attachTags($node, $item['tags']);
+//          $this->attachCategory($node, $item['category']);
+//          $this->attachSource($node, $item['fuente']);
+//          if ($item['field_image']['src']) {
+//            $image = file_get_contents($item['field_image']['src']);
+//            if ($file = file_save_data($image, 'public://images/articles/' . $this->slug($item['title']) . '.jpg', FILE_EXISTS_REPLACE)) {
+//              $node->field_image = [
+//                'target_id' => $file->id(),
+//                'alt'       => $item['title'],
+//                'title'     => $item['title'],
+//              ];
+//            }
+//          }
+//          if ($item['imagen_h']['src']) {
+//            $image = file_get_contents($item['imagen_h']['src']);
+//            if ($file = file_save_data($image, 'public://images/articles/' . $this->slug($item['title']) . '_h.jpg', FILE_EXISTS_REPLACE)) {
+//              $node->field_image_h = [
+//                'target_id' => $file->id(),
+//                'alt'       => $item['title'],
+//                'title'     => $item['title'],
+//              ];
+//            }
+//          }
+//          $node->save();
+//          $results['new']++;
+        } else {
+          $node = Node::load(array_pop($entity_ids));
+//          $node->set('uid', $item['uid']);
+//          $node->set('created', $date);
+//          $node->save();
+//          $results['existing']++;
+        }
+        dd($node);
+//        $this->attachTeams($node, $item['equipos']);
+//        if ($results['new'] + $results['existing'] >= $this->limit) {
+//          break;
+//        }
+      }
+    }
+    return [
+      '#type'   => 'markup',
+      '#markup' => t('Migracion de Partidos') . '<br>'
+                   . 'Nuevos: ' . $results['new'] . '<br>Existentes: ' . $results['existing'],
+    ];
   }
 
 }
