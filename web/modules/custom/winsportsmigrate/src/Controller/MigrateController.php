@@ -771,56 +771,59 @@ class MigrateController {
         $entity_ids = $query->execute();
         if (count($entity_ids) == 0) {
           $node = Node::create([
-            'type'                   => 'partido',
-            'title'                  => $item['title'],
-            'body'                   => [
+            'type'              => 'partido',
+            'title'             => $item['title'],
+            'body'              => [
               'value'  => $item['description'],
               'format' => 'full_html',
             ],
-            'field_opta_id'             => $item['competition_id'],
-            'field_opta_season'              => $item['season_id'],
-            'uid'                    => 1,
-            'moderation_state'       => 'published',
+            'field_opta_id'     => $item['competition_id'],
+            'field_opta_season' => $item['season_id'],
+            'uid'               => 1,
+            'moderation_state'  => 'published',
           ]);
           $node->save();
-//          $this->attachTags($node, $item['tags']);
-//          $this->attachCategory($node, $item['category']);
-//          $this->attachSource($node, $item['fuente']);
-//          if ($item['field_image']['src']) {
-//            $image = file_get_contents($item['field_image']['src']);
-//            if ($file = file_save_data($image, 'public://images/articles/' . $this->slug($item['title']) . '.jpg', FILE_EXISTS_REPLACE)) {
-//              $node->field_image = [
-//                'target_id' => $file->id(),
-//                'alt'       => $item['title'],
-//                'title'     => $item['title'],
-//              ];
-//            }
-//          }
-//          if ($item['imagen_h']['src']) {
-//            $image = file_get_contents($item['imagen_h']['src']);
-//            if ($file = file_save_data($image, 'public://images/articles/' . $this->slug($item['title']) . '_h.jpg', FILE_EXISTS_REPLACE)) {
-//              $node->field_image_h = [
-//                'target_id' => $file->id(),
-//                'alt'       => $item['title'],
-//                'title'     => $item['title'],
-//              ];
-//            }
-//          }
-//          $node->save();
-//          $results['new']++;
-        } else {
-          $node = Node::load(array_pop($entity_ids));
-//          $node->set('uid', $item['uid']);
-//          $node->set('created', $date);
-//          $node->save();
-//          $results['existing']++;
+          //          $this->attachTags($node, $item['tags']);
+          //          $this->attachCategory($node, $item['category']);
+          //          $this->attachSource($node, $item['fuente']);
+          //          if ($item['field_image']['src']) {
+          //            $image = file_get_contents($item['field_image']['src']);
+          //            if ($file = file_save_data($image, 'public://images/articles/' . $this->slug($item['title']) . '.jpg', FILE_EXISTS_REPLACE)) {
+          //              $node->field_image = [
+          //                'target_id' => $file->id(),
+          //                'alt'       => $item['title'],
+          //                'title'     => $item['title'],
+          //              ];
+          //            }
+          //          }
+          //          if ($item['imagen_h']['src']) {
+          //            $image = file_get_contents($item['imagen_h']['src']);
+          //            if ($file = file_save_data($image, 'public://images/articles/' . $this->slug($item['title']) . '_h.jpg', FILE_EXISTS_REPLACE)) {
+          //              $node->field_image_h = [
+          //                'target_id' => $file->id(),
+          //                'alt'       => $item['title'],
+          //                'title'     => $item['title'],
+          //              ];
+          //            }
+          //          }
+          //          $node->save();
+          //          $results['new']++;
         }
-        $node->set('field_opta_match_id',$item['match_id']);
+        else {
+          $node = Node::load(array_pop($entity_ids));
+          //          $node->set('uid', $item['uid']);
+          //          $node->set('created', $date);
+          //          $node->save();
+          //          $results['existing']++;
+        }
+        $node->set('field_opta_match_id', $item['match_id']);
+        $node->save();
+        // $node->field_opta_match_id = $item['match_id'];
         dd($node);
-//        $this->attachTeams($node, $item['equipos']);
-//        if ($results['new'] + $results['existing'] >= $this->limit) {
-//          break;
-//        }
+        //        $this->attachTeams($node, $item['equipos']);
+        //        if ($results['new'] + $results['existing'] >= $this->limit) {
+        //          break;
+        //        }
       }
     }
     return [
