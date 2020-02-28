@@ -773,7 +773,6 @@ class MigrateController {
           $node = Node::create([
             'type'                   => 'partido',
             'title'                  => $item['title'],
-            'field_opta_match_id'         => $item['match_id'],
             'body'                   => [
               'value'  => $item['description'],
               'format' => 'full_html',
@@ -816,6 +815,7 @@ class MigrateController {
 //          $node->save();
 //          $results['existing']++;
         }
+        $node->set('field_opta_match_id',$item['match_id']);
         dd($node);
 //        $this->attachTeams($node, $item['equipos']);
 //        if ($results['new'] + $results['existing'] >= $this->limit) {
