@@ -9,6 +9,7 @@ namespace Drupal\winsportsmigrate\Controller;
 use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\Core\Datetime\Element\Datetime;
 use Drupal\node\Entity\Node;
+use Drupal\redirect\Entity\Redirect;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\user\Entity\User;
 use GuzzleHttp\Client;
@@ -847,11 +848,17 @@ class MigrateController {
         }
         $node->field_torneo_node = $node_torneo;
         $node->save();
-        
-        if(!\Drupal::service('path.alias_storage')->aliasExists("/matches/" . $item['match_id'],'es')){
-          $path = \Drupal::service('path.alias_storage')
-                         ->save("/node/" . $node->id(), "/matches/" . $item['match_id'], 'es');  
-        }
+        $redirects = redirect_load_by_source('/node/' . $node->id());
+        dd($redirects);
+//        Redirect::create([
+//          'redirect_source'   => 'matches/' . $item['match_id'],
+//          'redirect_redirect' => 'internal:/node/' . $node->id(),
+//          'status_code'       => 301,
+//        ])->save();
+        //        if(!\Drupal::service('path.alias_storage')->aliasExists("/matches/" . $item['match_id'],'es')){
+        //          $path = \Drupal::service('path.alias_storage')
+        //                         ->save("/node/" . $node->id(), "/matches/" . $item['match_id'], 'es');  
+        //        }
         dd($node);
       }
     }
