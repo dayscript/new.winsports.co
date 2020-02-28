@@ -764,6 +764,9 @@ class MigrateController {
     if ($res->getStatusCode() == 200) {
       $response = json_decode($res->getBody(), TRUE);
       foreach ($response['matches'] as $item) {
+        $date = DrupalDateTime::createFromTimestamp(strtotime($item['date']))
+                               ->format(DATETIME_DATETIME_STORAGE_FORMAT);
+
         $query = \Drupal::entityQuery('node');
         $query->condition('title', $item['title']);
         $query->condition('type', 'partido');
@@ -817,6 +820,7 @@ class MigrateController {
         $node->set('field_opta_match_id', $item['match_id']);
         $node->set('field_opta_id', $item['competition_id']);
         $node->set('field_opta_season', $item['season_id']);
+        $node->set('field_date', $date);
         $node->save();
         // $node->field_opta_match_id = $item['match_id'];
         dd($node);
