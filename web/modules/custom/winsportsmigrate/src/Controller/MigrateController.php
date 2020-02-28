@@ -785,38 +785,11 @@ class MigrateController {
             'moderation_state' => 'published',
           ]);
           $node->save();
-          //          $this->attachTags($node, $item['tags']);
-          //          $this->attachCategory($node, $item['category']);
-          //          $this->attachSource($node, $item['fuente']);
-          //          if ($item['field_image']['src']) {
-          //            $image = file_get_contents($item['field_image']['src']);
-          //            if ($file = file_save_data($image, 'public://images/articles/' . $this->slug($item['title']) . '.jpg', FILE_EXISTS_REPLACE)) {
-          //              $node->field_image = [
-          //                'target_id' => $file->id(),
-          //                'alt'       => $item['title'],
-          //                'title'     => $item['title'],
-          //              ];
-          //            }
-          //          }
-          //          if ($item['imagen_h']['src']) {
-          //            $image = file_get_contents($item['imagen_h']['src']);
-          //            if ($file = file_save_data($image, 'public://images/articles/' . $this->slug($item['title']) . '_h.jpg', FILE_EXISTS_REPLACE)) {
-          //              $node->field_image_h = [
-          //                'target_id' => $file->id(),
-          //                'alt'       => $item['title'],
-          //                'title'     => $item['title'],
-          //              ];
-          //            }
-          //          }
-          //          $node->save();
-          //          $results['new']++;
+          $results['new']++;
         }
         else {
           $node = Node::load(array_pop($entity_ids));
-          //          $node->set('uid', $item['uid']);
-          //          $node->set('created', $date);
-          //          $node->save();
-          //          $results['existing']++;
+          $results['existing']++;
         }
         $node->set('field_opta_match_id', $item['match_id']);
         $node->set('field_opta_id', $item['competition_id']);
@@ -857,11 +830,9 @@ class MigrateController {
             'status_code'       => 301,
           ])->save();  
         }
-        //        if(!\Drupal::service('path.alias_storage')->aliasExists("/matches/" . $item['match_id'],'es')){
-        //          $path = \Drupal::service('path.alias_storage')
-        //                         ->save("/node/" . $node->id(), "/matches/" . $item['match_id'], 'es');  
-        //        }
-        dd($node);
+        if ($results['new'] + $results['existing'] >= $this->limit) {
+          break;
+        }
       }
     }
     return [
