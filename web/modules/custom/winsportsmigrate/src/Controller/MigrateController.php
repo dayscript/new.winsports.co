@@ -777,8 +777,6 @@ class MigrateController {
               'value'  => $item['description'],
               'format' => 'full_html',
             ],
-            'field_opta_id'     => $item['competition_id'],
-            'field_opta_season' => $item['season_id'],
             'uid'               => 1,
             'moderation_state'  => 'published',
           ]);
@@ -817,6 +815,8 @@ class MigrateController {
           //          $results['existing']++;
         }
         $node->set('field_opta_match_id', $item['match_id']);
+        $node->set('field_opta_id', $item['competition_id']);
+        $node->set('field_opta_season', $item['season_id']);
         $node->save();
         // $node->field_opta_match_id = $item['match_id'];
         dd($node);
