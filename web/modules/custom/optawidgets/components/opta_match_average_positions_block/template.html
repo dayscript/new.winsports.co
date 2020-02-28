@@ -1,6 +1,6 @@
 <div>
     <div v-if="competition>0 && season>0 && match>0">
-        <opta-widget widget="average_positions" :competition="competition" :season="season" :match="match" template="normal" live="true" orientation="horizontal" side="both" show_match_header="true" show_halftime_score="false" show_crests="false" show_pitch_crests="false" show_graphics="all" default_nav="1" show_images="false" show_subs="true" show_competition_name="false" show_date="true" date_format="dddd D MMMM YYYY" show_referee="true" show_venue="true" show_attendance="true" show_team_sheets="false" subs_selected="false" competition_naming="full" team_naming="full" player_naming="full" show_logo="false" show_title="true" breakpoints="400, 700" sport="football"></opta-widget>
+        <opta-widget widget="average_positions" :competition="competition" :season="season" :match="match" template="normal" live="true" orientation="horizontal" side="both" show_match_header="false" show_halftime_score="false" show_crests="false" show_pitch_crests="false" show_graphics="all" default_nav="1" show_images="true" show_subs="true" show_competition_name="false" show_date="true" date_format="dddd D MMMM YYYY" show_referee="true" show_venue="true" show_attendance="true" show_team_sheets="false" subs_selected="false" competition_naming="full" team_naming="full" player_naming="full" show_logo="false" show_title="false" breakpoints="400, 700" sport="football"></opta-widget>
     </div>
     <div v-else>
         <div style="color:white;background-color: rgba(78,165,255,0.45);padding: 10px;">
