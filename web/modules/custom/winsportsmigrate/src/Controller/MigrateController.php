@@ -850,13 +850,13 @@ class MigrateController {
         $node->save();
 
         $redirects = \Drupal::service('redirect.repository')->findBySourcePath('node/'.$node->id());
-
-        dd($redirects);
-//        Redirect::create([
-//          'redirect_source'   => 'matches/' . $item['match_id'],
-//          'redirect_redirect' => 'internal:/node/' . $node->id(),
-//          'status_code'       => 301,
-//        ])->save();
+        if(count($redirects) == 0){
+          Redirect::create([
+            'redirect_source'   => 'matches/' . $item['match_id'],
+            'redirect_redirect' => 'internal:/node/' . $node->id(),
+            'status_code'       => 301,
+          ])->save();  
+        }
         //        if(!\Drupal::service('path.alias_storage')->aliasExists("/matches/" . $item['match_id'],'es')){
         //          $path = \Drupal::service('path.alias_storage')
         //                         ->save("/node/" . $node->id(), "/matches/" . $item['match_id'], 'es');  
