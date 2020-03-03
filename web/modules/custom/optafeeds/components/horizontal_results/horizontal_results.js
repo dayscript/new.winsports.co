@@ -33,6 +33,9 @@ new Vue({
     this.loadPhases()
   },
   methods: {
+    goto(url){
+      document.location.href = url
+    },
     loadPhases () {
       this.loading++
       axios.get('https://s3.amazonaws.com/optafeeds-prod/schedules/' + this.id_tournament + '/' + this.season + '/all.json').then(
