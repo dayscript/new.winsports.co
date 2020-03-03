@@ -49,6 +49,16 @@
     #block-futbolcolombiano-2,
     #block-futbolinternacional-2{
       @apply flex-1;
+      > h2{
+        @apply text-white;
+      }
+      ul{
+        li{
+          a{
+            @apply text-white;
+          }
+        }
+      }
     }
   }
 }
@@ -71,7 +81,7 @@
 }
 #block-views-block-opinion-block-2{
   .views-row{
-    @apply w-1/2 pr-10;
+    @apply w-1/3 pr-10;
   }  
 }
 
@@ -95,6 +105,7 @@
     }
   }
 }
+
 #block-views-block-goles-home-block-1,
 #block-views-block-videos-opinion-block-1
 {
@@ -500,4 +511,13 @@ iframe.iframe-futbolred {
   body {
     padding: 0 !important;
 }
+}
+div#footer-first{
+  h2{
+    @apply tw-text-2xl;
+    text-transform: none;
+  }
+  li{
+   @apply mb-3 text-sm;
+  }
 }
