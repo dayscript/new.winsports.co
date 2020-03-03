@@ -12,7 +12,7 @@
             {{ phase.phase.type }}
         </div>
     </div>
-    <div class="border-l-8 my-6" style="border-color: #FACA32;">
+    <div class="border-l-8 my-6 tw-h-380 tw-overflow-y-scroll scrollbar-w-2 scrollbar-track-gray-lighter scrollbar-thumb-rounded scrollbar-thumb-gray scrolling-touch" style="border-color: #FACA32;">
         <div class="ml-1 flex border-b-1 p-1 justify-between text-sm">
             <div class="w-1/2 flex"></div>
             <div v-if="selected_option == 'decline'" class="w-1/2 flex text-center justify-between pb-1 border-b" style="border-color: rgba(10,59,65,0.2);">
@@ -67,7 +67,7 @@
                 <div class="flex-1">{{ row.gd }}</div>
             </div>
         </div>
-        <div v-for="row in players" v-if="index<max" class="ml-1 flex border-b-1 p-1 justify-between text-sm">
+        <div v-for="row in players" v-if="index<max" class=" ml-1 flex border-b-1 p-1 justify-between text-sm">
             Index: {{ index }}
             <div class="w-1/2 flex items-center">
                 <div class="w-1/6 text-center px-2"><strong>{{ row.pos }}</strong></div>

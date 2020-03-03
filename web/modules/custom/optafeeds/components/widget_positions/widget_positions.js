@@ -3,7 +3,7 @@ new Vue({
   el: '.opta-feeds-widget-positions',
   data: {
     loading: 0,
-    max_rows: 10,
+    max_rows: 30,
     tournament_season: '0-0',
     tournaments: [],
     phases: [],

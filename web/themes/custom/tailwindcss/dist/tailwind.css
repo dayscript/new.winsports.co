@@ -1842,6 +1842,27 @@ div#footer-first li {
   width: 2rem;
 }
 
+.scrollbar-w-2::-webkit-scrollbar {
+  width: .5rem !important;
+  height: .5rem !important;
+}
+
+.scrollbar-thumb-rounded::-webkit-scrollbar-thumb {
+  border-radius: .25rem !important;
+}
+
+.scrollbar-thumb-gray::-webkit-scrollbar-thumb {
+  background-color: #0ef8c3;
+}
+
+.scrollbar-track-gray-lighter::-webkit-scrollbar-track {
+  background-color: #819A9F;
+}
+
+.scrolling-touch {
+  -webkit-overflow-scrolling: touch !important;
+}
+
 .tw-sr-only{
   position: absolute !important;
   width: 1px !important;
@@ -5318,6 +5339,10 @@ div#footer-first li {
 
 .tw-h-64{
   height: 16rem !important;
+}
+
+.tw-h-380{
+  height: 380px !important;
 }
 
 .tw-h-auto{
@@ -18419,6 +18444,10 @@ div#footer-first li {
 
   .sm\:tw-h-64{
     height: 16rem !important;
+  }
+
+  .sm\:tw-h-380{
+    height: 380px !important;
   }
 
   .sm\:tw-h-auto{
@@ -31523,6 +31552,10 @@ div#footer-first li {
     height: 16rem !important;
   }
 
+  .md\:tw-h-380{
+    height: 380px !important;
+  }
+
   .md\:tw-h-auto{
     height: auto !important;
   }
@@ -44625,6 +44658,10 @@ div#footer-first li {
     height: 16rem !important;
   }
 
+  .lg\:tw-h-380{
+    height: 380px !important;
+  }
+
   .lg\:tw-h-auto{
     height: auto !important;
   }
@@ -57725,6 +57762,10 @@ div#footer-first li {
 
   .xl\:tw-h-64{
     height: 16rem !important;
+  }
+
+  .xl\:tw-h-380{
+    height: 380px !important;
   }
 
   .xl\:tw-h-auto{

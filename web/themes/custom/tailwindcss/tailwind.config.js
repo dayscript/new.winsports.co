@@ -35,6 +35,9 @@ module.exports = {
           900:'#1a202c',
           default: '#e3e3e3',
         }
+      },
+      height: {
+        '380': '380px'
       }
     },
   },
