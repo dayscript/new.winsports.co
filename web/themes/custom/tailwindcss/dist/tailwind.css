@@ -874,6 +874,13 @@ a {
   padding-right: 1.5rem;
 }
 
+#block-toplinks ul:not(.contextual-links) li:last-child {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 0%;
+          flex: 1 1 0%;
+  text-align: right;
+}
+
 #block-tailwindcss-main-menu ul:not(.contextual-links) {
   display: -webkit-box;
   display: -ms-flexbox;
