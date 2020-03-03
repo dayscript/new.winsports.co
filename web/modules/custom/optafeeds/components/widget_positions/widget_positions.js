@@ -33,10 +33,11 @@ new Vue({
   methods: {
     selectPhase (phase_id) {
       this.selected_phase_id = phase_id
+      this.selectTableData()
     },
     selectOption (option_key) {
       this.selected_option = option_key
-      // this.loadTable()
+      this.loadTable()
     },
     loadTournaments () {
       this.loading++
@@ -47,7 +48,6 @@ new Vue({
             if (data.length > 0) {
               this.tournament_season = data[0].field_opta_id + '-' + data[0].field_opta_season
               this.selected_option = 'positions'
-              console.log(this.tournament_season)
               // this.loadTable()
             }
           }
@@ -57,6 +57,30 @@ new Vue({
             this.loading--
           }
       )
+    },
+    selectTableData(){
+      let teams = []
+      let players = []
+      let items = Object.entries(this.phases[this.selected_phase_id].teams)
+      if (this.selected_option === 'decline') {
+        items.sort(function (a, b) { return b[1].pos - a[1].pos})
+      }
+      else {
+        items.sort(function (a, b) { return a[1].pos - b[1].pos})
+      }
+      if (this.selected_option === 'scorers') {
+        items.forEach(function (player) {
+          players.push(player[1])
+        })
+      }
+      else {
+        items.forEach(function (team) {
+          teams.push(team[1])
+        })
+      }
+
+      this.players = players
+      this.teams = teams
     },
     loadTable () {
       let data = this.tournament_season.split('-')
