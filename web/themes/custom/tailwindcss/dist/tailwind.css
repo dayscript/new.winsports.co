@@ -1153,6 +1153,12 @@ a {
           justify-content: space-between;
 }
 
+#block-views-block-goles-home-block-1 div div .more-link a,
+#block-views-block-videos-opinion-block-1 div div .more-link a {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 #block-views-block-equipos-del-home-block-1 div div {
   display: -webkit-box;
   display: -ms-flexbox;

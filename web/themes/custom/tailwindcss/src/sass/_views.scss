@@ -124,6 +124,9 @@
        @apply flex flex-col h-full justify-between; 
       }
     }
+    .more-link a{
+      @apply mx-auto;
+    }
   }
 }
 #block-views-block-equipos-del-home-block-1{
