@@ -1,8 +1,9 @@
 .user{
   &.compact{
     .image{
+      @apply mb-0;
       img{
-        @apply rounded-full h-10 w-10; 
+        @apply rounded-full h-8 w-8; 
       }
     }
   }

@@ -1022,6 +1022,33 @@ a {
   color: #fff;
 }
 
+.opinion.teaser .image {
+  margin-bottom: 1rem;
+}
+
+#footer-first > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#footer-first > div #block-futbolcolombiano-2,
+#footer-first > div #block-futbolinternacional-2 {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 0%;
+          flex: 1 1 0%;
+}
+
+#footer-first > div #block-futbolcolombiano-2 > h2,
+#footer-first > div #block-futbolinternacional-2 > h2 {
+  color: #fff;
+}
+
+#footer-first > div #block-futbolcolombiano-2 ul li a,
+#footer-first > div #block-futbolinternacional-2 ul li a {
+  color: #fff;
+}
+
 .gol-partido.teaser .image img {
   width: 100%;
 }
@@ -1036,7 +1063,7 @@ a {
 }
 
 #block-views-block-opinion-block-2 .views-row {
-  width: 50%;
+  width: 33.333333%;
   padding-right: 2.5rem;
 }
 
@@ -1719,6 +1746,16 @@ iframe.iframe-futbolred body {
   padding: 0 !important;
 }
 
+div#footer-first h2 {
+  font-size: 1.5rem;
+  text-transform: none;
+}
+
+div#footer-first li {
+  margin-bottom: 0.75rem;
+  font-size: 0.875rem;
+}
+
 #block-futbolcolombiano-estadisticas, .opta-widgets {
   color: #0B3B41;
 }
@@ -1789,10 +1826,14 @@ iframe.iframe-futbolred body {
   color: #0b3a40;
 }
 
+.user.compact .image {
+  margin-bottom: 0;
+}
+
 .user.compact .image img {
   border-radius: 9999px;
-  height: 2.5rem;
-  width: 2.5rem;
+  height: 2rem;
+  width: 2rem;
 }
 
 .tw-sr-only{
