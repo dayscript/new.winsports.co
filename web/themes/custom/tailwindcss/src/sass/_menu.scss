@@ -5,6 +5,9 @@
       a{
         @apply uppercase text-white pr-6;
       }
+      &:last-child{
+        @apply flex-1 text-right;
+      }
     }
   }
 }
