@@ -333,7 +333,6 @@
     }
   }
 }
-
 @screen md {
   #block-views-block-nomina-block-1{
     .md--col--4{
@@ -463,7 +462,8 @@
     }
   }
 }
-#blocktabs-programacion{
+#blocktabs-programacion,
+#blocktabs-widget_programacion{
   .more-link{
     a{ 
       @apply w-full my-0;
@@ -522,5 +522,14 @@ div#footer-first{
   }
   li{
    @apply mb-3 text-sm;
+  }
+}
+a.footer {
+  color: #0ef8c3;
+  padding: 0 1rem;
+}
+#block-views-block-opinion-block-3, #block-views-block-opinion-block-2{
+  .nombres {
+    color: #0b3b41 !important;
   }
 }

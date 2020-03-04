@@ -1,0 +1,37 @@
+/* RESPONSIVE */
+#block-views-block-goles-home-block-2{
+  .gol-partido.video-player{
+    .image{
+      img.play-icon{
+        position: absolute;
+        top: 3rem;
+        left: 50%;
+        transform: translate(-50%,0);
+      }
+    }
+    .title{
+      position: relative;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      a{
+        color: #0b3b41;
+      }
+    }
+  }
+}
+/* RESPONSIVE */
+@screen md {
+  #block-toplinks{
+    @apply block;
+  }
+  #block-tailwindcss-main-menu{
+    @apply block;
+  }
+  #block-views-block-goles-home-block-1{
+    @apply block;
+  }
+  #block-views-block-goles-home-block-2{
+    @apply hidden;
+  }
+}

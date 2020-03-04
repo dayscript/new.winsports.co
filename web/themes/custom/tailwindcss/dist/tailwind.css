@@ -718,6 +718,22 @@ input {
   background-color: #c05621;
 }
 
+select {
+  height: 3rem;
+}
+
+.opinion.home-destacado .title {
+  margin-bottom: 0 !important;
+}
+
+.nombres {
+  color: #fff !important;
+}
+
+iframe.iframe-futbolred body {
+  padding: 0 !important;
+}
+
 h2, .title {
   font-family: "Passion One", cursive;
   font-size: 2.25rem;
@@ -1670,29 +1686,35 @@ a {
   margin-bottom: 0;
 }
 
-#blocktabs-programacion .more-link a {
+#blocktabs-programacion .more-link a,
+#blocktabs-widget_programacion .more-link a {
   width: 100%;
   margin-top: 0;
   margin-bottom: 0;
 }
 
-#blocktabs-programacion .views-row {
+#blocktabs-programacion .views-row,
+#blocktabs-widget_programacion .views-row {
   position: relative;
   padding: 1rem;
 }
 
-#blocktabs-programacion .views-row .views-field-title {
+#blocktabs-programacion .views-row .views-field-title,
+#blocktabs-widget_programacion .views-row .views-field-title {
   font-family: "Passion One", cursive;
   font-size: 1.25rem;
 }
 
-#blocktabs-programacion .views-field-field-torneo a {
+#blocktabs-programacion .views-field-field-torneo a,
+#blocktabs-widget_programacion .views-field-field-torneo a {
   text-transform: uppercase;
   color: #0ef8c3;
 }
 
 #blocktabs-programacion .views-field-nothing,
-#blocktabs-programacion .views-field-field-canal {
+#blocktabs-programacion .views-field-field-canal,
+#blocktabs-widget_programacion .views-field-nothing,
+#blocktabs-widget_programacion .views-field-field-canal {
   position: absolute;
   right: 0;
   top: 0;
@@ -1703,7 +1725,8 @@ a {
   font-family: "Passion One", cursive;
 }
 
-#blocktabs-programacion .views-field-field-canal {
+#blocktabs-programacion .views-field-field-canal,
+#blocktabs-widget_programacion .views-field-field-canal {
   width: 5rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1716,13 +1739,15 @@ a {
           justify-content: center;
 }
 
-#blocktabs-programacion .canal-winsports {
+#blocktabs-programacion .canal-winsports,
+#blocktabs-widget_programacion .canal-winsports {
   height: 100%;
   width: 8rem;
   background: url("/themes/custom/tailwindcss/images/logos/canal-winsports.png") no-repeat center center;
 }
 
-#blocktabs-programacion .canal-winsportsplus {
+#blocktabs-programacion .canal-winsportsplus,
+#blocktabs-widget_programacion .canal-winsportsplus {
   height: 100%;
   width: 8rem;
   background: url("/themes/custom/tailwindcss/images/logos/canal-winsportsplus.png") no-repeat center center;
@@ -1760,6 +1785,15 @@ div#footer-first h2 {
 div#footer-first li {
   margin-bottom: 0.75rem;
   font-size: 0.875rem;
+}
+
+a.footer {
+  color: #0ef8c3;
+  padding: 0 1rem;
+}
+
+#block-views-block-opinion-block-3 .nombres, #block-views-block-opinion-block-2 .nombres {
+  color: #0b3b41 !important;
 }
 
 #block-futbolcolombiano-estadisticas, .opta-widgets {
@@ -1861,6 +1895,47 @@ div#footer-first li {
 
 .scrolling-touch {
   -webkit-overflow-scrolling: touch !important;
+}
+
+/* RESPONSIVE */
+
+#block-views-block-goles-home-block-2 .gol-partido.video-player .image img.play-icon {
+  position: absolute;
+  top: 3rem;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+}
+
+#block-views-block-goles-home-block-2 .gol-partido.video-player .title {
+  position: relative;
+  top: 0;
+  bottom: 0;
+  left: 0;
+}
+
+#block-views-block-goles-home-block-2 .gol-partido.video-player .title a {
+  color: #0b3b41;
+}
+
+/* RESPONSIVE */
+
+@media (min-width: 768px) {
+  #block-toplinks {
+    display: block;
+  }
+
+  #block-tailwindcss-main-menu {
+    display: block;
+  }
+
+  #block-views-block-goles-home-block-1 {
+    display: block;
+  }
+
+  #block-views-block-goles-home-block-2 {
+    display: none;
+  }
 }
 
 .tw-sr-only{
