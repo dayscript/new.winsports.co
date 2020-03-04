@@ -28,7 +28,7 @@
 #block-futbolinternacional,
 .menu-secundario{
   ul:not(.contextual-links){
-    @apply flex bg-gray-650 text-white justify-between;
+    @apply flex bg-gray-650 text-white justify-between flex-no-wrap overflow-x-auto;
     li{
       @apply flex-1;
       a{

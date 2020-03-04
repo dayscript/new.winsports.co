@@ -913,6 +913,9 @@ a {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  overflow-x: auto;
 }
 
 #block-futbolcolombiano ul:not(.contextual-links) li,
