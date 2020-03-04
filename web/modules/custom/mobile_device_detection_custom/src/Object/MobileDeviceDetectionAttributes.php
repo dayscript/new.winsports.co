@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\mobile_device_detection\Object;
+namespace Drupal\mobile_device_detection_custom\Object;
 
 use Symfony\Component\Yaml\Yaml;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\mobile_device_detection\Plugin\views\display_extender;
+namespace Drupal\mobile_device_detection_custom\Plugin\views\display_extender;
 
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\views\Plugin\views\display_extender\DisplayExtenderPluginBase;
@@ -11,9 +11,9 @@ use Drupal\views\Plugin\views\display_extender\DisplayExtenderPluginBase;
  * @ingroup views_display_extender_plugins
  *
  * @ViewsDisplayExtender(
- *   id = "mobile_device_detection",
- *   title = @Translation("Mobile device detection display extender"),
- *   help = @Translation("Mobile device detection settings for this view."),
+ *   id = "mobile_device_detection_custom",
+ *   title = @Translation("Mobile device detection custom display extender"),
+ *   help = @Translation("Mobile device detection custom settings for this view."),
  *   no_ui = TRUE
  * )
  */

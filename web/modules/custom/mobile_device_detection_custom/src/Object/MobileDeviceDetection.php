@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\mobile_device_detection\Object;
+namespace Drupal\mobile_device_detection_custom\Object;
 
 use Symfony\Component\HttpFoundation\RequestStack;
 
@@ -12,7 +12,7 @@ class MobileDeviceDetection {
   /**
    * A default attributes instance.
    *
-   * @var \Drupal\mobile_device_detection\Object\MobileDeviceDetectionAttributes
+   * @var \Drupal\mobile_device_detection_custom\Object\MobileDeviceDetectionAttributes
    */
   private $attributes;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\mobile_device_detection\Plugin\Condition;
+namespace Drupal\mobile_device_detection_custom\Plugin\Condition;
 
 use Drupal\Core\Condition\ConditionPluginBase;
 use Drupal\Core\Form\FormStateInterface;
@@ -9,7 +9,7 @@ use Drupal\Core\Form\FormStateInterface;
  * This main class which add ability to determine device.
  *
  * @Condition(
- *   id = "mobile_device_detection_condition_plugin",
+ *   id = "mobile_device_detection_custom_condition_plugin",
  *   label = @Translation("Show it on special devices"),
  * )
  */
@@ -82,7 +82,7 @@ class MobileDeviceDetectionConditionPlugin extends ConditionPluginBase {
     }
 
     \Drupal::service('page_cache_kill_switch')->trigger();
-    $entity = \Drupal::service('mobile_device_detection.object');
+    $entity = \Drupal::service('mobile_device_detection_custom.object');
 
     foreach ($this->configuration['devices'] as $key => $value) {
       if ($key != 'desktop') {
