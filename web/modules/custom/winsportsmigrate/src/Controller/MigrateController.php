@@ -250,6 +250,16 @@ class MigrateController {
           ]);
           $node->save();
           $this->attachPlayers($node, $item['players']);
+          if ($item['field_image']['src']) {
+            $image = file_get_contents($item['field_image']['src']);
+            if ($file = file_save_data($image, 'public://images/teams/' . $this->slug($item['title']) . '.png', FILE_EXISTS_REPLACE)) {
+              $node->field_image = [
+                'target_id' => $file->id(),
+                'alt'       => $item['title'],
+                'title'     => $item['title'],
+              ];
+            }
+          }
           $node->save();
           $results['new']++;
           if ($results['new'] >= $this->limit) {
@@ -259,17 +269,6 @@ class MigrateController {
         else {
           $node = Node::load(array_pop($entity_ids));
           $results['existing']++;
-        }
-        if ($item['field_image']['src']) {
-          $image = file_get_contents($item['field_image']['src']);
-          if ($file = file_save_data($image, 'public://images/teams/' . $this->slug($item['title']) . '.png', FILE_EXISTS_REPLACE)) {
-            $node->field_image = [
-              'target_id' => $file->id(),
-              'alt'       => $item['title'],
-              'title'     => $item['title'],
-            ];
-          }
-          $node->save();
         }
       }
     }
