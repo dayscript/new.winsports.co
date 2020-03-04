@@ -1,6 +1,6 @@
 <div class="gol-partido teaser" {{ attributes.addClass(classes) }}>
-    <div class="tw-flex tw-items-top">
-        <div class="image tw-w-1/2 tw-relative">
+    <div class="md:tw-flex md:tw-items-top">
+        <div class="image md:tw-w-1/2 tw-relative">
             {% if node.hasField('field_image_h') %}
                 {{ content.field_image_h }}
             {% elseif node.hasField('field_image') %}
@@ -10,7 +10,7 @@
                 <a href="{{ url }}"><img src="/themes/custom/tailwindcss/images/icons/play.png" alt="Play" class="play-icon tw-h-12 tw-w-12 opacity-100"></a>
             </div>
         </div>
-        <div class="tw-w-1/2 tw-text-base tw-pl-2">
+        <div class="tw-text-base md:tw-w-1/2 md:tw-pl-2">
             <a href="{{ url }}">{{ label }}</a>
         </div>
     </div>
