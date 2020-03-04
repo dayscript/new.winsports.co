@@ -267,6 +267,7 @@ class MigrateController {
           }
         }
         else {
+          $node = Node::load(array_pop($entity_ids));
           $results['existing']++;
         }
       }
