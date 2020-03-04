@@ -9,13 +9,15 @@ new Vue({
     phases: [],
     teams: [],
     players: [],
+    matches: [],
+    rounds: [],
     selected_phase_id: '',
     selected_option: '',
     options: [{key: 'positions', label: 'Posiciones'},
-      // {key: 'results', label: 'Resultados'},
+      {key: 'schedules', label: 'Resultados'},
       {key: 'decline', label: 'Descenso'},
       {key: 'reclassification', label: 'Reclasificación'},
-      {key: 'scorers', label: 'Goleadores'}
+      // {key: 'scorers', label: 'Goleadores'}
     ],
     positions: {
       Forward: 'Delantero',
@@ -85,6 +87,7 @@ new Vue({
     loadTable () {
       let data = this.tournament_season.split('-')
       let url = 'https://s3.amazonaws.com/optafeeds-prod/' + this.selected_option + '/' + data[0] + '/' + data[1] + '/all.json';
+      
       this.loading++
       axios.get(url).then(
           ({data}) => {
@@ -92,6 +95,8 @@ new Vue({
             let teams = []
             let phases = []
             let players = []
+            let rounds = []
+            let matches = []
             let items = null
             if (typeof data.teams !== 'undefined') {
               items = Object.entries(data.teams)
@@ -105,10 +110,14 @@ new Vue({
                 this.selected_phase_id = Object.keys(data.phases).pop()
               }
               phases = data.phases
-              items = Object.entries(data.phases[this.selected_phase_id].teams)
+              if (this.selected_option === 'schedules') items = Object.entries(data.phases[this.selected_phase_id].rounds)
+              else items = Object.entries(data.phases[this.selected_phase_id].teams)
             }
             if (this.selected_option === 'decline') {
               items.sort(function (a, b) { return b[1].pos - a[1].pos})
+            }
+            else if (this.selected_option === 'schedules') {
+              items.sort(function (a, b) { return b[1].number - a[1].number})
             }
             else {
               items.sort(function (a, b) { return a[1].pos - b[1].pos})
@@ -118,12 +127,18 @@ new Vue({
                 players.push(player[1])
               })
             }
+            else if (this.selected_option === 'schedules') {
+              items.forEach(function (round) {
+                rounds.push(round[1])
+              })
+            }
             else {
               items.forEach(function (team) {
                 teams.push(team[1])
               })
             }
 
+            this.rounds = rounds
             this.players = players
             this.teams = teams
             this.phases = phases
