@@ -258,8 +258,6 @@ class MigrateController {
         }
         else {
           $node = Node::load(array_pop($entity_ids));
-          $node->set('uid', $item['autor_uid']);
-          $node->save();
           $results['existing']++;
         }
         if ($item['field_image']['src']) {
