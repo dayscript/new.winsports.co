@@ -18,8 +18,10 @@ new Vue({
     if(this.node['type'][0]['target_id'] === 'article'){
       if (this.node['field_tipo_de_articulo'][0]['target_id'] === '2876'){
         this.selected_option = 'cronica'
+        this.cron = this.node['nid'][0]['value']
       } else if (this.node['field_tipo_de_articulo'][0]['target_id'] === '2882'){
         this.selected_option = 'previa'
+        this.prev = this.node['nid'][0]['value']
       }
     } else {
       if (this.node['field_opta_id'][0]['value']) {
