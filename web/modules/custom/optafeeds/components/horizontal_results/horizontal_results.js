@@ -75,7 +75,9 @@ new Vue({
       match_id = 2049215
       axios.get('https://test.winsports.co/api/match/cronica/'+match_id).then(
           ({data})=>{
-            console.log(data)
+            if(data.length > 0 ){
+              console.log(data[0].nid) 
+            }
           }
       ).catch()
     }
