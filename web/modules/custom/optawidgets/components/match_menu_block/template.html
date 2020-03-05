@@ -49,8 +49,34 @@
         <div v-if="cron" @click="selectOption('cronica')" class="whitespace-no-wrap py-4 px-6 font-title font-semibold cursor-pointer" :class="selected_option == 'cronica'?'tw-bg-secondary tw-text-primary':''">Crónica</div>
     </div>
     <div v-show="selected_option == 'directo'">
-        <div v-for="event in events" class="p-2">
-            {{ event.text }}
+        <div v-for="event in events" class="tw-p-4 tw-border-b">
+            <div v-if="event.team_id == null" class="tw-flex">
+                <div class="tw-w-2/12">
+                    {{ event.minute_label }}
+                    <img :src="'/assets/img/icon/gamecast/' + imageEventsOpta(event.type) +'.png'" alt="" class="">
+                </div>
+                <div class="tw-w-10/12">
+                    {{ event.text }}
+                </div>
+            </div>
+            <div v-if="event.team_id == opta_home_id && event.team_id != null" class="tw-flex">
+                <div class="tw-w-2/12">
+                    {{ event.minute_label }}
+                    <img :src="'/assets/img/icon/gamecast/' + imageEventsOpta(event.type) +'.png'" alt="" class="">
+                </div>
+                <div class="tw-w-10/12">
+                    {{ event.text }}
+                </div>
+            </div>
+            <div v-if="event.team_id == opta_away_id && event.team_id != null" class="tw-flex">
+                <div class="tw-w-10/12">
+                    {{ event.text }}
+                </div>
+                <div class="tw-w-2/12">
+                    {{ event.minute_label }}
+                    <img :src="'/assets/img/icon/gamecast/' + imageEventsOpta(event.type) +'.png'" alt="" class="">
+                </div>
+            </div>
         </div>
     </div>
     <div v-show="selected_option == 'alineaciones'">

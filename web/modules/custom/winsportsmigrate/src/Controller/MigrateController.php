@@ -847,6 +847,8 @@ class MigrateController {
         $node->set('field_round', $item['round']);
         $node->set('field_phase', $item['phase']);
         $node->set('field_home', $item['home']);
+        $node->set('field_opta_home_id', $item['home_id']);
+        $node->set('field_opta_away_id', $item['away_id']);
         $node->set('field_away', $item['away']);
         $node->set('field_date', $date);
         $node->save();

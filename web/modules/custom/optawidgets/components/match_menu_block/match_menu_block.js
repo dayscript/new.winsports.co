@@ -7,6 +7,8 @@ new Vue({
     opta_season: '',
     opta_match_id: null,
     drupal_match_id: null,
+    opta_home_id: null,
+    opta_away_id: null,
     prev: null,
     cron: null,
     node: null,
@@ -31,15 +33,11 @@ new Vue({
       }
     }
     else {
-      if (this.node['field_opta_id'][0]['value']) {
-        this.opta_competition = this.node['field_opta_id'][0]['value']
-      }
-      if (this.node['field_opta_season'][0]['value']) {
-        this.opta_season = this.node['field_opta_season'][0]['value']
-      }
-      if (this.node['field_opta_match_id'][0]['value']) {
-        this.opta_match_id = this.node['field_opta_match_id'][0]['value']
-      }
+      if (this.node['field_opta_id'][0]['value']) this.opta_competition = this.node['field_opta_id'][0]['value']
+      if (this.node['field_opta_season'][0]['value']) this.opta_season = this.node['field_opta_season'][0]['value']
+      if (this.node['field_opta_match_id'][0]['value']) this.opta_match_id = this.node['field_opta_match_id'][0]['value']
+      if (this.node['field_opta_home_id'][0]['value']) this.opta_home_id = this.node['field_opta_home_id'][0]['value']
+      if (this.node['field_opta_away_id'][0]['value']) this.opta_away_id = this.node['field_opta_away_id'][0]['value']
     }
     if (this.opta_match_id || this.drupal_match_id) {
       this.loadArticles()
@@ -96,7 +94,44 @@ new Vue({
             }
           }
       ).catch()
+    },
+    imageEventsOpta (type) {
+      var events = {
+        "lineup": "on-off",
+        "start": "on-off",
+        "attempt blocked": "catch",
+        "free kick lost": "fault",
+        "free kick won": "fault",
+        "post": "shot_stick",
+        "miss": "shot_desv",
+        "yellow card": "card_yellow",
+        "yellow-card": "card_yellow",
+        "red card": "card_red",
+        "goal": "goal",
+        "corner": "corner",
+        "offside": "offside",
+        "attempt saved": "shot_direct",
+        "end 1": "on-off",
+        "end 2": "on-off",
+        "end 14": "on-off",
+        "substitution": "change",
+        "start delay": "on-off",
+        "end delay": "on-off",
+        "penalty won": "penal",
+        "penalty lost": "penal_err",
+        "goal_head": "goal",
+        "goal_shot": "goal",
+        "autogoal": "autogoal",
+        "penal_goalx": "penal",
+        "penal_errx": "penal_err",
+        "card_red": "card_red",
+        "change_out": "change",
+        "comment": "comment",
+        "2t_start": "on-off",
+        "extra_start": "on-off",
+        "extra_end": "on-off"
+      }
+      return (type in events ? events[type] : '');
     }
   }
-
 });
