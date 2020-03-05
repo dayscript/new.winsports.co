@@ -1989,11 +1989,11 @@ div#block-contenidoprincipaldelapagina-3 header {
 }
 
 .mediastream.fixed-height {
-  height: 550px;
+  height: 550px !important;
 }
 
 .mediastream.fixed-height > div {
-  height: 550px;
+  height: 550px !important;
 }
 
 .tw-sr-only{
