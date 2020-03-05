@@ -1619,24 +1619,6 @@ a {
   display: none;
 }
 
-.lista-torneos {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  background-color: #0b3b41;
-  padding: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.lista-torneos header {
-  font-family: "Passion One", cursive;
-  color: #fff;
-  width: 100%;
-  font-size: 2.25rem;
-}
-
 .block-title-no-caps h2 {
   text-transform: none;
 }
@@ -1902,6 +1884,25 @@ div#block-contenidoprincipaldelapagina-3 header {
 
 /* RESPONSIVE */
 
+.tw-bg-primary header > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.tw-bg-primary header #block-responsivemenumobileicon {
+  -webkit-box-ordinal-group: -9998;
+      -ms-flex-order: -9999;
+          order: -9999;
+}
+
+.tw-bg-primary header #block-responsivemenumobileicon .label {
+  display: none;
+}
+
 #block-views-block-goles-home-block-2 .gol-partido.video-player .image img.play-icon {
   position: absolute;
   top: 3rem;
@@ -1963,6 +1964,23 @@ div#block-contenidoprincipaldelapagina-3 header {
           flex: none;
 }
 
+.lista-torneos {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #0b3b41;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.lista-torneos header {
+  display: none;
+}
+
+.lista-torneos .views-row {
+  padding-right: 0.75rem;
+}
+
 /* RESPONSIVE */
 
 @media (min-width: 768px) {
@@ -2015,6 +2033,29 @@ div#block-contenidoprincipaldelapagina-3 header {
     height: 2.5rem;
     width: 2.5rem;
   }
+
+  .lista-torneos {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    background-color: #0b3b41;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .lista-torneos header {
+    font-family: "Passion One", cursive;
+    color: #fff;
+    width: 100%;
+    font-size: 2.25rem;
+    display: block;
+  }
+
+  .lista-torneos .views-row {
+    padding-right: 3rem;
+  }
 }
 
 .mediastream.fixed-height {
@@ -2034,6 +2075,7 @@ div#block-contenidoprincipaldelapagina-3 header {
 .article.type-2876 .node-content,
 .article.type-2882 .node-content {
   background-color: #fff;
+  padding: 1.5rem;
 }
 
 .tw-sr-only{
