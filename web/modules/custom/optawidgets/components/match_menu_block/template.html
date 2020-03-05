@@ -94,7 +94,7 @@
         </div>
     </div>
     <div v-show="selected_option == 'estadisticas'">
-        <div v-if="opta_competition>0 && opta_season>0 && opta_match_id>0" class="tw-bg-gray tw-p-6 flex">
+        <div v-show="opta_competition>0 && opta_season>0 && opta_match_id>0" class="tw-bg-gray tw-p-6 flex">
             <div class="tw-w-3/4">
                 <div class="tw-bg-white tw-p-6 tw-mb-6">
                     <opta-widget
