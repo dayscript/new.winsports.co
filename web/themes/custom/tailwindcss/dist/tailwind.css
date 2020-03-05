@@ -1857,6 +1857,13 @@ div#block-contenidoprincipaldelapagina-3 header {
   color: #0b3a40;
 }
 
+#block-futbolcolombiano-estadisticas .Opta h2, .opta-widgets .Opta h2 {
+  height: auto;
+  padding: 1rem;
+  color: #0b3b41;
+  font-size: 1.875rem;
+}
+
 .user.compact .image {
   margin-bottom: 0;
 }
