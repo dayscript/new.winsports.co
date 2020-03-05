@@ -1,0 +1,23 @@
+drupal.widget_programming:
+  version: VERSION
+  css:
+    component:
+      css/components/widget_programming.module.css: {}
+  js:
+    js/widget_programming.js: {}
+  dependencies:
+    - core/jquery
+
+widget_programming.owlcarousel:
+  css:
+    theme:
+      lib/owl-carousel/owl.carousel.css: {}
+      lib/owl-carousel/owl.theme.css: {}
+      lib/owl-carousel/owl.transitions.css: {}
+  js:
+    lib/owl-carousel/owl.carousel.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery.once

@@ -1,0 +1,10 @@
+name: Widget Programming
+description: 'This module shows the programming of the WinSports.'
+type: module
+libraries:
+  - widget_programming/drupal.widget_programming
+version: '1.x'
+core: '8.x'
+project: 'widget_programming'
+datestamp: 1583355900
+package: 'dayscript'

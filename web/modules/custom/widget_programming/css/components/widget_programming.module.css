@@ -1,0 +1,15 @@
+#owl-programming .owl-item{
+	width: max-content!important;
+}
+
+#owl-programming .item{
+	margin-right: 45px;
+}
+
+#owl-programming .items{
+	display: flex;
+}
+
+#owl-programming .date{
+	margin: 5px;
+}
