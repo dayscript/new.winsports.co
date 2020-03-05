@@ -1,3 +1,6 @@
-.mediastream{
-  min-height: 350px;
+.mediastream.fixed-height{
+  height: 550px;
+  > div{
+    height: 550px;
+  } 
 }

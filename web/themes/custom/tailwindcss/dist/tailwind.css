@@ -1984,8 +1984,12 @@ div#block-contenidoprincipaldelapagina-3 header {
   }
 }
 
-.mediastream {
-  min-height: 350px;
+.mediastream.fixed-height {
+  height: 550px;
+}
+
+.mediastream.fixed-height > div {
+  height: 550px;
 }
 
 .tw-sr-only{

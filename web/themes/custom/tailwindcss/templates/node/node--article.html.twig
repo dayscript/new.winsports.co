@@ -1,4 +1,4 @@
-<article{{ attributes.addClass('node') }}>
+<article{{ attributes.addClass('node article full') }}>
     {{ title_prefix }}
     {% if not page %}
         <h2{{ title_attributes }}>
@@ -28,7 +28,7 @@
             <div class="lead my-2 tw-text-lg italic mb-8">{{ content.field_lead }}</div>
         {% endif %}
         {% if node.hasField('field_mediastream') %}
-            <div class="mediastream mediastream-{{ node.id }} tw-w-full tw-h-full">
+            <div class="mediastream fixed-height mediastream-{{ node.id }} tw-w-full tw-h-full">
                 {{ content.field_mediastream }}
             </div>
         {% elseif node.hasField('field_image_h') %}
