@@ -7,8 +7,8 @@
         <div v-if="cron" @click="selectOption('cronica')" class="whitespace-no-wrap py-3 px-4 font-title font-semibold cursor-pointer" :class="selected_option == 'cronica'?'tw-bg-secondary tw-text-primary':''">Crónica</div>
     </div>
     <div v-show="selected_option == 'directo'">
-        Drupal id: {{ drupal_matchg_id }}<br>
-        Opta id: {{ opta_matchg_id }}<br>
+        Drupal id: {{ drupal_match_id }}<br>
+        Opta id: {{ opta_match_id }}<br>
     </div>
     <div v-show="selected_option == 'alineaciones'">
         Alineaciones
