@@ -73,8 +73,7 @@ new Vue({
       )
     },
     loadCronicle (match_id) {
-      new_match_id = 2049215
-      axios.get('https://test.winsports.co/api/match/cronica/' + new_match_id).then(
+      axios.get('https://test.winsports.co/api/match/cronica/' + match_id).then(
           ({data}) => {
             if (data.length > 0) {
               if (data[0].nid) {
