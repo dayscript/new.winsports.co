@@ -24,7 +24,7 @@ new Vue({
     id_tournament: 371,
     active_round: '',
     season: 2020,
-    matches: []
+    matches: [],
   },
   beforeMount () {
     const id = this.$el.id
@@ -59,6 +59,7 @@ new Vue({
               let vm = this
               Object.entries(data.matches).sort((a, b) => new Date(a[1].date) - new Date(b[1].date)).forEach(function (match) {
                 vm.matches.push(match[1])
+                vm.loadCronicle(match[1].id)
               })
             }
             this.loading--
@@ -69,6 +70,14 @@ new Vue({
             this.loading--
           }
       )
+    },
+    loadCronicle(match_id){
+      match_id = 2049215
+      axios.get('https://test.winsports.co/api/match/cronica/'+match_id).then(
+          ({data})=>{
+            console.log(data)
+          }
+      ).catch()
     }
   }
 

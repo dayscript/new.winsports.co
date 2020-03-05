@@ -16,9 +16,13 @@
             <div v-else-if="match.period == 'FullTime'">
                 <div><small class="pl-1 text-xs font-medium lead" >{{ match.date | formatDate | capitalize }} - Finalizado</small></div>
                 <div class="flex items-center justify-center">
-                    <a :href="'/matches/'+match.id" class="flex">
+                    <a :href="'/node/'+cronicles[match.id]" class="flex" v-if="cronicles[match.id]">
                         <img src="/sites/default/files/widgets/play_button.png" alt="Resumen">
                         <span class="pl-1 text-xs font-medium title-color">Ver goles</span>
+                    </a>
+                    <a :href="'/matches/'+match.id" class="flex" v-else>
+                        <img src="/sites/default/files/widgets/play_button.png" alt="Resumen">
+                        <span class="pl-1 text-xs font-medium title-color">Ver resumen</span>
                     </a>
                 </div>
             </div>
@@ -26,7 +30,7 @@
                 <div><small class="pl-1 text-xs font-medium lead" >{{ match.date | formatDate | capitalize }}, {{ match.date | formatHour }}</small></div>
             </div>
             <div v-else @click="goto('/matches/'+match.id)">
-                <div><small v-else>{{ match.date | formatDate | capitalize }} {{ match.period }}</small></div>
+                <div><small>{{ match.date | formatDate | capitalize }} {{ match.period }}</small></div>
             </div>
         </div>
     </div>
