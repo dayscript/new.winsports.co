@@ -16,18 +16,20 @@ new Vue({
     this.node = drupalSettings.pdb.contexts['entity:node'];
   },
   mounted () {
-    if(this.node['type'][0]['target_id'] === 'article'){
-      if(this.node['field_partido'].length){
+    if (this.node['type'][0]['target_id'] === 'article') {
+      if (this.node['field_partido'].length) {
         this.drupal_match_id = this.node['field_partido'][0]['target_id']
       }
-      if (this.node['field_tipo_de_articulo'][0]['target_id'] === '2876'){
+      if (this.node['field_tipo_de_articulo'][0]['target_id'] === '2876') {
         this.selected_option = 'cronica'
         this.cron = this.node['nid'][0]['value']
-      } else if (this.node['field_tipo_de_articulo'][0]['target_id'] === '2882'){
+      }
+      else if (this.node['field_tipo_de_articulo'][0]['target_id'] === '2882') {
         this.selected_option = 'previa'
         this.prev = this.node['nid'][0]['value']
       }
-    } else {
+    }
+    else {
       if (this.node['field_opta_id'][0]['value']) {
         this.opta_competition = this.node['field_opta_id'][0]['value']
       }
@@ -41,19 +43,41 @@ new Vue({
     if (this.opta_match_id || this.drupal_match_id) {
       this.loadArticles()
     }
+    Opta.start()
   },
   methods: {
     selectOption (option_key) {
-      if(option_key === 'previa') document.location.href = '/node/'+ this.prev
-      if(option_key === 'cronica') document.location.href = '/node/'+ this.cron
-      if(option_key === 'estadisticas') Opta.start()
+      if (option_key === 'previa') {
+        document.location.href = '/node/' + this.prev
+      }
+      if (option_key === 'cronica') {
+        document.location.href = '/node/' + this.cron
+      }
+      if (option_key === 'estadisticas') {
+        Opta.start()
+      }
+      if (option_key === 'directo') {
+        this.loadEvents()
+      }
+
       this.selected_option = option_key
     },
+    loadEvents () {
+      axios.get('https://s3.amazonaws.com/optafeeds-prod/gamecast/' + this.opta_competition + '/' + this.opta_season + '/matches/' + this.opta_match_id + '.json').then(
+          ({data}) => {
+            console.log(data)
+          }
+      ).catch()
+    },
     loadArticles () {
-      let url  = ''
-      if(this.drupal_match_id) url = '/api/match-node/articles/' + this.drupal_match_id
-      else url = '/api/match/articles/' + this.opta_match_id
-      axios.get( url ).then(
+      let url = ''
+      if (this.drupal_match_id) {
+        url = '/api/match-node/articles/' + this.drupal_match_id
+      }
+      else {
+        url = '/api/match/articles/' + this.opta_match_id
+      }
+      axios.get(url).then(
           ({data}) => {
             if (data.length > 0) {
               this.opta_competition = data[0].field_opta_id
