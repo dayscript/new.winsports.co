@@ -1988,6 +1988,10 @@ div#block-contenidoprincipaldelapagina-3 header {
   }
 }
 
+.mediastream {
+  min-height: 350px;
+}
+
 .tw-sr-only{
   position: absolute !important;
   width: 1px !important;

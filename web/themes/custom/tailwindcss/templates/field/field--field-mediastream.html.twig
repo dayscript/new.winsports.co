@@ -1,14 +1,14 @@
 {% if multiple %}
     <div{{ attributes }}>
         {% for item in items %}
-            <div{{ item.attributes.addClass('tw-w-full') }}>
+            <div{{ item.attributes.addClass('tw-w-full tw-h-full') }}>
                 <iframe src="https://s3.amazonaws.com/WidgetFutbolRed/embed.html?code={{ item.content }}" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen" allowfullscreen="" allowscriptaccess="always" scrolling="no" style="width: 100%; height: 100%;"></iframe>
             </div>
         {% endfor %}
     </div>
 {% else %}
     {% for item in items %}
-        <div{{ attributes.addClass('tw-w-full') }}>
+        <div{{ attributes.addClass('tw-w-full tw-h-full') }}>
             <iframe src="https://s3.amazonaws.com/WidgetFutbolRed/embed.html?code={{ item.content }}" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; encrypted-media" allowfullscreen="" allowscriptaccess="always" scrolling="no" style="width: 100%; height: 100%;"></iframe>
         </div>
     {% endfor %}
