@@ -38,7 +38,7 @@ new Vue({
     },
     loadPhases () {
       this.loading++
-      axios.get('https://s3.amazonaws.com/optafeeds-prod/schedules/' + this.id_tournament + '/' + this.season + '/all.json').then(
+      axios.get('https://s3.amazonaws.com/optafeeds-prod/summary/' + this.id_tournament + '/' + this.season + '/all.json').then(
           ({data}) => {
             this.loading--
             this.active_round = data.competition.active_round_id
