@@ -1,4 +1,18 @@
 /* RESPONSIVE */
+.tw-bg-primary{
+  header{
+    > div{
+      @apply flex items-center;
+    }
+    #block-responsivemenumobileicon{
+      @apply order-first;
+      .label{
+        @apply hidden;
+      }
+    }
+  }
+}
+
 #block-views-block-goles-home-block-2{
   .gol-partido.video-player{
     .image{
@@ -53,6 +67,16 @@
   }
 }
 
+.lista-torneos{
+  @apply flex bg-primary p-6 mb-4;
+  header {
+    @apply hidden;
+  }
+  .views-row{
+    @apply tw-pr-3;
+  }
+}
+
 /* RESPONSIVE */
 @screen md {
   #block-toplinks{
@@ -88,6 +112,16 @@
       img{
         @apply h-10 w-10;
       }
+    }
+  }
+  .lista-torneos{
+    @apply flex flex-wrap bg-primary p-6 mb-4;
+    header {
+      font-family: $font-title;
+      @apply text-white w-full text-4xl block;
+    }
+    .views-row{
+      @apply tw-pr-12;
     }
   }
 }

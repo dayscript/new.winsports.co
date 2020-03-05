@@ -427,13 +427,6 @@
   }  
 }
 
-.lista-torneos{
-  @apply flex flex-wrap bg-primary p-6 mb-4;
-  header {
-    font-family: $font-title;
-    @apply text-white w-full text-4xl;
-  }
-}
 .block-title-no-caps{
   h2 {
     @apply normal-case;
