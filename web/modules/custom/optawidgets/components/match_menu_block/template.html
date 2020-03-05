@@ -49,7 +49,9 @@
         <div v-if="cron" @click="selectOption('cronica')" class="whitespace-no-wrap py-4 px-6 font-title font-semibold cursor-pointer" :class="selected_option == 'cronica'?'tw-bg-secondary tw-text-primary':''">Crónica</div>
     </div>
     <div v-show="selected_option == 'directo'">
-        
+        <div v-for="event in events" class="p-2">
+            {{ event.text }}
+        </div>
     </div>
     <div v-show="selected_option == 'alineaciones'">
         <div v-if="opta_competition>0 && opta_season>0 && opta_match_id>0" class="tw-bg-gray tw-p-6">

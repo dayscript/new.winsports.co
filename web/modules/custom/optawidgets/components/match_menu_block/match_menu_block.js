@@ -9,7 +9,8 @@ new Vue({
     drupal_match_id: null,
     prev: null,
     cron: null,
-    node: null
+    node: null,
+    events:[]
   },
   beforeMount () {
     const id = this.$el.id
@@ -44,6 +45,7 @@ new Vue({
       this.loadArticles()
     }
     Opta.start()
+    if(this.selected_option == 'directo') this.loadEvents()
   },
   methods: {
     selectOption (option_key) {
@@ -65,7 +67,7 @@ new Vue({
     loadEvents () {
       axios.get('https://s3.amazonaws.com/optafeeds-prod/gamecast/' + this.opta_competition + '/' + this.opta_season + '/matches/' + this.opta_match_id + '.json').then(
           ({data}) => {
-            console.log(data)
+            if(data.events) this.events = data.events
           }
       ).catch()
     },
