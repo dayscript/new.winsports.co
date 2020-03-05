@@ -13,6 +13,6 @@ add_js:
   footer:
     'opta_tournament_team_ranking_block.js': {}
 libraries:
-  - optawidgets/axios
+  - optafeeds/axios
   - optawidgets/opta.widgets
   - optawidgets/opta.settings

@@ -1,0 +1,24 @@
+<div class="opta-widgets">
+    <div class="flex flex-no-wrap overflow-x-auto w-full mb-px tw-bg-gray-650 table-option">
+        <div v-if="prev" @click="selectOption('previa')" class="whitespace-no-wrap py-3 px-4 font-title font-semibold cursor-pointer" :class="selected_option == 'previa'?'tw-bg-secondary tw-text-primary':''">Previa</div>
+        <div @click="selectOption('directo')" class="whitespace-no-wrap py-3 px-4 font-title font-semibold cursor-pointer" :class="selected_option == 'directo'?'tw-bg-secondary tw-text-primary':''">Directo</div>
+        <div @click="selectOption('alineaciones')" class="whitespace-no-wrap py-3 px-4 font-title font-semibold cursor-pointer" :class="selected_option == 'alineaciones'?'tw-bg-secondary tw-text-primary':''">Alineaciones</div>
+        <div @click="selectOption('estadisticas')" class="whitespace-no-wrap py-3 px-4 font-title font-semibold cursor-pointer" :class="selected_option == 'estadisticas'?'tw-bg-secondary tw-text-primary':''">Estadísticas</div>
+        <div v-if="cron" @click="selectOption('cronica')" class="whitespace-no-wrap py-3 px-4 font-title font-semibold cursor-pointer" :class="selected_option == 'cronica'?'tw-bg-secondary tw-text-primary':''">Crónica</div>
+    </div>
+    <div v-show="selected_option == 'previa'">
+        {{ prev }}
+    </div>
+    <div v-show="selected_option == 'directo'">
+        Directo
+    </div>
+    <div v-show="selected_option == 'alineaciones'">
+        Alineaciones
+    </div>
+    <div v-show="selected_option == 'estadisticas'">
+        Estadisticas
+    </div>
+    <div v-show="selected_option == 'cronica'">
+        {{ cron }}
+    </div>
+</div>

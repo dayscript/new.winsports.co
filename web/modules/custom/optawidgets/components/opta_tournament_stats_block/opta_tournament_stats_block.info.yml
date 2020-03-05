@@ -13,7 +13,7 @@ add_js:
   footer:
     'opta_tournament_stats_block.js': {}
 libraries:
-  - optawidgets/axios
+  - optafeeds/axios
   - optawidgets/opta.widgets
   - optawidgets/opta.settings
   - optafeeds/tailwindcss

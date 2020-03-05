@@ -73,11 +73,13 @@ new Vue({
       )
     },
     loadCronicle (match_id) {
-      axios.get('https://test.winsports.co/api/match/cronica/' + match_id).then(
+      axios.get('/api/match/articles/' + match_id).then(
           ({data}) => {
             if (data.length > 0) {
-              if (data[0].nid) {
-                Vue.set(this.cronicles, match_id, data[0].nid)
+              for (let i = 0; i < data.length; i++) {
+                if (data[i].field_tipo_de_articulo === 'Crónica') {
+                  Vue.set(this.cronicles, match_id, data[i].nid)
+                }
               }
             }
           }
