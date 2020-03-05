@@ -28,6 +28,10 @@
     }
   }
 }
+
+
+
+
 #block-views-block-equipos-del-home-block-1{
   .contextual-region{
 
@@ -49,5 +53,15 @@
   }
   #block-views-block-lo-ultimo-block-1{
     @apply block;
+    .lo-ultimo-slider{
+      @apply block;
+    }
+    .M-lo-ultimo-slider{
+      @apply hidden overflow-y-hidden whitespace-no-wrap flex;
+      .views-row{
+        width: 40%;
+        margin-right: 1rem;
+      }
+    }
   }
 }
