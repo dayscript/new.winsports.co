@@ -1929,11 +1929,31 @@ div#block-contenidoprincipaldelapagina-3 header {
 #block-views-block-goles-home-block-2 .goles-mobile {
   width: 40%;
   margin-right: 1rem;
+  -webkit-flex: none;
+  white-space: normal;
+  /*     .title-mobile{
+      overflow: hidden;
+      text-overflow: ellipsis;
+    } */
 }
 
-#block-views-block-goles-home-block-2 .goles-mobile .title-mobile {
-  overflow: hidden;
-  text-overflow: ellipsis;
+#block-views-block-lo-ultimo-block-1 .M-lo-ultimo-slider {
+  overflow-y: hidden;
+  white-space: nowrap;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#block-views-block-lo-ultimo-block-1 .M-lo-ultimo-slider .views-row {
+  width: 40%;
+  margin-right: 1rem;
+  -webkit-flex: none;
+  white-space: normal;
+}
+
+#block-views-block-lo-ultimo-block-1 .M-lo-ultimo-slider .views-row .category a {
+  font-size: 0.6rem;
 }
 
 /* RESPONSIVE */
@@ -1965,16 +1985,6 @@ div#block-contenidoprincipaldelapagina-3 header {
 
   #block-views-block-lo-ultimo-block-1 .M-lo-ultimo-slider {
     display: none;
-    overflow-y: hidden;
-    white-space: nowrap;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-  }
-
-  #block-views-block-lo-ultimo-block-1 .M-lo-ultimo-slider .views-row {
-    width: 40%;
-    margin-right: 1rem;
   }
 }
 

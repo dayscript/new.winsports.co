@@ -22,14 +22,29 @@
   .goles-mobile{
     width: 40%;
     margin-right: 1rem;
-    .title-mobile{
+    -webkit-flex: none;
+    white-space: normal;
+/*     .title-mobile{
       overflow: hidden;
       text-overflow: ellipsis;
-    }
+    } */
   }
 }
 
-
+#block-views-block-lo-ultimo-block-1{
+  .M-lo-ultimo-slider{
+    @apply overflow-y-hidden whitespace-no-wrap flex;
+    .views-row{
+      width: 40%;
+      margin-right: 1rem;
+      -webkit-flex: none;
+      white-space: normal;
+      .category a{
+        font-size: 0.6rem;
+      }
+    }
+  }
+}
 
 
 #block-views-block-equipos-del-home-block-1{
@@ -57,11 +72,7 @@
       @apply block;
     }
     .M-lo-ultimo-slider{
-      @apply hidden overflow-y-hidden whitespace-no-wrap flex;
-      .views-row{
-        width: 40%;
-        margin-right: 1rem;
-      }
+      @apply hidden;
     }
   }
 }
