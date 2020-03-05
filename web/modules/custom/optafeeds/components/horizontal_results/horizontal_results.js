@@ -25,7 +25,7 @@ new Vue({
     active_round: '',
     season: 2020,
     matches: [],
-    cronicles: [],
+    cronicles: {},
   },
   beforeMount () {
     const id = this.$el.id
@@ -78,7 +78,7 @@ new Vue({
           ({data}) => {
             if (data.length > 0) {
               if (data[0].nid) {
-                this.cronicles[match_id] = data[0].nid
+                Vue.set(this.cronicles, match_id, data[0].nid)
               }
             }
           }
