@@ -1,10 +1,10 @@
 <div class="opta-widgets">
     <div class="flex flex-no-wrap overflow-x-auto w-full mb-px tw-bg-gray-650 table-option">
-        <div v-if="prev" @click="selectOption('previa')" class="whitespace-no-wrap py-3 px-4 font-title font-semibold cursor-pointer" :class="selected_option == 'previa'?'tw-bg-secondary tw-text-primary':''">Previa</div>
-        <div @click="selectOption('directo')" class="whitespace-no-wrap py-3 px-4 font-title font-semibold cursor-pointer" :class="selected_option == 'directo'?'tw-bg-secondary tw-text-primary':''">Directo</div>
-        <div @click="selectOption('alineaciones')" class="whitespace-no-wrap py-3 px-4 font-title font-semibold cursor-pointer" :class="selected_option == 'alineaciones'?'tw-bg-secondary tw-text-primary':''">Alineaciones</div>
-        <div @click="selectOption('estadisticas')" class="whitespace-no-wrap py-3 px-4 font-title font-semibold cursor-pointer" :class="selected_option == 'estadisticas'?'tw-bg-secondary tw-text-primary':''">Estadísticas</div>
-        <div v-if="cron" @click="selectOption('cronica')" class="whitespace-no-wrap py-3 px-4 font-title font-semibold cursor-pointer" :class="selected_option == 'cronica'?'tw-bg-secondary tw-text-primary':''">Crónica</div>
+        <div v-if="prev" @click="selectOption('previa')" class="whitespace-no-wrap py-4 px-6 font-title font-semibold cursor-pointer" :class="selected_option == 'previa'?'tw-bg-secondary tw-text-primary':''">Previa</div>
+        <div @click="selectOption('directo')" class="whitespace-no-wrap py-4 px-6 font-title font-semibold cursor-pointer" :class="selected_option == 'directo'?'tw-bg-secondary tw-text-primary':''">Directo</div>
+        <div @click="selectOption('alineaciones')" class="whitespace-no-wrap py-4 px-6 font-title font-semibold cursor-pointer" :class="selected_option == 'alineaciones'?'tw-bg-secondary tw-text-primary':''">Alineaciones</div>
+        <div @click="selectOption('estadisticas')" class="whitespace-no-wrap py-4 px-6 font-title font-semibold cursor-pointer" :class="selected_option == 'estadisticas'?'tw-bg-secondary tw-text-primary':''">Estadísticas</div>
+        <div v-if="cron" @click="selectOption('cronica')" class="whitespace-no-wrap py-4 px-6 font-title font-semibold cursor-pointer" :class="selected_option == 'cronica'?'tw-bg-secondary tw-text-primary':''">Crónica</div>
     </div>
     <div v-show="selected_option == 'directo'">
         Drupal id: {{ drupal_match_id }}<br>
@@ -14,6 +14,8 @@
         Alineaciones
     </div>
     <div v-show="selected_option == 'estadisticas'">
-        Estadisticas
+        <div v-if="opta_competition>0 && opta_season>0 && opta_match_id>0">
+            <opta-widget widget="matchstats" :competition="opta_competition" :season="opta_season" :match="opta_match_id" template="lineups" live="true" side="both" column_count="1" side_by_side="true" show_match_header="true" show_score="true" show_halftime_score="false" show_crests="false" show_team_formation="true" show_competition_name="false" show_date="false" date_format="dddd D MMMM YYYY" order_by="jersey" group_by_position="false" show_position="true" show_images="false" show_key="false" show_starters="true" show_goalkeepers="true" show_defenders="true" show_midfielders="true" show_forwards="true" show_subs="true" show_unused_subs="false" show_managers="true" show_captain="false" show_match_events="true" competition_naming="full" team_naming="full" player_naming="full" show_live="true" show_logo="false" show_title="true" breakpoints="400, 700" sport="football"></opta-widget>
+        </div>
     </div>
 </div>

@@ -2,13 +2,13 @@ Vue.config.ignoredElements = ['opta-widget']
 new Vue({
   el: '.match-menu',
   data: {
-    competition: '',
     selected_option: 'directo',
-    season: '',
-    prev: null,
-    cron: null,
+    opta_competition: '',
+    opta_season: '',
     opta_match_id: null,
     drupal_match_id: null,
+    prev: null,
+    cron: null,
     node: null
   },
   beforeMount () {
@@ -29,10 +29,10 @@ new Vue({
       }
     } else {
       if (this.node['field_opta_id'][0]['value']) {
-        this.competition = this.node['field_opta_id'][0]['value']
+        this.opta_competition = this.node['field_opta_id'][0]['value']
       }
       if (this.node['field_opta_season'][0]['value']) {
-        this.season = this.node['field_opta_season'][0]['value']
+        this.opta_season = this.node['field_opta_season'][0]['value']
       }
       if (this.node['field_opta_match_id'][0]['value']) {
         this.opta_match_id = this.node['field_opta_match_id'][0]['value']
@@ -55,6 +55,9 @@ new Vue({
       axios.get( url ).then(
           ({data}) => {
             if (data.length > 0) {
+              this.opta_competition = data[0].field_opta_id
+              this.opta_season = data[0].field_opta_season
+              this.opta_match_id = data[0].field_opta_match_id
               for (let i = 0; i < data.length; i++) {
                 if (data[i].field_tipo_de_articulo === 'Previa') {
                   this.prev = data[i].nid
