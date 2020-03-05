@@ -7,7 +7,8 @@ new Vue({
     season: '',
     prev: null,
     cron: null,
-    match: '',
+    opta_match_id: null,
+    drupal_match_id: null,
     node: null
   },
   beforeMount () {
@@ -16,6 +17,9 @@ new Vue({
   },
   mounted () {
     if(this.node['type'][0]['target_id'] === 'article'){
+      if(this.node['field_partido'].length){
+        this.drupal_match_id = this.node['field_partido'][0]['target_id']
+      }
       if (this.node['field_tipo_de_articulo'][0]['target_id'] === '2876'){
         this.selected_option = 'cronica'
         this.cron = this.node['nid'][0]['value']
@@ -31,11 +35,11 @@ new Vue({
         this.season = this.node['field_opta_season'][0]['value']
       }
       if (this.node['field_opta_match_id'][0]['value']) {
-        this.match = this.node['field_opta_match_id'][0]['value']
+        this.opta_match_id = this.node['field_opta_match_id'][0]['value']
       }
     }
-    if (this.match) {
-      this.loadArticles(this.match)
+    if (this.opta_match_id || this.drupal_match_id) {
+      this.loadArticles()
     }
   },
   methods: {
@@ -43,8 +47,11 @@ new Vue({
       this.selected_option = option_key
       // this.loadTable()
     },
-    loadArticles (match_id) {
-      axios.get('/api/match/articles/' + match_id).then(
+    loadArticles () {
+      let url  = ''
+      if(this.drupal_match_id) url = '/api/match-node/articles/' + this.drupal_match_id
+      else url = '/api/match/articles/' + this.opta_match_id
+      axios.get( url ).then(
           ({data}) => {
             if (data.length > 0) {
               for (let i = 0; i < data.length; i++) {
