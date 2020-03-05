@@ -1988,11 +1988,11 @@ div#block-contenidoprincipaldelapagina-3 header {
   }
 }
 
-.article.full .mediastream {
+.mediastream.fixed-height {
   height: 550px;
 }
 
-.article.full .mediastream > div {
+.mediastream.fixed-height > div {
   height: 550px;
 }
 
