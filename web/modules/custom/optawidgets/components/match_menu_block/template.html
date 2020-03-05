@@ -63,7 +63,7 @@
                         </div>
                     </div>
                     <div v-if="event.team_id == opta_home_id && event.team_id != null" class="tw-flex">
-                        <div class="tw-w-2/12 tw-flex tw-items-center tw-justify-center tw-font-bold">
+                        <div class="tw-w-2/12 tw-flex tw-items-center tw-justify-center tw-font-bold tw-text-green-600">
                             {{ event.minute_label }}
                             <img :src="'/sites/default/files/assets/img/icon/gamecast/' + imageEventsOpta(event.type) +'.png'" alt="" class="tw-mx-2">
                         </div>
@@ -72,10 +72,10 @@
                         </div>
                     </div>
                     <div v-if="event.team_id == opta_away_id && event.team_id != null" class="tw-flex">
-                        <div class="tw-w-10/12">
+                        <div class="tw-w-10/12 tw-text-right">
                             {{ event.text }}
                         </div>
-                        <div class="tw-w-2/12 tw-flex tw-items-center tw-justify-center tw-font-bold">
+                        <div class="tw-w-2/12 tw-flex tw-items-center tw-justify-center tw-font-bold tw-text-green-600">
                             {{ event.minute_label }}
                             <img :src="'/sites/default/files/assets/img/icon/gamecast/' + imageEventsOpta(event.type) +'.png'" alt="" class="tw-mx-2">
                         </div>
