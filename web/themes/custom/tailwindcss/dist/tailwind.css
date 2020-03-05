@@ -718,6 +718,22 @@ input {
   background-color: #c05621;
 }
 
+select {
+  height: 3rem;
+}
+
+.opinion.home-destacado .title {
+  margin-bottom: 0 !important;
+}
+
+.nombres {
+  color: #fff !important;
+}
+
+iframe.iframe-futbolred body {
+  padding: 0 !important;
+}
+
 h2, .title {
   font-family: "Passion One", cursive;
   font-size: 2.25rem;
@@ -1162,23 +1178,6 @@ a {
   margin-right: auto;
 }
 
-#block-views-block-equipos-del-home-block-1 div div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-#block-views-block-equipos-del-home-block-1 div div img {
-  height: 2.5rem;
-  width: 2.5rem;
-}
-
 #block-publicidad1-2,
 #block-publicidad1 {
   margin-bottom: 1rem;
@@ -1616,7 +1615,7 @@ a {
   background: linear-gradient(90deg, white 0%, white 50%, rgba(255, 255, 55, 0) 100%);
 }
 
-.front-page #block-contenidoprincipaldelapagina {
+.front-page #block-contenidoprincipaldelapagina-3 {
   display: none;
 }
 
@@ -1673,29 +1672,35 @@ a {
   margin-bottom: 0;
 }
 
-#blocktabs-programacion .more-link a {
+#blocktabs-programacion .more-link a,
+#blocktabs-widget_programacion .more-link a {
   width: 100%;
   margin-top: 0;
   margin-bottom: 0;
 }
 
-#blocktabs-programacion .views-row {
+#blocktabs-programacion .views-row,
+#blocktabs-widget_programacion .views-row {
   position: relative;
   padding: 1rem;
 }
 
-#blocktabs-programacion .views-row .views-field-title {
+#blocktabs-programacion .views-row .views-field-title,
+#blocktabs-widget_programacion .views-row .views-field-title {
   font-family: "Passion One", cursive;
   font-size: 1.25rem;
 }
 
-#blocktabs-programacion .views-field-field-torneo a {
+#blocktabs-programacion .views-field-field-torneo a,
+#blocktabs-widget_programacion .views-field-field-torneo a {
   text-transform: uppercase;
   color: #0ef8c3;
 }
 
 #blocktabs-programacion .views-field-nothing,
-#blocktabs-programacion .views-field-field-canal {
+#blocktabs-programacion .views-field-field-canal,
+#blocktabs-widget_programacion .views-field-nothing,
+#blocktabs-widget_programacion .views-field-field-canal {
   position: absolute;
   right: 0;
   top: 0;
@@ -1706,7 +1711,8 @@ a {
   font-family: "Passion One", cursive;
 }
 
-#blocktabs-programacion .views-field-field-canal {
+#blocktabs-programacion .views-field-field-canal,
+#blocktabs-widget_programacion .views-field-field-canal {
   width: 5rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1719,13 +1725,15 @@ a {
           justify-content: center;
 }
 
-#blocktabs-programacion .canal-winsports {
+#blocktabs-programacion .canal-winsports,
+#blocktabs-widget_programacion .canal-winsports {
   height: 100%;
   width: 8rem;
   background: url("/themes/custom/tailwindcss/images/logos/canal-winsports.png") no-repeat center center;
 }
 
-#blocktabs-programacion .canal-winsportsplus {
+#blocktabs-programacion .canal-winsportsplus,
+#blocktabs-widget_programacion .canal-winsportsplus {
   height: 100%;
   width: 8rem;
   background: url("/themes/custom/tailwindcss/images/logos/canal-winsportsplus.png") no-repeat center center;
@@ -1763,6 +1771,20 @@ div#footer-first h2 {
 div#footer-first li {
   margin-bottom: 0.75rem;
   font-size: 0.875rem;
+}
+
+a.footer {
+  color: #0ef8c3;
+  padding: 0 1rem;
+}
+
+#block-views-block-opinion-block-3 .nombres, #block-views-block-opinion-block-2 .nombres {
+  color: #0b3b41 !important;
+}
+
+div#block-contenidoprincipaldelapagina-3 header {
+  display: block;
+  width: 100%;
 }
 
 #block-futbolcolombiano-estadisticas, .opta-widgets {
@@ -1835,6 +1857,18 @@ div#footer-first li {
   color: #0b3a40;
 }
 
+#block-futbolcolombiano-estadisticas .Opta h2, .opta-widgets .Opta h2 {
+  height: auto;
+  padding: 1rem;
+  color: #0b3b41;
+  background-color: #fff;
+}
+
+#block-futbolcolombiano-estadisticas .Opta h2 .Opta-Title, .opta-widgets .Opta h2 .Opta-Title {
+  font-size: 1.875rem;
+  text-transform: none;
+}
+
 .user.compact .image {
   margin-bottom: 0;
 }
@@ -1864,6 +1898,142 @@ div#footer-first li {
 
 .scrolling-touch {
   -webkit-overflow-scrolling: touch !important;
+}
+
+/* RESPONSIVE */
+
+#block-views-block-goles-home-block-2 .gol-partido.video-player .image img.play-icon {
+  position: absolute;
+  top: 3rem;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+}
+
+#block-views-block-goles-home-block-2 .gol-partido.video-player .title {
+  position: relative;
+  top: 0;
+  bottom: 0;
+  left: 0;
+}
+
+#block-views-block-goles-home-block-2 .gol-partido.video-player .title a {
+  color: #0b3b41;
+}
+
+#block-views-block-goles-home-block-2 .goles-mobile {
+  width: 40%;
+  margin-right: 1rem;
+  -webkit-flex: none;
+  white-space: normal;
+}
+
+#block-views-block-lo-ultimo-block-1 .M-lo-ultimo-slider {
+  overflow-y: hidden;
+  white-space: nowrap;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#block-views-block-lo-ultimo-block-1 .M-lo-ultimo-slider .views-row {
+  width: 40%;
+  margin-right: 1rem;
+  -webkit-flex: none;
+  white-space: normal;
+}
+
+#block-views-block-lo-ultimo-block-1 .M-lo-ultimo-slider .views-row .category a {
+  font-size: 0.6rem;
+}
+
+#block-views-block-equipos-del-home-block-1 .M-equipos {
+  overflow-y: hidden;
+  white-space: nowrap;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#block-views-block-equipos-del-home-block-1 .M-equipos .views-row {
+  width: 10%;
+  margin-right: .75rem;
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+}
+
+/* RESPONSIVE */
+
+@media (min-width: 768px) {
+  #block-toplinks {
+    display: block;
+  }
+
+  #block-tailwindcss-main-menu {
+    display: block;
+  }
+
+  #block-views-block-goles-home-block-1 {
+    display: block;
+  }
+
+  #block-views-block-goles-home-block-2 {
+    display: none;
+  }
+
+  #block-views-block-lo-ultimo-block-1 {
+    display: block;
+  }
+
+  #block-views-block-lo-ultimo-block-1 .lo-ultimo-slider {
+    display: block;
+  }
+
+  #block-views-block-lo-ultimo-block-1 .M-lo-ultimo-slider {
+    display: none;
+  }
+
+  #block-views-block-equipos-del-home-block-1 .M-equipos .views-row {
+    width: auto;
+    margin-right: 0rem;
+  }
+
+  #block-views-block-equipos-del-home-block-1 div div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+
+  #block-views-block-equipos-del-home-block-1 div div img {
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+}
+
+.mediastream.fixed-height {
+  height: 550px !important;
+}
+
+.mediastream.fixed-height > div {
+  height: 550px !important;
+}
+
+.article.type-2876,
+.article.type-2882 {
+  background-color: #e3e3e3;
+  padding: 1.5rem;
+}
+
+.article.type-2876 .node-content,
+.article.type-2882 .node-content {
+  background-color: #fff;
 }
 
 .tw-sr-only{

@@ -13,6 +13,6 @@ add_js:
   footer:
     'opta_match_attacking_thirds_block.js': {}
 libraries:
-  - optawidgets/axios
+  - optafeeds/axios
   - optawidgets/opta.widgets
   - optawidgets/opta.settings

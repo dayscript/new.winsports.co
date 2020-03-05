@@ -24,7 +24,8 @@ new Vue({
     id_tournament: 371,
     active_round: '',
     season: 2020,
-    matches: []
+    matches: [],
+    cronicles: {},
   },
   beforeMount () {
     const id = this.$el.id
@@ -33,12 +34,12 @@ new Vue({
     this.loadPhases()
   },
   methods: {
-    goto(url){
+    goto (url) {
       document.location.href = url
     },
     loadPhases () {
       this.loading++
-      axios.get('https://s3.amazonaws.com/optafeeds-prod/schedules/' + this.id_tournament + '/' + this.season + '/all.json').then(
+      axios.get('https://s3.amazonaws.com/optafeeds-prod/summary/' + this.id_tournament + '/' + this.season + '/all.json').then(
           ({data}) => {
             this.loading--
             this.active_round = data.competition.active_round_id
@@ -59,6 +60,7 @@ new Vue({
               let vm = this
               Object.entries(data.matches).sort((a, b) => new Date(a[1].date) - new Date(b[1].date)).forEach(function (match) {
                 vm.matches.push(match[1])
+                vm.loadCronicle(match[1].id)
               })
             }
             this.loading--
@@ -69,6 +71,19 @@ new Vue({
             this.loading--
           }
       )
+    },
+    loadCronicle (match_id) {
+      axios.get('/api/match/articles/' + match_id).then(
+          ({data}) => {
+            if (data.length > 0) {
+              for (let i = 0; i < data.length; i++) {
+                if (data[i].field_tipo_de_articulo === 'Crónica') {
+                  Vue.set(this.cronicles, match_id, data[i].nid)
+                }
+              }
+            }
+          }
+      ).catch()
     }
   }
 

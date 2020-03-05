@@ -1,4 +1,4 @@
-<article{{ attributes.addClass('node') }}>
+<article{{ attributes.addClass('node article full type-' ~ node.field_tipo_de_articulo.0.target_id) }}>
     {{ title_prefix }}
     {% if not page %}
         <h2{{ title_attributes }}>
@@ -27,7 +27,11 @@
         {% if node.hasField('field_lead') %}
             <div class="lead my-2 tw-text-lg italic mb-8">{{ content.field_lead }}</div>
         {% endif %}
-        {% if node.hasField('field_image_h') %}
+        {% if node.hasField('field_mediastream') %}
+            <div class="mediastream fixed-height mediastream-{{ node.id }} tw-w-full tw-h-full">
+                {{ content.field_mediastream }}
+            </div>
+        {% elseif node.hasField('field_image_h') %}
             <div class="tw-my-4">{{ content.field_image_h }}</div>
             <div class="tw-text-gray-650 tw-text-sm tw-mb-4">{{ node.field_image_h.title }}</div>
         {% elseif node.hasField('field_image') %}
@@ -37,7 +41,7 @@
         <div class="body tw-text-xl">{{ content.body }}</div>
         <div class="tags tw-flex tw-text-sm tw-items-center">
             <div class="tw-whitespace-no-wrap tw-p-2 uppercase label">Tags relacionados</div>
-            <div>{{  content.field_tags }}</div>
+            <div>{{ content.field_tags }}</div>
         </div>
         <div class="comments">
             <div class="fb-comments" data-href="https://www.winsports.co{{ url }}" data-width="100%" data-numposts="5"></div>

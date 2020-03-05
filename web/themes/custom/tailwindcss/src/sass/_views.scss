@@ -129,14 +129,6 @@
     }
   }
 }
-#block-views-block-equipos-del-home-block-1{
-  div div{
-    @apply flex justify-between items-center;
-    img{
-      @apply h-10 w-10;
-    }
-  }
-}
 #block-publicidad1-2,
 #block-publicidad1{
   @apply mb-4;
@@ -333,7 +325,6 @@
     }
   }
 }
-
 @screen md {
   #block-views-block-nomina-block-1{
     .md--col--4{
@@ -431,7 +422,7 @@
   }
 }
 .front-page{
-  #block-contenidoprincipaldelapagina{
+  #block-contenidoprincipaldelapagina-3{
     @apply hidden;
   }  
 }
@@ -463,7 +454,8 @@
     }
   }
 }
-#blocktabs-programacion{
+#blocktabs-programacion,
+#blocktabs-widget_programacion{
   .more-link{
     a{ 
       @apply w-full my-0;
@@ -524,3 +516,21 @@ div#footer-first{
    @apply mb-3 text-sm;
   }
 }
+a.footer {
+  color: #0ef8c3;
+  padding: 0 1rem;
+}
+#block-views-block-opinion-block-3, #block-views-block-opinion-block-2{
+  .nombres {
+    color: #0b3b41 !important;
+  }
+}
+
+
+
+div#block-contenidoprincipaldelapagina-3{
+  header {
+    display: block;
+    width: 100%;
+  }
+}   

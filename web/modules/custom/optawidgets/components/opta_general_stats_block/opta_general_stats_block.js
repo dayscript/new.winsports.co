@@ -63,6 +63,10 @@ new Vue({
           }
       ).catch(() => {this.loading--})
     },
+    selectOption (option_key) {
+      this.selected_option = option_key
+      // this.loadTable()
+    },
     getParameterByName (name, url) {
       if (!url) {
         url = window.location.href;

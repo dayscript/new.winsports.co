@@ -13,5 +13,8 @@ $font-title: 'Passion One', cursive;
 @import "widgets";
 @import "user";
 @import "scrollbars";
+@import "responsive";
+@import "videos";
+@import "articles";
 
 @tailwind utilities;

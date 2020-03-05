@@ -7,7 +7,6 @@
 namespace Drupal\winsportsmigrate\Controller;
 
 use Drupal\Core\Datetime\DrupalDateTime;
-use Drupal\Core\Datetime\Element\Datetime;
 use Drupal\node\Entity\Node;
 use Drupal\redirect\Entity\Redirect;
 use Drupal\taxonomy\Entity\Term;
@@ -41,7 +40,7 @@ class MigrateController {
       $this->period = $_REQUEST['period'];
     }
     else {
-      $this->period = '202002';
+      $this->period = '202003';
     }
     $this->client = new Client();
   }
@@ -126,7 +125,12 @@ class MigrateController {
           $node->save();
           $results['existing']++;
         }
+        $node->field_mediastream = $item['mediastream'];
+        $node->field_tipo_de_articulo = $item['tipo'];
+        $this->attachTipoArticulo($node, $item['tipo']);
         $this->attachTeams($node, $item['equipos']);
+        $this->attachMatch($node, $item['match']);
+        $node->save();
         if ($results['new'] + $results['existing'] >= $this->limit) {
           break;
         }
@@ -634,6 +638,30 @@ class MigrateController {
     }
   }
 
+  public function attachMatch($node, $match) {
+    if (trim($match) == '') {
+      return;
+    }
+    $query = \Drupal::entityQuery('node');
+    $query->condition('title', $match);
+    $query->condition('type', 'partido');
+    $entity_ids = $query->execute();
+    if (count($entity_ids) == 0) {
+      $match = Node::create([
+        'type'             => 'partido',
+        'title'            => $match,
+        'uid'              => 1,
+        'moderation_state' => 'published',
+      ]);
+      $match->save();
+    }
+    else {
+      $match = Node::load(array_pop($entity_ids));
+    }
+    $node->field_partido = $match;
+    $node->save();
+  }
+
   public function attachTeams($node, $teams) {
     $node->field_equipos = [];
     foreach (explode(',', $teams) as $team_name) {
@@ -675,6 +703,22 @@ class MigrateController {
       $term = Term::load(array_pop($entity_ids));
     }
     $node->field_category = $term;
+    $node->save();
+  }
+  public function attachTipoArticulo($node, $tipo) {
+    $query = \Drupal::entityQuery('taxonomy_term');
+    $query->condition('name', $tipo);
+    $query->condition('vid', 'tipo_de_articulo');
+    $entity_ids = $query->execute();
+    if (count($entity_ids) == 0) {
+      $term = Term::create(['vid' => 'tipo_de_articulo']);
+      $term->setName($tipo);
+      $term->save();
+    }
+    else {
+      $term = Term::load(array_pop($entity_ids));
+    }
+    $node->field_tipo_de_articulo = $term;
     $node->save();
   }
 
@@ -828,13 +872,14 @@ class MigrateController {
         $node->field_torneo_node = $node_torneo;
         $node->save();
 
-        $redirects = \Drupal::service('redirect.repository')->findBySourcePath('matches/' . $item['match_id']);
-        if(count($redirects) == 0){
+        $redirects = \Drupal::service('redirect.repository')
+                            ->findBySourcePath('matches/' . $item['match_id']);
+        if (count($redirects) == 0) {
           Redirect::create([
             'redirect_source'   => 'matches/' . $item['match_id'],
             'redirect_redirect' => 'internal:/node/' . $node->id(),
             'status_code'       => 301,
-          ])->save();  
+          ])->save();
         }
         if ($results['new'] + $results['existing'] >= $this->limit) {
           break;
