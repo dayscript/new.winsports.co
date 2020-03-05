@@ -19,6 +19,19 @@
       }
     }
   }
+  .goles-mobile{
+    width: 40%;
+    margin-right: 1rem;
+    .title-mobile{
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
+#block-views-block-equipos-del-home-block-1{
+  .contextual-region{
+
+  }
 }
 /* RESPONSIVE */
 @screen md {
@@ -33,5 +46,8 @@
   }
   #block-views-block-goles-home-block-2{
     @apply hidden;
+  }
+  #block-views-block-lo-ultimo-block-1{
+    @apply block;
   }
 }

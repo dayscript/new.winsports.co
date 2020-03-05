@@ -430,7 +430,7 @@
   }
 }
 .front-page{
-  #block-contenidoprincipaldelapagina{
+  #block-contenidoprincipaldelapagina-3{
     @apply hidden;
   }  
 }
@@ -533,3 +533,12 @@ a.footer {
     color: #0b3b41 !important;
   }
 }
+
+
+
+div#block-contenidoprincipaldelapagina-3{
+  header {
+    display: block;
+    width: 100%;
+  }
+}   
