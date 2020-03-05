@@ -1,0 +1,12 @@
+<?php
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+function widget_programming_help($route_name, RouteMatchInterface $route_match) {
+  if ($route_name == 'help.page.widget_programming') {
+    $output = '';
+    $output .= '<h3>' . t('About') . '</h3>';
+    $output .= '<p>' . t('This module shows the programming of the WinSports.') . '</p>';
+    return $output;
+  }
+}

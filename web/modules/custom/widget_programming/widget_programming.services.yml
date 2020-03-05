@@ -1,0 +1,4 @@
+services:
+  widget_programming.manager:
+    class: Drupal\widget_programming\WidgetProgrammingManager
+    arguments: ["@string_translation"]
