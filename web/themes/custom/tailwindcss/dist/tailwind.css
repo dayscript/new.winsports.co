@@ -2035,6 +2035,17 @@ div#block-contenidoprincipaldelapagina-3 header {
   height: 550px !important;
 }
 
+.article.type-2876,
+.article.type-2882 {
+  background-color: #e3e3e3;
+  padding: 1.5rem;
+}
+
+.article.type-2876 .node-content,
+.article.type-2882 .node-content {
+  background-color: #fff;
+}
+
 .tw-sr-only{
   position: absolute !important;
   width: 1px !important;
