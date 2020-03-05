@@ -1866,6 +1866,7 @@ div#block-contenidoprincipaldelapagina-3 header {
 
 #block-futbolcolombiano-estadisticas .Opta h2 .Opta-Title, .opta-widgets .Opta h2 .Opta-Title {
   font-size: 1.875rem;
+  text-transform: none;
 }
 
 .user.compact .image {
