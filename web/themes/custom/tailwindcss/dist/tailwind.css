@@ -1978,8 +1978,12 @@ div#block-contenidoprincipaldelapagina-3 header {
   }
 }
 
-.mediastream {
-  min-height: 350px;
+.article.full .mediastream {
+  height: 550px;
+}
+
+.article.full .mediastream > div {
+  height: 550px;
 }
 
 .tw-sr-only{

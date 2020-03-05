@@ -1,3 +1,6 @@
-.mediastream{
-  min-height: 350px;
+.article.full .mediastream{
+  height: 550px;
+  > div{
+    height: 550px;
+  } 
 }
