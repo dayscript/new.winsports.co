@@ -49,12 +49,11 @@
         <div v-if="cron" @click="selectOption('cronica')" class="whitespace-no-wrap py-4 px-6 font-title font-semibold cursor-pointer" :class="selected_option == 'cronica'?'tw-bg-secondary tw-text-primary':''">Crónica</div>
     </div>
     <div v-show="selected_option == 'directo'">
-        Drupal id: {{ drupal_match_id }}<br>
-        Opta id: {{ opta_match_id }}<br>
+        
     </div>
     <div v-show="selected_option == 'alineaciones'">
         <div v-if="opta_competition>0 && opta_season>0 && opta_match_id>0" class="tw-bg-gray tw-p-6">
-            <opta-widget widget="provisional_lineup" :competition="opta_competition" :season="opta_season" :match="opta_match_id" template="normal" show_match_header="true" show_crests="false" show_competition_name="false" show_images="false" show_subs="true" side="both" column_count="1" side_by_side="true" competition_naming="full" player_naming="full" team_naming="full" show_logo="false" show_title="true" breakpoints="400, 700" sport="football"></opta-widget>
+            <opta-widget widget="matchday_live" :competition="opta_competition" :season="opta_season" :match="opta_match_id" template="normal" live="false" orientation="horizontal" side="both" show_match_header="false" show_crests="false" show_pitch_crests="false" show_team_formation="true" show_score="true" show_halftime_score="false" show_competition_name="true" show_date="true" date_format="dddd D MMMM YYYY" show_referee="false" show_venue="false" show_attendance="false" show_images="false" show_pitch_images="false" show_team_sheets="true" show_event_icons="true" show_player_names="true" show_player_stats="true" show_subs="all" competition_naming="full" team_naming="full" player_naming="full" show_live="true" show_logo="false" show_title="false" breakpoints="400, 700" sport="football"></opta-widget>
             <opta-widget widget="match_player_compare" :competition="opta_competition" :season="opta_season" :match="opta_match_id" template="normal" live="true" navigation="tabs_more" default_nav="1" show_match_header="false" show_selects="true" show_images="false" show_crests="false" show_competition_name="false" competition_naming="full" team_naming="full" player_naming="full" show_date="true" date_format="dddd D MMMM YYYY" show_logo="false" show_title="true" breakpoints="400, 700" sport="football"></opta-widget>
         </div>
     </div>
