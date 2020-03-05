@@ -12,7 +12,8 @@ new Vue({
     prev: null,
     cron: null,
     node: null,
-    events:[]
+    events:[],
+    loading:0
   },
   beforeMount () {
     const id = this.$el.id
@@ -47,6 +48,8 @@ new Vue({
   },
   methods: {
     selectOption (option_key) {
+      this.loading++
+      this.selected_option = option_key
       if (option_key === 'previa') {
         document.location.href = '/node/' + this.prev
       }
@@ -55,13 +58,10 @@ new Vue({
       }
       if (option_key === 'estadisticas') {
         Opta.start()
-        console.log(option_key)
       }
       if (option_key === 'directo') {
         this.loadEvents()
       }
-
-      this.selected_option = option_key
     },
     loadEvents () {
       axios.get('https://s3.amazonaws.com/optafeeds-prod/gamecast/' + this.opta_competition + '/' + this.opta_season + '/matches/' + this.opta_match_id + '.json').then(
