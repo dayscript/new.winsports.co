@@ -44,8 +44,9 @@ new Vue({
   },
   methods: {
     selectOption (option_key) {
-      if(option_key == 'previa') document.location.href = '/node/'+ this.prev
-      if(option_key == 'cronica') document.location.href = '/node/'+ this.cron
+      if(option_key === 'previa') document.location.href = '/node/'+ this.prev
+      if(option_key === 'cronica') document.location.href = '/node/'+ this.cron
+      if(option_key === 'estadisticas') Opta.start()
       this.selected_option = option_key
     },
     loadArticles () {
