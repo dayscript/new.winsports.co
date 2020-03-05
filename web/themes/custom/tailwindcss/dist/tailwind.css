@@ -1958,6 +1958,24 @@ div#block-contenidoprincipaldelapagina-3 header {
   #block-views-block-lo-ultimo-block-1 {
     display: block;
   }
+
+  #block-views-block-lo-ultimo-block-1 .lo-ultimo-slider {
+    display: block;
+  }
+
+  #block-views-block-lo-ultimo-block-1 .M-lo-ultimo-slider {
+    display: none;
+    overflow-y: hidden;
+    white-space: nowrap;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
+  #block-views-block-lo-ultimo-block-1 .M-lo-ultimo-slider .views-row {
+    width: 40%;
+    margin-right: 1rem;
+  }
 }
 
 .tw-sr-only{
