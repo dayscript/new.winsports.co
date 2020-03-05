@@ -42,8 +42,8 @@ new Vue({
     if (this.opta_match_id || this.drupal_match_id) {
       this.loadArticles()
     }
-    Opta.start()
     if(this.selected_option == 'directo') this.loadEvents()
+    Opta.start()
   },
   methods: {
     selectOption (option_key) {
@@ -55,6 +55,7 @@ new Vue({
       }
       if (option_key === 'estadisticas') {
         Opta.start()
+        console.log(option_key)
       }
       if (option_key === 'directo') {
         this.loadEvents()
