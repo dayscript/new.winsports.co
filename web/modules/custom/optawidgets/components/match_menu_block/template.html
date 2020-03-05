@@ -53,7 +53,7 @@
             <div v-if="event.team_id == null" class="tw-flex">
                 <div class="tw-w-2/12">
                     {{ event.minute_label }}
-                    <img :src="'/assets/img/icon/gamecast/' + imageEventsOpta(event.type) +'.png'" alt="" class="">
+                    <img :src="'/sites/default/files/assets/img/icon/gamecast/' + imageEventsOpta(event.type) +'.png'" alt="" class="">
                 </div>
                 <div class="tw-w-10/12">
                     {{ event.text }}
@@ -62,7 +62,7 @@
             <div v-if="event.team_id == opta_home_id && event.team_id != null" class="tw-flex">
                 <div class="tw-w-2/12">
                     {{ event.minute_label }}
-                    <img :src="'/assets/img/icon/gamecast/' + imageEventsOpta(event.type) +'.png'" alt="" class="">
+                    <img :src="'/sites/default/files/assets/img/icon/gamecast/' + imageEventsOpta(event.type) +'.png'" alt="" class="">
                 </div>
                 <div class="tw-w-10/12">
                     {{ event.text }}
@@ -74,7 +74,7 @@
                 </div>
                 <div class="tw-w-2/12">
                     {{ event.minute_label }}
-                    <img :src="'/assets/img/icon/gamecast/' + imageEventsOpta(event.type) +'.png'" alt="" class="">
+                    <img :src="'/sites/default/files/assets/img/icon/gamecast/' + imageEventsOpta(event.type) +'.png'" alt="" class="">
                 </div>
             </div>
         </div>
