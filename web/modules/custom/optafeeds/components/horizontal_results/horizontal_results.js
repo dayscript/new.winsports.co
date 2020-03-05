@@ -25,6 +25,7 @@ new Vue({
     active_round: '',
     season: 2020,
     matches: [],
+    cronicles: [],
   },
   beforeMount () {
     const id = this.$el.id
@@ -33,7 +34,7 @@ new Vue({
     this.loadPhases()
   },
   methods: {
-    goto(url){
+    goto (url) {
       document.location.href = url
     },
     loadPhases () {
@@ -71,12 +72,14 @@ new Vue({
           }
       )
     },
-    loadCronicle(match_id){
+    loadCronicle (match_id) {
       match_id = 2049215
-      axios.get('https://test.winsports.co/api/match/cronica/'+match_id).then(
-          ({data})=>{
-            if(data.length > 0 ){
-              console.log(data[0].nid) 
+      axios.get('https://test.winsports.co/api/match/cronica/' + match_id).then(
+          ({data}) => {
+            if (data.length > 0) {
+              if (data[0].nid) {
+                this.cronicles[match_id] = data[0].nid
+              }
             }
           }
       ).catch()
