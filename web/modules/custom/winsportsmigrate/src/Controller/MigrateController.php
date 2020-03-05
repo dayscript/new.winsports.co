@@ -127,6 +127,7 @@ class MigrateController {
         }
         $node->field_mediastream = $item['mediastream'];
         $node->field_tipo_de_articulo = $item['tipo'];
+        $this->attachTipoArticulo($node, $item['tipo']);
         $this->attachTeams($node, $item['equipos']);
         $this->attachMatch($node, $item['match']);
         $node->save();
@@ -702,6 +703,22 @@ class MigrateController {
       $term = Term::load(array_pop($entity_ids));
     }
     $node->field_category = $term;
+    $node->save();
+  }
+  public function attachTipoArticulo($node, $tipo) {
+    $query = \Drupal::entityQuery('taxonomy_term');
+    $query->condition('name', $tipo);
+    $query->condition('vid', 'tipo_de_articulo');
+    $entity_ids = $query->execute();
+    if (count($entity_ids) == 0) {
+      $term = Term::create(['vid' => 'tipo_de_articulo']);
+      $term->setName($tipo);
+      $term->save();
+    }
+    else {
+      $term = Term::load(array_pop($entity_ids));
+    }
+    $node->field_tipo_de_articulo = $term;
     $node->save();
   }
 
