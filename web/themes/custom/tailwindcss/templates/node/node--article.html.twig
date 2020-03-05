@@ -27,27 +27,21 @@
         {% if node.hasField('field_lead') %}
             <div class="lead my-2 tw-text-lg italic mb-8">{{ content.field_lead }}</div>
         {% endif %}
-        <div class="image">
-            {% if node.hasField('field_image_h') %}
-                <div class="tw-my-4">{{ content.field_image_h }}</div>
-                <div class="tw-text-gray-650 tw-text-sm tw-mb-4">{{ node.field_image_h.title }}</div>
-            {% elseif node.hasField('field_image') %}
-                <div class="tw-mt-4 tw-mb-2">{{ content.field_image }}</div>
-                <div class="tw-text-primary tw-text-sm tw-mb-2">{{ node.field_image.title }}</div>
-            {% endif %}
-            <div class="tw-absolute tw-top-0 tw-left-0 play-icon tw-w-full tw-h-full tw-flex tw-items-center tw-justify-center">
-                <a href="#" onclick="jQuery('.mediastream-{{ node.id }}').removeClass('tw-hidden');"><img src="/themes/custom/tailwindcss/images/icons/play.png" alt="Play" class="play-icon tw-h-24 tw-w-24 opacity-100"></a>
+        {% if node.hasField('field_mediastream') %}
+            <div class="mediastream mediastream-{{ node.id }}  tw-w-full tw-h-full">
+                {{ content.field_mediastream }}
             </div>
-            <div class="mediastream mediastream-{{ node.id }} tw-absolute tw-w-full tw-h-full tw-hidden">
-                {% if node.hasField('field_mediastream') %}
-                    {{ content.field_mediastream }}
-                {% endif %}
-            </div>
-        </div>
+        {% elseif node.hasField('field_image_h') %}
+            <div class="tw-my-4">{{ content.field_image_h }}</div>
+            <div class="tw-text-gray-650 tw-text-sm tw-mb-4">{{ node.field_image_h.title }}</div>
+        {% elseif node.hasField('field_image') %}
+            <div class="tw-mt-4 tw-mb-2">{{ content.field_image }}</div>
+            <div class="tw-text-primary tw-text-sm tw-mb-2">{{ node.field_image.title }}</div>
+        {% endif %}
         <div class="body tw-text-xl">{{ content.body }}</div>
         <div class="tags tw-flex tw-text-sm tw-items-center">
             <div class="tw-whitespace-no-wrap tw-p-2 uppercase label">Tags relacionados</div>
-            <div>{{  content.field_tags }}</div>
+            <div>{{ content.field_tags }}</div>
         </div>
         <div class="comments">
             <div class="fb-comments" data-href="https://www.winsports.co{{ url }}" data-width="100%" data-numposts="5"></div>
