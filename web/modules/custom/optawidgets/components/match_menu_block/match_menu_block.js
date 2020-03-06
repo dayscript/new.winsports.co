@@ -45,7 +45,7 @@ new Vue({
       if (this.node['field_round'][0]['value']) this.round_name = this.node['field_round'][0]['value']
     }
     if (this.opta_match_id || this.drupal_match_id) {
-      this.loadArticles()
+      // this.loadArticles()
     }
     // if(this.selected_option == 'directo') this.loadEvents()
     Opta.start()
