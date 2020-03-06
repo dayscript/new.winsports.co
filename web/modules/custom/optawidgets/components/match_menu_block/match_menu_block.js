@@ -78,7 +78,9 @@ new Vue({
           ({data}) => {
             if(data.events) this.events = data.events
           }
-      ).catch()
+      ).catch(()=>{
+        this.events = []
+      })
     },
     loadArticles () {
       this.loading++
