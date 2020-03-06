@@ -29,14 +29,21 @@ class WidgetProgrammingForm extends FormBase {
     $form['widget_programming']['#attached']['library'][] = 'widget_programming/widget_programming.owlcarousel';
     $form['#attached']['drupalSettings']['settings']['programming_config'] = $data;
 
+    $params = htmlspecialchars($_GET["date"]);
+    $date_active = date('Y-m-d');
+    if( isset($params) && !empty($params) ){
+      $date_active =  $params;
+    }
+
     $dates = $this->Programming->dates();
     $html = '';
 
     foreach ($dates as $km => $month) {
       $html_ = [];
       foreach ($month as $ks => $day) {
+        $class_date = ($date_active == $day['value']) ? 'active' : '';
         $html_[] = '
-        <div class="date">
+        <div class="date '.$class_date.'">
         <a href="programacion?date='.$day['value'].'">
           <div class="weekday">'.$day['weekday'].'</div>
           <div class="day">'.$day['day'].'</div>

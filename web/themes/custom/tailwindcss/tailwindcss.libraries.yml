@@ -2,3 +2,5 @@ global-styling:
   css:
     base:
       dist/tailwind.css: {}
+  js:
+    src/js/tailwind.js: {}

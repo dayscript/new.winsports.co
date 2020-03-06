@@ -528,3 +528,39 @@ div#block-contenidoprincipaldelapagina-3{
     width: 100%;
   }
 }   
+#block-widgetprogrammingblock{
+  h3{
+    font-family: $font-title;
+    @apply tw-text-primary text-2xl font-semibold;
+  }
+  .date {
+    text-align: center;
+    @apply text-sm;
+    .weekday{
+      text-transform: uppercase;
+    }
+    a{
+      color: #819A9F;
+      &:hover{
+        color: #0b3b41;
+      }
+    }
+    &.active{
+      a{
+        color: #0b3b41;
+        font-weight: 600;
+      }
+    }
+  }
+  .owl-buttons{
+    div.owl-prev, div.owl-next {
+      display: block !important;
+      padding-top: 2rem;
+      width: 50px;
+  }
+}
+#owl-programming .item {
+  margin-right: 0;
+  margin-left: 4rem;
+}
+}
