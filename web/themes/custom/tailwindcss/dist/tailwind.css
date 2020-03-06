@@ -954,6 +954,7 @@ a {
   width: 100%;
   text-align: center;
   cursor: pointer;
+  white-space: nowrap;
   font-family: "Passion One", cursive;
 }
 
