@@ -1827,11 +1827,14 @@ div#block-contenidoprincipaldelapagina-3 header {
   font-family: "Source Sans Pro", sans-serif;
 }
 
-#block-futbolcolombiano-estadisticas .Opta-TeamName, .opta-widgets .Opta-TeamName {
+#block-futbolcolombiano-estadisticas .Opta-TeamName, #block-futbolcolombiano-estadisticas .Opta-Team-Score, .opta-widgets .Opta-TeamName, .opta-widgets .Opta-Team-Score {
   font-family: "Passion One", cursive;
-  color: #0b3b41;
   text-transform: uppercase;
-  font-size: 1.25rem;
+  font-size: 1.875rem;
+}
+
+#block-futbolcolombiano-estadisticas .Opta-TeamName, .opta-widgets .Opta-TeamName {
+  color: #0b3b41;
 }
 
 #block-futbolcolombiano-estadisticas .Opta .Opta-Nav li.Opta-On a, .opta-widgets .Opta .Opta-Nav li.Opta-On a {
