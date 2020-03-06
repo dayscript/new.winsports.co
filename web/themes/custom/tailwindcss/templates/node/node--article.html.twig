@@ -28,7 +28,7 @@
             <div class="lead my-2 tw-text-lg italic mb-8">{{ content.field_lead }}</div>
         {% endif %}
         {% if node.hasField('field_mediastream') %}
-            {% if content.field_mediastream|render|trim %}
+            {% if content.field_mediastream|render|striptags|trim %}
                 <div class="mediastream fixed-height mediastream-{{ node.id }} tw-w-full tw-h-full">
                     {{ content.field_mediastream }}
                 </div>
