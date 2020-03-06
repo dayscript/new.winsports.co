@@ -41,8 +41,12 @@
   }
 }
 
-#block-views-block-lo-ultimo-block-1{
-  .M-lo-ultimo-slider{
+#block-views-block-lo-ultimo-block-1,
+#block-views-block-lo-ultimo-block-2{
+  .D--sliders{
+    @apply hidden;
+  }
+  .M--sliders{
     @apply overflow-y-hidden whitespace-no-wrap flex;
     .views-row{
       width: 40%;
@@ -53,6 +57,9 @@
         font-size: 0.6rem;
       }
     }
+  }
+  .torneo.category{
+    @apply my-2;
   }
 }
 
@@ -91,12 +98,12 @@
   #block-views-block-goles-home-block-2{
     @apply hidden;
   }
-  #block-views-block-lo-ultimo-block-1{
-    @apply block;
-    .lo-ultimo-slider{
+  #block-views-block-lo-ultimo-block-1,
+  #block-views-block-lo-ultimo-block-2{
+    .D--sliders{
       @apply block;
     }
-    .M-lo-ultimo-slider{
+    .M--sliders{
       @apply hidden;
     }
   }
