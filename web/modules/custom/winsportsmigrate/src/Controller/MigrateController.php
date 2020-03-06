@@ -560,8 +560,8 @@ class MigrateController {
         }
         if ($item['field_image']['src']) {
           $image = file_get_contents($item['field_image']['src']);
+          dd($image);
           if ($file = file_save_data($image, 'public://images/goals/' . $this->slug($item['title']) . '.png', FILE_EXISTS_REPLACE)) {
-            dd($file->id());
             $node->field_image = [
               'target_id' => $file->id(),
               'alt'       => $item['title'],
@@ -569,7 +569,6 @@ class MigrateController {
             ];
           }
         }
-        dd($node->field_image);
         $node->field_url         = $item['url'];
         $node->field_cimacast    = $item['cimacast_video_id'];
         $node->field_mediastream = $item['mediastream_id'];
