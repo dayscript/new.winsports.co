@@ -560,13 +560,15 @@ class MigrateController {
         }
         if ($item['field_image']['src']) {
           $image = file_get_contents($item['field_image']['src']);
-          dd($image);
           if ($file = file_save_data($image, 'public://images/goals/' . $this->slug($item['title']) . '.png', FILE_EXISTS_REPLACE)) {
+            dd($file->id());
             $node->field_image = [
               'target_id' => $file->id(),
               'alt'       => $item['title'],
               'title'     => $item['title'],
             ];
+          } else {
+            dd('MNo se cargo la imagen');
           }
         }
         $node->field_url         = $item['url'];
