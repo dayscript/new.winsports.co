@@ -42,7 +42,10 @@
 }
 
 #block-views-block-lo-ultimo-block-1,
-#block-views-block-lo-ultimo-block-2{
+#block-views-block-lo-ultimo-block-2,
+#block-views-block-lo-ultimo-block-3,
+#block-views-block-lo-ultimo-block-4,
+#block-views-block-lo-ultimo-block-5{
   .D--sliders{
     @apply hidden;
   }
@@ -99,7 +102,10 @@
     @apply hidden;
   }
   #block-views-block-lo-ultimo-block-1,
-  #block-views-block-lo-ultimo-block-2{
+  #block-views-block-lo-ultimo-block-2,
+  #block-views-block-lo-ultimo-block-3,
+  #block-views-block-lo-ultimo-block-4,
+  #block-views-block-lo-ultimo-block-5{
     .D--sliders{
       @apply block;
     }

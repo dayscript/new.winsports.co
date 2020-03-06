@@ -1770,6 +1770,46 @@ div#block-contenidoprincipaldelapagina-3 header {
   width: 100%;
 }
 
+#block-widgetprogrammingblock h3 {
+  font-family: "Passion One", cursive;
+  color: #0b3b41;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+#block-widgetprogrammingblock .date {
+  text-align: center;
+  font-size: 0.875rem;
+}
+
+#block-widgetprogrammingblock .date .weekday {
+  text-transform: uppercase;
+}
+
+#block-widgetprogrammingblock .date a {
+  color: #819A9F;
+}
+
+#block-widgetprogrammingblock .date a:hover {
+  color: #0b3b41;
+}
+
+#block-widgetprogrammingblock .date.active a {
+  color: #0b3b41;
+  font-weight: 600;
+}
+
+#block-widgetprogrammingblock .owl-buttons div.owl-prev, #block-widgetprogrammingblock .owl-buttons div.owl-next {
+  display: block !important;
+  padding-top: 2rem;
+  width: 50px;
+}
+
+#block-widgetprogrammingblock #owl-programming .item {
+  margin-right: 0;
+  margin-left: 4rem;
+}
+
 #block-futbolcolombiano-estadisticas, .opta-widgets {
   color: #0B3B41;
 }
@@ -1938,12 +1978,18 @@ div#block-contenidoprincipaldelapagina-3 header {
 }
 
 #block-views-block-lo-ultimo-block-1 .D--sliders,
-#block-views-block-lo-ultimo-block-2 .D--sliders {
+#block-views-block-lo-ultimo-block-2 .D--sliders,
+#block-views-block-lo-ultimo-block-3 .D--sliders,
+#block-views-block-lo-ultimo-block-4 .D--sliders,
+#block-views-block-lo-ultimo-block-5 .D--sliders {
   display: none;
 }
 
 #block-views-block-lo-ultimo-block-1 .M--sliders,
-#block-views-block-lo-ultimo-block-2 .M--sliders {
+#block-views-block-lo-ultimo-block-2 .M--sliders,
+#block-views-block-lo-ultimo-block-3 .M--sliders,
+#block-views-block-lo-ultimo-block-4 .M--sliders,
+#block-views-block-lo-ultimo-block-5 .M--sliders {
   overflow-y: hidden;
   white-space: nowrap;
   display: -webkit-box;
@@ -1952,7 +1998,10 @@ div#block-contenidoprincipaldelapagina-3 header {
 }
 
 #block-views-block-lo-ultimo-block-1 .M--sliders .views-row,
-#block-views-block-lo-ultimo-block-2 .M--sliders .views-row {
+#block-views-block-lo-ultimo-block-2 .M--sliders .views-row,
+#block-views-block-lo-ultimo-block-3 .M--sliders .views-row,
+#block-views-block-lo-ultimo-block-4 .M--sliders .views-row,
+#block-views-block-lo-ultimo-block-5 .M--sliders .views-row {
   width: 40%;
   margin-right: 1rem;
   -webkit-flex: none;
@@ -1960,12 +2009,18 @@ div#block-contenidoprincipaldelapagina-3 header {
 }
 
 #block-views-block-lo-ultimo-block-1 .M--sliders .views-row .category a,
-#block-views-block-lo-ultimo-block-2 .M--sliders .views-row .category a {
+#block-views-block-lo-ultimo-block-2 .M--sliders .views-row .category a,
+#block-views-block-lo-ultimo-block-3 .M--sliders .views-row .category a,
+#block-views-block-lo-ultimo-block-4 .M--sliders .views-row .category a,
+#block-views-block-lo-ultimo-block-5 .M--sliders .views-row .category a {
   font-size: 0.6rem;
 }
 
 #block-views-block-lo-ultimo-block-1 .torneo.category,
-#block-views-block-lo-ultimo-block-2 .torneo.category {
+#block-views-block-lo-ultimo-block-2 .torneo.category,
+#block-views-block-lo-ultimo-block-3 .torneo.category,
+#block-views-block-lo-ultimo-block-4 .torneo.category,
+#block-views-block-lo-ultimo-block-5 .torneo.category {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
@@ -2023,12 +2078,18 @@ div#block-contenidoprincipaldelapagina-3 header {
   }
 
   #block-views-block-lo-ultimo-block-1 .D--sliders,
-  #block-views-block-lo-ultimo-block-2 .D--sliders {
+  #block-views-block-lo-ultimo-block-2 .D--sliders,
+  #block-views-block-lo-ultimo-block-3 .D--sliders,
+  #block-views-block-lo-ultimo-block-4 .D--sliders,
+  #block-views-block-lo-ultimo-block-5 .D--sliders {
     display: block;
   }
 
   #block-views-block-lo-ultimo-block-1 .M--sliders,
-  #block-views-block-lo-ultimo-block-2 .M--sliders {
+  #block-views-block-lo-ultimo-block-2 .M--sliders,
+  #block-views-block-lo-ultimo-block-3 .M--sliders,
+  #block-views-block-lo-ultimo-block-4 .M--sliders,
+  #block-views-block-lo-ultimo-block-5 .M--sliders {
     display: none;
   }
 
