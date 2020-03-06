@@ -1827,7 +1827,7 @@ div#block-contenidoprincipaldelapagina-3 header {
   font-family: "Source Sans Pro", sans-serif;
 }
 
-#block-futbolcolombiano-estadisticas td.Opta-TeamName.Opta-TeamName, .opta-widgets td.Opta-TeamName.Opta-TeamName {
+#block-futbolcolombiano-estadisticas .Opta-Wide .Opta-MatchHeader.Opta-MatchHeader-Crested td.Opta-Team, .opta-widgets .Opta-Wide .Opta-MatchHeader.Opta-MatchHeader-Crested td.Opta-Team {
   font-family: "Passion One", cursive;
   text-transform: uppercase;
   font-size: 1.875rem;

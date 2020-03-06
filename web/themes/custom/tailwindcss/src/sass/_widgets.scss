@@ -55,7 +55,7 @@
     @apply text-white;
     font-family: $font-body;
   }
-  td.Opta-TeamName.Opta-TeamName {
+  .Opta-Wide .Opta-MatchHeader.Opta-MatchHeader-Crested td.Opta-Team{
     font-family: $font-title;
     @apply uppercase text-3xl text-primary;
   }
