@@ -47,7 +47,7 @@ new Vue({
     if (this.opta_match_id || this.drupal_match_id) {
       this.loadArticles()
     }
-    if(this.selected_option == 'directo') this.loadEvents()
+    // if(this.selected_option == 'directo') this.loadEvents()
     Opta.start()
   },
   methods: {
