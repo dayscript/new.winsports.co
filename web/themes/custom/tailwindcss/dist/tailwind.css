@@ -1132,15 +1132,13 @@ a {
 }
 
 #block-views-block-goles-home-block-1,
-#block-views-block-videos-opinion-block-1,
-.seccion-videos {
+#block-views-block-videos-opinion-block-1 {
   border-bottom-width: 1px;
   border-color: #e3e3e3;
 }
 
 #block-views-block-goles-home-block-1 div div,
-#block-views-block-videos-opinion-block-1 div div,
-.seccion-videos div div {
+#block-views-block-videos-opinion-block-1 div div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1150,27 +1148,23 @@ a {
 }
 
 #block-views-block-goles-home-block-1 div div .views-row,
-#block-views-block-videos-opinion-block-1 div div .views-row,
-.seccion-videos div div .views-row {
+#block-views-block-videos-opinion-block-1 div div .views-row {
   padding-right: 1rem;
   width: 66.666667%;
 }
 
 #block-views-block-goles-home-block-1 div div .views-element-container,
-#block-views-block-videos-opinion-block-1 div div .views-element-container,
-.seccion-videos div div .views-element-container {
+#block-views-block-videos-opinion-block-1 div div .views-element-container {
   width: 33.333333%;
 }
 
 #block-views-block-goles-home-block-1 div div .views-element-container .views-row,
-#block-views-block-videos-opinion-block-1 div div .views-element-container .views-row,
-.seccion-videos div div .views-element-container .views-row {
+#block-views-block-videos-opinion-block-1 div div .views-element-container .views-row {
   width: 100%;
 }
 
 #block-views-block-goles-home-block-1 div div .views-element-container > div,
-#block-views-block-videos-opinion-block-1 div div .views-element-container > div,
-.seccion-videos div div .views-element-container > div {
+#block-views-block-videos-opinion-block-1 div div .views-element-container > div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1185,8 +1179,7 @@ a {
 }
 
 #block-views-block-goles-home-block-1 div div .more-link a,
-#block-views-block-videos-opinion-block-1 div div .more-link a,
-.seccion-videos div div .more-link a {
+#block-views-block-videos-opinion-block-1 div div .more-link a {
   margin-left: auto;
   margin-right: auto;
 }
@@ -1985,7 +1978,8 @@ div#block-contenidoprincipaldelapagina-3 header {
   left: 0;
   font-size: 2.25rem;
   line-height: 1;
-  letter-spacing: 0;
+  letter-spacing: -0.025em;
+  font-weight: 400;
 }
 
 #block-views-block-goles-home-block-2 .gol-partido.video-player .title a {
