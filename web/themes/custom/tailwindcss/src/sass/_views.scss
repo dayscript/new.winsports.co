@@ -1,6 +1,7 @@
 .gol-partido.video-player{
   @apply relative;
   .image{
+    @apply mb-4;
     img:not(.play-icon){
       opacity: 0.7;
       @apply w-full;
@@ -107,8 +108,7 @@
 }
 
 #block-views-block-goles-home-block-1,
-#block-views-block-videos-opinion-block-1,
-.seccion-videos
+#block-views-block-videos-opinion-block-1
 {
   @apply border-b border-gray;
   div div{
