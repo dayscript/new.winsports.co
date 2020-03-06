@@ -1946,6 +1946,26 @@ div#block-contenidoprincipaldelapagina-3 header {
 
 /* RESPONSIVE */
 
+.mm-menu.mm-theme-dark {
+  background-color: #6cfac1;
+  color: #143a42;
+}
+
+.mm-menu.mm-theme-dark .mm-navbar {
+  display: none;
+}
+
+.mm-menu.mm-theme-dark ul.mm-listview li a {
+  padding: 1.2rem 1rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+#mm-blocker {
+  background-color: #9bfbe0 !important;
+}
+
 .tw-bg-primary header > div {
   display: -webkit-box;
   display: -ms-flexbox;
