@@ -519,7 +519,7 @@ class MigrateController {
   }
 
   public function goals() {
-    $url     = 'https://admin.winsports.co/migrate/goals/' + $this->period;
+    $url     = 'https://admin.winsports.co/migrate/goals/' . $this->period;
     $res     = $this->client->get($url);
     $results = [
       'new'      => 0,
