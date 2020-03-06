@@ -560,8 +560,7 @@ class MigrateController {
         }
         if ($item['field_image']['src']) {
           $image = file_get_contents($item['field_image']['src']);
-          if ($file = file_save_data($image, 'public://images/goals/' . $this->slug($item['title']) . '.png', FILE_EXISTS_REPLACE)) {
-            dd($file->id());
+          if ($file = file_save_data($image, 'public://images/videos/' . $this->slug($item['title']) . '.png', FILE_EXISTS_REPLACE)) {
             $node->field_image = [
               'target_id' => $file->id(),
               'alt'       => $item['title'],
