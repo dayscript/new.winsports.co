@@ -125,7 +125,7 @@ class MigrateController {
           $node->save();
           $results['existing']++;
         }
-        $node->field_mediastream = $item['mediastream'];
+        $node->field_mediastream      = $item['mediastream'];
         $node->field_tipo_de_articulo = $item['tipo'];
         $this->attachTipoArticulo($node, $item['tipo']);
         $this->attachTeams($node, $item['equipos']);
@@ -519,7 +519,7 @@ class MigrateController {
   }
 
   public function goals() {
-    $url     = 'https://admin.winsports.co/migrate/goals';
+    $url     = 'https://admin.winsports.co/migrate/goals/' + $this->period;
     $res     = $this->client->get($url);
     $results = [
       'new'      => 0,
@@ -542,25 +542,14 @@ class MigrateController {
           $data = file_get_contents($item['field_image']['src']);
           if ($file = file_save_data($data, 'public://images/goles/' . $this->slug($item['title']) . '.jpg', FILE_EXISTS_REPLACE)) {
             $node = Node::create([
-              'type'              => 'gol_partido',
-              'title'             => $item['title'],
-              'field_url'         => $item['url'],
-              'field_cimacast'    => $item['cimacast_video_id'],
-              'field_mediastream' => $item['mediastream_id'],
-              'field_image'       => [
-                'target_id' => $file->id(),
-                'alt'       => $item['title'],
-                'title'     => $item['title'],
-              ],
-              'uid'               => 1,
-              'moderation_state'  => 'published',
-              'created'           => $date,
+              'type'             => 'gol_partido',
+              'title'            => $item['title'],
+              'uid'              => 1,
+              'moderation_state' => 'published',
+              'created'          => $date,
             ]);
             $node->save();
             $results['new']++;
-            if ($results['new'] >= $this->limit) {
-              break;
-            }
           }
         }
         else {
@@ -569,12 +558,25 @@ class MigrateController {
           $node->save();
           $results['existing']++;
         }
-        if ($item['tipo']) {
-          $this->attachTipoDeGol($node, $item['tipo']);
+        if ($item['field_image']['src']) {
+          $image = file_get_contents($item['field_image']['src']);
+          if ($file = file_save_data($image, 'public://images/goals/' . $this->slug($item['title']) . '.png', FILE_EXISTS_REPLACE)) {
+            $node->field_image = [
+              'target_id' => $file->id(),
+              'alt'       => $item['title'],
+              'title'     => $item['title'],
+            ];
+          }
         }
-        if ($item['torneo']) {
-          $this->attachTorneo($node, $item['torneo']);
-        }
+        $node->field_url         = $item['url'];
+        $node->field_cimacast    = $item['cimacast_video_id'];
+        $node->field_mediastream = $item['mediastream_id'];
+        $node->field_pretitle = $item['field_antetitulo'];
+        if ($item['type']) $this->attachTipoDeVideo($node, $item['type']);
+        if ($item['tipo']) $this->attachTipoDeGol($node, $item['tipo']);
+        if ($item['torneo']) $this->attachTorneo($node, $item['torneo']);
+        if ($item['field_categoria']) $this->attachCategory($node, $item['field_categoria']);
+        if ($item['field_fuente']) $this->attachSource($node, $item['field_fuente']);
         $this->attachTags($node, $item['tags']);
         $node->save();
         if ($results['new'] + $results['existing'] >= $this->limit) {
@@ -585,7 +587,7 @@ class MigrateController {
 
     return [
       '#type'   => 'markup',
-      '#markup' => t('Migracion de Goles') . '<br>'
+      '#markup' => t('Migración de Goles') . '<br>'
                    . 'Nuevos: ' . $results['new'] . '<br>Existentes: ' . $results['existing'] . '<br>Total: ' . $count,
     ];
   }
@@ -705,6 +707,7 @@ class MigrateController {
     $node->field_category = $term;
     $node->save();
   }
+
   public function attachTipoArticulo($node, $tipo) {
     $query = \Drupal::entityQuery('taxonomy_term');
     $query->condition('name', $tipo);
@@ -736,6 +739,22 @@ class MigrateController {
       $term = Term::load(array_pop($entity_ids));
     }
     $node->field_tipo_de_gol = $term;
+    $node->save();
+  }
+  public function attachTipoDeVideo($node, $video) {
+    $query = \Drupal::entityQuery('taxonomy_term');
+    $query->condition('name', $video);
+    $query->condition('vid', 'tipo_de_video');
+    $entity_ids = $query->execute();
+    if (count($entity_ids) == 0) {
+      $term = Term::create(['vid' => 'tipo_de_video']);
+      $term->setName($video);
+      $term->save();
+    }
+    else {
+      $term = Term::load(array_pop($entity_ids));
+    }
+    $node->field_tipo_de_video = $term;
     $node->save();
   }
 
