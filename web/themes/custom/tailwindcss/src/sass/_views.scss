@@ -563,3 +563,11 @@ div#block-contenidoprincipaldelapagina-3{
   margin-left: 4rem;
 }
 }
+
+#blocktabs-programacion{
+  @screen md {
+    .col-span-3 {
+      grid-column: span 1/span 3;
+   }
+  }
+}
