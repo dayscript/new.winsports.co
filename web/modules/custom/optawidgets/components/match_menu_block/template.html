@@ -53,15 +53,6 @@
             <div class="tw-w-3/4 tw-bg-white tw-p-6">
                 <h2 class="title normal-case">Minuto a Minuto</h2>
                 <div v-for="event in events" class="tw-p-4 tw-border-t tw-text-gray-600">
-                    <div v-if="event.team_id == null" class="tw-flex">
-                        <div class="tw-w-2/12 tw-flex tw-items-center tw-justify-center tw-font-bold tw-text-green">
-                            {{ event.minute_label }}
-                            <img :src="'/sites/default/files/assets/img/icon/gamecast/' + imageEventsOpta(event.type) +'.png'" alt="" class="tw-mx-2">
-                        </div>
-                        <div class="tw-w-10/12">
-                            {{ event.text }}
-                        </div>
-                    </div>
                     <div v-if="event.team_id == opta_home_id && event.team_id != null" class="tw-flex">
                         <div class="tw-w-2/12 tw-flex tw-items-center tw-justify-center tw-font-bold tw-text-green-600">
                             {{ event.minute_label }}
@@ -71,13 +62,22 @@
                             {{ event.text }}
                         </div>
                     </div>
-                    <div v-if="event.team_id == opta_away_id && event.team_id != null" class="tw-flex">
+                    <div v-else-if="event.team_id == opta_away_id && event.team_id != null" class="tw-flex">
                         <div class="tw-w-10/12 tw-text-right">
                             {{ event.text }}
                         </div>
                         <div class="tw-w-2/12 tw-flex tw-items-center tw-justify-center tw-font-bold tw-text-green-600">
                             {{ event.minute_label }}
                             <img :src="'/sites/default/files/assets/img/icon/gamecast/' + imageEventsOpta(event.type) +'.png'" alt="" class="tw-mx-2">
+                        </div>
+                    </div>
+                    <div v-else class="tw-flex">
+                        <div class="tw-w-2/12 tw-flex tw-items-center tw-justify-center tw-font-bold tw-text-green">
+                            {{ event.minute_label }}
+                            <img :src="'/sites/default/files/assets/img/icon/gamecast/' + imageEventsOpta(event.type) +'.png'" alt="" class="tw-mx-2">
+                        </div>
+                        <div class="tw-w-10/12">
+                            {{ event.text }}
                         </div>
                     </div>
                 </div>
