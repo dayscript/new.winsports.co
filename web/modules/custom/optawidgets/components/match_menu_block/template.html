@@ -89,29 +89,32 @@
     </div>
     <div v-show="selected_option == 'alineaciones'">
         <div v-if="opta_competition>0 && opta_season>0 && opta_match_id>0" class="tw-bg-gray tw-p-6">
-            <opta-widget sport="football" widget="matchday_live" :competition="opta_competition" :season="opta_season" :match="opta_match_id" 
-                         template="normal" live="true" orientation="horizontal" 
-                         side="both" show_match_header="false" show_crests="true"
-                         show_pitch_crests="true"
-                         show_team_formation="true"
-                         show_score="true"
-                         show_halftime_score="true"
-                         show_images="false"
-                         show_pitch_images="false"
-                         show_team_sheets="true"
-                         show_event_icons="true"
-                         show_player_names="true"
-                         show_subs="all"
-                         team_naming="full"
-                         player_naming="initial"
-                         show_live="true"
-                         show_logo="false"
-                         show_title="true"
-                         title="Formación"
-                         breakpoints="400, 700">
-            </opta-widget>
-            
-            <opta-widget widget="match_player_compare" :competition="opta_competition" :season="opta_season" :match="opta_match_id" template="normal" live="true" navigation="tabs_more" default_nav="1" show_match_header="false" show_selects="true" show_images="false" show_crests="false" show_competition_name="false" competition_naming="full" team_naming="full" player_naming="full" show_date="true" date_format="dddd D MMMM YYYY" show_logo="false" show_title="true" breakpoints="400, 700" sport="football"></opta-widget>
+            <div class="tw-bg-white tw-p-6 tw-mb-6 tw-w-full tw-h-64">
+                <opta-widget sport="football" widget="matchday_live" :competition="opta_competition" :season="opta_season" :match="opta_match_id"
+                             template="normal" live="true" orientation="horizontal"
+                             side="both" show_match_header="false" show_crests="true"
+                             show_pitch_crests="true"
+                             show_team_formation="true"
+                             show_score="true"
+                             show_halftime_score="true"
+                             show_images="false"
+                             show_pitch_images="false"
+                             show_team_sheets="true"
+                             show_event_icons="true"
+                             show_player_names="true"
+                             show_subs="all"
+                             team_naming="full"
+                             player_naming="initial"
+                             show_live="true"
+                             show_logo="false"
+                             show_title="true"
+                             title="Formación"
+                             breakpoints="400, 700">
+                </opta-widget>
+            </div>
+            <div class="tw-bg-white tw-p-6 tw-mb-6 tw-w-full tw-h-64">
+                <opta-widget widget="match_player_compare" :competition="opta_competition" :season="opta_season" :match="opta_match_id" template="normal" live="true" navigation="tabs_more" default_nav="1" show_match_header="false" show_selects="true" show_images="false" show_crests="false" show_competition_name="false" competition_naming="full" team_naming="full" player_naming="full" show_date="true" date_format="dddd D MMMM YYYY" show_logo="false" show_title="true" breakpoints="400, 700" sport="football"></opta-widget>
+            </div>
         </div>
     </div>
     <div v-if="selected_option == 'estadisticas'">
