@@ -559,6 +559,7 @@ class MigrateController {
           $results['existing']++;
         }
         if ($item['field_image']['src']) {
+          dd($item['field_image']['src']);
           $image = file_get_contents($item['field_image']['src']);
           if ($file = file_save_data($image, 'public://images/goals/' . $this->slug($item['title']) . '.png', FILE_EXISTS_REPLACE)) {
             $node->field_image = [
