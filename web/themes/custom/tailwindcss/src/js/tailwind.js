@@ -14,18 +14,18 @@
        relocateView();
      });
      function relocateView() {
+       var $publicidad1 = $('#block-publicidad1');
+       var $widgetprogramacion = $('#block-blocktabswidgetprogramacion');
        if($(window).width() < 640) {
-         $('#block-publicidad1').insertAfter('#block-positionstableswidget');
+         $widgetprogramacion.add($publicidad1).insertAfter('#block-positionstableswidget');
+         //$('#block-publicidad1').insertAfter('#block-positionstableswidget').insertAfter('#block-publicidad1');
          $('#block-publicidad1').addClass('tw-mt-4 tw-pt-8');
-         //$('.block-views-publicaciones-por-perfil-block').insertAfter(".node-perfil");
-         //$('.contextual-links-region').css('position', 'unset');
-         //$('.bloque-lateral').css({'width':'310px', 'float':'none', 'margin-left':'0'});
+         //$('#block-blocktabswidgetprogramacion').insertAfter('#block-publicidad1');
        }else{
-         $('#block-publicidad1').insertBefore('#block-blocktabswidgetprogramacion');
+         $widgetprogramacion.add($publicidad1).insertBefore('#block-views-block-opinion-block-1');
+         //$('#block-publicidad1').insertBefore('#block-blocktabswidgetprogramacion').insertAfter('#block-publicidad1');
          $('#block-publicidad1').removeClass('tw-mt-4 tw-pt-8');
-         //$('.block-views-publicaciones-por-perfil-block').insertBefore(".node-perfil");
-         //$('.contextual-links-region').attr('style', '');
-         //$('.bloque-lateral').attr('style', '');
+         //$('#block-blocktabswidgetprogramacion').insertAfter('#block-publicidad1');
        }
      }
    }
