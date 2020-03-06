@@ -56,7 +56,7 @@ new Vue({
       if (option_key === 'cronica') {
         document.location.href = '/node/' + this.cron
       }
-      if (option_key === 'estadisticas') {
+      if (option_key === 'estadisticas' || option_key === 'alineaciones') {
         let timer = setTimeout(()=>{
           Opta.start()
           this.loading--
@@ -64,6 +64,7 @@ new Vue({
       }
       if (option_key === 'directo') {
         this.loadEvents()
+        this.loading--
       }
     },
     loadEvents () {
