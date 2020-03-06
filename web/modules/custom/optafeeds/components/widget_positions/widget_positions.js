@@ -3,6 +3,7 @@ new Vue({
   el: '.opta-feeds-widget-positions',
   data: {
     loading: 0,
+    moment: moment,
     max_rows: 30,
     tournament_season: '0-0',
     tournaments: [],
@@ -12,6 +13,7 @@ new Vue({
     matches: [],
     rounds: [],
     selected_phase_id: '',
+    selected_round_id: '',
     selected_option: '',
     options: [{key: 'positions', label: 'Posiciones'},
       {key: 'schedules', label: 'Resultados'},
@@ -39,7 +41,38 @@ new Vue({
     },
     selectOption (option_key) {
       this.selected_option = option_key
-      this.loadTable()
+      if(option_key === 'schedules'){
+        this.loadResults()
+      } else {
+        this.loadTable()
+      }
+    },
+    loadResults(){
+      this.phases = []
+      let data = this.tournament_season.split('-')
+      let url = 'https://s3.amazonaws.com/optafeeds-prod/schedules/' + data[0] + '/' + data[1] + '/all.json';
+      this.loading++
+      axios.get(url).then(
+          ({data}) => {
+            this.loading--
+            let matches = []
+            let day = null
+            this.selected_phase_id = data.competition.active_phase_id
+            this.selected_round_id = data.competition.active_round_id
+            let items = data.phases[this.selected_phase_id].rounds[this.selected_round_id].matches
+            for (id in items){
+              day = moment(items[id].date)
+              if(!matches[day.format('YYYYMMDD')]) matches[day.format('YYYYMMDD')] = []
+              matches[day.format('YYYYMMDD')].push(items[id])
+              console.log(items[id])
+            }
+            const ordered = {};
+            Object.keys(matches).sort().forEach(function(key) {
+              ordered[key] = matches[key];
+            });
+            this.matches = ordered
+            // console.log(ordered)
+          })
     },
     loadTournaments () {
       this.loading++
@@ -87,7 +120,6 @@ new Vue({
     loadTable () {
       let data = this.tournament_season.split('-')
       let url = 'https://s3.amazonaws.com/optafeeds-prod/' + this.selected_option + '/' + data[0] + '/' + data[1] + '/all.json';
-      
       this.loading++
       axios.get(url).then(
           ({data}) => {
@@ -96,7 +128,6 @@ new Vue({
             let phases = []
             let players = []
             let rounds = []
-            let matches = []
             let items = null
             if (typeof data.teams !== 'undefined') {
               items = Object.entries(data.teams)
@@ -145,5 +176,8 @@ new Vue({
           }
       ).catch((error) => {this.loading--})
     },
+    gotoMatch(match_id){
+      document.location.href = '/matches/' + match_id
+    }
   }
 });
