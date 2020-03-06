@@ -1,4 +1,18 @@
 /* RESPONSIVE */
+.tw-bg-primary{
+  header{
+    > div{
+      @apply flex items-center;
+    }
+    #block-responsivemenumobileicon{
+      @apply order-first;
+      .label{
+        @apply hidden;
+      }
+    }
+  }
+}
+
 #block-views-block-goles-home-block-2{
   .gol-partido.video-player{
     .image{
@@ -27,8 +41,15 @@
   }
 }
 
-#block-views-block-lo-ultimo-block-1{
-  .M-lo-ultimo-slider{
+#block-views-block-lo-ultimo-block-1,
+#block-views-block-lo-ultimo-block-2,
+#block-views-block-lo-ultimo-block-3,
+#block-views-block-lo-ultimo-block-4,
+#block-views-block-lo-ultimo-block-5{
+  .D--sliders{
+    @apply hidden;
+  }
+  .M--sliders{
     @apply overflow-y-hidden whitespace-no-wrap flex;
     .views-row{
       width: 40%;
@@ -40,6 +61,9 @@
       }
     }
   }
+  .torneo.category{
+    @apply my-2;
+  }
 }
 
 #block-views-block-equipos-del-home-block-1{
@@ -50,6 +74,16 @@
       margin-right: .75rem;
       flex: none;
     }
+  }
+}
+
+.lista-torneos{
+  @apply flex bg-primary p-6 mb-4;
+  header {
+    @apply hidden;
+  }
+  .views-row{
+    @apply tw-pr-3;
   }
 }
 
@@ -67,12 +101,15 @@
   #block-views-block-goles-home-block-2{
     @apply hidden;
   }
-  #block-views-block-lo-ultimo-block-1{
-    @apply block;
-    .lo-ultimo-slider{
+  #block-views-block-lo-ultimo-block-1,
+  #block-views-block-lo-ultimo-block-2,
+  #block-views-block-lo-ultimo-block-3,
+  #block-views-block-lo-ultimo-block-4,
+  #block-views-block-lo-ultimo-block-5{
+    .D--sliders{
       @apply block;
     }
-    .M-lo-ultimo-slider{
+    .M--sliders{
       @apply hidden;
     }
   }
@@ -88,6 +125,16 @@
       img{
         @apply h-10 w-10;
       }
+    }
+  }
+  .lista-torneos{
+    @apply flex flex-wrap bg-primary p-6 mb-4;
+    header {
+      font-family: $font-title;
+      @apply text-white w-full text-4xl block;
+    }
+    .views-row{
+      @apply tw-pr-12;
     }
   }
 }

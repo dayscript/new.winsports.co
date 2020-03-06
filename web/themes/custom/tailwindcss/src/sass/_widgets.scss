@@ -55,6 +55,10 @@
     @apply text-white;
     font-family: $font-body;
   }
+  .Opta-Wide .Opta-MatchHeader.Opta-MatchHeader-Crested td.Opta-Team{
+    font-family: $font-title;
+    @apply uppercase text-3xl text-primary;
+  }
 
   .Opta .Opta-Nav li.Opta-On a {
     background-color: #0ef8c3;
