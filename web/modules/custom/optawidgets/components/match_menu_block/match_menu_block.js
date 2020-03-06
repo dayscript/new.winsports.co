@@ -57,12 +57,14 @@ new Vue({
         document.location.href = '/node/' + this.cron
       }
       if (option_key === 'estadisticas' || option_key === 'alineaciones') {
+        jQuery('#main-content-region').addClass('hidden')
         let timer = setTimeout(()=>{
           Opta.start()
           this.loading--
         }, 1000)
       }
       if (option_key === 'directo') {
+        jQuery('#main-content-region').addClass('hidden')
         this.loadEvents()
         this.loading--
       }
