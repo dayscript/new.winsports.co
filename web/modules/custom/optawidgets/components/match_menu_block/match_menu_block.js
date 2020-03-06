@@ -60,7 +60,7 @@ new Vue({
         let timer = setTimeout(()=>{
           Opta.start()
           this.loading--
-        }, 3000)
+        }, 1000)
       }
       if (option_key === 'directo') {
         this.loadEvents()
