@@ -45,9 +45,9 @@ new Vue({
       if (this.node['field_round'][0]['value']) this.round_name = this.node['field_round'][0]['value']
     }
     if (this.opta_match_id || this.drupal_match_id) {
-      // this.loadArticles()
+      this.loadArticles()
     }
-    // if(this.selected_option == 'directo') this.loadEvents()
+    if(this.selected_option == 'directo') this.loadEvents()
     Opta.start()
   },
   methods: {
@@ -101,8 +101,8 @@ new Vue({
                 if (data[i].field_tipo_de_articulo === 'Previa') this.prev = data[i].nid
                 else if (data[i].field_tipo_de_articulo === 'Crónica') this.cron = data[i].nid
               }
-              this.loading--
             }
+            this.loading--
           }
       ).catch(()=>{ this.loading-- })
     },
