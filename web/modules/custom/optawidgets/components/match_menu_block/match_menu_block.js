@@ -75,30 +75,26 @@ new Vue({
       ).catch()
     },
     loadArticles () {
+      this.loading++
       let url = ''
-      if (this.drupal_match_id) {
-        url = '/api/match-node/articles/' + this.drupal_match_id
-      }
-      else {
-        url = '/api/match/articles/' + this.opta_match_id
-      }
+      if (this.drupal_match_id) url = '/api/match-node/articles/' + this.drupal_match_id
+      else url = '/api/match/articles/' + this.opta_match_id
       axios.get(url).then(
           ({data}) => {
             if (data.length > 0) {
               this.opta_competition = data[0].field_opta_id
               this.opta_season = data[0].field_opta_season
               this.opta_match_id = data[0].field_opta_match_id
+              this.opta_home_id = data[0].field_opta_home_id
+              this.opta_away_id = data[0].field_opta_away_id
               for (let i = 0; i < data.length; i++) {
-                if (data[i].field_tipo_de_articulo === 'Previa') {
-                  this.prev = data[i].nid
-                }
-                else if (data[i].field_tipo_de_articulo === 'Crónica') {
-                  this.cron = data[i].nid
-                }
+                if (data[i].field_tipo_de_articulo === 'Previa') this.prev = data[i].nid
+                else if (data[i].field_tipo_de_articulo === 'Crónica') this.cron = data[i].nid
               }
+              this.loading--
             }
           }
-      ).catch()
+      ).catch(()=>{ this.loading-- })
     },
     imageEventsOpta (type) {
       var events = {
