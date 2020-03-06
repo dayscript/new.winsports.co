@@ -55,6 +55,10 @@
     @apply text-white;
     font-family: $font-body;
   }
+  .Opta-TeamName{
+    font-family: $font-title;
+    @apply text-primary uppercase text-xl;
+  }
 
   .Opta .Opta-Nav li.Opta-On a {
     background-color: #0ef8c3;

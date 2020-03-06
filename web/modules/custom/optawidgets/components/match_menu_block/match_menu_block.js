@@ -10,6 +10,8 @@ new Vue({
     opta_home_id: null,
     opta_away_id: null,
     prev: null,
+    tournament_name: '',
+    round_name: '',
     cron: null,
     node: null,
     events:[],
@@ -39,6 +41,8 @@ new Vue({
       if (this.node['field_opta_match_id'][0]['value']) this.opta_match_id = this.node['field_opta_match_id'][0]['value']
       if (this.node['field_opta_home_id'][0]['value']) this.opta_home_id = this.node['field_opta_home_id'][0]['value']
       if (this.node['field_opta_away_id'][0]['value']) this.opta_away_id = this.node['field_opta_away_id'][0]['value']
+      if (this.node['field_torneo_node'][0]['value']) this.tournament_name = this.node['field_torneo_node'][0]['value']
+      if (this.node['field_round'][0]['value']) this.round_name = this.node['field_round'][0]['value']
     }
     if (this.opta_match_id || this.drupal_match_id) {
       this.loadArticles()
@@ -89,6 +93,8 @@ new Vue({
               this.opta_match_id = data[0].field_opta_match_id
               this.opta_home_id = data[0].field_opta_home_id
               this.opta_away_id = data[0].field_opta_away_id
+              this.tournament_name = data[0].field_torneo_node
+              this.round_name = data[0].field_round
               for (let i = 0; i < data.length; i++) {
                 if (data[i].field_tipo_de_articulo === 'Previa') this.prev = data[i].nid
                 else if (data[i].field_tipo_de_articulo === 'Crónica') this.cron = data[i].nid
