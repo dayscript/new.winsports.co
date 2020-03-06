@@ -10,7 +10,7 @@ new Vue({
     opta_home_id: null,
     opta_away_id: null,
     prev: null,
-    tournament_name: '',
+    tournament_name: 'Liga BetPlay Dimayor 2020-I',
     round_name: '',
     cron: null,
     node: null,
