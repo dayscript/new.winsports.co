@@ -57,7 +57,10 @@ new Vue({
         document.location.href = '/node/' + this.cron
       }
       if (option_key === 'estadisticas') {
-        Opta.start()
+        let timer = setTimeout(()=>{
+          Opta.start()
+          this.loading--
+        }, 3000)
       }
       if (option_key === 'directo') {
         this.loadEvents()
