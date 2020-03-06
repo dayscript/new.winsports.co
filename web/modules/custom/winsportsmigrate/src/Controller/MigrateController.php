@@ -567,7 +567,7 @@ class MigrateController {
               'title'     => $item['title'],
             ];
           } else {
-            dd('MNo se cargo la imagen');
+            dd('No se cargo la imagen');
           }
         }
         $node->field_url         = $item['url'];
