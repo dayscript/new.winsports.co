@@ -1144,7 +1144,6 @@ a {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  width: 100%;
 }
 
 #block-views-block-goles-home-block-1 div div .views-row,
@@ -1819,6 +1818,10 @@ div#block-contenidoprincipaldelapagina-3 header {
   #blocktabs-programacion .col-span-3 {
     grid-column: span 1/span 3;
   }
+}
+
+#block-views-block-torneos-block-2 .owl-controls {
+  margin-bottom: 0 !important;
 }
 
 #block-futbolcolombiano-estadisticas, .opta-widgets {
