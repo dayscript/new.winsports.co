@@ -112,7 +112,7 @@
 {
   @apply border-b border-gray;
   div div{
-    @apply flex flex-wrap;
+    @apply flex flex-wrap w-full;
     .views-row{
       @apply pr-4 w-2/3;
     }
