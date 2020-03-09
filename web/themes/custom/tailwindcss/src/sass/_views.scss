@@ -12,6 +12,8 @@
     left: 30px;
     font-family: $font-body;
     line-height: 1.2em;
+    padding-left: 1rem;
+    padding-right: 1rem;
     @apply absolute text-white text-3xl font-semibold;
     a{
       @apply text-white;
