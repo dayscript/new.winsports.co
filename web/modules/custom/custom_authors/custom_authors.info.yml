@@ -1,0 +1,5 @@
+name: Lists Authors
+description: 'Show author lists by content type.'
+type: module
+core: 8.x
+package: 'dayscript'
