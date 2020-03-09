@@ -539,18 +539,15 @@ class MigrateController {
         $query->condition('type', 'gol_partido');
         $entity_ids = $query->execute();
         if (count($entity_ids) == 0) {
-          $data = file_get_contents($item['field_image']['src']);
-          if ($file = file_save_data($data, 'public://images/goles/' . $this->slug($item['title']) . '.jpg', FILE_EXISTS_REPLACE)) {
-            $node = Node::create([
-              'type'             => 'gol_partido',
-              'title'            => $item['title'],
-              'uid'              => 1,
-              'moderation_state' => 'published',
-              'created'          => $date,
-            ]);
-            $node->save();
-            $results['new']++;
-          }
+          $node = Node::create([
+            'type'             => 'gol_partido',
+            'title'            => $item['title'],
+            'uid'              => 1,
+            'moderation_state' => 'published',
+            'created'          => $date,
+          ]);
+          $node->save();
+          $results['new']++;
         }
         else {
           $node = Node::load(array_pop($entity_ids));
@@ -558,28 +555,38 @@ class MigrateController {
           $node->save();
           $results['existing']++;
         }
-        dd($node);
         if ($item['field_image']['src']) {
-//          $image = file_get_contents($item['field_image']['src']);
-//          if ($file = file_save_data($image, 'public://images/videos/' . $this->slug($item['title']) . '.jpg', FILE_EXISTS_REPLACE)) {
-//            $node->field_image = [
-//              'target_id' => $file->id(),
-//              'alt'       => $item['title'],
-//              'title'     => $item['title'],
-//            ];
-//          } else {
-//            dd('No se cargo la imagen');
-//          }
+                    $image = file_get_contents($item['field_image']['src']);
+          if ($file = file_save_data($image, 'public://images/videos/' . $this->slug($item['title']) . '.jpg', FILE_EXISTS_REPLACE)) {
+            $node->field_image = [
+              'target_id' => $file->id(),
+              'alt'       => $item['title'],
+              'title'     => $item['title'],
+            ];
+          }
+          else {
+            dd('No se cargo la imagen');
+                    }
         }
         $node->field_url         = $item['url'];
         $node->field_cimacast    = $item['cimacast_video_id'];
         $node->field_mediastream = $item['mediastream_id'];
-        $node->field_pretitle = $item['field_antetitulo'];
-        if ($item['type']) $this->attachTipoDeVideo($node, $item['type']);
-        if ($item['tipo']) $this->attachTipoDeGol($node, $item['tipo']);
-        if ($item['torneo']) $this->attachTorneo($node, $item['torneo']);
-        if ($item['field_categoria']) $this->attachCategory($node, $item['field_categoria']);
-        if ($item['field_fuente']) $this->attachSource($node, $item['field_fuente']);
+        $node->field_pretitle    = $item['field_antetitulo'];
+        if ($item['type']) {
+          $this->attachTipoDeVideo($node, $item['type']);
+        }
+        if ($item['tipo']) {
+          $this->attachTipoDeGol($node, $item['tipo']);
+        }
+        if ($item['torneo']) {
+          $this->attachTorneo($node, $item['torneo']);
+        }
+        if ($item['field_categoria']) {
+          $this->attachCategory($node, $item['field_categoria']);
+        }
+        if ($item['field_fuente']) {
+          $this->attachSource($node, $item['field_fuente']);
+        }
         $this->attachTags($node, $item['tags']);
         $node->save();
         if ($results['new'] + $results['existing'] >= $this->limit) {
@@ -744,6 +751,7 @@ class MigrateController {
     $node->field_tipo_de_gol = $term;
     $node->save();
   }
+
   public function attachTipoDeVideo($node, $video) {
     $query = \Drupal::entityQuery('taxonomy_term');
     $query->condition('name', $video);
