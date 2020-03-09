@@ -1,58 +1,46 @@
 
 #block-futbolcolombiano-estadisticas, .opta-widgets {
-  color: #0B3B41;
+  @apply text-primary;
   .table-option {
-    background-color: #819A9F;
     font-family: $font-title;
-    letter-spacing: 0.025em;
-    font-weight: lighter;
-    @apply text-white;
+    @apply text-white font-light tracking-wide bg-gray-650;
 
     a {
       @apply text-white;
 
       &.is-active {
-        color: rgba(11, 58, 64, 1);
-        background-color: #0ef8c3;
+        @apply bg-secondary text-primary;
       }
     }
     &.menu {
       a {
-        text-transform: capitalize;
-        padding: 20px 30px;
-        width: 100%;
-        text-align: center;
+        @apply capitalize text-center w-full px-4 py-6;
       }
     }
 
     &.active, &.is-active {
-      background-color: #0ef8c3;
-      color: rgba(11, 58, 64, 1);
-
+      @apply bg-secondary text-primary;
       a {
-        color: rgba(11, 58, 64, 1);
+        @apply text-primary;
       }
     }
   }
 
   .phase {
-    color: rgba(11, 58, 64, 0.5);
+    @apply text-primary;
     border-bottom: 4px solid transparent;
 
     &.active {
-      font-weight: 600;
-      color: rgba(11, 58, 64, 1);
-      border-bottom: 4px solid #0A3B41;
+      @apply font-medium text-primary border-b-4 border-primary;
     }
   }
 
   .Opta > .Opta_W {
-    margin-top: 0;
+    @apply mt-0;
   }
 
   .Opta .Opta-Nav li a {
-    background-color: #819A9F;
-    @apply text-white;
+    @apply text-white bg-gray-650;
     font-family: $font-body;
   }
   .Opta-Wide .Opta-MatchHeader.Opta-MatchHeader-Crested td.Opta-Team{
@@ -61,14 +49,12 @@
   }
 
   .Opta .Opta-Nav li.Opta-On a {
-    background-color: #0ef8c3;
-    color: rgba(11, 58, 64, 1);
+    @apply bg-secondary text-primary;
   }
 
   .Opta .Opta_F_TR_N .Opta-Striped tbody tr.Opta-FeatureHeader td, .Opta .Opta_F_TR_N .Opta-Striped tbody tr.Opta-FeatureHeader th,
   .Opta .Opta-Ranking-Bars .Opta-FeatureHeader td, .Opta .Opta-Ranking-Bars .Opta-FeatureHeader th {
-    background-color: #FACA32;
-    color: rgba(11, 58, 64, 1);
+    @apply bg-secondary text-primary;
   }
   .Opta h2{
     @apply h-auto p-4 text-primary  bg-white;
