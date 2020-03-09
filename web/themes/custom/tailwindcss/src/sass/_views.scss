@@ -112,7 +112,7 @@
 {
   @apply border-b border-gray;
   div div{
-    @apply flex flex-wrap w-full;
+    @apply flex flex-wrap;
     .views-row{
       @apply pr-4 w-2/3;
     }
@@ -571,4 +571,9 @@ div#block-contenidoprincipaldelapagina-3{
       grid-column: span 1/span 3;
    }
   }
+}
+#block-views-block-torneos-block-2{
+  .owl-controls {
+    margin-bottom: 0 !important;
+}
 }

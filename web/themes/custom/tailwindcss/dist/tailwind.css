@@ -1144,7 +1144,6 @@ a {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  width: 100%;
 }
 
 #block-views-block-goles-home-block-1 div div .views-row,
@@ -1821,6 +1820,10 @@ div#block-contenidoprincipaldelapagina-3 header {
   }
 }
 
+#block-views-block-torneos-block-2 .owl-controls {
+  margin-bottom: 0 !important;
+}
+
 #block-futbolcolombiano-estadisticas, .opta-widgets {
   color: #0b3b41;
 }
@@ -1946,6 +1949,26 @@ div#block-contenidoprincipaldelapagina-3 header {
 }
 
 /* RESPONSIVE */
+
+.mm-menu.mm-theme-dark {
+  background-color: #6cfac1;
+  color: #143a42;
+}
+
+.mm-menu.mm-theme-dark .mm-navbar {
+  display: none;
+}
+
+.mm-menu.mm-theme-dark ul.mm-listview li a {
+  padding: 1.2rem 1rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+#mm-blocker {
+  background-color: #9bfbe0 !important;
+}
 
 .tw-bg-primary header > div {
   display: -webkit-box;
