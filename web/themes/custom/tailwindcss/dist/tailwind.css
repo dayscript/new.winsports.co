@@ -874,7 +874,28 @@ a {
   font-family: "Source Sans Pro", sans-serif;
 }
 
-#block-toplinks ul:not(.contextual-links) {
+#header-page {
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+}
+
+#horizontal-results {
+  margin-top: 6.5rem !important;
+}
+
+#meta-header > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#block-toplinks ul:not(.contextual-links),
+#block-envivo ul:not(.contextual-links) {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -884,17 +905,11 @@ a {
   background-color: #0b3b41;
 }
 
-#block-toplinks ul:not(.contextual-links) li a {
+#block-toplinks ul:not(.contextual-links) li a,
+#block-envivo ul:not(.contextual-links) li a {
   text-transform: uppercase;
   color: #fff;
   padding-right: 1.5rem;
-}
-
-#block-toplinks ul:not(.contextual-links) li:last-child {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 0%;
-          flex: 1 1 0%;
-  text-align: right;
 }
 
 #block-tailwindcss-main-menu ul:not(.contextual-links) {
@@ -1010,6 +1025,8 @@ a {
   left: 30px;
   font-family: "Source Sans Pro", sans-serif;
   line-height: 1.2em;
+  padding-left: 1rem;
+  padding-right: 1rem;
   position: absolute;
   color: #fff;
   font-size: 1.875rem;
@@ -2106,6 +2123,10 @@ div#block-contenidoprincipaldelapagina-3 header {
 /* RESPONSIVE */
 
 @media (min-width: 768px) {
+  #horizontal-results {
+    margin-top: 8rem !important;
+  }
+
   #block-toplinks {
     display: block;
   }

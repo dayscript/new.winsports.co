@@ -117,6 +117,9 @@
 
 /* RESPONSIVE */
 @screen md {
+  #horizontal-results{
+    margin-top: 8rem !important;
+  }
   #block-toplinks{
     @apply block;
   }

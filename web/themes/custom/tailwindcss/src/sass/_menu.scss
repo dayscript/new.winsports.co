@@ -1,12 +1,24 @@
-#block-toplinks{
+#header-page{
+  @apply fixed top-0 z-10 w-full;
+}
+
+#horizontal-results{
+  margin-top: 6.5rem !important;
+}
+
+#meta-header{
+  >div {
+    @apply flex justify-between;
+  }
+}
+
+#block-toplinks,
+#block-envivo{
   ul:not(.contextual-links){
     @apply flex justify-start bg-primary;
     li{
       a{
         @apply uppercase text-white pr-6;
-      }
-      &:last-child{
-        @apply flex-1 text-right;
       }
     }
   }

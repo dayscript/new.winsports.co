@@ -45,9 +45,11 @@
  * @ingroup themeable
  */
 #}
-<div class="tw-bg-primary">
+<div id="header-page" class="tw-bg-primary">
     <div class="tw-container tw-mx-auto tw-p-4">
-        {{ page.secondary_menu }}
+        <div id="meta-header">
+            {{ page.secondary_menu }}
+        </div>
         <div class="tw-flex tw-items-center tw-mt-3">
             <div>
                 <header role="banner">
@@ -59,7 +61,7 @@
     </div>
 </div>
 {% if page.breadcrumb %}
-    <div class="tw-p-4 tw-bg-gray">
+    <div id="horizontal-results" class="tw-p-4 tw-bg-gray">
         <div class="tw-container tw-mx-auto tw-px-4">
             {{ page.breadcrumb }}
         </div>
