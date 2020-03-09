@@ -556,7 +556,7 @@ class MigrateController {
           $results['existing']++;
         }
         if ($item['field_image']['src']) {
-                    $image = file_get_contents($item['field_image']['src']);
+          $image = file_get_contents($item['field_image']['src']);
           if ($file = file_save_data($image, 'public://images/videos/' . $this->slug($item['title']) . '.jpg', FILE_EXISTS_REPLACE)) {
             $node->field_image = [
               'target_id' => $file->id(),
@@ -566,7 +566,7 @@ class MigrateController {
           }
           else {
             dd('No se cargo la imagen');
-                    }
+          }
         }
         $node->field_url         = $item['url'];
         $node->field_cimacast    = $item['cimacast_video_id'];
