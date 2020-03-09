@@ -77,13 +77,14 @@ iframe.iframe-futbolred {
 }
 
 .eu-cookie-compliance-agree-button {
-  @apply bg-primary text-white appearance-none rounded-none border-none;
+  @apply bg-primary text-white appearance-none rounded-none border-none shadow-none;
   background-image: none !important;
   text-shadow: none;
 }
 .eu-cookie-compliance-message{
   h2{
     font-family: $font-body; 
+    @apply normal-case;
     a{
       @apply text-gray-650;
     }
