@@ -30,6 +30,7 @@
         "drupal/core-composer-scaffold": "^8.8.0",
         "drupal/devel": "^2.1",
         "drupal/entityqueue": "^1.0@beta",
+        "drupal/eu_cookie_compliance": "^1.8",
         "drupal/field_group": "^3.0",
         "drupal/module_filter": "^3.1",
         "drupal/owlcarousel": "^1.0@alpha",
