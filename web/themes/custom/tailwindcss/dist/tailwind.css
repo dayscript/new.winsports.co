@@ -734,6 +734,26 @@ iframe.iframe-futbolred body {
   padding: 0 !important;
 }
 
+.eu-cookie-compliance-agree-button {
+  background-color: #0b3b41;
+  color: #fff;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border-radius: 0;
+  border-style: none;
+  background-image: none !important;
+  text-shadow: none;
+}
+
+.eu-cookie-compliance-message h2 {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+.eu-cookie-compliance-message h2 a {
+  color: #819A9F;
+}
+
 h2, .title {
   font-family: "Passion One", cursive;
   font-size: 2.25rem;

@@ -12,59 +12,80 @@ input {
 .node__content ol {
   @apply mb-4 leading-normal;
 }
+
 #block-tailwindcss-local-tasks,
-#block-tailwindcss-local-actions{
+#block-tailwindcss-local-actions {
   @apply bg-blue-100 p-2 text-xs;
   ul:not(.contextual-links),
-  nav:not(.contextual-links){
+  nav:not(.contextual-links) {
     @apply flex;
-    li{
-      a{
+    li {
+      a {
         @apply flex px-4 py-2 mx-1 bg-blue-400 text-white;
-        &#block-tailwindcss-local-actions{
+        &#block-tailwindcss-local-actions {
           @apply bg-orange-400;
         }
-        &.is-active{
+
+        &.is-active {
           @apply bg-blue-700 text-white;
-          &#block-tailwindcss-local-actions{
+          &#block-tailwindcss-local-actions {
             @apply bg-orange-700;
           }
         }
       }
     }
   }
-  &#block-tailwindcss-local-actions{
+
+  &#block-tailwindcss-local-actions {
     @apply bg-orange-100;
-    nav:not(.contextual-links){
-      li{
+    nav:not(.contextual-links) {
+      li {
         @apply list-none;
-        a{
+        a {
           @apply bg-orange-400;
-          &.is-active{
+          &.is-active {
             @apply bg-orange-700;
           }
         }
       }
     }
   }
-}
-#block-tailwindcss-local-actions{
-  
 }
 
-select{
-height: 3rem;
+#block-tailwindcss-local-actions {
+
 }
+
+select {
+  height: 3rem;
+}
+
 .opinion.home-destacado {
   .title {
-  margin-bottom: 0 !important;
+    margin-bottom: 0 !important;
+  }
 }
-}
+
 .nombres {
   color: #fff !important;
 }
+
 iframe.iframe-futbolred {
   body {
     padding: 0 !important;
-} 
+  }
+}
+
+.eu-cookie-compliance-agree-button {
+  @apply bg-primary text-white appearance-none rounded-none border-none;
+  background-image: none !important;
+  text-shadow: none;
+}
+.eu-cookie-compliance-message{
+  h2{
+    font-family: $font-body; 
+    a{
+      @apply text-gray-650;
+    }
+  }
 }
