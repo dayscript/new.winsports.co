@@ -2138,10 +2138,14 @@ div#block-contenidoprincipaldelapagina-3 header {
     display: none;
   }
 
+  #block-views-block-equipos-del-home-block-2 {
+    margin-top: -1.5rem;
+  }
+
   #block-views-block-equipos-del-home-block-1 .M-equipos .views-row,
   #block-views-block-equipos-del-home-block-2 .M-equipos .views-row {
     width: auto;
-    margin-right: 0rem;
+    margin-right: 0;
   }
 
   #block-views-block-equipos-del-home-block-1 div div,

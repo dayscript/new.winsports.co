@@ -141,12 +141,15 @@
       @apply hidden;
     }
   }
+  #block-views-block-equipos-del-home-block-2{
+    @apply -mt-6;
+  }
   #block-views-block-equipos-del-home-block-1,
   #block-views-block-equipos-del-home-block-2{
     .M-equipos{
       .views-row{
         width: auto;
-        margin-right: 0rem;
+        @apply mr-0;
       }
     }
     div div{
