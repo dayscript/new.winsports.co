@@ -93,7 +93,8 @@
   }
 }
 
-#block-views-block-equipos-del-home-block-1{
+#block-views-block-equipos-del-home-block-1,
+#block-views-block-equipos-del-home-block-2{
   .M-equipos{
     @apply overflow-y-hidden whitespace-no-wrap flex;
     .views-row{
@@ -140,7 +141,8 @@
       @apply hidden;
     }
   }
-  #block-views-block-equipos-del-home-block-1{
+  #block-views-block-equipos-del-home-block-1,
+  #block-views-block-equipos-del-home-block-2{
     .M-equipos{
       .views-row{
         width: auto;

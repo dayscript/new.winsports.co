@@ -2068,7 +2068,8 @@ div#block-contenidoprincipaldelapagina-3 header {
   margin-bottom: 0.5rem;
 }
 
-#block-views-block-equipos-del-home-block-1 .M-equipos {
+#block-views-block-equipos-del-home-block-1 .M-equipos,
+#block-views-block-equipos-del-home-block-2 .M-equipos {
   overflow-y: hidden;
   white-space: nowrap;
   display: -webkit-box;
@@ -2076,7 +2077,8 @@ div#block-contenidoprincipaldelapagina-3 header {
   display: flex;
 }
 
-#block-views-block-equipos-del-home-block-1 .M-equipos .views-row {
+#block-views-block-equipos-del-home-block-1 .M-equipos .views-row,
+#block-views-block-equipos-del-home-block-2 .M-equipos .views-row {
   width: 10%;
   margin-right: .75rem;
   -webkit-box-flex: 0;
@@ -2136,12 +2138,14 @@ div#block-contenidoprincipaldelapagina-3 header {
     display: none;
   }
 
-  #block-views-block-equipos-del-home-block-1 .M-equipos .views-row {
+  #block-views-block-equipos-del-home-block-1 .M-equipos .views-row,
+  #block-views-block-equipos-del-home-block-2 .M-equipos .views-row {
     width: auto;
     margin-right: 0rem;
   }
 
-  #block-views-block-equipos-del-home-block-1 div div {
+  #block-views-block-equipos-del-home-block-1 div div,
+  #block-views-block-equipos-del-home-block-2 div div {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -2153,7 +2157,8 @@ div#block-contenidoprincipaldelapagina-3 header {
             align-items: center;
   }
 
-  #block-views-block-equipos-del-home-block-1 div div img {
+  #block-views-block-equipos-del-home-block-1 div div img,
+  #block-views-block-equipos-del-home-block-2 div div img {
     height: 2.5rem;
     width: 2.5rem;
   }
