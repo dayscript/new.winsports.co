@@ -2,6 +2,7 @@ Vue.config.ignoredElements = ['opta-widget']
 new Vue({
   el: '.match-menu',
   data: {
+    display:false,
     selected_option: 'directo',
     opta_competition: '',
     opta_season: '',
@@ -28,10 +29,12 @@ new Vue({
       }
       if (this.node['field_tipo_de_articulo'][0]['target_id'] === '2876') {
         this.selected_option = 'cronica'
+        this.display = true
         this.cron = this.node['nid'][0]['value']
       }
       else if (this.node['field_tipo_de_articulo'][0]['target_id'] === '2882') {
         this.selected_option = 'previa'
+        this.display = true
         this.prev = this.node['nid'][0]['value']
       }
     }
@@ -43,6 +46,7 @@ new Vue({
       if (this.node['field_opta_away_id'][0]['value']) this.opta_away_id = this.node['field_opta_away_id'][0]['value']
       if (this.node['field_torneo_node'][0]['value']) this.tournament_name = this.node['field_torneo_node'][0]['value']
       if (this.node['field_round'][0]['value']) this.round_name = this.node['field_round'][0]['value']
+      this.display = true
     }
     if (this.opta_match_id || this.drupal_match_id) {
       this.loadArticles()
