@@ -50,8 +50,8 @@
         <div v-if="cron" @click="selectOption('cronica')" class="whitespace-no-wrap py-4 px-6 font-title font-semibold cursor-pointer" :class="selected_option == 'cronica'?'tw-bg-secondary tw-text-primary':''">Crónica</div>
     </div>
     <div v-show="selected_option == 'directo'">
-        <div class="tw-bg-gray tw-p-6 flex">
-            <div class="tw-w-3/4 tw-bg-white tw-p-6">
+        <div class="tw-bg-gray tw-p-6 md:flex">
+            <div class="tw-w-full md:tw-w-3/4 tw-bg-white tw-p-6">
                 <h2 class="title normal-case">Minuto a Minuto</h2>
                 <div v-for="event in events" class="tw-p-4 tw-border-t tw-text-gray-600">
                     <div v-if="event.team_id == opta_home_id && event.team_id != null" class="tw-flex">
@@ -83,7 +83,7 @@
                     </div>
                 </div>
             </div>
-            <div class="tw-w-1/4 tw-pl-6">
+            <div class="tw-w-full md:tw-w-1/4 md:tw-pl-6 md:tw-pl-6 md:tw-pt-0 tw-pt-6">
                 <img src="/sites/default/files/ads/banner2.png" alt="Banner">
             </div>
         </div>
