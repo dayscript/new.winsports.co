@@ -1,4 +1,4 @@
-<div class="opta-widgets" v-if="display">
+<div class="opta-widgets tw-hidden" :class="{'tw-block':display}" v-if="display">
     <div class="tw-text-center title tw-uppercase tw-text-xl tw-m-0">{{ tournament_name }} - {{ round_name }}</div>
     <div v-if="opta_competition>0 && opta_season>0 && opta_match_id>0">
         <opta-widget
