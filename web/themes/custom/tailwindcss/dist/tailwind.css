@@ -788,6 +788,13 @@ h2.title-news {
   text-transform: none !important;
 }
 
+@media (min-width: 768px) {
+  h2.title-news {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+}
+
 h2 {
   text-transform: uppercase;
 }
@@ -911,7 +918,7 @@ a {
 }
 
 #horizontal-results {
-  margin-top: 1.5rem !important;
+  margin-top: 4rem !important;
 }
 
 #meta-header > div {
@@ -1220,6 +1227,7 @@ a {
 #block-publicidad1-2,
 #block-publicidad1 {
   margin-bottom: 1rem;
+  padding-top: 0;
 }
 
 .more-link, .js-pager__items.pager {
@@ -1884,6 +1892,34 @@ div#block-contenidoprincipaldelapagina-3 header {
   }
 }
 
+.eu-cookie-compliance-message {
+  max-width: 50%;
+  padding-top: 0.6rem;
+}
+
+.eu-cookie-compliance-message h2 {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.eu-cookie-compliance-message h2 a {
+  color: #0b3b41;
+  text-decoration: underline;
+}
+
+.eu-cookie-compliance-buttons {
+  max-width: 50%;
+}
+
+.eu-cookie-compliance-agree-button {
+  font-weight: 500;
+  font-size: 13px;
+  text-transform: uppercase;
+  background-color: #0b3b41;
+  padding: 0.8rem;
+  color: #fff;
+}
+
 #block-futbolcolombiano-estadisticas, .opta-widgets {
   color: #0b3b41;
 }
@@ -2175,6 +2211,10 @@ div#block-contenidoprincipaldelapagina-3 header {
   padding-right: 1rem;
   padding-left: 1rem;
   margin: 0 auto;
+}
+
+.lista-torneos img {
+  display: inline-block;
 }
 
 /* RESPONSIVE */
@@ -5882,6 +5922,14 @@ div#block-contenidoprincipaldelapagina-3 header {
 
 .tw-h-380{
   height: 380px !important;
+}
+
+.tw-h-494{
+  height: 494px !important;
+}
+
+.tw-h-712{
+  height: 712px !important;
 }
 
 .tw-h-auto{
@@ -18987,6 +19035,14 @@ div#block-contenidoprincipaldelapagina-3 header {
 
   .sm\:tw-h-380{
     height: 380px !important;
+  }
+
+  .sm\:tw-h-494{
+    height: 494px !important;
+  }
+
+  .sm\:tw-h-712{
+    height: 712px !important;
   }
 
   .sm\:tw-h-auto{
@@ -32095,6 +32151,14 @@ div#block-contenidoprincipaldelapagina-3 header {
     height: 380px !important;
   }
 
+  .md\:tw-h-494{
+    height: 494px !important;
+  }
+
+  .md\:tw-h-712{
+    height: 712px !important;
+  }
+
   .md\:tw-h-auto{
     height: auto !important;
   }
@@ -45201,6 +45265,14 @@ div#block-contenidoprincipaldelapagina-3 header {
     height: 380px !important;
   }
 
+  .lg\:tw-h-494{
+    height: 494px !important;
+  }
+
+  .lg\:tw-h-712{
+    height: 712px !important;
+  }
+
   .lg\:tw-h-auto{
     height: auto !important;
   }
@@ -58305,6 +58377,14 @@ div#block-contenidoprincipaldelapagina-3 header {
 
   .xl\:tw-h-380{
     height: 380px !important;
+  }
+
+  .xl\:tw-h-494{
+    height: 494px !important;
+  }
+
+  .xl\:tw-h-712{
+    height: 712px !important;
   }
 
   .xl\:tw-h-auto{

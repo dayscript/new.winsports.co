@@ -14,9 +14,12 @@ h2, .title {
 }
 h2.title-news {
   font-family: $font-title;
-  @apply tw-text-5xl mb-4;
+  @apply tw-text-2xl mb-4;
   @apply tw-text-primary tw-leading-none;
   text-transform: none !important; 
+  @screen md{
+    @apply tw-text-5xl mb-4; 
+  }
 }
 
 

@@ -127,6 +127,7 @@
 #block-publicidad1-2,
 #block-publicidad1{
   @apply mb-4;
+  @apply pt-0;
 }
 .more-link, .js-pager__items.pager{
   font-family: $font-title;
@@ -589,4 +590,27 @@ div#block-contenidoprincipaldelapagina-3{
       }
     }
   }
+}
+.eu-cookie-compliance-message {
+  max-width: 50%;
+  padding-top: 0.6rem;
+}
+.eu-cookie-compliance-message h2 {
+  font-size: 14px;
+  font-weight: 600; 
+}
+.eu-cookie-compliance-message h2 a {
+  color: #0b3b41;
+  text-decoration: underline;
+}
+.eu-cookie-compliance-buttons {
+  max-width: 50%;
+}
+.eu-cookie-compliance-agree-button {
+  font-weight: 500;
+  font-size: 13px;
+  text-transform: uppercase;
+  background-color: #0b3b41;
+  padding: 0.8rem;
+  color: #fff;
 }
