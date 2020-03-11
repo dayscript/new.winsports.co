@@ -574,3 +574,19 @@ div#block-contenidoprincipaldelapagina-3{
     margin-bottom: 0 !important;
 }
 }
+#header-page{
+  .tw-container{
+    @apply tw-p-2;
+    @screen md{
+      @apply tw-p-4;
+    }
+  }
+  #block-tailwindcss-branding{
+    img{
+      width: 60%;
+      @screen md{
+        width: 100%;
+      }
+    }
+  }
+}

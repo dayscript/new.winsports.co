@@ -911,7 +911,7 @@ a {
 }
 
 #horizontal-results {
-  margin-top: 6.5rem !important;
+  margin-top: 1.5rem !important;
 }
 
 #meta-header > div {
@@ -1864,6 +1864,26 @@ div#block-contenidoprincipaldelapagina-3 header {
   margin-bottom: 0 !important;
 }
 
+#header-page .tw-container {
+  padding: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  #header-page .tw-container {
+    padding: 1rem;
+  }
+}
+
+#header-page #block-tailwindcss-branding img {
+  width: 60%;
+}
+
+@media (min-width: 768px) {
+  #header-page #block-tailwindcss-branding img {
+    width: 100%;
+  }
+}
+
 #block-futbolcolombiano-estadisticas, .opta-widgets {
   color: #0b3b41;
 }
@@ -2154,6 +2174,7 @@ div#block-contenidoprincipaldelapagina-3 header {
 .lista-torneos .views-row {
   padding-right: 1rem;
   padding-left: 1rem;
+  margin: 0 auto;
 }
 
 /* RESPONSIVE */
@@ -2277,13 +2298,25 @@ div#block-contenidoprincipaldelapagina-3 header {
 
 .tw-container {
   padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
+  padding-bottom: 1rem;
 }
 
 @media (min-width: 768px) {
   .tw-container {
     padding-top: 3rem;
-    padding-bottom: 3rem;
+    padding-bottom: 1.5rem;
+  }
+}
+
+#horizontal-results .tw-container {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+@media (min-width: 768px) {
+  #horizontal-results .tw-container {
+    padding-top: 0;
+    padding-bottom: 0;
   }
 }
 
