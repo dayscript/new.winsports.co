@@ -61,3 +61,10 @@ winsports.migrate.matches:
     _title: 'Winsports Migrate Matches'
   requirements:
     _permission: 'access content'
+winsports.migrate.ads:
+  path: '/winsports-migrate-ads'
+  defaults:
+    _controller: '\Drupal\winsportsmigrate\Controller\MigrateController::ads'
+    _title: 'Winsports Migrate Ads'
+  requirements:
+    _permission: 'access content'
