@@ -12,7 +12,7 @@
             {{ phase.phase.type }}
         </div>
     </div>
-    <div class="border-l-8 my-6 tw-h-380 tw-overflow-y-scroll scrollbar-w-2 scrollbar-track-gray-lighter scrollbar-thumb-rounded scrollbar-thumb-gray scrolling-touch" style="border-color: #FACA32;">
+    <div class="border-l-8 my-6 md:tw-h-380 md:tw-overflow-y-scroll scrollbar-w-2 scrollbar-track-gray-lighter scrollbar-thumb-rounded scrollbar-thumb-gray scrolling-touch" style="border-color: #FACA32;">
         <div v-if="selected_option === 'schedules'">
             <div v-for="(items,day) in matches" class="">
                 <div class="tw-bg-primary tw-text-white tw-p-4 capitalize">{{ moment(day).format('MMMM D YYYY') }}</div>
