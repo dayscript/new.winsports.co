@@ -3,7 +3,7 @@ new Vue({
   el: '.match-menu',
   data: {
     display:false,
-    selected_option: 'directo',
+    selected_option: 'estadisticas',
     opta_competition: '',
     opta_season: '',
     opta_match_id: null,
