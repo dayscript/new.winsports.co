@@ -92,8 +92,6 @@ class MigrateController {
             'created'                => $date,
           ]);
           $node->save();
-          $this->attachTags($node, $item['tags']);
-          $this->attachSource($node, $item['fuente']);
           if ($item['field_image']['src']) {
             $image = file_get_contents($item['field_image']['src']);
             if ($file = file_save_data($image, 'public://images/articles/' . $this->slug($item['title']) . '.jpg', FILE_EXISTS_REPLACE)) {
@@ -125,12 +123,14 @@ class MigrateController {
           $results['existing']++;
         }
         $node->field_mediastream      = $item['mediastream'];
-        $node->field_tipo_de_articulo = $item['tipo'];
-        $this->attachCategory($node, $item['category']);
+//        $node->field_tipo_de_articulo = $item['tipo'];
+//        $this->attachCategory($node, $item['category']);
         $this->attachTipoArticulo($node, $item['tipo']);
-        $this->attachTeams($node, $item['equipos']);
+//        $this->attachTags($node, $item['tags']);
+//        $this->attachSource($node, $item['fuente']);
+//        $this->attachTeams($node, $item['equipos']);
         $this->attachTournaments($node, $item['category']);
-        $this->attachMatch($node, $item['match']);
+//        $this->attachMatch($node, $item['match']);
         $node->save();
         if ($results['new'] + $results['existing'] >= $this->limit) {
           break;
@@ -749,10 +749,12 @@ class MigrateController {
   }
   public function attachTournaments($node, $tournaments) {
     $node->field_torneo_node = [];
+    $ignore = ['Otros Deportes'];
     foreach (explode(',', $tournaments) as $tour_name) {
-      if (trim($tour_name) == '') {
+      if (trim($tour_name) == '' || in_array(trim($tour_name),$ignore)) {
         continue;
       }
+      if($tour_name == 'Torneo BetPlay DIMAYOR') $tour_name = 'Torneo BetPlay Dimayor 2020-I';
       $query = \Drupal::entityQuery('node');
       $query->condition('title', $tour_name);
       $query->condition('type', 'torneo');
