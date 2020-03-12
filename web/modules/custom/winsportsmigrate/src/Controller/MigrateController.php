@@ -123,14 +123,13 @@ class MigrateController {
           $results['existing']++;
         }
         $node->field_mediastream      = $item['mediastream'];
-//        $node->field_tipo_de_articulo = $item['tipo'];
-//        $this->attachCategory($node, $item['category']);
+        $this->attachCategory($node, $item['category']);
         $this->attachTipoArticulo($node, $item['tipo']);
-//        $this->attachTags($node, $item['tags']);
-//        $this->attachSource($node, $item['fuente']);
-//        $this->attachTeams($node, $item['equipos']);
+        $this->attachTags($node, $item['tags']);
+        $this->attachSource($node, $item['fuente']);
+        $this->attachTeams($node, $item['equipos']);
         $this->attachTournaments($node, $item['category']);
-//        $this->attachMatch($node, $item['match']);
+        $this->attachMatch($node, $item['match']);
         $node->save();
         if ($results['new'] + $results['existing'] >= $this->limit) {
           break;
