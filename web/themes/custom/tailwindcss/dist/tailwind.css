@@ -781,7 +781,7 @@ h2, .title {
 
 h2.title-news {
   font-family: "Passion One", cursive;
-  font-size: 3rem;
+  font-size: 1.875rem;
   margin-bottom: 1rem;
   color: #0b3b41;
   line-height: 1;
@@ -790,7 +790,7 @@ h2.title-news {
 
 @media (min-width: 768px) {
   h2.title-news {
-    font-size: 1.5rem;
+    font-size: 3rem;
     margin-bottom: 1rem;
   }
 }
@@ -857,7 +857,7 @@ a {
 .body {
   color: #0b3b41;
   line-height: 1.625;
-  font-size: 1.125rem;
+  font-size: 1rem;
 }
 
 .body p {
@@ -865,8 +865,20 @@ a {
   margin-bottom: 1rem;
 }
 
+@media (min-width: 768px) {
+  .body {
+    @pply text-lg;
+  }
+}
+
 .body {
-  line-height: 1.5em !important;
+  line-height: 1.3em !important;
+}
+
+@media (min-width: 768px) {
+  .body {
+    line-height: 1.5em !important;
+  }
 }
 
 .tags {
