@@ -129,9 +129,6 @@
 
 /* RESPONSIVE */
 @screen md {
-  #horizontal-results{
-    margin-top: 8rem !important;
-  }
   #block-toplinks{
     @apply block;
   }
@@ -203,10 +200,7 @@
 }
 #horizontal-results{
   .tw-container{
-    @apply tw-py-0; 
-    @screen md {
-      @apply tw-py-0;
-    }
+    @apply tw-py-0;
   }
 }
 .owl-item {

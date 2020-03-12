@@ -9,6 +9,20 @@
    */
   Drupal.behaviors.tailwindcss = {
    attach: function (context, settings) {
+     if($('#top-content .top-banner').length > 0){
+       if($(window).width() < 640){
+         $('#top-content').addClass('tw-mt-16');
+       }else{
+         $('#top-content').addClass('tw-mt-32');
+       }
+       $('#horizontal-results').addClass('tw-mt-0');
+     }else{
+       if($(window).width() < 640){
+         $('#horizontal-results').addClass('tw-mt-16');
+       }else{
+         $('#horizontal-results').addClass('tw-mt-32');
+       }
+     }
      relocateView();
      $(window).resize(function() {
        relocateView();

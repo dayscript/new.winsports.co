@@ -929,10 +929,6 @@ a {
   width: 100%;
 }
 
-#horizontal-results {
-  margin-top: 4rem !important;
-}
-
 #meta-header > div {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1061,6 +1057,7 @@ a {
 
 .gol-partido.video-player .image {
   margin-bottom: 1rem;
+  position: relative;
 }
 
 @media (min-width: 768px) {
@@ -1074,28 +1071,30 @@ a {
   width: 100%;
 }
 
-.gol-partido.video-player .title {
-  bottom: 30px;
-  left: 30px;
-  font-family: "Source Sans Pro", sans-serif;
-  line-height: 1.2em;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  position: absolute;
-  color: #fff;
-  font-size: 1.875rem;
-  font-weight: 600;
-}
-
 @media (min-width: 768px) {
   .gol-partido.video-player .title {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    bottom: 30px;
+    left: 30px;
+    font-family: "Source Sans Pro", sans-serif;
+    line-height: 1.2em;
+    padding-left: 0rem;
+    padding-right: 0rem;
+    position: absolute;
+    color: #fff;
+    font-size: 1.875rem;
+    font-weight: 600;
   }
-}
 
-.gol-partido.video-player .title a {
-  color: #fff;
+  @media (min-width: 768px) {
+    .gol-partido.video-player .title {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
+
+  .gol-partido.video-player .title a {
+    color: #fff;
+  }
 }
 
 .gol-partido.video-player .torneo {
@@ -1109,6 +1108,34 @@ a {
 
 .gol-partido.video-player .torneo a {
   color: #fff;
+}
+
+.player-goles .views-element-container > div {
+  overflow-y: hidden;
+  white-space: nowrap;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@media (min-width: 768px) {
+  .player-goles .views-element-container > div {
+    overflow: auto;
+    white-space: normal;
+  }
+}
+
+.player-goles .views-element-container > div .views-row {
+  width: 40%;
+  margin-right: 1rem;
+  -webkit-flex: none;
+  white-space: normal;
+}
+
+@media (min-width: 768px) {
+  .player-goles .views-element-container > div .views-row {
+    width: 100%;
+  }
 }
 
 .article.teaser .image {
@@ -2232,10 +2259,6 @@ div#block-contenidoprincipaldelapagina-3 header {
 /* RESPONSIVE */
 
 @media (min-width: 768px) {
-  #horizontal-results {
-    margin-top: 8rem !important;
-  }
-
   #block-toplinks {
     display: block;
   }
@@ -2363,13 +2386,6 @@ div#block-contenidoprincipaldelapagina-3 header {
 #horizontal-results .tw-container {
   padding-top: 0;
   padding-bottom: 0;
-}
-
-@media (min-width: 768px) {
-  #horizontal-results .tw-container {
-    padding-top: 0;
-    padding-bottom: 0;
-  }
 }
 
 .owl-item {

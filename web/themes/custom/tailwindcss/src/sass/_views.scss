@@ -1,7 +1,7 @@
 .gol-partido.video-player{
   @apply relative;
   .image{
-    @apply mb-4;
+    @apply mb-4 relative;
     @screen md{
       @apply mb-0;
     }
@@ -10,20 +10,22 @@
       @apply w-full;
     }
   }
-  .title{
-    bottom: 30px;
-    left: 30px;
-    font-family: $font-body;
-    line-height: 1.2em;
-    padding-left: 0rem;
-    padding-right: 0rem;
-    @screen md{
-      padding-left: 1rem;
-      padding-right: 1rem;
-    }
-    @apply absolute text-white text-3xl font-semibold;
-    a{
-      @apply text-white;
+  @screen md{
+    .title{
+      bottom: 30px;
+      left: 30px;
+      font-family: $font-body;
+      line-height: 1.2em;
+      padding-left: 0rem;
+      padding-right: 0rem;
+      @screen md{
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+      @apply absolute text-white text-3xl font-semibold;
+      a{
+        @apply text-white;
+      }
     }
   }
   .torneo{
@@ -34,6 +36,27 @@
     }
   }
 }
+
+.player-goles{
+  .views-element-container{
+    >div{
+      @apply overflow-y-hidden whitespace-no-wrap flex;
+      @screen md{
+        @apply overflow-auto whitespace-normal;
+      }
+      .views-row{
+        width: 40%;
+        margin-right: 1rem;
+        -webkit-flex: none;
+        white-space: normal;
+        @screen md{
+          @apply tw-w-full;
+        }
+      }
+    }
+  }
+}
+
 .article.teaser {
   .image{
     @apply mb-3;
