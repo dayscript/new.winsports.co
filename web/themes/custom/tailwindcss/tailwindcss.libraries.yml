@@ -4,3 +4,12 @@ global-styling:
       dist/tailwind.css: {}
   js:
     src/js/tailwind.js: {}
+global-scripts:
+  remote: https://platform.s-mdstrm.com/js/player_api.js?asksld=sasd
+  version: 1.0
+  license:
+    name: MIT
+  js:
+    https://platform.s-mdstrm.com/js/player_api.js?asksld=sasd: { type: external, minified: true }
+  dependencies:
+    - core/jquery

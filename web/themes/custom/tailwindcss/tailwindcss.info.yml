@@ -5,6 +5,7 @@ type: theme
 base theme: stable
 libraries:
   - tailwindcss/global-styling
+  - tailwindcss/global-scripts
 regions:
   fullcontent: '01 - Contenido a 1 Columna'
   content: '02 - Contenido principal'

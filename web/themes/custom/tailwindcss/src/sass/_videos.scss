@@ -4,3 +4,10 @@
     height: 550px !important;
   } 
 }
+.mediastream-player{
+  .image{
+    img{
+      @apply w-full;
+    }
+  }
+}

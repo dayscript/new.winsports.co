@@ -1,0 +1,17 @@
+<?php
+/**
+ * Implements hook_theme().
+ */
+function mediastream_formatter_theme($existing, $type, $theme, $path) {
+  return [
+    'mediastream_player' => [
+      'template'  => 'mediastream',
+      'variables' => [
+        'mediastream_id' => NULL,
+        'autoplay'       => NULL,
+        'image'          => NULL,
+      ],
+    ],
+  ];
+}
+

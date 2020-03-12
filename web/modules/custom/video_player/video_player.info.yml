@@ -1,0 +1,6 @@
+name: 'Video player delete'
+description: 'This module displays the video player'
+type: module
+version: '1.x'
+core: '8.x'
+package: Custom
