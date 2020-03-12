@@ -93,7 +93,6 @@ class MigrateController {
           ]);
           $node->save();
           $this->attachTags($node, $item['tags']);
-          $this->attachCategory($node, $item['category']);
           $this->attachSource($node, $item['fuente']);
           if ($item['field_image']['src']) {
             $image = file_get_contents($item['field_image']['src']);
@@ -127,8 +126,10 @@ class MigrateController {
         }
         $node->field_mediastream      = $item['mediastream'];
         $node->field_tipo_de_articulo = $item['tipo'];
+        $this->attachCategory($node, $item['category']);
         $this->attachTipoArticulo($node, $item['tipo']);
         $this->attachTeams($node, $item['equipos']);
+        $this->attachTournaments($node, $item['category']);
         $this->attachMatch($node, $item['match']);
         $node->save();
         if ($results['new'] + $results['existing'] >= $this->limit) {
@@ -743,6 +744,33 @@ class MigrateController {
         $equipo = Node::load(array_pop($entity_ids));
       }
       $node->field_equipos[] = $equipo;
+      $node->save();
+    }
+  }
+  public function attachTournaments($node, $tournaments) {
+    $node->field_torneo_node = [];
+    foreach (explode(',', $tournaments) as $tour_name) {
+      if (trim($tour_name) == '') {
+        continue;
+      }
+      $query = \Drupal::entityQuery('node');
+      $query->condition('title', $tour_name);
+      $query->condition('type', 'torneo');
+      $entity_ids = $query->execute();
+      if (count($entity_ids) == 0) {
+        dd('Torneo no encontrado: ' . $tour_name);
+//        $torneo = Node::create([
+//          'type'             => 'torneo',
+//          'title'            => $tour_name,
+//          'uid'              => 1,
+//          'moderation_state' => 'published',
+//        ]);
+//        $torneo->save();
+      }
+      else {
+        $torneo = Node::load(array_pop($entity_ids));
+      }
+      $node->field_torneo_node[] = $torneo;
       $node->save();
     }
   }
