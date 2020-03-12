@@ -748,7 +748,7 @@ class MigrateController {
   }
   public function attachTournaments($node, $tournaments) {
     $node->field_torneo_node = [];
-    $ignore = ['Otros Deportes','Fútbol Internacional','Selección Colombia','Fútbol Colombiano'];
+    $ignore = ['Otros Deportes','Fútbol Internacional','Selección Colombia','Fútbol Colombiano','Baloncesto'];
     foreach (explode(',', $tournaments) as $tour_name) {
       if (trim($tour_name) == '' || in_array(trim($tour_name),$ignore)) {
         continue;
