@@ -60,6 +60,11 @@
         </div>
     </div>
 </div>
+{% if page.top_content %}
+    <div id="top-content" class="tw-container tw-mx-auto tw-px-4 tw-py-0">
+        {{ page.top_content }}
+    </div>
+{% endif %}
 {% if page.breadcrumb %}
     <div id="horizontal-results" class="tw-p-4 tw-bg-gray">
         <div class="tw-container tw-mx-auto tw-px-4">

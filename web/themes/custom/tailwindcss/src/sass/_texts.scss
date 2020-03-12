@@ -14,9 +14,12 @@ h2, .title {
 }
 h2.title-news {
   font-family: $font-title;
-  @apply tw-text-5xl mb-4;
+  @apply tw-text-3xl mb-4; 
   @apply tw-text-primary tw-leading-none;
   text-transform: none !important; 
+  @screen md{
+    @apply tw-text-5xl mb-4; 
+  }
 }
 
 
@@ -62,13 +65,19 @@ a {
 }
 
 .body {
-  @apply text-primary leading-relaxed text-lg;
+  @apply text-primary leading-relaxed text-base;
   p {
     @apply my-4;
   }
+  @screen md{
+    @pply text-lg;
+  }
 }
 .body{
-  line-height: 1.5em !important; 
+  line-height: 1.3em !important; 
+  @screen md{
+    line-height: 1.5em !important; 
+  }
 }
 .tags {
   @apply text-primary border-t border-b;
