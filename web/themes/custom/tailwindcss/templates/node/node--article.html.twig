@@ -23,7 +23,8 @@
                     <div>{{ content.field_source }}</div>
                 </div>
             {% endif %}
-            {{ drupal_block("better_social_sharing_buttons_block") }}
+            <div>Social {{ drupal_block("bettersocialsharingbuttons") }}</div>
+{#            {{ drupal_block("better_social_sharing_buttons_block") }}#}
         </div>
         {% if node.hasField('field_lead') %}
             <div class="lead my-2 tw-text-lg italic mb-8">{{ content.field_lead }}</div>
