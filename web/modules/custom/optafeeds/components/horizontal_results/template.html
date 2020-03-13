@@ -10,8 +10,11 @@
                 </div>
                 <img class="ml-2" :src="'//secure.omo.akamai.opta.net/image.php?secure=true&h=secure.omo.akamai.opta.net&sport=football&entity=team&description=badges&dimensions=20&id='+ match.away.id" :alt="match.away.name" :title="match.away.name">
             </div>
-            <div v-if="match.period == 'TBC' || match.period == 'Postponed'" @click="goto('/matches/'+match.id)">
+            <div v-if="match.period == 'TBC'" @click="goto('/matches/'+match.id)">
                 <div><small class="pl-1 text-xs font-medium lead" >{{ match.date | formatDate | capitalize }} - Por definir</small></div>
+            </div>
+            <div v-else-if="match.period == 'Postponed'" @click="goto('/matches/'+match.id)">
+                <div><small class="pl-1 text-xs font-medium lead" >{{ match.date | formatDate | capitalize }} - Aplazado</small></div>
             </div>
             <div v-else-if="match.period == 'FullTime'">
                 <div><small class="pl-1 text-xs font-medium lead" >{{ match.date | formatDate | capitalize }} - Finalizado</small></div>
