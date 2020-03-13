@@ -757,6 +757,7 @@ class MigrateController {
       if($tour_name == 'Liga BetPlay DIMAYOR') $tour_name = 'Liga BetPlay Dimayor 2020-I';
       if($tour_name == 'No es Fútbol es LaLiga') $tour_name = 'LaLiga España 2019-2020';
       if($tour_name == 'Copa BetPlay DIMAYOR') $tour_name = 'Copa BetPlay Dimayor 2020';
+      if($tour_name == 'Liga Aguila') $tour_name = 'Liga Aguila 2019-II';
       $query = \Drupal::entityQuery('node');
       $query->condition('title', $tour_name);
       $query->condition('type', 'torneo');
