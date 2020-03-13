@@ -55,11 +55,13 @@
                 <opta-widget load="false" widget="player_compare" :competition="competition" :season="season" template="dual" navigation="tabs_more" default_nav="1" show_selects="true" show_crests="false" show_images="false" show_graphs="true" graph_style="full" competition_naming="full" team_naming="full" player_naming="full" show_logo="false" show_title="false" breakpoints="400" sport="football"></opta-widget>
             </div>
             <div v-show="selected_option == 'decline'" id="decline">
-                <div class="w-1/2 flex"></div>
-                <div class="w-1/2 flex text-center justify-between pb-1 border-b" style="border-color: rgba(10,59,65,0.2);">
-                    <div class="flex-1">Pts</div>
-                    <div class="flex-1">Prom</div>
-                    <div class="flex-1">PJ</div>
+                <div class="flex">
+                    <div class="w-1/2 flex"></div>
+                    <div class="w-1/2 flex text-center justify-between pb-1 border-b" style="border-color: rgba(10,59,65,0.2);">
+                        <div class="flex-1">Pts</div>
+                        <div class="flex-1">Prom</div>
+                        <div class="flex-1">PJ</div>
+                    </div>    
                 </div>
                 <div v-for="(row,index) in teams" class="ml-1 flex border-b-1 p-1 justify-between text-sm">
                     <div class="w-1/2 flex items-center">
@@ -74,13 +76,15 @@
                 </div>
             </div>
             <div v-show="selected_option == 'reclassification'" id="reclassification">
-                <div class="w-1/2 flex"></div>
-                <div class="w-1/2 flex text-center justify-between pb-1 border-b" style="border-color: rgba(10,59,65,0.2);">
-                    <div class="flex-1">Pts</div>
-                    <div class="flex-1">PJ</div>
-                    <div class="flex-1">GF</div>
-                    <div class="flex-1">GC</div>
-                    <div class="flex-1">DG</div>
+                <div class="flex">
+                    <div class="w-1/2 flex"></div>
+                    <div class="w-1/2 flex text-center justify-between pb-1 border-b" style="border-color: rgba(10,59,65,0.2);">
+                        <div class="flex-1">Pts</div>
+                        <div class="flex-1">PJ</div>
+                        <div class="flex-1">GF</div>
+                        <div class="flex-1">GC</div>
+                        <div class="flex-1">DG</div>
+                    </div>
                 </div>
                 <div v-for="(row,index) in teams" class="ml-1 flex border-b-1 p-1 justify-between text-sm">
                     <div class="w-1/2 flex items-center">
