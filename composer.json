@@ -44,6 +44,7 @@
         "drupal/slick_views": "^2.2",
         "drupal/string_field_formatter": "^1.1",
         "drupal/tamper": "^1.0@alpha",
+        "drupal/twig_tweak": "^2.5",
         "drupal/views_infinite_scroll": "^1.6",
         "drush/drush": "^9.7.1 | ^10.0.0",
         "vlucas/phpdotenv": "^4.0",
