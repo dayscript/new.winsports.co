@@ -12,6 +12,8 @@ new Vue({
     competition: '371',
     season: '2020',
     selected_option: 'positions',
+    selected_phase_id: '',
+    teams: [],
   },
   beforeMount () {
     // this.node = drupalSettings.pdb.contexts['entity:node'];
@@ -71,10 +73,28 @@ new Vue({
     },
     selectOption (option_key) {
       this.selected_option = option_key
-      Opta.start();
-      // this.loadTable()
+      if (option_key === 'decline' || option_key === 'reclassification') {
+        this.loadTable(option_key)
+      } else {
+        this.loadNewWidgets('#'+option_key)
+      }
     },
-    getParameterByName (name, url) {
+    loadNewWidgets(dom) {
+      var opta_widget_tags = jQuery(dom).find('opta-widget[load="false"]');
+      if (opta_widget_tags.length) {
+        opta_widget_tags.removeAttr('load');
+        Opta.start();
+      }
+      var widget_containers = jQuery(dom).find('.Opta');
+      if (widget_containers['0']) {
+          var element = jQuery(widget_containers['0']),
+              widget_id = element.attr('id'),
+              Widget = Opta.widgets[widget_id];
+          Widget.resume(Widget.live, Widget.first_time);
+          setTimeout(()=>{Widget.resize()},1000)
+      }
+    },
+    getParameterByName(name, url) {
       if (!url) {
         url = window.location.href;
       }
@@ -88,6 +108,27 @@ new Vue({
         return '';
       }
       return decodeURIComponent(results[2].replace(/\+/g, ' '));
-    }
+    },
+    loadTable(option) {
+      let url = 'https://s3.amazonaws.com/optafeeds-prod/' + option + '/' + this.competition + '/' + this.season + '/all.json';
+      this.loading++
+      axios.get(url).then(
+          ({data}) => {
+            this.loading--
+            this.teams = []
+            let items = null
+            if (data.teams) {
+              items = Object.entries(data.teams)
+              if (this.selected_option === 'decline') items.sort(function (a, b) { return b[1].pos - a[1].pos})
+              else items.sort(function (a, b) { return a[1].pos - b[1].pos})
+              let vm = this
+              items.forEach(function (team) {
+                console.log(vm.teams)
+                vm.teams.push(team[1])
+              })
+            }
+          }
+      ).catch((error) => {this.loading--})
+    },
   }
 });
