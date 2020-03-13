@@ -12,17 +12,6 @@ new Vue({
     competition: '371',
     season: '2020',
     selected_option: 'positions',
-    options: [
-      {key: 'positions', label: 'Posiciones'},
-      {key: 'results', label: 'Resultados'},
-      {key: 'calendar', label: 'Calendario'},
-      {key: 'team_ranking', label: 'Ranking de equipos'},
-      {key: 'player_compare', label: 'Duelo'},
-      {key: 'season_standings', label: 'Estadísticas'},
-      {key: 'scorers', label: 'Goleadores'},
-      {key: 'referees', label: 'Árbitros'},
-      {key: 'player_ranking', label: 'Ranking de jugadores'},
-    ],
   },
   beforeMount () {
     // this.node = drupalSettings.pdb.contexts['entity:node'];
@@ -40,6 +29,23 @@ new Vue({
       this.season = data[1]
     }
     this.loadTournaments()
+  },
+  computed:{
+    options(){
+      let items = []
+      items.push({key: 'positions', label: 'Posiciones'})
+      items.push({key: 'results', label: 'Resultados'})
+      if (this.competition === '371') items.push({key: 'decline', label: 'Descenso'})
+      if (this.competition === '625' || this.competition === '371') items.push({key: 'reclassification', label: 'Reclasificación'})
+      items.push({key: 'calendar', label: 'Calendario'})
+      items.push({key: 'team_ranking', label: 'Ranking de equipos'})
+      items.push({key: 'player_compare', label: 'Duelo'})
+      items.push({key: 'season_standings', label: 'Estadísticas'})
+      items.push({key: 'scorers', label: 'Goleadores'})
+      items.push({key: 'referees', label: 'Árbitros'})
+      items.push({key: 'player_ranking', label: 'Ranking de jugadores'})
+      return items
+    }
   },
   methods: {
     loadTournaments () {
