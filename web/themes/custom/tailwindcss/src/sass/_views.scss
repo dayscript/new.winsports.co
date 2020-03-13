@@ -274,7 +274,8 @@
   }
 }
 
-#block-views-block-nomina-block-2{
+#block-views-block-nomina-block-2,
+#block-views-block-nomina-block-4{
   .md--col--4{
     .views-infinite-scroll-content-wrapper{
       @apply flex flex-wrap;
@@ -636,4 +637,8 @@ div#block-contenidoprincipaldelapagina-3{
   background-color: #0b3b41;
   padding: 0.8rem;
   color: #fff;
+}
+
+form#views-exposed-form-opinion-block-2, form#views-exposed-form-opinion-block-3 {
+  margin-bottom: 2rem;
 }
