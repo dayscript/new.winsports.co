@@ -123,6 +123,8 @@ class MigrateController {
           $results['existing']++;
         }
         $node->field_mediastream      = $item['mediastream'];
+        $node->field_dugout      = $item['field_id_dugout'];
+        $node->field_eplayer      = $item['field_eplayer_id'];
         $this->attachCategory($node, $item['category']);
         $this->attachTipoArticulo($node, $item['tipo']);
         $this->attachTags($node, $item['tags']);
