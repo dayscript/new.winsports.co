@@ -15,12 +15,6 @@ new Vue({
     selected_phase_id: '',
     selected_round_id: '',
     selected_option: '',
-    options: [{key: 'positions', label: 'Posiciones'},
-      {key: 'schedules', label: 'Resultados'},
-      {key: 'decline', label: 'Descenso'},
-      {key: 'reclassification', label: 'Reclasificación'},
-      // {key: 'scorers', label: 'Goleadores'}
-    ],
     positions: {
       Forward: 'Delantero',
       Striker: 'Delantero',
@@ -34,6 +28,17 @@ new Vue({
   mounted () {
     this.loadTournaments()
   },
+  computed: {
+    options () {
+      let items = []
+      items.push({key: 'positions', label: 'Posiciones'})
+      items.push({key: 'schedules', label: 'Resultados'})
+      if (this.tournament_season === '371-2020') items.push({key: 'decline', label: 'Descenso'})
+      if (this.tournament_season === '625-2020' || this.tournament_season === '371-2020') items.push({key: 'reclassification', label: 'Reclasificación'})
+        // {key: 'scorers', label: 'Goleadores'}
+      return items
+    }
+  },
   methods: {
     selectPhase (phase_id) {
       this.selected_phase_id = phase_id
@@ -41,13 +46,14 @@ new Vue({
     },
     selectOption (option_key) {
       this.selected_option = option_key
-      if(option_key === 'schedules'){
+      if (option_key === 'schedules') {
         this.loadResults()
-      } else {
+      }
+      else {
         this.loadTable()
       }
     },
-    loadResults(){
+    loadResults () {
       this.phases = []
       let data = this.tournament_season.split('-')
       let url = 'https://s3.amazonaws.com/optafeeds-prod/schedules/' + data[0] + '/' + data[1] + '/all.json';
@@ -60,14 +66,16 @@ new Vue({
             this.selected_phase_id = data.competition.active_phase_id
             this.selected_round_id = data.competition.active_round_id
             let items = data.phases[this.selected_phase_id].rounds[this.selected_round_id].matches
-            for (id in items){
+            for (id in items) {
               day = moment(items[id].date)
-              if(!matches[day.format('YYYYMMDD')]) matches[day.format('YYYYMMDD')] = []
+              if (!matches[day.format('YYYYMMDD')]) {
+                matches[day.format('YYYYMMDD')] = []
+              }
               matches[day.format('YYYYMMDD')].push(items[id])
               console.log(items[id])
             }
             const ordered = {};
-            Object.keys(matches).sort().forEach(function(key) {
+            Object.keys(matches).sort().forEach(function (key) {
               ordered[key] = matches[key];
             });
             this.matches = ordered
@@ -93,7 +101,7 @@ new Vue({
           }
       )
     },
-    selectTableData(){
+    selectTableData () {
       let teams = []
       let players = []
       let items = Object.entries(this.phases[this.selected_phase_id].teams)
@@ -141,8 +149,12 @@ new Vue({
                 this.selected_phase_id = Object.keys(data.phases).pop()
               }
               phases = data.phases
-              if (this.selected_option === 'schedules') items = Object.entries(data.phases[this.selected_phase_id].rounds)
-              else items = Object.entries(data.phases[this.selected_phase_id].teams)
+              if (this.selected_option === 'schedules') {
+                items = Object.entries(data.phases[this.selected_phase_id].rounds)
+              }
+              else {
+                items = Object.entries(data.phases[this.selected_phase_id].teams)
+              }
             }
             if (this.selected_option === 'decline') {
               items.sort(function (a, b) { return b[1].pos - a[1].pos})
@@ -176,7 +188,7 @@ new Vue({
           }
       ).catch((error) => {this.loading--})
     },
-    gotoMatch(match_id){
+    gotoMatch (match_id) {
       document.location.href = '/matches/' + match_id
     }
   }
