@@ -32,6 +32,8 @@
          $('#block-views-block-opinion-block-1').insertAfter('#block-futbolred');
          //Block En vivo
          $('#block-envivo').insertAfter('#block-tailwindcss-branding').addClass('tw-absolute tw-right-0');
+         //Block Section Opinion
+         $('#block-positionstableswidgetcolombia').insertAfter('#block-views-block-lo-ultimo-block-6');
        }else{
          //Block Programacion y publicidad
          $widgetprogramacion.add($publicidad1).insertBefore('#block-views-block-opinion-block-1');

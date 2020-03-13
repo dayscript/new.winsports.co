@@ -80,7 +80,9 @@
 #block-views-block-lo-ultimo-block-2,
 #block-views-block-lo-ultimo-block-3,
 #block-views-block-lo-ultimo-block-4,
-#block-views-block-lo-ultimo-block-5{
+#block-views-block-lo-ultimo-block-5,
+#block-views-block-lo-ultimo-block-6,
+#block-views-block-lo-ultimo-block-7{
   .D--sliders{
     @apply hidden;
   }
@@ -98,6 +100,14 @@
   }
   .torneo.category{
     @apply my-2;
+  }
+  @screen md{
+    .D--sliders{
+      @apply block;
+    }
+    .M--sliders{
+      @apply hidden;
+    }    
   }
 }
 
@@ -127,6 +137,57 @@
   }
 }
 
+#block-views-block-videos-opinion-block-1{
+  @apply hidden;
+  @screen md{
+    @apply block;
+  }
+}
+
+#block-views-block-videos-opinion-block-2{
+    @apply block;
+  @screen md{
+    @apply hidden;
+  }
+}
+
+#block-views-block-opinion-block-3{
+  @apply hidden;
+    @screen md{
+      @apply block;
+    }
+}
+
+#block-views-block-opinion-block-2{
+  @apply hidden;
+    @screen md{
+      @apply block;
+    }
+}
+
+#block-blocktabscolumnasblogs{
+  @apply block;
+    @screen md{
+      @apply hidden;
+    }
+}
+
+#block-views-block-nomina-block-1,
+#block-views-block-nomina-block-3{
+  @apply hidden;
+    @screen md{
+      @apply block;
+    }
+}
+
+#block-views-block-nomina-block-2,
+#block-views-block-nomina-block-4{
+  @apply block;
+    @screen md{
+      @apply hidden;
+    }
+}
+
 /* RESPONSIVE */
 @screen md {
   #block-toplinks{
@@ -140,18 +201,6 @@
   }
   #block-views-block-goles-home-block-2{
     @apply hidden;
-  }
-  #block-views-block-lo-ultimo-block-1,
-  #block-views-block-lo-ultimo-block-2,
-  #block-views-block-lo-ultimo-block-3,
-  #block-views-block-lo-ultimo-block-4,
-  #block-views-block-lo-ultimo-block-5{
-    .D--sliders{
-      @apply block;
-    }
-    .M--sliders{
-      @apply hidden;
-    }
   }
   #block-views-block-equipos-del-home-block-2{
     @apply -mt-6;
