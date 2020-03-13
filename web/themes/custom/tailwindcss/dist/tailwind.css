@@ -1177,6 +1177,7 @@ a {
 #footer-first > div #block-futbolcolombiano-2 > h2,
 #footer-first > div #block-futbolinternacional-2 > h2 {
   color: #fff;
+  font-family: "Source Sans Pro", sans-serif;
 }
 
 #footer-first > div #block-futbolcolombiano-2 ul li a,
@@ -1472,8 +1473,7 @@ a {
   margin-top: 1rem;
 }
 
-#block-views-block-nomina-block-2 .md--col--4 .views-infinite-scroll-content-wrapper,
-#block-views-block-nomina-block-4 .md--col--4 .views-infinite-scroll-content-wrapper {
+#block-views-block-nomina-block-2 .md--col--4 .views-infinite-scroll-content-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1481,19 +1481,16 @@ a {
       flex-wrap: wrap;
 }
 
-#block-views-block-nomina-block-2 .md--col--4 .views-infinite-scroll-content-wrapper .views-row,
-#block-views-block-nomina-block-4 .md--col--4 .views-infinite-scroll-content-wrapper .views-row {
+#block-views-block-nomina-block-2 .md--col--4 .views-infinite-scroll-content-wrapper .views-row {
   width: 25%;
   padding: .5rem;
 }
 
-#block-views-block-nomina-block-2 .md--col--4 ul.js-pager__items,
-#block-views-block-nomina-block-4 .md--col--4 ul.js-pager__items {
+#block-views-block-nomina-block-2 .md--col--4 ul.js-pager__items {
   text-align: center;
 }
 
-#block-views-block-nomina-block-2 .md--col--4 ul.js-pager__items li.pager__item a,
-#block-views-block-nomina-block-4 .md--col--4 ul.js-pager__items li.pager__item a {
+#block-views-block-nomina-block-2 .md--col--4 ul.js-pager__items li.pager__item a {
   display: inline-block;
   white-space: nowrap;
   margin-bottom: 1.5rem;
@@ -1842,7 +1839,8 @@ iframe.iframe-futbolred body {
 }
 
 div#footer-first h2 {
-  font-size: 1.5rem;
+  font-size: 1.125rem;
+  font-weight: 700;
   text-transform: none;
 }
 
@@ -1921,7 +1919,7 @@ div#block-contenidoprincipaldelapagina-3 header {
 
 @media (min-width: 768px) {
   #header-page .tw-container {
-    padding: 1rem;
+    padding: 0.75rem;
   }
 }
 
@@ -1936,8 +1934,14 @@ div#block-contenidoprincipaldelapagina-3 header {
 }
 
 .eu-cookie-compliance-message {
-  max-width: 50%;
+  max-width: 100%;
   padding-top: 0.6rem;
+}
+
+@media (min-width: 768px) {
+  .eu-cookie-compliance-message {
+    max-width: 50%;
+  }
 }
 
 .eu-cookie-compliance-message h2 {
@@ -1951,7 +1955,13 @@ div#block-contenidoprincipaldelapagina-3 header {
 }
 
 .eu-cookie-compliance-buttons {
-  max-width: 50%;
+  max-width: 100%;
+}
+
+@media (min-width: 768px) {
+  .eu-cookie-compliance-buttons {
+    max-width: 50%;
+  }
 }
 
 .eu-cookie-compliance-agree-button {
@@ -1961,10 +1971,35 @@ div#block-contenidoprincipaldelapagina-3 header {
   background-color: #0b3b41;
   padding: 0.8rem;
   color: #fff;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .eu-cookie-compliance-agree-button {
+    width: auto;
+  }
 }
 
 form#views-exposed-form-opinion-block-2, form#views-exposed-form-opinion-block-3 {
   margin-bottom: 2rem;
+}
+
+nav#block-envivo {
+  margin-right: 1rem;
+}
+
+nav#block-envivo a {
+  background-color: #0ef8c3;
+  background-color: #0ef8c3;
+  padding: 0.2rem 1rem !important;
+  color: #0b3b41 !important;
+  font-size: 0.9rem;
+}
+
+@media (min-width: 768px) {
+  nav#block-envivo {
+    margin-right: 0;
+  }
 }
 
 #block-futbolcolombiano-estadisticas, .opta-widgets {
@@ -6206,6 +6241,10 @@ form#views-exposed-form-opinion-block-2, form#views-exposed-form-opinion-block-3
   margin: 6rem !important;
 }
 
+.tw-m-28{
+  margin: 6.5rem !important;
+}
+
 .tw-m-32{
   margin: 8rem !important;
 }
@@ -6434,6 +6473,16 @@ form#views-exposed-form-opinion-block-2, form#views-exposed-form-opinion-block-3
 .tw-mx-24{
   margin-left: 6rem !important;
   margin-right: 6rem !important;
+}
+
+.tw-my-28{
+  margin-top: 6.5rem !important;
+  margin-bottom: 6.5rem !important;
+}
+
+.tw-mx-28{
+  margin-left: 6.5rem !important;
+  margin-right: 6.5rem !important;
 }
 
 .tw-my-32{
@@ -6892,6 +6941,22 @@ form#views-exposed-form-opinion-block-2, form#views-exposed-form-opinion-block-3
 
 .tw-ml-24{
   margin-left: 6rem !important;
+}
+
+.tw-mt-28{
+  margin-top: 6.5rem !important;
+}
+
+.tw-mr-28{
+  margin-right: 6.5rem !important;
+}
+
+.tw-mb-28{
+  margin-bottom: 6.5rem !important;
+}
+
+.tw-ml-28{
+  margin-left: 6.5rem !important;
 }
 
 .tw-mt-32{
@@ -19319,6 +19384,10 @@ form#views-exposed-form-opinion-block-2, form#views-exposed-form-opinion-block-3
     margin: 6rem !important;
   }
 
+  .sm\:tw-m-28{
+    margin: 6.5rem !important;
+  }
+
   .sm\:tw-m-32{
     margin: 8rem !important;
   }
@@ -19547,6 +19616,16 @@ form#views-exposed-form-opinion-block-2, form#views-exposed-form-opinion-block-3
   .sm\:tw-mx-24{
     margin-left: 6rem !important;
     margin-right: 6rem !important;
+  }
+
+  .sm\:tw-my-28{
+    margin-top: 6.5rem !important;
+    margin-bottom: 6.5rem !important;
+  }
+
+  .sm\:tw-mx-28{
+    margin-left: 6.5rem !important;
+    margin-right: 6.5rem !important;
   }
 
   .sm\:tw-my-32{
@@ -20005,6 +20084,22 @@ form#views-exposed-form-opinion-block-2, form#views-exposed-form-opinion-block-3
 
   .sm\:tw-ml-24{
     margin-left: 6rem !important;
+  }
+
+  .sm\:tw-mt-28{
+    margin-top: 6.5rem !important;
+  }
+
+  .sm\:tw-mr-28{
+    margin-right: 6.5rem !important;
+  }
+
+  .sm\:tw-mb-28{
+    margin-bottom: 6.5rem !important;
+  }
+
+  .sm\:tw-ml-28{
+    margin-left: 6.5rem !important;
   }
 
   .sm\:tw-mt-32{
@@ -32433,6 +32528,10 @@ form#views-exposed-form-opinion-block-2, form#views-exposed-form-opinion-block-3
     margin: 6rem !important;
   }
 
+  .md\:tw-m-28{
+    margin: 6.5rem !important;
+  }
+
   .md\:tw-m-32{
     margin: 8rem !important;
   }
@@ -32661,6 +32760,16 @@ form#views-exposed-form-opinion-block-2, form#views-exposed-form-opinion-block-3
   .md\:tw-mx-24{
     margin-left: 6rem !important;
     margin-right: 6rem !important;
+  }
+
+  .md\:tw-my-28{
+    margin-top: 6.5rem !important;
+    margin-bottom: 6.5rem !important;
+  }
+
+  .md\:tw-mx-28{
+    margin-left: 6.5rem !important;
+    margin-right: 6.5rem !important;
   }
 
   .md\:tw-my-32{
@@ -33119,6 +33228,22 @@ form#views-exposed-form-opinion-block-2, form#views-exposed-form-opinion-block-3
 
   .md\:tw-ml-24{
     margin-left: 6rem !important;
+  }
+
+  .md\:tw-mt-28{
+    margin-top: 6.5rem !important;
+  }
+
+  .md\:tw-mr-28{
+    margin-right: 6.5rem !important;
+  }
+
+  .md\:tw-mb-28{
+    margin-bottom: 6.5rem !important;
+  }
+
+  .md\:tw-ml-28{
+    margin-left: 6.5rem !important;
   }
 
   .md\:tw-mt-32{
@@ -45547,6 +45672,10 @@ form#views-exposed-form-opinion-block-2, form#views-exposed-form-opinion-block-3
     margin: 6rem !important;
   }
 
+  .lg\:tw-m-28{
+    margin: 6.5rem !important;
+  }
+
   .lg\:tw-m-32{
     margin: 8rem !important;
   }
@@ -45775,6 +45904,16 @@ form#views-exposed-form-opinion-block-2, form#views-exposed-form-opinion-block-3
   .lg\:tw-mx-24{
     margin-left: 6rem !important;
     margin-right: 6rem !important;
+  }
+
+  .lg\:tw-my-28{
+    margin-top: 6.5rem !important;
+    margin-bottom: 6.5rem !important;
+  }
+
+  .lg\:tw-mx-28{
+    margin-left: 6.5rem !important;
+    margin-right: 6.5rem !important;
   }
 
   .lg\:tw-my-32{
@@ -46233,6 +46372,22 @@ form#views-exposed-form-opinion-block-2, form#views-exposed-form-opinion-block-3
 
   .lg\:tw-ml-24{
     margin-left: 6rem !important;
+  }
+
+  .lg\:tw-mt-28{
+    margin-top: 6.5rem !important;
+  }
+
+  .lg\:tw-mr-28{
+    margin-right: 6.5rem !important;
+  }
+
+  .lg\:tw-mb-28{
+    margin-bottom: 6.5rem !important;
+  }
+
+  .lg\:tw-ml-28{
+    margin-left: 6.5rem !important;
   }
 
   .lg\:tw-mt-32{
@@ -58661,6 +58816,10 @@ form#views-exposed-form-opinion-block-2, form#views-exposed-form-opinion-block-3
     margin: 6rem !important;
   }
 
+  .xl\:tw-m-28{
+    margin: 6.5rem !important;
+  }
+
   .xl\:tw-m-32{
     margin: 8rem !important;
   }
@@ -58889,6 +59048,16 @@ form#views-exposed-form-opinion-block-2, form#views-exposed-form-opinion-block-3
   .xl\:tw-mx-24{
     margin-left: 6rem !important;
     margin-right: 6rem !important;
+  }
+
+  .xl\:tw-my-28{
+    margin-top: 6.5rem !important;
+    margin-bottom: 6.5rem !important;
+  }
+
+  .xl\:tw-mx-28{
+    margin-left: 6.5rem !important;
+    margin-right: 6.5rem !important;
   }
 
   .xl\:tw-my-32{
@@ -59347,6 +59516,22 @@ form#views-exposed-form-opinion-block-2, form#views-exposed-form-opinion-block-3
 
   .xl\:tw-ml-24{
     margin-left: 6rem !important;
+  }
+
+  .xl\:tw-mt-28{
+    margin-top: 6.5rem !important;
+  }
+
+  .xl\:tw-mr-28{
+    margin-right: 6.5rem !important;
+  }
+
+  .xl\:tw-mb-28{
+    margin-bottom: 6.5rem !important;
+  }
+
+  .xl\:tw-ml-28{
+    margin-left: 6.5rem !important;
   }
 
   .xl\:tw-mt-32{
