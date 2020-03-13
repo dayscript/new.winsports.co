@@ -87,6 +87,7 @@
       @apply flex-1;
       > h2{
         @apply text-white;
+        font-family:$font-body;
       }
       ul{
         li{
@@ -274,8 +275,7 @@
   }
 }
 
-#block-views-block-nomina-block-2,
-#block-views-block-nomina-block-4{
+#block-views-block-nomina-block-2{
   .md--col--4{
     .views-infinite-scroll-content-wrapper{
       @apply flex flex-wrap;
@@ -525,7 +525,7 @@ iframe.iframe-futbolred {
 }
 div#footer-first{
   h2{
-    @apply tw-text-2xl;
+    @apply tw-text-lg tw-font-bold;
     text-transform: none;
   }
   li{
@@ -602,8 +602,8 @@ div#block-contenidoprincipaldelapagina-3{
 #header-page{
   .tw-container{
     @apply tw-p-2;
-    @screen md{
-      @apply tw-p-4;
+    @screen md{ 
+      @apply tw-p-3;
     }
   }
   #block-tailwindcss-branding{
@@ -616,8 +616,11 @@ div#block-contenidoprincipaldelapagina-3{
   }
 }
 .eu-cookie-compliance-message {
-  max-width: 50%;
+  max-width: 100%;
   padding-top: 0.6rem;
+  @screen md{
+    max-width: 50%;
+  }
 }
 .eu-cookie-compliance-message h2 {
   font-size: 14px;
@@ -628,7 +631,10 @@ div#block-contenidoprincipaldelapagina-3{
   text-decoration: underline;
 }
 .eu-cookie-compliance-buttons {
-  max-width: 50%;
+  max-width: 100%;
+  @screen md{
+    max-width: 50%;
+  }
 }
 .eu-cookie-compliance-agree-button {
   font-weight: 500;
@@ -637,8 +643,25 @@ div#block-contenidoprincipaldelapagina-3{
   background-color: #0b3b41;
   padding: 0.8rem;
   color: #fff;
+  width: 100%;
+  @screen md{
+    width: auto;
+  }
 }
 
 form#views-exposed-form-opinion-block-2, form#views-exposed-form-opinion-block-3 {
   margin-bottom: 2rem;
+}
+nav#block-envivo {
+  margin-right: 1rem;
+  a{
+    background-color: #0ef8c3;
+    background-color: #0ef8c3;
+    padding: 0.2rem 1rem !important;
+    color: #0b3b41 !important;
+    font-size: 0.9rem;
+  }
+  @screen md{
+    margin-right: 0;
+  }
 }

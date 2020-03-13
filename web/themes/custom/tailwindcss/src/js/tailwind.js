@@ -10,10 +10,10 @@
   Drupal.behaviors.tailwindcss = {
    attach: function (context, settings) {
      if($('#top-content .top-banner').length > 0){
-       $('#top-content').addClass('tw-mt-16 md:tw-mt-32');
+       $('#top-content').addClass('tw-mt-12 md:tw-mt-28');
        //$('#horizontal-results').addClass('tw-mt-0');
      }else{
-       $('#horizontal-results').addClass('tw-mt-16 md:tw-mt-32');
+       $('#horizontal-results').addClass('tw-mt-12 md:tw-mt-28');
      }
      relocateView();
      $(window).resize(function() {
