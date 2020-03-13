@@ -71,6 +71,7 @@ new Vue({
     },
     selectOption (option_key) {
       this.selected_option = option_key
+      Opta.start();
       // this.loadTable()
     },
     getParameterByName (name, url) {
