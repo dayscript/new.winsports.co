@@ -112,6 +112,7 @@ class MigrateController {
               ];
             }
           }
+          $this->attachTags($node, $item['tags']);
           $node->save();
           $results['new']++;
         }
@@ -127,7 +128,6 @@ class MigrateController {
         $node->field_eplayer      = $item['field_eplayer_id'];
         $this->attachCategory($node, $item['category']);
         $this->attachTipoArticulo($node, $item['tipo']);
-        $this->attachTags($node, $item['tags']);
         $this->attachSource($node, $item['fuente']);
         $this->attachTeams($node, $item['equipos']);
         $this->attachTournaments($node, $item['category']);
