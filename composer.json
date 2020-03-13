@@ -23,6 +23,7 @@
         "drupal/admin_toolbar_links_access_filter": "^2.0",
         "drupal/admin_toolbar_tools": "^2.0",
         "drupal/better_exposed_filters": "^4.0@alpha",
+        "drupal/better_social_sharing_buttons": "^2.1",
         "drupal/block_class": "^1.1",
         "drupal/blocktabs": "^1.0@beta",
         "drupal/console": "^1.0.2",
