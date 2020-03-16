@@ -1,0 +1,6 @@
+drupal.custom_ads:
+  version: VERSION
+  js:
+    js/custom_ads.js: {}
+  dependencies:
+    - core/jquery
