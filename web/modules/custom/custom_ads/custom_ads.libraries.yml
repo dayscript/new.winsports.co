@@ -1,5 +1,8 @@
 drupal.custom_ads:
   version: VERSION
+  css:
+    component:
+      css/components/custom_ads.module.css: {}
   js:
     js/custom_ads.js: {}
   dependencies:
