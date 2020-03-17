@@ -18,7 +18,7 @@ class WidgetProgrammingManager implements WidgetProgrammingManagerInterface {
     $weekday = ['Mon' => 'Lun', 'Tue' => 'Mar', 'Wed' => 'Mié', 'Thu' => 'Jue', 'Fri' => 'Vie', 'Sat' => 'Sáb', 'Sun' => 'Dom'];
     $current_year = date('Y');
     $dates = [];
-    $view = 12;
+    $view = 7;
     $pos = 0;
 
     foreach (array_keys($months) as $key => $month) {
@@ -27,13 +27,15 @@ class WidgetProgrammingManager implements WidgetProgrammingManagerInterface {
       if($current_month == date('n')){
         $current_day = date('j');
       }
-      if($current_month >= date('n') && $pos < $view){
+      if($current_month == date('n')){
         $dates[$months[$month]] = [];
         for ($i=$current_day; $i <= cal_days_in_month(CAL_GREGORIAN, $current_month, $current_year) ; $i++) { 
-          $dates[$months[$month]][] = ['day' => $i, 'weekday'=> $weekday[date('D', mktime(0, 0, 0, $current_month, $i, $current_year))], 'value' => date('Y-m-d', mktime(0, 0, 0, $current_month, $i, $current_year))];
+          if($pos < $view){
+            $dates[$months[$month]][] = ['day' => $i, 'weekday'=> $weekday[date('D', mktime(0, 0, 0, $current_month, $i, $current_year))], 'value' => date('Y-m-d', mktime(0, 0, 0, $current_month, $i, $current_year))];
+          }
+          $pos++;
         }    
       }
-      $pos++;
     }
     return $dates;
   }
