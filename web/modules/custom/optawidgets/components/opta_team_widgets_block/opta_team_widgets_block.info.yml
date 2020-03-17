@@ -1,7 +1,7 @@
-name: Opta Team Compare Block
-machine_name: opta-team-compare
+name: Opta Team Widgets Block
+machine_name: opta-team-widgets
 type: pdb
-description: 'Opta Match Team compare widget block'
+description: 'Opta Match Team widgets block'
 package: Vue
 core: '8.x'
 module_status: active
@@ -11,7 +11,7 @@ contexts:
   entity: node
 add_js:
   footer:
-    'opta_team_compare_block.js': {}
+    'opta_team_widgets_block.js': {}
 libraries:
   - optafeeds/axios
   - optawidgets/opta.widgets

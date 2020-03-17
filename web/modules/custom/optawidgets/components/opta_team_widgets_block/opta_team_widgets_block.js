@@ -1,6 +1,6 @@
 Vue.config.ignoredElements = ['opta-widget']
 new Vue({
-    el: '.opta-team-compare',
+    el: '.opta-team-widgets',
     data: {
         competition: '371',
         season: '2020',
