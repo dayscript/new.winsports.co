@@ -123,9 +123,9 @@ class MigrateController {
           $node->save();
           $results['existing']++;
         }
-        $node->field_mediastream      = $item['mediastream'];
+        $node->field_mediastream = $item['mediastream'];
         $node->field_dugout      = $item['field_id_dugout'];
-        $node->field_eplayer      = $item['field_eplayer_id'];
+        $node->field_eplayer     = $item['field_eplayer_id'];
         $this->attachCategory($node, $item['category']);
         $this->attachTipoArticulo($node, $item['tipo']);
         $this->attachSource($node, $item['fuente']);
@@ -229,7 +229,13 @@ class MigrateController {
     ];
     if ($res->getStatusCode() == 200) {
       $response = json_decode($res->getBody(), TRUE);
+
+      $count    = 0;
       foreach ($response['nodes'] as $item) {
+        $count++;
+        if ($this->offset > 0 && $count <= $this->offset) {
+          continue;
+        }
         $query = \Drupal::entityQuery('node');
         $query->condition('title', $item['title']);
         $query->condition('type', 'equipo');
@@ -268,13 +274,15 @@ class MigrateController {
           }
           $node->save();
           $results['new']++;
-          if ($results['new'] >= $this->limit) {
-            break;
-          }
         }
         else {
           $node = Node::load(array_pop($entity_ids));
           $results['existing']++;
+        }
+        $node->field_opta_id = $item['field_id_opta'];
+        $node->save();
+        if ($results['new'] + $results['existing'] >= $this->limit) {
+          break;
         }
       }
     }
@@ -748,32 +756,53 @@ class MigrateController {
       $node->save();
     }
   }
+
   public function attachTournaments($node, $tournaments) {
     $node->field_torneo_node = [];
-    $ignore = ['Otros Deportes','Fútbol Internacional','Selección Colombia','Fútbol Colombiano','Baloncesto','Sin Excusas','Saque Largo'];
+    $ignore                  = [
+      'Otros Deportes',
+      'Fútbol Internacional',
+      'Selección Colombia',
+      'Fútbol Colombiano',
+      'Baloncesto',
+      'Sin Excusas',
+      'Saque Largo',
+    ];
     foreach (explode(',', $tournaments) as $tour_name) {
-      if (trim($tour_name) == '' || in_array(trim($tour_name),$ignore)) {
+      if (trim($tour_name) == '' || in_array(trim($tour_name), $ignore)) {
         continue;
       }
-      if($tour_name == 'Torneo BetPlay DIMAYOR') $tour_name = 'Torneo BetPlay Dimayor 2020-I';
-      if($tour_name == 'Liga BetPlay DIMAYOR') $tour_name = 'Liga BetPlay Dimayor 2020-I';
-      if($tour_name == 'No es Fútbol es LaLiga') $tour_name = 'LaLiga España 2019-2020';
-      if($tour_name == 'Copa BetPlay DIMAYOR') $tour_name = 'Copa BetPlay Dimayor 2020';
-      if($tour_name == 'Liga Aguila') $tour_name = 'Liga Aguila 2019-II';
-      if($tour_name == 'Torneo Aguila') $tour_name = 'Torneo Aguila 2019-II';
+      if ($tour_name == 'Torneo BetPlay DIMAYOR') {
+        $tour_name = 'Torneo BetPlay Dimayor 2020-I';
+      }
+      if ($tour_name == 'Liga BetPlay DIMAYOR') {
+        $tour_name = 'Liga BetPlay Dimayor 2020-I';
+      }
+      if ($tour_name == 'No es Fútbol es LaLiga') {
+        $tour_name = 'LaLiga España 2019-2020';
+      }
+      if ($tour_name == 'Copa BetPlay DIMAYOR') {
+        $tour_name = 'Copa BetPlay Dimayor 2020';
+      }
+      if ($tour_name == 'Liga Aguila') {
+        $tour_name = 'Liga Aguila 2019-II';
+      }
+      if ($tour_name == 'Torneo Aguila') {
+        $tour_name = 'Torneo Aguila 2019-II';
+      }
       $query = \Drupal::entityQuery('node');
       $query->condition('title', $tour_name);
       $query->condition('type', 'torneo');
       $entity_ids = $query->execute();
       if (count($entity_ids) == 0) {
         dd('Torneo no encontrado: ' . $tour_name);
-//        $torneo = Node::create([
-//          'type'             => 'torneo',
-//          'title'            => $tour_name,
-//          'uid'              => 1,
-//          'moderation_state' => 'published',
-//        ]);
-//        $torneo->save();
+        //        $torneo = Node::create([
+        //          'type'             => 'torneo',
+        //          'title'            => $tour_name,
+        //          'uid'              => 1,
+        //          'moderation_state' => 'published',
+        //        ]);
+        //        $torneo->save();
       }
       else {
         $torneo = Node::load(array_pop($entity_ids));

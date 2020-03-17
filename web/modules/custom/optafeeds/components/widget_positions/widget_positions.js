@@ -9,9 +9,9 @@ new Vue({
     tournaments: [],
     phases: [],
     teams: [],
+    rounds: [],
     players: [],
     matches: [],
-    rounds: [],
     selected_phase_id: '',
     selected_round_id: '',
     selected_option: '',
@@ -37,7 +37,7 @@ new Vue({
       if (this.tournament_season === '625-2020' || this.tournament_season === '371-2020') items.push({key: 'reclassification', label: 'Reclasificación'})
         // {key: 'scorers', label: 'Goleadores'}
       return items
-    }
+    },
   },
   methods: {
     selectPhase (phase_id) {
@@ -60,25 +60,41 @@ new Vue({
       this.loading++
       axios.get(url).then(
           ({data}) => {
+            if(data.phases) this.phases = data.phases
+            this.setRounds()
             this.loading--
-            let matches = []
-            let day = null
             this.selected_phase_id = data.competition.active_phase_id
-            this.selected_round_id = data.competition.active_round_id
-            let items = data.phases[this.selected_phase_id].rounds[this.selected_round_id].matches
-            for (id in items) {
-              day = moment(items[id].date)
-              if (!matches[day.format('YYYYMMDD')]) {
-                matches[day.format('YYYYMMDD')] = []
-              }
-              matches[day.format('YYYYMMDD')].push(items[id])
-            }
-            const ordered = {};
-            Object.keys(matches).sort().forEach(function (key) {
-              ordered[key] = matches[key];
-            });
-            this.matches = ordered
+            
+            this.setMatches(data.competition.active_round_id)
           })
+    },
+    setMatches(round_id){
+      this.selected_round_id = round_id
+      let matches = []
+      let day = null
+      let items = this.rounds[round_id][1].matches
+      for (id in items) {
+        day = moment(items[id].date)
+        if (!matches[day.format('YYYYMMDD')]) {
+          matches[day.format('YYYYMMDD')] = []
+        }
+        matches[day.format('YYYYMMDD')].push(items[id])
+      }
+      const ordered = {};
+      Object.keys(matches).sort().forEach(function (key) {
+        ordered[key] = matches[key];
+      });
+      this.matches = ordered
+    },
+    setRounds(){
+      this.rounds = {}
+      // for(let i=0; i<)
+      console.log(Object.keys(this.phases).length)
+      Object.entries(this.phases).forEach((item)=>{
+        Object.entries(item[1].rounds).forEach((round)=>{
+          this.rounds[round[1].round.id] = round
+        })
+      })
     },
     loadTournaments () {
       this.loading++
@@ -133,7 +149,6 @@ new Vue({
             let teams = []
             let phases = []
             let players = []
-            let rounds = []
             let items = null
             if (typeof data.teams !== 'undefined') {
               items = Object.entries(data.teams)
@@ -168,18 +183,11 @@ new Vue({
                 players.push(player[1])
               })
             }
-            else if (this.selected_option === 'schedules') {
-              items.forEach(function (round) {
-                rounds.push(round[1])
-              })
-            }
             else {
               items.forEach(function (team) {
                 teams.push(team[1])
               })
             }
-
-            this.rounds = rounds
             this.players = players
             this.teams = teams
             this.phases = phases
@@ -221,6 +229,9 @@ new Vue({
           return string;
           break;
       }
+    },
+    roundName (number){
+      return 'Fecha ' + number
     }
   }
 });

@@ -7,7 +7,12 @@
     <div class="flex flex-no-wrap overflow-x-auto w-full">
         <div @click="selectOption(option.key)" v-for="option in options" class="flex-1 text-center py-3 px-6 font-title cursor-pointer table-option" :class="selected_option == option.key?'active':''">{{ option.label }}</div>
     </div>
-    <div class="flex " style="background-color: #0ef8c3;" v-if="phases && Object.keys(phases).length">
+    <div v-if="selected_option === 'schedules'" class="flex flex-no-wrap overflow-x-auto w-full" style="background-color: #0ef8c3;">
+        <div @click="setMatches(round[1].round.id)" v-for="round in rounds" class="whitespace-no-wrap cursor-pointer phase p-2" :class="selected_round_id == round[1].round.id?'active':''">
+            {{ roundName(round[1].round.number) }}
+        </div>
+    </div>
+    <div v-else-if="phases && Object.keys(phases).length" class="flex flex-no-wrap overflow-x-auto w-full" style="background-color: #0ef8c3;">
         <div @click="selectPhase(phase.phase.id)" v-for="phase in phases" v-if="phase.teams && Object.keys(phase.teams).length" class="cursor-pointer phase p-2" :class="selected_phase_id == phase.phase.id?'active':''">
             {{ phaseName(phase.phase.type, phase.phase.number) }}
         </div>
