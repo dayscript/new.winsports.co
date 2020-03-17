@@ -643,6 +643,7 @@ class MigrateController {
         if ($item['field_fuente']) {
           $this->attachSource($node, $item['field_fuente']);
         }
+        $this->attachTeams($node, $item['field_equipos_relacionados']);
         $this->attachTags($node, $item['tags']);
         $node->save();
         if ($results['new'] + $results['existing'] >= $this->limit) {
