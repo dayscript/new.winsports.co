@@ -95,7 +95,7 @@ class CustomAdsBlock extends BlockBase implements ContainerFactoryPluginInterfac
     case 'dugout':
         $form['ad_'+$this->getPluginId()] = [
           '#type' => 'markup',
-          '#markup' => '<div class="dugout"><div id="container-video-'.$config['custom_ads']['space'].'" class="container-video"></div></div>',
+          '#markup' => '<div class="dugout"><div id="dugout-'.$config['custom_ads']['space'].'" class="container-video"></div></div>',
         ];
         break;
     }

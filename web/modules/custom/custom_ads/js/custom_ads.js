@@ -134,7 +134,7 @@
                                 iframe.frameborder = "0";
                                 iframe.allowfullscreen = true;
                                 iframe.scrolling="no";
-                                document.getElementById("container-video-"+ads[key].space).appendChild(iframe);
+                                document.getElementById("dugout-"+ads[key].space).appendChild(iframe);
                             }
                             break;
                     }
