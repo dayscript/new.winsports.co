@@ -2,6 +2,14 @@
   @apply fixed top-0 z-10 w-full;
 }
 
+#top-content{
+  #block-customadsblock-2{
+    img {
+      @apply tw-mx-auto;
+    }
+  }
+}
+
 #meta-header{
   >div {
     @apply flex justify-between;
