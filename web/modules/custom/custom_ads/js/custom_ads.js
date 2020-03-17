@@ -14,6 +14,8 @@
         eIs:[],
         custom: {}
     };
+    var eplayer = false;
+    var dugout = false;
 
     function eplCheckStart(reinit) {
         if (document.epl) {
@@ -102,15 +104,40 @@
         attach: function(context, settings) {
             if(typeof settings.settings.custom_ads !== 'undefinded') {
                 var ads = settings.settings.custom_ads;
-
                 Object.keys(ads).forEach(function (key) {
-                    if(!eplArgs.eIs.includes(ads[key].space)){
-                        eplArgs.sec = ads[key].section;
-                        eplArgs.eIs.push(ads[key].space);
-                        eplArgs.custom[ads[key].space] = false;
-                        eplCheckStart(1);
+                    switch(ads[key].type){
+                        case 'eplanning':
+                            if(!eplArgs.eIs.includes(ads[key].space)){
+                                eplArgs.sec = ads[key].section;
+                                eplArgs.eIs.push(ads[key].space);
+                                eplArgs.custom[ads[key].space] = false;
+                                eplCheckStart(1);
+                            }
+                            setTimeout(function(){ eplAD4M(ads[key].space); }, 500);
+                            break;
+                        case 'eplayer':
+                            if(!eplayer){
+                                eplayer = true;
+                                var script = document.createElement("script");
+                                script.type = "text/javascript";
+                                script.src = "//player.performgroup.com/eplayer.js#"+ads[key].space;
+                                document.getElementById("eplayer-"+ads[key].space).appendChild(script);
+                            }
+                            break;
+                        case 'dugout':
+                            if(!dugout){
+                                dugout = true;
+                                var iframe = document.createElement("iframe");
+                                iframe.type = "text/javaiframe";
+                                iframe.src = "https://embed.dugout.com/v2/?p="+ads[key].space;
+                                iframe.width = "100%";
+                                iframe.frameborder = "0";
+                                iframe.allowfullscreen = true;
+                                iframe.scrolling="no";
+                                document.getElementById("container-video-"+ads[key].space).appendChild(iframe);
+                            }
+                            break;
                     }
-                    setTimeout(function(){ eplAD4M(ads[key].space); }, 500);
                 });
             }
         }

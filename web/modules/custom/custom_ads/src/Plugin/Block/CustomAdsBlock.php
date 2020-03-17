@@ -39,12 +39,20 @@ class CustomAdsBlock extends BlockBase implements ContainerFactoryPluginInterfac
   public function blockForm($form, FormStateInterface $form_state) {
     $config = $this->getConfiguration();
 
+    $form['type'] = array(
+      '#type' => 'select',
+      '#title' => $this->t('Select Type'),
+      '#options' => ['select' => 'select', 'eplanning' => 'eplanning', 'eplayer' => 'eplayer', 'dugout' => 'dugout'],
+      '#default_value' => $config['custom_ads'],
+      '#required' => FALSE,
+    );
+
     $query = \Drupal::entityQuery('node')
     ->condition('type', 'anuncio')
     ->condition('status', 1);    
     $response = $query->execute();
 
-    $ads = [];
+    $ads = ['select' => 'select'];
     foreach ($response as $key => $nid) {
       $node = $node = \Drupal\node\Entity\Node::load($nid);
       $ads[$nid] = $node->title->value;
@@ -62,17 +70,36 @@ class CustomAdsBlock extends BlockBase implements ContainerFactoryPluginInterfac
 
   public function blockSubmit($form, FormStateInterface $form_state) {
     $nid = $form_state->getValue('ads');
+    $type = $form_state->getValue('type');
     $node = Node::load($nid);
-    $this->setConfigurationValue('custom_ads', ['id' => $nid, 'block' => $this->getPluginId(), 'section' => $node->field_seccion->value, 'space' => $node->field_espacio->value]);
+    $this->setConfigurationValue('custom_ads', ['id' => $nid, 'type' => $type, 'block' => $this->getPluginId(), 'section' => $node->field_seccion->value, 'space' => $node->field_espacio->value]);
   }
 
   public function build() {
     $config = $this->getConfiguration();
     $form = $this->formBuilder->getForm(CustomAdsForm::class);
-    $form['ad_'+$this->getPluginId()] = [
-      '#type' => 'markup',
-      '#markup' => '<div id="eplAdDiv'.$config['custom_ads']['space'].'"></div>',
-    ];
+    
+    switch ($config['custom_ads']['type']) {
+    case 'eplanning':
+        $form['ad_'+$this->getPluginId()] = [
+          '#type' => 'markup',
+          '#markup' => '<div id="eplAdDiv'.$config['custom_ads']['space'].'"></div>',
+        ];
+        break;
+    case 'eplayer':
+        $form['ad_'+$this->getPluginId()] = [
+          '#type' => 'markup',
+          '#markup' => '<div id="eplayer-'.$config['custom_ads']['space'].'"></div>',
+        ];
+        break;
+    case 'dugout':
+        $form['ad_'+$this->getPluginId()] = [
+          '#type' => 'markup',
+          '#markup' => '<div class="dugout"><div id="container-video-'.$config['custom_ads']['space'].'" class="container-video"></div></div>',
+        ];
+        break;
+    }
+
     $render['block'] = $form;
     $render['block']['#attached']['library'] = ['custom_ads/drupal.custom_ads'];
     $render['block']['#attached']['drupalSettings']['settings']['custom_ads'][$config['custom_ads']['id']] = $config['custom_ads'];
