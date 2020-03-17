@@ -2,3 +2,23 @@
 	padding: 50px;
     background: #e3e3e3;
 }
+
+.dugout {
+	margin:0 auto;
+	max-width:100%;
+	min-width:300px;
+}
+
+.dugout div.container-video {
+	position: relative; padding-bottom:56.25%; height: 0; overflow: hidden;
+}
+
+.dugout div.container-video iframe {
+	width: 300px;
+	min-width: 100%;
+	position: absolute;
+	top:0;
+	left: 0;
+	height: 100%;
+	overflow: hidden;
+}
