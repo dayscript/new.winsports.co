@@ -15,15 +15,7 @@ new Vue({
     selected_phase_id: '',
     teams: [],
   },
-  beforeMount () {
-    // this.node = drupalSettings.pdb.contexts['entity:node'];
-    // this.competition = this.node['field_opta_id'][0]['value'];
-    // this.season = this.node['field_opta_season'][0]['value'];
-    // if(drupalSettings.opta.competition) this.competition =
-    // drupalSettings.opta.competition if(drupalSettings.opta.season)
-    // this.season = drupalSettings.opta.season
-  },
-  mounted () {
+  mounted() {
     var id = this.getParameterByName('id')
     if (id) {
       let data = id.split('-')
@@ -32,7 +24,7 @@ new Vue({
     }
     this.loadTournaments()
   },
-  computed:{
+  computed: {
     options(){
       let items = []
       items.push({key: 'positions', label: 'Posiciones'})
@@ -123,7 +115,6 @@ new Vue({
               else items.sort(function (a, b) { return a[1].pos - b[1].pos})
               let vm = this
               items.forEach(function (team) {
-                console.log(vm.teams)
                 vm.teams.push(team[1])
               })
             }
