@@ -7,9 +7,9 @@
     <div class="flex flex-no-wrap overflow-x-auto w-full">
         <div @click="selectOption(option.key)" v-for="option in options" class="flex-1 text-center py-3 px-6 font-title cursor-pointer table-option" :class="selected_option == option.key?'active':''">{{ option.label }}</div>
     </div>
-    <div class="flex " style="background-color: #0ef8c3;" v-if="phases && phases.length">
+    <div class="flex " style="background-color: #0ef8c3;" v-if="phases && Object.keys(phases).length">
         <div @click="selectPhase(phase.phase.id)" v-for="phase in phases" v-if="phase.teams && Object.keys(phase.teams).length" class="cursor-pointer phase p-2" :class="selected_phase_id == phase.phase.id?'active':''">
-            {{ phase.phase.type }}
+            {{ phaseName(phase.phase.type, phase.phase.number) }}
         </div>
     </div>
     <div class="border-l-8 my-6 md:tw-h-380 md:tw-overflow-y-scroll scrollbar-w-2 scrollbar-track-gray-lighter scrollbar-thumb-rounded scrollbar-thumb-gray scrolling-touch" style="border-color: #FACA32;">

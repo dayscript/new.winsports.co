@@ -72,14 +72,12 @@ new Vue({
                 matches[day.format('YYYYMMDD')] = []
               }
               matches[day.format('YYYYMMDD')].push(items[id])
-              console.log(items[id])
             }
             const ordered = {};
             Object.keys(matches).sort().forEach(function (key) {
               ordered[key] = matches[key];
             });
             this.matches = ordered
-            // console.log(ordered)
           })
     },
     loadTournaments () {
@@ -190,6 +188,39 @@ new Vue({
     },
     gotoMatch (match_id) {
       document.location.href = '/matches/' + match_id
+    },
+    phaseName (string, number){
+      let data = this.tournament_season.split('-')
+      let competition = data[0]
+      string = (competition === 589 && string === 'Ronda' && number === '1' || competition === 589 && string === 'Round' && number === '1') ? 'Cuadrangulares' : string;
+      string = (competition === 901 && string === 'Ronda' && number === '2' || competition === 901 && string === 'Round' && number === '2') ? 'Cuadrangulares' : string;
+      string = (competition === 664 && string === 'Ronda' && number === '1' || competition === 664 && string === 'Round' && number === '1') ? 'Todos contra Todos' : string;
+      switch(string){
+        case 'All':
+          return 'Todos contra Todos';
+          break;
+        case 'Semi-Finals':
+          return 'Semifinales';
+          break;
+        case 'Quarter-Finals':
+          return 'Cuartos de Final';
+          break;
+        case 'Round of 16':
+          return 'Octavos de final';
+          break;
+        case 'Ronda de 16':
+          return 'Octavos de final';
+          break;
+        case 'Ronda':
+          return (number && number != 1)?'Ronda '+number:'Todos contra Todos';
+          break;
+        case 'Round':
+          return 'Ronda '+number;
+          break;
+        default:
+          return string;
+          break;
+      }
     }
   }
 });
