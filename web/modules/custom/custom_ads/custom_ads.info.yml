@@ -1,0 +1,7 @@
+name: Custom Ads
+description: 'Custom Ads.'
+type: module
+libraries:
+  - custom_ads/drupal.custom_ads
+core: 8.x
+package: 'dayscript'
