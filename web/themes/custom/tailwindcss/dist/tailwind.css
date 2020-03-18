@@ -929,7 +929,7 @@ a {
   width: 100%;
 }
 
-#top-content #block-customadsblock-2 img {
+#top-content .custom-ads-form img {
   margin-left: auto;
   margin-right: auto;
 }
@@ -2005,6 +2005,10 @@ nav#block-envivo a {
   nav#block-envivo {
     margin-right: 0;
   }
+}
+
+div#block-customadsblock {
+  margin-bottom: 2rem;
 }
 
 #block-futbolcolombiano-estadisticas, .opta-widgets {
