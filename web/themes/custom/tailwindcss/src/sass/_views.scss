@@ -725,3 +725,9 @@ div#block-customadsblock-8 {
   overflow-x: auto;
   flex-wrap: nowrap;
 }
+
+.img-jugador {
+  img {
+    @apply rounded-full m-auto;
+  }
+}

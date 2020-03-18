@@ -1,0 +1,79 @@
+<div>
+    <div v-if="competition>0 && season>0 && player>0" class="opta-widgets">
+        <div>
+            <opta-widget
+                    sport="football"
+                    widget="player_profile"
+                    :competition="competition"
+                    :season="season"
+                    team=""
+                    :player="player"
+                    template="normal"
+                    show_images="true"
+                    show_country="true"
+                    show_flags="true"
+                    date_format="D MMMM YYYY"
+                    height_units="m"
+                    weight_units="kg"
+                    player_naming="full"
+                    show_logo="false"
+                    show_title="false"
+                    breakpoints="400">
+            </opta-widget>
+        </div>
+        <div class="tw-flex">
+            <div class="tw-flex-1">
+                <opta-widget
+                        sport="football"
+                        widget="season_player_stats"
+                        :competition="competition"
+                        :season="season"
+                        team=""
+                        :player="player"
+                        preselected_player="all"
+                        template="normal"
+                        navigation="tabs_more"
+                        default_nav="1"
+                        team_naming="full"
+                        player_naming="full"
+                        show_general="true"
+                        show_distribution="true"
+                        show_attack="true"
+                        show_defence="true"
+                        show_discipline="true"
+                        show_goalkeeping="true"
+                        show_logo="false"
+                        show_title="false"
+                        breakpoints="400">
+                </opta-widget>
+            </div>
+            <div class="tw-flex-1 tw-pl-6">
+                <opta-widget
+                        sport="football"
+                        widget="player_compare"
+                        :competition="competition"
+                        :season="season"
+                        team=""
+                        :player="player"
+                        template="normal"
+                        navigation="tabs_more"
+                        default_nav="1"
+                        show_selects="true"
+                        show_crests="false"
+                        show_images="false"
+                        competition_naming="full"
+                        team_naming="full"
+                        player_naming="full"
+                        show_logo="false"
+                        show_title="false"
+                        breakpoints="400">
+                </opta-widget>
+            </div> 
+        </div>
+    </div>
+    <div v-else>
+        <div style="color:white;background-color: rgba(78,165,255,0.45);padding: 10px;">
+            <small>Opta fields not found or incorrect</small>
+        </div>
+    </div>
+</div>
