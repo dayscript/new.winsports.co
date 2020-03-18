@@ -552,15 +552,35 @@ div#block-contenidoprincipaldelapagina-3{
 }   
 #block-widgetprogrammingblock{
   h3{
-    font-family: $font-title;
-    @apply tw-text-primary text-2xl font-semibold;
+    font-family: $font-title; 
+    @apply tw-text-primary text-3xl font-semibold;
   }
   .date {
     text-align: center;
-    @apply text-sm;
+    padding: 0.6rem;
+    background: #d4dbdc;
+    width: auto;
+    margin: 0 5px 0 0 !important;
+    @screen md{
+      padding: 1rem;
+      width: 11rem;
+    }
+    @apply text-base;
     .weekday{
       text-transform: uppercase;
+      font-size: 0.8rem;
+      @screen md{
+        font-size: 1rem;
+      }
     }
+    .day {
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1em;
+      @screen md{
+        font-size: 2rem;
+      }
+  }
     a{
       color: #819A9F;
       &:hover{
@@ -568,9 +588,10 @@ div#block-contenidoprincipaldelapagina-3{
       }
     }
     &.active{
+      background: #0b3b41;
       a{
-        color: #0b3b41;
         font-weight: 600;
+        color: white; 
       }
     }
   }
@@ -580,10 +601,6 @@ div#block-contenidoprincipaldelapagina-3{
       padding-top: 2rem;
       width: 50px;
   }
-}
-#owl-programming .item {
-  margin-right: 0;
-  margin-left: 4rem;
 }
 }
 
@@ -666,6 +683,45 @@ nav#block-envivo {
   }
 }
 
-div#block-customadsblock {
+div#block-customadsblock, #block-customadsblock-4, #block-customadsblock-5, #block-customadsblock-6{
     margin-bottom: 2rem;
+}
+#block-customadsblock-5, #block-customadsblock-6{
+  margin-top: 2rem;
+}
+div#block-customadsblock-8 {
+  margin: 3rem auto 2rem auto;
+}
+
+.funcionario{
+  margin: 2rem;
+  .imagen{
+    img {
+      border-radius: 4rem;
+  }
+  }
+  .content{
+    h3{
+      font-weight: 600;
+      color: #0b3b41 !important;
+      font-size: 1.4rem;
+    }
+    .cargo{
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+  }
+  .mail, .twitter{
+    color: #0b3b41 !important;
+    font-size: 0.9rem;
+  }
+  }
+}
+
+#owl-programming .items {
+  display: flex;
+  width: 100%;
+  margin-bottom: 0.4rem;
+  overflow-x: auto;
+  flex-wrap: nowrap;
 }

@@ -795,6 +795,20 @@ h2.title-news {
   }
 }
 
+div#block-titulodelapagina {
+  font-family: "Passion One", cursive;
+  font-size: 2.25rem;
+  margin-bottom: 1rem;
+  color: #0b3b41;
+  line-height: 1;
+}
+
+@media (min-width: 768px) {
+  div#block-titulodelapagina {
+    margin-bottom: 2rem;
+  }
+}
+
 h2 {
   text-transform: uppercase;
 }
@@ -1871,17 +1885,47 @@ div#block-contenidoprincipaldelapagina-3 header {
 #block-widgetprogrammingblock h3 {
   font-family: "Passion One", cursive;
   color: #0b3b41;
-  font-size: 1.5rem;
+  font-size: 1.875rem;
   font-weight: 600;
 }
 
 #block-widgetprogrammingblock .date {
   text-align: center;
-  font-size: 0.875rem;
+  padding: 0.6rem;
+  background: #d4dbdc;
+  width: auto;
+  margin: 0 5px 0 0 !important;
+  font-size: 1rem;
+}
+
+@media (min-width: 768px) {
+  #block-widgetprogrammingblock .date {
+    padding: 1rem;
+    width: 11rem;
+  }
 }
 
 #block-widgetprogrammingblock .date .weekday {
   text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+@media (min-width: 768px) {
+  #block-widgetprogrammingblock .date .weekday {
+    font-size: 1rem;
+  }
+}
+
+#block-widgetprogrammingblock .date .day {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1em;
+}
+
+@media (min-width: 768px) {
+  #block-widgetprogrammingblock .date .day {
+    font-size: 2rem;
+  }
 }
 
 #block-widgetprogrammingblock .date a {
@@ -1892,20 +1936,19 @@ div#block-contenidoprincipaldelapagina-3 header {
   color: #0b3b41;
 }
 
+#block-widgetprogrammingblock .date.active {
+  background: #0b3b41;
+}
+
 #block-widgetprogrammingblock .date.active a {
-  color: #0b3b41;
   font-weight: 600;
+  color: white;
 }
 
 #block-widgetprogrammingblock .owl-buttons div.owl-prev, #block-widgetprogrammingblock .owl-buttons div.owl-next {
   display: block !important;
   padding-top: 2rem;
   width: 50px;
-}
-
-#block-widgetprogrammingblock #owl-programming .item {
-  margin-right: 0;
-  margin-left: 4rem;
 }
 
 @media (min-width: 768px) {
@@ -2007,8 +2050,52 @@ nav#block-envivo a {
   }
 }
 
-div#block-customadsblock {
+div#block-customadsblock, #block-customadsblock-4, #block-customadsblock-5, #block-customadsblock-6 {
   margin-bottom: 2rem;
+}
+
+#block-customadsblock-5, #block-customadsblock-6 {
+  margin-top: 2rem;
+}
+
+div#block-customadsblock-8 {
+  margin: 3rem auto 2rem auto;
+}
+
+.funcionario {
+  margin: 2rem;
+}
+
+.funcionario .imagen img {
+  border-radius: 4rem;
+}
+
+.funcionario .content h3 {
+  font-weight: 600;
+  color: #0b3b41 !important;
+  font-size: 1.4rem;
+}
+
+.funcionario .content .cargo {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+}
+
+.funcionario .content .mail, .funcionario .content .twitter {
+  color: #0b3b41 !important;
+  font-size: 0.9rem;
+}
+
+#owl-programming .items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  margin-bottom: 0.4rem;
+  overflow-x: auto;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
 }
 
 #block-futbolcolombiano-estadisticas, .opta-widgets {
