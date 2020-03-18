@@ -25,7 +25,9 @@ new Vue({
     active_round: '',
     season: 2020,
     matches: [],
+    prevs: {},
     cronicles: {},
+    urls: {},
   },
   beforeMount () {
     const id = this.$el.id
@@ -80,6 +82,10 @@ new Vue({
                 if (data[i].field_tipo_de_articulo === 'Crónica') {
                   Vue.set(this.cronicles, match_id, data[i].nid)
                 }
+                else if (data[i].field_tipo_de_articulo === 'Previa') {
+                  Vue.set(this.prevs, match_id, data[i].nid)
+                }
+                Vue.set(this.urls, match_id, data[i].field_url)
               }
             }
           }
