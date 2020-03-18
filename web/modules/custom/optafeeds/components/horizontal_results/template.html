@@ -65,13 +65,9 @@
                     <img src="/sites/default/files/widgets/play_button.png" alt="Comprar">
                     <span class="pl-1 text-xs font-medium title-color">Comprar partido</span>
                 </a>
-                <a :href="'/node/'+prevs[match.id]" class="flex" v-else-if="prevs[match.id]">
-                    <img src="/sites/default/files/widgets/play_button.png" alt="Previa">
-                    <span class="pl-1 text-xs font-medium title-color">Ver previa</span>
-                </a>
                 <a :href="'/matches/'+match.id" class="flex" v-else>
                     <img src="/sites/default/files/widgets/play_button.png" alt="Resumen">
-                    <span class="pl-1 text-xs font-medium title-color">Ver resumen</span>
+                    <span class="pl-1 text-xs font-medium title-color">Minuto a minuto</span>
                 </a>
             </div>
             <div v-else @click="goto('/matches/'+match.id)">
