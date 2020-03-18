@@ -327,6 +327,7 @@ class MigrateController {
           $results['existing']++;
         }
         $node->field_opta_id = $item['field_id_opta'];
+        $node->field_opta_team = $item['team'];
         $node->save();
         if ($results['new'] + $results['existing'] >= $this->limit) {
           break;

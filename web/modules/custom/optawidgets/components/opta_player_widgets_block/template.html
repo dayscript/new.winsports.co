@@ -1,12 +1,12 @@
 <div>
     <div v-if="competition>0 && season>0 && player>0" class="opta-widgets">
-        <div>
+        <div class="w-full">
             <opta-widget
                     sport="football"
                     widget="player_profile"
                     :competition="competition"
                     :season="season"
-                    team=""
+                    :team="team"
                     :player="player"
                     template="normal"
                     show_images="true"
@@ -28,7 +28,7 @@
                         widget="season_player_stats"
                         :competition="competition"
                         :season="season"
-                        team=""
+                        :team="team"
                         :player="player"
                         preselected_player="all"
                         template="normal"
@@ -53,7 +53,7 @@
                         widget="player_compare"
                         :competition="competition"
                         :season="season"
-                        team=""
+                        :team="team"
                         :player="player"
                         template="normal"
                         navigation="tabs_more"
