@@ -2011,6 +2011,11 @@ div#block-customadsblock {
   margin-bottom: 2rem;
 }
 
+.img-jugador img {
+  border-radius: 9999px;
+  margin: auto;
+}
+
 #block-futbolcolombiano-estadisticas, .opta-widgets {
   color: #0b3b41;
 }

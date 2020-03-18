@@ -293,6 +293,52 @@ class MigrateController {
       '#markup' => t('Migracion de Equipos') . '<br>' . 'Nuevos: ' . $results['new'] . '<br>Existentes: ' . $results['existing'],
     ];
   }
+  public function players() {
+    $url     = 'https://admin.winsports.co/migrate/players';
+    $res     = $this->client->get($url);
+    $results = [
+      'new'      => 0,
+      'existing' => 0,
+    ];
+    if ($res->getStatusCode() == 200) {
+      $response = json_decode($res->getBody(), TRUE);
+      $count    = 0;
+      foreach ($response['nodes'] as $item) {
+        $count++;
+        if ($this->offset > 0 && $count <= $this->offset) {
+          continue;
+        }
+        $query = \Drupal::entityQuery('node');
+        $query->condition('title', $item['title']);
+        $query->condition('type', 'jugador');
+        $entity_ids = $query->execute();
+        if (count($entity_ids) == 0) {
+          $node = Node::create([
+            'type'                   => 'jugador',
+            'title'                  => $item['title'],
+            'uid'                    => 1,
+            'moderation_state'       => 'published',
+          ]);
+          $node->save();
+          $results['new']++;
+        }
+        else {
+          $node = Node::load(array_pop($entity_ids));
+          $results['existing']++;
+        }
+        $node->field_opta_id = $item['field_id_opta'];
+        $node->save();
+        if ($results['new'] + $results['existing'] >= $this->limit) {
+          break;
+        }
+      }
+    }
+    
+    return [
+      '#type'   => 'markup',
+      '#markup' => t('Migracion de Jugadores') . '<br>' . 'Nuevos: ' . $results['new'] . '<br>Existentes: ' . $results['existing'],
+    ];
+  }
 
   public function ads() {
     $url     = 'https://admin.winsports.co/migrate/ads';

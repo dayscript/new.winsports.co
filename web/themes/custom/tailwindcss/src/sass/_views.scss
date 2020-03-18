@@ -669,3 +669,9 @@ nav#block-envivo {
 div#block-customadsblock {
     margin-bottom: 2rem;
 }
+
+.img-jugador{
+  img {
+    @apply rounded-full m-auto;
+  }
+}
