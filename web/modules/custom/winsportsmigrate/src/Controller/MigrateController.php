@@ -326,6 +326,19 @@ class MigrateController {
           $node = Node::load(array_pop($entity_ids));
           $results['existing']++;
         }
+        if ($item['field_image']['src']) {
+          $image = file_get_contents($item['field_image']['src']);
+          if ($file = file_save_data($image, 'public://images/players/' . $this->slug($item['title']) . '.jpg', FILE_EXISTS_REPLACE)) {
+            $node->field_image = [
+              'target_id' => $file->id(),
+              'alt'       => $item['title'],
+              'title'     => $item['title'],
+            ];
+          }
+          else {
+            dd('No se cargo la imagen');
+          }
+        }
         $node->field_opta_id = $item['field_id_opta'];
         $node->field_opta_team = $item['team'];
         $node->save();
