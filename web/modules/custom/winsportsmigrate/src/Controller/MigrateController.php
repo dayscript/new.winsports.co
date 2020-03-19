@@ -261,7 +261,6 @@ class MigrateController {
             'moderation_state'       => 'published',
           ]);
           $node->save();
-          $this->attachPlayers($node, $item['players']);
           if ($item['field_image']['src']) {
             $image = file_get_contents($item['field_image']['src']);
             if ($file = file_save_data($image, 'public://images/teams/' . $this->slug($item['title']) . '.png', FILE_EXISTS_REPLACE)) {
@@ -279,6 +278,7 @@ class MigrateController {
           $node = Node::load(array_pop($entity_ids));
           $results['existing']++;
         }
+        $this->attachPlayers($node, $item['players']);
         $node->field_opta_id = $item['field_id_opta'];
         $node->save();
         if ($results['new'] + $results['existing'] >= $this->limit) {
