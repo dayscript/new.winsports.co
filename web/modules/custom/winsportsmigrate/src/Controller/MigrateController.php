@@ -744,6 +744,7 @@ class MigrateController {
 
   public function attachPlayers($node, $players) {
     foreach (explode(',', $players) as $player_name) {
+      $player_name = trim($player_name);
       if (trim($player_name) == '') {
         continue;
       }
