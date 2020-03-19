@@ -6,7 +6,6 @@
         </h2>
     {% endif %}
     {{ title_suffix }}
-
     <div{{ content_attributes.addClass('node-content') }}>
         {% if node.hasField('field_pretitle') %}
             <div class="pretitle">{{ content.field_pretitle }}</div>
@@ -48,5 +47,5 @@
         <div class="comments">
             <div class="fb-comments" data-href="https://www.winsports.co{{ url }}" data-width="100%" data-numposts="5"></div>
         </div>
-
+    </div>
 </article>
