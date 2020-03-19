@@ -744,6 +744,7 @@ class MigrateController {
   }
 
   public function attachPlayers($node, $players) {
+    $node->field_jugador =[];
     foreach (explode(',', $players) as $player_name) {
       $player_name = trim($player_name);
       if (trim($player_name) == '') {
@@ -766,8 +767,8 @@ class MigrateController {
         $player = Node::load(array_pop($entity_ids));
       }
       $node->field_jugador[] = $player;
-      $node->save();
     }
+    $node->save();
   }
 
   public function attachMatch($node, $match) {
