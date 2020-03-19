@@ -351,7 +351,7 @@ class MigrateController {
     return [
       '#type'   => 'markup',
       '#markup' => t('Migracion de Jugadores') . '<br>'
-      . 'Nuevos: ' . $results['new'] . '<br>Existentes: ' . $results['existing'] . '<br>Total: ' . $count,
+      . 'Nuevos: ' . $results['new'] . '<br>Existentes: ' . $results['existing'] . '<br>Total: ' . $count . '/' . count($response['nodes']),
     ];
   }
 
