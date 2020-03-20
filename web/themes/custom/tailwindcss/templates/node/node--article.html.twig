@@ -29,8 +29,7 @@
         {% endif %}
         {% if node.hasField('field_mediastream') %}
             {{ content.field_mediastream }}
-        {% endif %}
-        {% if node.field_url.uri %}
+        {% elseif node.field_url.uri %}
             {{ content.field_url }}
         {% elseif node.hasField('field_image_h') %}
             <div class="tw-my-4">{{ content.field_image_h }}</div>
