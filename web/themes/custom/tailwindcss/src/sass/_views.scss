@@ -79,8 +79,28 @@
     }
   }
 }
-#footer-first{
-  > div {
+
+div#footer-first{
+  > div{
+    @screen md{
+      @apply flex;
+    }
+  }
+  .menu-footer{
+    h2{
+      @apply tw-text-lg tw-font-bold tw-text-white tw-normal-case;
+      font-family:$font-body;
+    }
+    ul:not(.contextual-links){
+      li{
+       @apply tw-mb-3;
+        a{
+          @apply tw-text-sm tw-text-white;
+        }
+      }
+    }
+  }
+/*   > div {
     @apply flex;
     #block-futbolcolombiano-2,
     #block-futbolinternacional-2{
@@ -97,7 +117,7 @@
         }
       }
     }
-  }
+  } */
 }
 .gol-partido.teaser{
   .image {
@@ -173,7 +193,9 @@
   .ui-tabs-panel{
     @apply p-0;
     .views-row{
-      @apply mb-4 bg-primary text-white;
+      @screen md{
+        @apply mb-4 bg-primary text-white;
+      }
       .views-field-title{
         a{
           @apply text-white;
@@ -482,6 +504,9 @@
     .views-field-title{
       font-family:$font-title;
       @apply text-xl;
+      padding-right: 6rem;
+      display: inline-block;
+      line-height: 1em;
     }
   }
   .views-field-field-torneo{
@@ -522,15 +547,6 @@ iframe.iframe-futbolred {
   body {
     padding: 0 !important;
 }
-}
-div#footer-first{
-  h2{
-    @apply tw-text-lg tw-font-bold;
-    text-transform: none;
-  }
-  li{
-   @apply mb-3 text-sm;
-  }
 }
 a.footer {
   color: #0ef8c3;
@@ -604,13 +620,7 @@ div#block-contenidoprincipaldelapagina-3{
 }
 }
 
-#blocktabs-programacion{
-  @screen md {
-    .col-span-3 {
-      grid-column: span 1/span 3;
-   }
-  }
-}
+
 #block-views-block-torneos-block-2{
   .owl-controls {
     margin-bottom: 0 !important;
@@ -729,5 +739,51 @@ div#block-customadsblock-8 {
 .img-jugador {
   img {
     @apply rounded-full m-auto;
+  }
+}
+.menu-secundario .teams-list {
+  text-align: center;
+    .team-item {
+      text-align: center; 
+      display: inline-block;
+      margin: auto 1rem;
+      a{
+        img{
+          display: inline-block !important;  
+          height: 80px;
+        }
+      }
+    }
+}
+.t-w-3-tercio{
+  width: 100% !important;
+  @screen md {
+    width: 33.333333% !important;
+  }
+}
+.pos2 {
+  left: 0;
+  @screen md {
+    left: 33.333333% ;
+  }
+}
+.pos3 {
+  left: 0;
+  @screen md {
+    left: 66.666666% ;
+  }
+}
+
+#blocktabs-columnas_blogs-1,
+#blocktabs-columnas_blogs-2{
+  .views-row{
+    span{
+      font-family: $font-title;
+      font-size: 1.5rem;
+      color: #0b3b41;
+    }
+    .nombres{
+      color: #0b3b41 !important;
+    }
   }
 }

@@ -8,7 +8,7 @@
                 <a @click="type='int'" :class="{'is-active':type==='int'}">Fútbol Internacional</a>
             </li>
         </ul>
-        <div class="tw-flex tw-items-center tw-justify-start teams-list">
+        <div class="tw-items-center teams-list">
             <div v-for="tournament in tournaments[type]" class="team-item">
                 <a :class="{'is-active':tournament.field_opta_id === competition}" :href="'/posiciones?id='+tournament.field_opta_id + '-'+tournament.field_opta_season">
                     <img :src="tournament.field_image_h" :alt="tournament.title">
