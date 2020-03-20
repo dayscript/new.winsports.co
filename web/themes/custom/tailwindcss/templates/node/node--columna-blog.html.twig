@@ -28,6 +28,9 @@
         {% if node.hasField('field_lead') %}
             <div class="lead my-2 tw-text-lg italic mb-8">{{ content.field_lead }}</div>
         {% endif %}
+        {% if node.hasField('field_url') %}
+            {{ content.field_url }}
+        {% endif %}
         {% if node.hasField('field_mediastream') %}
             {{ content.field_mediastream }}
         {% endif %}

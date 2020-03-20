@@ -1,0 +1,9 @@
+name: 'Youtube Video Player Formatter'
+description: 'YouTube embed formatter for the link field'
+type: module
+version: '1.x'
+core: '8.x'
+package: Custom
+dependencies:
+  - field
+

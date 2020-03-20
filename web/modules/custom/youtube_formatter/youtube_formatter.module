@@ -1,0 +1,16 @@
+<?php
+/**
+ * Implements hook_theme().
+ */
+function youtube_formatter_theme($existing, $type, $theme, $path) {
+  return [
+    'youtube_player' => [
+      'template'  => 'youtube',
+      'variables' => [
+        'url' => NULL,
+        'image'          => NULL,
+      ],
+    ],
+  ];
+}
+
