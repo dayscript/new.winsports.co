@@ -43,6 +43,7 @@
         "drupal/responsive_menu": "^2.6",
         "drupal/single_image_formatter": "^1.5",
         "drupal/slick_views": "^2.2",
+        "drupal/social_media_links": "^2.6",
         "drupal/string_field_formatter": "^1.1",
         "drupal/tamper": "^1.0@alpha",
         "drupal/twig_tweak": "^2.5",
