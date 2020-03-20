@@ -12,8 +12,6 @@ use Drupal\Core\Field\FieldItemListInterface;
  *   id = "youtube_formatter",
  *   label = @Translation("Youtube player formatter"),
  *   field_types = {
- *     "text",
- *     "string",
  *     "link"
  *   }
  * )
