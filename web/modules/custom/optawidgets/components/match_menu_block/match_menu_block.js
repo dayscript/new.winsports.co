@@ -2,7 +2,7 @@ Vue.config.ignoredElements = ['opta-widget']
 new Vue({
   el: '.match-menu',
   data: {
-    display:false,
+    display: false,
     selected_option: 'estadisticas',
     opta_competition: '',
     opta_season: '',
@@ -15,8 +15,9 @@ new Vue({
     round_name: '',
     cron: null,
     node: null,
-    events:[],
-    loading:0
+    events: [],
+    widget: 'chalkboard',
+    loading: 0
   },
   beforeMount () {
     const id = this.$el.id
@@ -39,22 +40,41 @@ new Vue({
       }
     }
     else {
-      if (this.node['field_opta_id'][0]['value']) this.opta_competition = this.node['field_opta_id'][0]['value']
-      if (this.node['field_opta_season'][0]['value']) this.opta_season = this.node['field_opta_season'][0]['value']
-      if (this.node['field_opta_match_id'][0]['value']) this.opta_match_id = this.node['field_opta_match_id'][0]['value']
-      if (this.node['field_opta_home_id'][0]['value']) this.opta_home_id = this.node['field_opta_home_id'][0]['value']
-      if (this.node['field_opta_away_id'][0]['value']) this.opta_away_id = this.node['field_opta_away_id'][0]['value']
-      if (this.node['field_torneo_node'][0]['value']) this.tournament_name = this.node['field_torneo_node'][0]['value']
-      if (this.node['field_round'][0]['value']) this.round_name = this.node['field_round'][0]['value']
+      if (this.node['field_opta_id'][0]['value']) {
+        this.opta_competition = this.node['field_opta_id'][0]['value']
+      }
+      if (this.node['field_opta_season'][0]['value']) {
+        this.opta_season = this.node['field_opta_season'][0]['value']
+      }
+      if (this.node['field_opta_match_id'][0]['value']) {
+        this.opta_match_id = this.node['field_opta_match_id'][0]['value']
+      }
+      if (this.node['field_opta_home_id'][0]['value']) {
+        this.opta_home_id = this.node['field_opta_home_id'][0]['value']
+      }
+      if (this.node['field_opta_away_id'][0]['value']) {
+        this.opta_away_id = this.node['field_opta_away_id'][0]['value']
+      }
+      if (this.node['field_torneo_node'][0]['value']) {
+        this.tournament_name = this.node['field_torneo_node'][0]['value']
+      }
+      if (this.node['field_round'][0]['value']) {
+        this.round_name = this.node['field_round'][0]['value']
+      }
       this.display = true
     }
     if (this.opta_match_id || this.drupal_match_id) {
       this.loadArticles()
     }
-    if(this.selected_option == 'directo') this.loadEvents()
+    if (this.selected_option == 'directo') {
+      this.loadEvents()
+    }
     Opta.start()
   },
   methods: {
+    selectWidget(widget){
+      this.widget = widget
+    },
     selectOption (option_key) {
       this.loading++
       this.selected_option = option_key
@@ -66,7 +86,7 @@ new Vue({
       }
       if (option_key === 'estadisticas' || option_key === 'alineaciones') {
         jQuery('#main-content-region').addClass('md:tw-hidden')
-        let timer = setTimeout(()=>{
+        let timer = setTimeout(() => {
           Opta.start()
           this.loading--
         }, 1000)
@@ -80,17 +100,23 @@ new Vue({
     loadEvents () {
       axios.get('https://s3.amazonaws.com/optafeeds-prod/gamecast/' + this.opta_competition + '/' + this.opta_season + '/matches/' + this.opta_match_id + '.json').then(
           ({data}) => {
-            if(data.events) this.events = data.events
+            if (data.events) {
+              this.events = data.events
+            }
           }
-      ).catch(()=>{
+      ).catch(() => {
         this.events = []
       })
     },
     loadArticles () {
       this.loading++
       let url = ''
-      if (this.drupal_match_id) url = '/api/match-node/articles/' + this.drupal_match_id
-      else url = '/api/match/articles/' + this.opta_match_id
+      if (this.drupal_match_id) {
+        url = '/api/match-node/articles/' + this.drupal_match_id
+      }
+      else {
+        url = '/api/match/articles/' + this.opta_match_id
+      }
       axios.get(url).then(
           ({data}) => {
             if (data.length > 0) {
@@ -102,13 +128,17 @@ new Vue({
               this.tournament_name = data[0].field_torneo_node
               this.round_name = data[0].field_round
               for (let i = 0; i < data.length; i++) {
-                if (data[i].field_tipo_de_articulo === 'Previa') this.prev = data[i].nid
-                else if (data[i].field_tipo_de_articulo === 'Crónica') this.cron = data[i].nid
+                if (data[i].field_tipo_de_articulo === 'Previa') {
+                  this.prev = data[i].nid
+                }
+                else if (data[i].field_tipo_de_articulo === 'Crónica') {
+                  this.cron = data[i].nid
+                }
               }
             }
             this.loading--
           }
-      ).catch(()=>{ this.loading-- })
+      ).catch(() => { this.loading-- })
     },
     imageEventsOpta (type) {
       var events = {
