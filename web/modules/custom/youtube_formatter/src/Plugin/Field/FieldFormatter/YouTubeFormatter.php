@@ -28,7 +28,7 @@ class YouTubeFormatter extends FormatterBase {
     $nodeid    = $items->getParent()->getValue()->id();
     $elements  = [];
     foreach ($items as $delta => $item) {
-      $url              = $item->value;
+      $url              = $item->url;
       $url              = str_replace('https://youtu.be/', 'http://www.youtube.com/embed/', $url);
       $elements[$delta] = [
         '#theme'     => 'youtube_player',
