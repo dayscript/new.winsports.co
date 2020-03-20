@@ -28,13 +28,12 @@
         {% if node.hasField('field_lead') %}
             <div class="lead my-2 tw-text-lg italic mb-8">{{ content.field_lead }}</div>
         {% endif %}
-        {% if node.hasField('field_url') %}
-            {{ content.field_url }}
-        {% endif %}
         {% if node.hasField('field_mediastream') %}
             {{ content.field_mediastream }}
         {% endif %}
-        {% if node.hasField('field_image_h') %}
+        {% if node.field_url.uri %}
+            {{ content.field_url }}
+        {% elseif node.hasField('field_image_h') %}
             <div class="tw-my-4">{{ content.field_image_h }}</div>
             <div class="tw-text-gray-650 tw-text-sm tw-mb-4">{{ node.field_image_h.title }}</div>
         {% elseif node.hasField('field_image') %}
