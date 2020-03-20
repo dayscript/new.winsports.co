@@ -1,0 +1,18 @@
+name: Gamecast Header Block
+machine_name: gamecast-header
+type: pdb
+description: 'Gamecast Header block'
+package: Vue
+core: '8.x'
+module_status: active
+template: template.html
+presentation: vue
+contexts:
+  entity: node
+add_js:
+  footer:
+    'gamecast_header_block.js': {}
+libraries:
+  - optafeeds/axios
+  - optawidgets/opta.widgets
+  - optawidgets/opta.settings

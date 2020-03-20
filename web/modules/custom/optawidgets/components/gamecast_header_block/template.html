@@ -1,0 +1,48 @@
+<div class="opta-widgets" :class="{'tw-block':display}" v-if="display">
+    <div class="tw-text-center title tw-uppercase tw-text-xl tw-m-0">{{ tournament_name }} - {{ round_name }}</div>
+    <div v-if="opta_competition>0 && opta_season>0 && opta_match_id>0">
+        <opta-widget
+                sport="football"
+                widget="timeline"
+                :competition="opta_competition"
+                :season="opta_season"
+                :match="opta_match_id"
+                template="normal"
+                live="true"
+                orientation="horizontal"
+                vertical_timebar_height="260"
+                show_match_header="true"
+                show_score="true"
+                show_crests="true"
+                show_assists="all"
+                show_team_formation="false"
+                show_clock="true"
+                time_format="hh:mm A"
+                show_period_dividers="true"
+                show_halftime_score="false"
+                show_date="true"
+                date_format="dddd D MMMM YYYY"
+                show_attendance="false"
+                show_images="true"
+                show_referee="true"
+                show_venue="true"
+                show_cards="all"
+                show_goals="true"
+                show_penalties_missed="true"
+                show_subs="true"
+                show_goals_combined="false"
+                show_shootouts="true"
+                show_competition_name="false"
+                competition_naming="full"
+                team_naming="full"
+                player_naming="full"
+                show_live="true"
+                show_logo="false"
+                show_title="false"
+                breakpoints="400, 700">
+        </opta-widget>
+    </div>
+    <div class="spinner tw-bg-gray-300 tw-opacity-50 tw-fixed tw-w-screen tw-h-screen tw-top-0 tw-left-0 tw-flex tw-items-center tw-justify-center" v-if="loading">
+        <div class="lds-ripple"><div></div><div></div></div>
+    </div>
+</div>
