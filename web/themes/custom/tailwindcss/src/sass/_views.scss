@@ -29,10 +29,24 @@
     }
   }
   .torneo{
-    @apply absolute text-white text-base leading-none font-semibold;
-    top: -30px;
+    @apply tw-relative tw-my-2 text-white text-base leading-none;
+    @screen md{
+      @apply tw-absolute tw-font-semibold;
+      top: -30px;
+    }
     a{
-      @apply text-white;
+      color: #0b3b41;
+      @screen md{
+        @apply text-white;
+      }
+    }
+  }
+  .category{
+    a{
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      font-family: Source Sans Pro, sans-serif;
+      line-height: 1.5;
     }
   }
 }
@@ -83,7 +97,7 @@
 div#footer-first{
   > div{
     @screen md{
-      @apply flex;
+      @apply flex flex-wrap;
     }
   }
   .menu-footer{
@@ -743,6 +757,8 @@ div#block-customadsblock-8 {
 }
 .menu-secundario .teams-list {
   text-align: center;
+  overflow-x: scroll;
+  white-space: nowrap; 
     .team-item {
       text-align: center; 
       display: inline-block;
@@ -786,4 +802,42 @@ div#block-customadsblock-8 {
       color: #0b3b41 !important;
     }
   }
+}
+#block-views-block-torneos-block-1{
+  .owl-carousel .owl-item{
+    text-align: center;
+  }
+}
+
+.article.home-destacado {
+  margin-bottom: 2rem;
+  @screen md{
+    margin-bottom: auto;
+  }
+}
+.galeria.home-destacado {
+  img{
+    margin-bottom: 1rem;
+  }
+}
+div#block-socialmedialinks {
+  margin-bottom: 1.6rem;
+  display: block;
+  text-align: center;
+  .fa {
+    border: 2px solid;
+    padding: 0.4rem;
+    border-radius: 55px;
+    width: 3rem;
+    height: 3rem; 
+}
+}
+
+
+div#block-nike {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  padding-left: 2rem !important;
+    padding-right: 2rem !important;
+
 }

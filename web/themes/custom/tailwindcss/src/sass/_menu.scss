@@ -48,7 +48,7 @@
     li{
       @apply flex-1;
       a{
-        @apply text-white px-10 py-4 inline-block w-full text-center cursor-pointer whitespace-no-wrap;
+        @apply text-white px-8 py-4 inline-block w-full text-center cursor-pointer whitespace-no-wrap;
         font-family:$font-title; 
         &.is-active{
           @apply bg-secondary text-primary;
@@ -69,6 +69,16 @@
             @apply opacity-100;
           }
         }
+      }
+    }
+  }
+}
+
+#block-socialmedialinks{
+  ul.social-media-links--platforms{
+    li{
+      a{
+        @apply tw-text-white;
       }
     }
   }

@@ -32,7 +32,7 @@
  */
 #}
 {% set heading_id = attributes.id ~ '-menu'|clean_id %}
-<nav role="navigation" aria-labelledby="{{ heading_id }}"{{ attributes.addClass('tw-px-8 md:tw-px-0 tw-py-4 md:tw-py-8 menu-footer md:tw-flex-1')|without('role', 'aria-labelledby') }}>
+<nav role="navigation" aria-labelledby="{{ heading_id }}"{{ attributes.addClass('tw-px-8 md:tw-px-0 tw-py-4 md:tw-py-8 menu-footer md:tw-w-1/6')|without('role', 'aria-labelledby') }}>
   {# Label. If not displayed, we still provide it for screen readers. #}
   {% if not configuration.label_display %}
     {% set title_attributes = title_attributes.addClass('visually-hidden') %}

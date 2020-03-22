@@ -1024,8 +1024,8 @@ a {
 #block-futbolinternacional ul:not(.contextual-links) li a,
 .menu-secundario ul:not(.contextual-links) li a {
   color: #fff;
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
   display: inline-block;
@@ -1068,6 +1068,10 @@ a {
 #block-futbolinternacional .teams-list .team-item a.is-active img,
 .menu-secundario .teams-list .team-item a.is-active img {
   opacity: 1;
+}
+
+#block-socialmedialinks ul.social-media-links--platforms li a {
+  color: #fff;
 }
 
 .gol-partido.video-player {
@@ -1117,16 +1121,37 @@ a {
 }
 
 .gol-partido.video-player .torneo {
-  position: absolute;
+  position: relative;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
   color: #fff;
   font-size: 1rem;
   line-height: 1;
-  font-weight: 600;
-  top: -30px;
+}
+
+@media (min-width: 768px) {
+  .gol-partido.video-player .torneo {
+    position: absolute;
+    font-weight: 600;
+    top: -30px;
+  }
 }
 
 .gol-partido.video-player .torneo a {
-  color: #fff;
+  color: #0b3b41;
+}
+
+@media (min-width: 768px) {
+  .gol-partido.video-player .torneo a {
+    color: #fff;
+  }
+}
+
+.gol-partido.video-player .category a {
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-family: Source Sans Pro, sans-serif;
+  line-height: 1.5;
 }
 
 .player-goles .views-element-container > div {
@@ -1206,6 +1231,8 @@ div#footer-first {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
   }
 }
 
@@ -2115,6 +2142,8 @@ div#block-customadsblock-8 {
 
 .menu-secundario .teams-list {
   text-align: center;
+  overflow-x: scroll;
+  white-space: nowrap;
 }
 
 .menu-secundario .teams-list .team-item {
@@ -2168,6 +2197,45 @@ div#block-customadsblock-8 {
 #blocktabs-columnas_blogs-1 .views-row .nombres,
 #blocktabs-columnas_blogs-2 .views-row .nombres {
   color: #0b3b41 !important;
+}
+
+#block-views-block-torneos-block-1 .owl-carousel .owl-item {
+  text-align: center;
+}
+
+.article.home-destacado {
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .article.home-destacado {
+    margin-bottom: auto;
+  }
+}
+
+.galeria.home-destacado img {
+  margin-bottom: 1rem;
+}
+
+div#block-socialmedialinks {
+  margin-bottom: 1.6rem;
+  display: block;
+  text-align: center;
+}
+
+div#block-socialmedialinks .fa {
+  border: 2px solid;
+  padding: 0.4rem;
+  border-radius: 55px;
+  width: 3rem;
+  height: 3rem;
+}
+
+div#block-nike {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
 }
 
 #block-futbolcolombiano-estadisticas, .opta-widgets {
