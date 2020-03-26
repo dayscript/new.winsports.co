@@ -34,7 +34,7 @@ new Vue({
       items.push({key: 'calendar', label: 'Calendario'})
       items.push({key: 'team_ranking', label: 'Ranking de equipos'})
       items.push({key: 'player_compare', label: 'Duelo'})
-      items.push({key: 'season_standings', label: 'Estadísticas'})
+      items.push({key: 'season_standings', label: 'Curva de rendimiento'})
       items.push({key: 'scorers', label: 'Goleadores'})
       items.push({key: 'referees', label: 'Árbitros'})
       items.push({key: 'player_ranking', label: 'Ranking de jugadores'})

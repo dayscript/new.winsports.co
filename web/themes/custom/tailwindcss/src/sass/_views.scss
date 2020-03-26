@@ -811,9 +811,7 @@ div#block-customadsblock-8 {
 
 .article.home-destacado {
   margin-bottom: 2rem;
-  @screen md{
-    margin-bottom: auto;
-  }
+
 }
 .galeria.home-destacado {
   img{
@@ -841,3 +839,23 @@ div#block-nike {
     padding-right: 2rem !important;
 
 }
+.block-left{
+  padding-right: 0rem !important;
+  @screen md{
+    padding-right: 1.5rem !important;
+  }
+}  
+
+.opta-widgets{
+  select {
+    height: 3rem;
+    background: white !important;
+}
+}
+
+div#horizontal-results {
+  padding-top: 0 !important;
+  @screen md{
+    padding-top: 1rem !important;
+  }
+} 

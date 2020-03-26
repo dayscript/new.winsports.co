@@ -2207,12 +2207,6 @@ div#block-customadsblock-8 {
   margin-bottom: 2rem;
 }
 
-@media (min-width: 768px) {
-  .article.home-destacado {
-    margin-bottom: auto;
-  }
-}
-
 .galeria.home-destacado img {
   margin-bottom: 1rem;
 }
@@ -2236,6 +2230,31 @@ div#block-nike {
   padding-bottom: 2rem;
   padding-left: 2rem !important;
   padding-right: 2rem !important;
+}
+
+.block-left {
+  padding-right: 0rem !important;
+}
+
+@media (min-width: 768px) {
+  .block-left {
+    padding-right: 1.5rem !important;
+  }
+}
+
+.opta-widgets select {
+  height: 3rem;
+  background: white !important;
+}
+
+div#horizontal-results {
+  padding-top: 0 !important;
+}
+
+@media (min-width: 768px) {
+  div#horizontal-results {
+    padding-top: 1rem !important;
+  }
 }
 
 #block-futbolcolombiano-estadisticas, .opta-widgets {
