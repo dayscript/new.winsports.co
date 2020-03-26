@@ -1,8 +1,11 @@
+.title-laliga{
+  @apply tw-hidden;
+}
 .id-3532{
+  .title-laliga{
+    @apply tw-block;
+  }
   .layout__region--second > div > h2{
-    @apply hidden;
-    &::before{
-      content: 'No es Fútbol es la Liga';
-    }
+    @apply tw-hidden;
   }
 }
