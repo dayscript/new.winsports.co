@@ -34,6 +34,12 @@
       a{
         @apply uppercase text-white px-6;
       }
+      a.inicio{
+        @apply tw-block;
+        @screen md {
+          @apply tw-hidden;
+        }
+      }
     }
   }
 }
