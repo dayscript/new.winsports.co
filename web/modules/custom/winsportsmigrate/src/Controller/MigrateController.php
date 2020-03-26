@@ -846,7 +846,7 @@ class MigrateController {
       if ($tour_name == 'No es Fútbol es LaLiga') {
         $tour_name = 'LaLiga España 2019-2020';
       }
-      if ($tour_name == 'Copa BetPlay DIMAYOR') {
+      if ($tour_name == 'Copa BetPlay DIMAYOR' || $tour_name == 'Copa Aguila') {
         $tour_name = 'Copa BetPlay Dimayor 2020';
       }
       if ($tour_name == 'Liga Aguila') {
