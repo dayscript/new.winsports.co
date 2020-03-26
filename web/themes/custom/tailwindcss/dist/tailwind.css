@@ -2785,6 +2785,10 @@ div#block-nike {
   padding: 1.5rem;
 }
 
+.id-3532 .block-title-no-caps.layout__region.layout__region--second > div > h2 {
+  display: none;
+}
+
 .lds-ripple {
   display: inline-block;
   position: relative;
