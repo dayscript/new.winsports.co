@@ -1,5 +1,8 @@
 .id-3532{
-  .block-title-no-caps.layout__region.layout__region--second >div >h2{
+  .layout__region--second > div > h2{
     @apply hidden;
+    &::before{
+      content: 'No es Fútbol es la Liga';
+    }
   }
 }
