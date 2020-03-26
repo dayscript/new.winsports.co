@@ -2804,6 +2804,18 @@ div#horizontal-results {
   padding: 1.5rem;
 }
 
+.title-laliga {
+  display: none;
+}
+
+.id-3532 .title-laliga {
+  display: block;
+}
+
+.id-3532 .layout__region--second > div > h2 {
+  display: none;
+}
+
 .lds-ripple {
   display: inline-block;
   position: relative;

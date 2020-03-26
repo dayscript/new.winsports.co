@@ -1,0 +1,11 @@
+.title-laliga{
+  @apply tw-hidden;
+}
+.id-3532{
+  .title-laliga{
+    @apply tw-block;
+  }
+  .layout__region--second > div > h2{
+    @apply tw-hidden;
+  }
+}
