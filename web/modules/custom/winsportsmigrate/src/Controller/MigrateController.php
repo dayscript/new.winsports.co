@@ -821,6 +821,7 @@ class MigrateController {
   }
 
   public function attachTournaments($node, $tournaments) {
+    if(count($node->field_torneo_node) != 0) return;
     $node->field_torneo_node = [];
     $ignore                  = [
       'Otros Deportes',
