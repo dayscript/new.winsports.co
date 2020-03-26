@@ -18,7 +18,7 @@
             {% endif %}
         </div>
         {% if node.field_url.uri %}
-            {{ content.field_url }}
+            {{ content.field_url }} 
         {% elseif node.hasField('field_mediastream') %}
             {% if node.field_mediastream.value %}
                 <div class="mediastream fixed-height mediastream-{{ node.id }} tw-w-full tw-h-full">

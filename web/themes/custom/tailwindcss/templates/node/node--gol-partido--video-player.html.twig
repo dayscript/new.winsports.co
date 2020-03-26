@@ -1,5 +1,7 @@
 <div class="gol-partido video-player" {{ attributes.addClass(classes) }}>
-    {% if node.hasField('field_mediastream') %}
+    {% if node.field_url.uri %}
+        {{ content.field_url }}
+    {% elseif node.hasField('field_mediastream') %}
         {{ content.field_mediastream }}
     {% endif %}
     <div class="title title-{{ node.id }}">
