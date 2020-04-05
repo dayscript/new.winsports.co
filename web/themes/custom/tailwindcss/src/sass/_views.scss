@@ -181,6 +181,35 @@ div#footer-first{
     }
   }
 }
+#block-views-block-goles-home-block-3{
+  .videos-special-2{
+    @apply flex;
+    header{
+      @apply w-5/12 bg-black;
+    }
+    .views-view-grid.vertical{
+      @apply w-3/12 px-4;
+      .views-col{
+        @apply flex flex-col justify-between;
+        .views-row{
+          @apply overflow-hidden h-64 bg-black;
+          &.row-1{
+            @apply mb-4;
+          }
+          .title{
+            display: none;
+          }
+          iframe{
+            height: 250px;
+          }
+        }
+      }
+    }
+    footer{
+      @apply w-4/12 bg-black;
+    }
+  }
+}
 #block-publicidad1-2,
 #block-publicidad1{
   @apply mb-4;
