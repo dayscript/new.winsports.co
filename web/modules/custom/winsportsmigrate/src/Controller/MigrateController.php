@@ -478,32 +478,33 @@ class MigrateController {
             'created'          => $date,
           ]);
           $node->save();
-          $node->field_image = [];
-          foreach ($item['field_image'] as $key => $img) {
-            $image = file_get_contents($img['src']);
-            if ($file = file_save_data($image, 'public://images/galeries/' . $this->slug($item['title']) . '-' . $key . '.png', FILE_EXISTS_REPLACE)) {
-              $node->field_image[] = [
-                'target_id' => $file->id(),
-                'alt'       => $item['title'],
-                'title'     => $item['title'],
-              ];
-            }
-          }
-          $node->save();
           $this->attachTags($node, $item['tags']);
           $this->attachCategory($node, $item['category']);
           $this->attachSource($node, $item['fuente']);
 
           $results['new']++;
-          if ($results['new'] >= $this->limit) {
-            break;
-          }
         }
         else {
-          //          $node = Node::load(array_pop($entity_ids));
-          //          $node->set('created', $date);
-          //          $node->save();
+          $node = Node::load(array_pop($entity_ids));
+          $node->set('uid', $item['uid']);
+          $node->set('created', $date);
+          $node->save();
           $results['existing']++;
+        }
+        $node->field_image = [];
+        $node->field_images = [];
+        foreach ($item['field_images'] as $key => $img) {
+          $image = file_get_contents($img['src']);
+          if ($file = file_save_data($image, 'public://images/galeries/' . $this->slug($item['title']) . '-' . $key . '.png', FILE_EXISTS_REPLACE)) {
+            $node->field_images[] = [
+              'target_id' => $file->id(),
+              'alt'       => $item['title'],
+              'title'     => $item['title'],
+            ];
+          }
+        }
+        if ($results['new'] + $results['existing'] >= $this->limit) {
+          break;
         }
       }
     }
