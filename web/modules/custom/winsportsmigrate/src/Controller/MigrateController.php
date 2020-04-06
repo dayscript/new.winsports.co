@@ -503,6 +503,7 @@ class MigrateController {
             ];
           }
         }
+        $node->save();
         if ($results['new'] + $results['existing'] >= $this->limit) {
           break;
         }
