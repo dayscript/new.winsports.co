@@ -59,6 +59,13 @@
     }
   }
 }
+.columna-blog.resumen-vertical{
+  .user.compact{
+    .nombres{
+      @apply text-primary;
+    }
+  }
+}
 .player-goles{
   .views-element-container{
     >div{

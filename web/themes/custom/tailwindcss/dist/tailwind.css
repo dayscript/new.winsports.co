@@ -1187,6 +1187,10 @@ a {
   line-height: 1.5;
 }
 
+.columna-blog.resumen-vertical .user.compact .nombres {
+  color: #0b3b41;
+}
+
 .player-goles .views-element-container > div {
   overflow-y: hidden;
   white-space: nowrap;
