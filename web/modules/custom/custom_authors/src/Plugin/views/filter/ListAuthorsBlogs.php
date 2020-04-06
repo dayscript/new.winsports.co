@@ -54,7 +54,7 @@ class ListAuthorsBlogs extends InOperator {
    * @return array
    */
   public function generateOptions() {
-    return array(
+    return array( 
       '170588' => 'Jesús Niño',
       '8349' => 'Jorge Puerto Ladino',
       '33706' => 'Juan Moreno',
