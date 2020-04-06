@@ -40,7 +40,7 @@ class MigrateController {
       $this->period = $_REQUEST['period'];
     }
     else {
-      $this->period = '202003';
+      $this->period = '202004';
     }
     $this->client = new Client();
   }
