@@ -1,7 +1,7 @@
 <div class="galeria home-destacado md:flex" {{ attributes.addClass(classes) }}>
     <div class="image md:tw-w-3/5">
-        {% if node.hasField('field_image') %}
-            {{ content.field_image }}
+        {% if node.hasField('field_images') %}
+            {{ content.field_images }}
         {% endif %}
     </div>
     <div class="md:ml-4">
