@@ -1111,6 +1111,7 @@ a {
 .gol-partido.video-player .user.compact,
 .columna-blog.video-player .user.compact {
   line-height: 1;
+  max-width: 20rem;
 }
 
 .gol-partido.video-player .user.compact .image img,

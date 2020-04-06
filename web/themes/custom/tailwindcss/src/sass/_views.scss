@@ -12,7 +12,7 @@
     }
   }
   .user.compact{
-    @apply leading-none;
+    @apply leading-none tw-max-w-xs;
     .image{
       img{
         @apply w-auto;
