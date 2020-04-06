@@ -1,7 +1,7 @@
 <article{{ attributes.addClass('node article listado-de-etiquetas type-' ~ node.field_tipo_de_articulo.0.target_id) }}>
     <div{{ content_attributes.addClass('node-content') }}>
-        <div class="tw-flex">
-            <div class="tw-w-4/5">
+        <div class="tw-flex tw-border-b">
+            <div class="tw-w-4/5 tw-pr-10">
                 {% if node.hasField('field_pretitle') %}
                     <div class="pretitle">{{ content.field_pretitle }}</div>
                 {% endif %}
