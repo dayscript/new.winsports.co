@@ -33,7 +33,6 @@
         "drupal/entityqueue": "^1.0@beta",
         "drupal/eu_cookie_compliance": "^1.8",
         "drupal/field_group": "^3.0",
-        "drupal/galleryslider": "^1.2",
         "drupal/link_attributes": "^1.10",
         "drupal/module_filter": "^3.1",
         "drupal/owlcarousel": "^1.0@alpha",

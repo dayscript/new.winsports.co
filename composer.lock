@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "33c0758c528dd6971e2f914f26853fcc",
+    "content-hash": "c57e35c743a469072d7dad447a5dd6a5",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -3514,53 +3514,6 @@
             "homepage": "https://www.drupal.org/project/field_group",
             "support": {
                 "source": "https://git.drupalcode.org/project/field_group"
-            }
-        },
-        {
-            "name": "drupal/galleryslider",
-            "version": "1.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/galleryslider.git",
-                "reference": "8.x-1.2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/galleryslider-8.x-1.2.zip",
-                "reference": "8.x-1.2",
-                "shasum": "1e6addcac0995d368f68912e25b14d457e86c8bc"
-            },
-            "require": {
-                "drupal/core": "*"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
-                "drupal": {
-                    "version": "8.x-1.2",
-                    "datestamp": "1569608884",
-                    "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Project has not opted into security advisory coverage!"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "riazsaid15",
-                    "homepage": "https://www.drupal.org/user/3617049"
-                }
-            ],
-            "description": "Gallery Slider jQuery plugin integration module.",
-            "homepage": "https://www.drupal.org/project/galleryslider",
-            "support": {
-                "source": "https://git.drupalcode.org/project/galleryslider"
             }
         },
         {
