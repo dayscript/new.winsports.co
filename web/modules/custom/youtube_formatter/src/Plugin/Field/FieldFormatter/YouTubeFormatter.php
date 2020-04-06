@@ -29,7 +29,6 @@ class YouTubeFormatter extends FormatterBase {
     $elements  = [];
     foreach ($items as $delta => $item) {
       $url              = $item->uri;
-//      dd($item);
       $url              = str_replace('https://youtu.be/', 'https://www.youtube.com/embed/', $url);
       $url              = str_replace('https://www.youtube.com/watch?v=', 'https://www.youtube.com/embed/', $url);
       $elements[$delta] = [
