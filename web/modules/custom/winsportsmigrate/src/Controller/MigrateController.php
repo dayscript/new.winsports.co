@@ -461,7 +461,12 @@ class MigrateController {
     ];
     if ($res->getStatusCode() == 200) {
       $response = json_decode($res->getBody(), TRUE);
+      $count    = 0;
       foreach ($response['nodes'] as $item) {
+        $count++;
+        if ($this->offset > 0 && $count <= $this->offset) {
+          continue;
+        }
         $date  = $item['fecha'];
         $query = \Drupal::entityQuery('node');
         $query->condition('title', $item['title']);
@@ -511,7 +516,8 @@ class MigrateController {
     }
     return [
       '#type'   => 'markup',
-      '#markup' => t('Migracion de Galerias') . '<br>' . 'Nuevos: ' . $results['new'] . '<br>Existentes: ' . $results['existing'],
+      '#markup' => t('Migracion de Galerias') . '<br>'
+                   . 'Nuevos: ' . $results['new'] . '<br>Existentes: ' . $results['existing'] . '<br>Total: ' . $count . ' / ' . count($response['nodes']),
     ];
   }
 
