@@ -1,38 +1,37 @@
 <article{{ attributes.addClass('node article listado-de-etiquetas type-' ~ node.field_tipo_de_articulo.0.target_id) }}>
-    {{ title_prefix }}
-    {% if not page %}
-        <h2{{ title_attributes }}>
-            <a href="{{ url }}" rel="bookmark">{{ label }}</a>
-        </h2>
-    {% endif %}
-    {{ title_suffix }}
     <div{{ content_attributes.addClass('node-content') }}>
-        {% if node.hasField('field_pretitle') %}
-            <div class="pretitle">{{ content.field_pretitle }}</div>
-        {% endif %}
-        {% if node.hasField('field_category') %}
-            <div class="category">{{ content.field_category }}</div>
-        {% endif %}
-        <h2 class="title-news">{{ label }}</h2>
-        <div class="tw-flex tw-items-center tw-text-primary tw-text-sm tw-my-4">
-            <div class="tw-mr-6 published_date">{{ node.getCreatedTime() | format_date('complete_date') }}</div>
-            {% if node.hasField('field_source') %}
-                <div class="tw-flex tw-items-center">
-                    <div class="tw-mr-1">Por:</div>
-                    <div>{{ content.field_source }}</div>
+        <div class="tw-flex">
+            <div>
+                {% if node.hasField('field_pretitle') %}
+                    <div class="pretitle">{{ content.field_pretitle }}</div>
+                {% endif %}
+                {% if node.hasField('field_category') %}
+                    <div class="category">{{ content.field_category }}</div>
+                {% endif %}
+                <h2 class="title-news">{{ label }}</h2>
+                <div class="tw-flex tw-items-center tw-text-primary tw-text-sm tw-my-4">
+                    <div class="tw-mr-6 published_date">{{ node.getCreatedTime() | format_date('complete_date') }}</div>
+                    {% if node.hasField('field_source') %}
+                        <div class="tw-flex tw-items-center">
+                            <div class="tw-mr-1">Por:</div>
+                            <div>{{ content.field_source }}</div>
+                        </div>
+                    {% endif %}
                 </div>
-            {% endif %}
+                {% if node.hasField('field_lead') %}
+                    <div class="lead my-2 tw-text-lg italic mb-8">{{ content.field_lead }}</div>
+                {% endif %}
+                <div>{{ drupal_block("better_social_sharing_buttons_block") }}</div>
+            </div>
+            <div>
+                {% if node.hasField('field_image') %}
+                    <div class="tw-mt-4 tw-mb-2">{{ content.field_image }}</div>
+                    <div class="tw-text-primary tw-text-sm tw-mb-2">{{ node.field_image.title }}</div>
+                {% elseif node.hasField('field_image_h') %}
+                    <div class="tw-my-4">{{ content.field_image_h }}</div>
+                    <div class="tw-text-gray-650 tw-text-sm tw-mb-4">{{ node.field_image_h.title }}</div>
+                {% endif %}
+            </div>
         </div>
-        {% if node.hasField('field_lead') %}
-            <div class="lead my-2 tw-text-lg italic mb-8">{{ content.field_lead }}</div>
-        {% endif %}
-        {% if node.hasField('field_image') %}
-            <div class="tw-mt-4 tw-mb-2">{{ content.field_image }}</div>
-            <div class="tw-text-primary tw-text-sm tw-mb-2">{{ node.field_image.title }}</div>
-        {% elseif node.hasField('field_image_h') %}
-            <div class="tw-my-4">{{ content.field_image_h }}</div>
-            <div class="tw-text-gray-650 tw-text-sm tw-mb-4">{{ node.field_image_h.title }}</div>
-        {% endif %}
-        <div>{{ drupal_block("better_social_sharing_buttons_block") }}</div>
     </div>
 </article>
