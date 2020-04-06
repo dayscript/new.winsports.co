@@ -1,4 +1,5 @@
-.gol-partido.video-player{
+.gol-partido.video-player,
+.columna-blog.video-player{
   @apply relative;
   .image{
     @apply mb-4 relative;
@@ -133,7 +134,8 @@ div#footer-first{
     }
   } */
 }
-.gol-partido.teaser{
+.gol-partido.teaser,
+.columna-blog.resumen-vertical{
   .image {
     @apply mb-0;
     img {

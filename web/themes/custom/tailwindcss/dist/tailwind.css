@@ -1084,28 +1084,33 @@ a {
   color: #fff;
 }
 
-.gol-partido.video-player {
+.gol-partido.video-player,
+.columna-blog.video-player {
   position: relative;
 }
 
-.gol-partido.video-player .image {
+.gol-partido.video-player .image,
+.columna-blog.video-player .image {
   margin-bottom: 1rem;
   position: relative;
 }
 
 @media (min-width: 768px) {
-  .gol-partido.video-player .image {
+  .gol-partido.video-player .image,
+  .columna-blog.video-player .image {
     margin-bottom: 0;
   }
 }
 
-.gol-partido.video-player .image img:not(.play-icon) {
+.gol-partido.video-player .image img:not(.play-icon),
+.columna-blog.video-player .image img:not(.play-icon) {
   opacity: 0.7;
   width: 100%;
 }
 
 @media (min-width: 768px) {
-  .gol-partido.video-player .title {
+  .gol-partido.video-player .title,
+  .columna-blog.video-player .title {
     bottom: 30px;
     left: 30px;
     font-family: "Source Sans Pro", sans-serif;
@@ -1119,18 +1124,21 @@ a {
   }
 
   @media (min-width: 768px) {
-    .gol-partido.video-player .title {
+    .gol-partido.video-player .title,
+    .columna-blog.video-player .title {
       padding-left: 1rem;
       padding-right: 1rem;
     }
   }
 
-  .gol-partido.video-player .title a {
+  .gol-partido.video-player .title a,
+  .columna-blog.video-player .title a {
     color: #fff;
   }
 }
 
-.gol-partido.video-player .torneo {
+.gol-partido.video-player .torneo,
+.columna-blog.video-player .torneo {
   position: relative;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
@@ -1140,24 +1148,28 @@ a {
 }
 
 @media (min-width: 768px) {
-  .gol-partido.video-player .torneo {
+  .gol-partido.video-player .torneo,
+  .columna-blog.video-player .torneo {
     position: absolute;
     font-weight: 600;
     top: -30px;
   }
 }
 
-.gol-partido.video-player .torneo a {
+.gol-partido.video-player .torneo a,
+.columna-blog.video-player .torneo a {
   color: #0b3b41;
 }
 
 @media (min-width: 768px) {
-  .gol-partido.video-player .torneo a {
+  .gol-partido.video-player .torneo a,
+  .columna-blog.video-player .torneo a {
     color: #fff;
   }
 }
 
-.gol-partido.video-player .category a {
+.gol-partido.video-player .category a,
+.columna-blog.video-player .category a {
   text-transform: uppercase;
   font-size: 0.75rem;
   font-family: Source Sans Pro, sans-serif;
@@ -1263,11 +1275,13 @@ div#footer-first .menu-footer ul:not(.contextual-links) li a {
   color: #fff;
 }
 
-.gol-partido.teaser .image {
+.gol-partido.teaser .image,
+.columna-blog.resumen-vertical .image {
   margin-bottom: 0;
 }
 
-.gol-partido.teaser .image img {
+.gol-partido.teaser .image img,
+.columna-blog.resumen-vertical .image img {
   width: 100%;
 }
 
