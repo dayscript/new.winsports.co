@@ -1,0 +1,13 @@
+<div class="columna-blog video-player" {{ attributes.addClass(classes) }}>
+    {% if node.field_url.uri %}
+        {{ content.field_url }}
+    {% elseif node.hasField('field_mediastream') %}
+        {{ content.field_mediastream }}
+    {% endif %}
+    <div class="title title-{{ node.id }}">
+        <div class="tw-relative">
+{#            <div class="torneo category left-0">{{ content.field_category }}</div>#}
+            <a href="{{ url }}">{{ label }}</a>
+        </div>
+    </div>
+</div>
