@@ -12,7 +12,7 @@
     }
   }
   .user.compact{
-    @apply leading-none tw-max-w-xs;
+    @apply leading-none tw-max-w-xs tw-w-40;
     .image{
       img{
         @apply w-auto;
@@ -59,10 +59,10 @@
     }
   }
 }
-.columna-blog.resumen-vertical{
+.columna-blog.resumen-vertical{ 
   .user.compact{
     .nombres{
-      @apply text-primary;
+      color: #0b3b41 !important;
     }
   }
 }

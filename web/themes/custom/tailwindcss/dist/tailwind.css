@@ -1112,6 +1112,7 @@ a {
 .columna-blog.video-player .user.compact {
   line-height: 1;
   max-width: 20rem;
+  width: 10rem;
 }
 
 .gol-partido.video-player .user.compact .image img,
@@ -1188,7 +1189,7 @@ a {
 }
 
 .columna-blog.resumen-vertical .user.compact .nombres {
-  color: #0b3b41;
+  color: #0b3b41 !important;
 }
 
 .player-goles .views-element-container > div {
