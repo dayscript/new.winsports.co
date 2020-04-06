@@ -1108,6 +1108,16 @@ a {
   width: 100%;
 }
 
+.gol-partido.video-player .user.compact,
+.columna-blog.video-player .user.compact {
+  line-height: 1;
+}
+
+.gol-partido.video-player .user.compact .image img,
+.columna-blog.video-player .user.compact .image img {
+  width: auto;
+}
+
 @media (min-width: 768px) {
   .gol-partido.video-player .title,
   .columna-blog.video-player .title {
