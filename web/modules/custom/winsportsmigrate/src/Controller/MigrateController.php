@@ -493,7 +493,7 @@ class MigrateController {
         }
         $node->field_image = [];
         $node->field_images = [];
-        foreach ($item['field_images'] as $key => $img) {
+        foreach ($item['field_image'] as $key => $img) {
           $image = file_get_contents($img['src']);
           if ($file = file_save_data($image, 'public://images/galeries/' . $this->slug($item['title']) . '-' . $key . '.png', FILE_EXISTS_REPLACE)) {
             $node->field_images[] = [
