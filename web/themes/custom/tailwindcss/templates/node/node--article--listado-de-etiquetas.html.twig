@@ -1,7 +1,7 @@
 <article{{ attributes.addClass('node article listado-de-etiquetas type-' ~ node.field_tipo_de_articulo.0.target_id) }}>
     <div{{ content_attributes.addClass('node-content') }}>
         <div class="tw-flex">
-            <div>
+            <div class="tw-w-4/5">
                 {% if node.hasField('field_pretitle') %}
                     <div class="pretitle">{{ content.field_pretitle }}</div>
                 {% endif %}
@@ -21,9 +21,9 @@
                 {% if node.hasField('field_lead') %}
                     <div class="lead my-2 tw-text-lg italic mb-8">{{ content.field_lead }}</div>
                 {% endif %}
-                <div>{{ drupal_block("better_social_sharing_buttons_block") }}</div>
+                <div class="tw-w-20">{{ drupal_block("better_social_sharing_buttons_block") }}</div>
             </div>
-            <div>
+            <div class="tw-w-1/5">
                 {% if node.hasField('field_image') %}
                     <div class="tw-mt-4 tw-mb-2">{{ content.field_image }}</div>
                     <div class="tw-text-primary tw-text-sm tw-mb-2">{{ node.field_image.title }}</div>
