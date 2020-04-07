@@ -18,15 +18,28 @@ new Vue({
             let items = []
             items.push({key: 'positions', label: 'Posiciones'})
             items.push({key: 'results', label: 'Resultados'})
+            items.push({key: 'calendar', label: 'Calendario'})
             if (this.competition === '371') items.push({key: 'decline', label: 'Descenso'})
             if (this.competition === '625' || this.competition === '371') items.push({key: 'reclassification', label: 'Reclasificación'})
-            items.push({key: 'calendar', label: 'Calendario'})
-            if (this.competition !== '369')items.push({key: 'team_ranking', label: 'Ranking de equipos'})
-            if (this.competition === '371') items.push({key: 'player_compare', label: 'Duelo'})
-            if (this.competition !== '115' && this.competition !== '369')items.push({key: 'season_standings', label: 'Curva de rendimiento'})
             if (this.competition === '371') items.push({key: 'scorers', label: 'Goleadores'})
             if (this.competition === '371') items.push({key: 'referees', label: 'Árbitros'})
-            if (this.competition !== '369')items.push({key: 'player_ranking', label: 'Ranking de jugadores'})
+            if (this.competition !== '625'  // torneo
+                && this.competition !== '664'  // copa
+                && this.competition !== '847' // femenino
+                && this.competition !== '115' // Turca 
+                && this.competition !== '369' // sudamericana 
+            ) 
+                items.push({key: 'season_standings', label: 'Curva de rendimiento'})
+            if (this.competition !== '625'  // torneo
+                && this.competition !== '664'  // copa
+                && this.competition !== '847' // femenino
+                && this.competition !== '369' // sudamericana 
+            ) {
+                items.push({key: 'team_ranking', label: 'Ranking de equipos'})
+                items.push({key: 'player_ranking', label: 'Ranking de jugadores'})
+            }
+            if (this.competition === '371') items.push({key: 'player_compare', label: 'Duelo'})
+            
             return items
         }
     },

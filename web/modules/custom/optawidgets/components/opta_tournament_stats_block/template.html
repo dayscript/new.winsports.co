@@ -1,6 +1,6 @@
 <div class="opta-widgets">
     <div v-if="competition>0 && season>0">
-        <div class="flex flex-no-wrap overflow-x-auto w-full mb-px">
+        <div class="flex flex-no-wrap overflow-x-auto w-full mb-px tw-bg-gray">
             <div @click="selectOption(option.key)" v-for="option in options" class="whitespace-no-wrap py-3 px-4 font-title font-semibold cursor-pointer table-option" :class="selected_option == option.key?'active':''">{{ option.label }}</div>
         </div>
         <div v-show="selected_option == 'positions'" id="positions">
