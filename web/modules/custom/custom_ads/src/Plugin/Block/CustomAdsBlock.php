@@ -72,7 +72,7 @@ class CustomAdsBlock extends BlockBase implements ContainerFactoryPluginInterfac
     $nid = $form_state->getValue('ads');
     $type = $form_state->getValue('type');
     $node = Node::load($nid);
-    $this->setConfigurationValue('custom_ads', ['id' => $nid, 'type' => $type, 'block' => $this->getPluginId(), 'section' => $node->field_seccion->value, 'space' => $node->field_espacio->value]);
+    $this->setConfigurationValue('custom_ads', ['id' => $nid, 'type' => $type, 'block' => $this->getPluginId(), 'title' => $node->title->value, 'section' => $node->field_seccion->value, 'space' => $node->field_espacio->value]);
   }
 
   public function build() {
@@ -81,9 +81,13 @@ class CustomAdsBlock extends BlockBase implements ContainerFactoryPluginInterfac
     
     switch ($config['custom_ads']['type']) {
     case 'eplanning':
+        $html = '<div>'.$config['custom_ads']['section'].'  '.$config['custom_ads']['space'].'</div>';
+        if(strpos($config['custom_ads']['title'], 'Robapagina Gamecast') !== 0){
+          $html = '<div id="eplAdDiv'.$config['custom_ads']['space'].'"></div>';
+        }
         $form['ad_'+$this->getPluginId()] = [
           '#type' => 'markup',
-          '#markup' => '<div id="eplAdDiv'.$config['custom_ads']['space'].'"></div>',
+          '#markup' => $html,
         ];
         break;
     case 'eplayer':

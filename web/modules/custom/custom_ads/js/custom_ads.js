@@ -102,11 +102,20 @@
 
     Drupal.behaviors.custom_ads = {
         attach: function(context, settings) {
-            if(typeof settings.settings.custom_ads !== 'undefinded') {
+            if(typeof settings.settings.custom_ads !== 'undefined') {
                 var ads = settings.settings.custom_ads;
                 Object.keys(ads).forEach(function (key) {
                     switch(ads[key].type){
                         case 'eplanning':
+                            var id = '', sp = '', ad = '';
+                            if(typeof ads[key].title !== 'undefined'){
+                                if(ads[key].title.indexOf("Robapagina Gamecast") > -1){
+                                    sp = ads[key].title.replace(' ', '');console.log(sp);
+                                    id = 'eplAdDiv'+sp;console.log(id);
+                                    ad = 'eplAdDiv'+ads[key].space;console.log(ad);
+                                    $('div[id*="'+id+'"]').attr("id", ad);
+                                }
+                            }
                             if(!eplArgs.eIs.includes(ads[key].space)){
                                 eplArgs.sec = ads[key].section;
                                 eplArgs.eIs.push(ads[key].space);
