@@ -123,6 +123,7 @@ class MigrateController {
           $node->save();
           $results['existing']++;
         }
+        $node->set('sticky', 0);
         $node->field_mediastream = $item['mediastream'];
         $node->field_dugout      = $item['field_id_dugout'];
         $node->field_eplayer     = $item['field_eplayer_id'];
@@ -192,6 +193,7 @@ class MigrateController {
           $node->save();
           $results['existing']++;
         }
+        $node->set('sticky', 0);
         $node->field_mediastream = $item['mediastream'];
         if ($item['field_image']['src']) {
           $image = file_get_contents($item['field_image']['src']);
@@ -496,6 +498,7 @@ class MigrateController {
           $node->save();
           $results['existing']++;
         }
+        $node->set('sticky', 0);
         $node->field_image = [];
         $node->field_images = [];
         foreach ($item['field_image'] as $key => $img) {
@@ -713,6 +716,7 @@ class MigrateController {
         }
         $this->attachTeams($node, $item['field_equipos_relacionados']);
         $this->attachTags($node, $item['tags']);
+        $node->set('sticky', 0);
         $node->save();
         if ($results['new'] + $results['existing'] >= $this->limit) {
           break;
