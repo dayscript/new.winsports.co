@@ -16,4 +16,5 @@ libraries:
   - optafeeds/axios
   - optawidgets/opta.widgets
   - optawidgets/opta.settings
+  - optafeeds/momentjs
   - optafeeds/tailwindcss

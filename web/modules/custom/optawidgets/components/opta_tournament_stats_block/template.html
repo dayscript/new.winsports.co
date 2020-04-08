@@ -1,91 +1,139 @@
 <div class="opta-widgets">
-    <div v-if="competition>0 && season>0">
-        <div class="flex flex-no-wrap overflow-x-auto w-full mb-px tw-bg-gray">
-            <div @click="selectOption(option.key)" v-for="option in options" class="whitespace-no-wrap py-3 px-4 font-title font-semibold cursor-pointer table-option" :class="selected_option == option.key?'active':''">{{ option.label }}</div>
-        </div>
-        <div v-show="selected_option == 'positions'" id="positions">
-            <opta-widget widget="standings" sport="football" :competition="competition" :season="season" template="normal" live="true" default_nav="1" side="combined" data_detail="full" show_key="true"
-                         show_crests="true" points_in_first_column="true" lose_before_draw="true" competition_naming="full" team_naming="full" date_format="dddd D MMMM YYYY" sorting="false" show_live="true" show_relegation_average="false" show_logo="false" show_title="false"
-                         time_format="hh:mm A" breakpoints="400">
-            </opta-widget>
-        </div>
-        <div v-show="selected_option == 'calendar'" id="calendar">
-            <opta-widget load="false" sport="football" widget="fixtures" :competition="competition" :season="season" template="normal" live="true" show_venue="false" match_status="fixture" grouping="date" show_grouping="true"
-                         default_nav="1" start_on_current="true" switch_current="0" sub_grouping="date" show_subgrouping="false" order_by="date_ascending" show_crests="true" date_format="dddd D MMMM YYYY" time_format="hh:mm A" competition_naming="full" team_naming="full"
-                         pre_match="false" show_live="true" show_logo="false" show_title="false" breakpoints="400">
-            </opta-widget>
-        </div>
-        <div v-show="selected_option == 'results'" id="results">
-            <opta-widget load="false" widget="fixtures" :competition="competition" :season="season" template="normal" live="true" show_venue="false" match_status="result" grouping="round" show_grouping="true" navigation="none" default_nav="1" start_on_current="true" sub_grouping="date" show_subgrouping="true" order_by="date_ascending" show_crests="true" date_format="dddd D MMMM YYYY" time_format="h:mma" month_date_format="MMMM" competition_naming="full" team_naming="brief" match_link="test" pre_match="true" show_live="true" show_logo="false" show_title="false" breakpoints="400" sport="football"></opta-widget>
-        </div>
-        <div v-show="selected_option == 'season_standings'" id="season_standings">
-            <opta-widget load="false" widget="season_standings" :competition="competition" :season="season" template="normal" show_competition_name="false" show_team_list="true" preselected_only="false" show_match_header="false" show_date="true" show_match_details="true" show_crests="true" show_axis_labels="true" show_plot_points="true" plot_curves="false" date_format="dddd D MMMM YYYY" competition_naming="full" team_naming="full" show_logo="false" show_title="false" breakpoints="400, 700" sport="football"></opta-widget>
-        </div>
-        <div v-show="selected_option == 'team_ranking'" id="team_ranking">
-            <opta-widget load="false" widget="team_ranking" :competition="competition" :season="season" template="normal" navigation="tabs_more" default_nav="1" show_crests="false" show_ranks="true" visible_categories="fouls,passing_accuracy,goals,goal_conversion,shots,passes" limit="10" hide_zeroes="true" team_naming="full" show_logo="false" show_title="false" breakpoints="400" sport="football"></opta-widget>
-        </div>
-        <div v-show="selected_option == 'scorers'" id="scorers">
-            <opta-widget load="false" widget="player_ranking" :competition="competition" :season="season" template="graph" navigation="tabs_more" orientation="horizontal" show_crests="false" show_images="true" show_ranks="true" show_appearances="true" visible_categories="goals" limit="20" hide_zeroes="true" show_team_names="true" team_naming="full" player_naming="full" show_logo="false" show_title="false" breakpoints="400" sport="football"></opta-widget>
-        </div>
-        <div v-show="selected_option == 'referees'" id="referees">
-            <opta-widget load="false" widget="referees" :competition="competition" :season="season" template="normal" show_fouls="true" show_penalties="true" show_cards_yellow="true" show_cards_red="true" show_offsides="true" show_cards_per_game="true" show_fouls_per_card="true" show_cards_icons="true" sorting="false" player_naming="full" show_logo="false" show_title="false" breakpoints="400" sport="football"></opta-widget>
-        </div>
-        <div v-show="selected_option == 'player_ranking'" id="player_ranking">
-            <opta-widget load="false" widget="player_ranking" :competition="competition" :season="season" template="normal" navigation="tabs_more" show_crests="false" show_images="false" show_ranks="true" show_appearances="true" visible_categories="goals,goals_conceded,passes,cards_yellow,cards_red,saves" limit="10" hide_zeroes="true" show_team_names="true" team_naming="full" player_naming="full" show_logo="false" show_title="false" breakpoints="400" sport="football"></opta-widget>
-        </div>
-        <div v-show="selected_option == 'player_compare'" id="player_compare">
-            <opta-widget load="false" widget="player_compare" :competition="competition" :season="season" template="dual" navigation="tabs_more" default_nav="1" show_selects="true" show_crests="false" show_images="false" show_graphs="true" graph_style="full" competition_naming="full" team_naming="full" player_naming="full" show_logo="false" show_title="false" breakpoints="400" sport="football"></opta-widget>
-        </div>
-        <div v-show="selected_option == 'decline'" id="decline">
-            <div class="flex">
-                <div class="w-1/2 flex"></div>
-                <div class="w-1/2 flex text-center justify-between pb-1 border-b" style="border-color: rgba(10,59,65,0.2);">
-                    <div class="flex-1">Pts</div>
-                    <div class="flex-1">Prom</div>
-                    <div class="flex-1">PJ</div>
-                </div>
+   <div v-if="competition>0 && season>0">
+      <div class="flex flex-no-wrap overflow-x-auto w-full mb-px tw-bg-gray">
+         <div @click="selectOption(option.key)" v-for="option in options" class="whitespace-no-wrap py-3 px-4 font-title font-semibold cursor-pointer table-option" :class="selected_option == option.key?'active':''">{{ option.label }}</div>
+      </div>
+      <div v-if="selected_option === 'schedules'" class="flex flex-no-wrap overflow-x-auto w-full" style="background-color: #0ef8c3;">
+         <div @click="setMatches(round[1].round.id)" v-for="round in rounds" class="whitespace-no-wrap cursor-pointer phase p-2" :class="selected_round_id == round[1].round.id?'active':''">
+            {{ roundName(round[1].round.number) }}
+         </div>
+      </div>
+      <div v-else-if="phases && Object.keys(phases).length" class="flex flex-no-wrap overflow-x-auto w-full" style="background-color: #0ef8c3;">
+         <div @click="selectPhase(phase.phase.id)" v-for="phase in phases" v-if="phase.teams && Object.keys(phase.teams).length" class="whitespace-no-wrap cursor-pointer phase p-2" :class="selected_phase_id == phase.phase.id?'active':''">
+            {{ phaseName(phase.phase.type, phase.phase.number) }}
+         </div>
+      </div>
+      <div v-show="selected_option === 'schedules'" id="schedules">
+         <div v-for="(items,day) in matches" class="">
+            <div class="tw-bg-primary tw-text-white tw-p-4 capitalize">{{ moment(day).format('MMMM D YYYY') }}</div>
+            <div v-for="match in items" @click="gotoMatch(match.id)" class="tw-border-b tw-border-white tw-p-2 tw-cursor-pointer">
+               <div class="tw-flex tw-items-center tw-justify-between tw-text-gray-700">
+                  <div class="tw-w-5/12 tw-flex tw-items-center tw-justify-start tw-text-sm">
+                     <img :src="'https://secure.omo.akamai.opta.net/image.php?secure=true&h=secure.omo.akamai.opta.net&sport=football&entity=team&description=badges&dimensions=65&id='+match.home.id" alt="" class="tw-h-8 tw-pr-2">
+                     <span>{{ match.home.name }}</span>
+                  </div>
+                  <div class="tw-w-2/12 tw-text-center tw-text-primary">
+                     <span class="tw-font-bold">{{ match.home.score }}</span> - <span class="tw-font-bold">{{ match.away.score }}</span>
+                  </div>
+                  <div class="tw-w-5/12 tw-flex tw-items-center tw-justify-end tw-text-sm tw-text-right">
+                     <span>{{ match.home.name }}</span>
+                     <img :src="'https://secure.omo.akamai.opta.net/image.php?secure=true&h=secure.omo.akamai.opta.net&sport=football&entity=team&description=badges&dimensions=65&id='+match.away.id" alt="" class="tw-h-8 tw-pl-2">
+                  </div>
+               </div>
+               <div class="tw-flex tw-justify-center tw-text-xs tw-text-gray-600">
+                  {{ moment(match.date).format('h:mm a') }}
+               </div>
             </div>
-            <div v-for="(row,index) in teams" class="ml-1 flex border-b-1 p-1 justify-between text-sm">
-                <div class="w-1/2 flex items-center">
-                    <div class="w-1/6 text-center px-2"><strong>{{ row.pos }}</strong></div>
-                    <div class="w-5/6 truncate ml-1">{{ row.name }}</div>
-                </div>
-                <div class="w-1/2 flex text-center justify-between pb-1 border-b" style="border-color: rgba(10,59,65,0.2);">
-                    <div class="flex-1">{{ row.pt }}</div>
-                    <div class="flex-1">{{ row.prom }}</div>
-                    <div class="flex-1">{{ row.pj }}</div>
-                </div>
+         </div>
+      </div>
+      <div v-show="selected_option == 'positions'" id="positions">
+         <div class="flex">
+            <div class="w-1/2 flex"></div>
+            <div class="w-1/2 flex text-center justify-between pb-1 border-b" style="border-color: rgba(10,59,65,0.2);">
+               <div class="flex-1"><strong>Pts</strong></div>
+               <div class="flex-1">J</div>
+               <div class="flex-1">V</div>
+               <div class="flex-1">D</div>
+               <div class="flex-1">E</div>
+               <div class="flex-1">GD</div>
             </div>
-        </div>
-        <div v-show="selected_option == 'reclassification'" id="reclassification">
-            <div class="flex">
-                <div class="w-1/2 flex"></div>
-                <div class="w-1/2 flex text-center justify-between pb-1 border-b" style="border-color: rgba(10,59,65,0.2);">
-                    <div class="flex-1">Pts</div>
-                    <div class="flex-1">PJ</div>
-                    <div class="flex-1">GF</div>
-                    <div class="flex-1">GC</div>
-                    <div class="flex-1">DG</div>
-                </div>
+         </div>
+         <div v-for="(row,index) in teams" class="ml-1 flex border-b-1 p-1 justify-between text-sm">
+            <div class="w-1/2 flex items-center">
+               <div class="w-1/6 text-center px-2"><strong>{{ row.pos }}</strong></div>
+               <div class="w-5/6 truncate ml-1">{{ row.name }}</div>
             </div>
-            <div v-for="(row,index) in teams" class="ml-1 flex border-b-1 p-1 justify-between text-sm">
-                <div class="w-1/2 flex items-center">
-                    <div class="w-1/6 text-center px-2"><strong>{{ row.pos }}</strong></div>
-                    <div class="w-5/6 truncate ml-1">{{ row.name }}</div>
-                </div>
-                <div class="w-1/2 flex text-center justify-between pb-1 border-b" style="border-color: rgba(10,59,65,0.2);">
-                    <div class="flex-1">{{ row.pt }}</div>
-                    <div class="flex-1">{{ row.pj }}</div>
-                    <div class="flex-1">{{ row.gf }}</div>
-                    <div class="flex-1">{{ row.gc }}</div>
-                    <div class="flex-1">{{ row.gd }}</div>
-                </div>
+            <div class="w-1/2 flex text-center justify-between pb-1 border-b" style="border-color: rgba(10,59,65,0.2);">
+               <div class="flex-1">{{ row.pt }}</div>
+               <div class="flex-1">{{ row.pj }}</div>
+               <div class="flex-1">{{ row.pg }}</div>
+               <div class="flex-1">{{ row.pp }}</div>
+               <div class="flex-1">{{ row.pe }}</div>
+               <div class="flex-1">{{ row.gd }}</div>
             </div>
-        </div>
-    </div>
-    <div v-else>
-        <div style="color:white;background-color: rgba(78,165,255,0.45);padding: 10px;">
-            <small>Opta fields not found or incorrect</small>
-        </div>
-    </div>
+         </div>
+      </div>
+      <div v-show="selected_option == 'calendar'" id="calendar">
+         <opta-widget load="false" sport="football" widget="fixtures" :competition="competition" :season="season" template="normal" live="true" show_venue="false" match_status="fixture" grouping="date" show_grouping="true" default_nav="1" start_on_current="true" switch_current="0" sub_grouping="date" show_subgrouping="false" order_by="date_ascending" show_crests="true" date_format="dddd D MMMM YYYY" time_format="hh:mm A" competition_naming="full" team_naming="full" pre_match="false" show_live="true" show_logo="false" show_title="false" breakpoints="400"></opta-widget>
+      </div>
+      <div v-show="selected_option == 'season_standings'" id="season_standings">
+         <opta-widget load="false" widget="season_standings" :competition="competition" :season="season" template="normal" show_competition_name="false" show_team_list="true" preselected_only="false" show_match_header="false" show_date="true" show_match_details="true" show_crests="true" show_axis_labels="true" show_plot_points="true" plot_curves="false" date_format="dddd D MMMM YYYY" competition_naming="full" team_naming="full" show_logo="false" show_title="false" breakpoints="400, 700" sport="football"></opta-widget>
+      </div>
+      <div v-show="selected_option == 'team_ranking'" id="team_ranking">
+         <opta-widget load="false" widget="team_ranking" :competition="competition" :season="season" template="normal" navigation="tabs_more" default_nav="1" show_crests="false" show_ranks="true" visible_categories="fouls,passing_accuracy,goals,goal_conversion,shots,passes" limit="10" hide_zeroes="true" team_naming="full" show_logo="false" show_title="false" breakpoints="400" sport="football"></opta-widget>
+      </div>
+      <div v-show="selected_option == 'scorers'" id="scorers">
+         <opta-widget load="false" widget="player_ranking" :competition="competition" :season="season" template="graph" navigation="tabs_more" orientation="horizontal" show_crests="false" show_images="true" show_ranks="true" show_appearances="true" visible_categories="goals" limit="20" hide_zeroes="true" show_team_names="true" team_naming="full" player_naming="full" show_logo="false" show_title="false" breakpoints="400" sport="football"></opta-widget>
+      </div>
+      <div v-show="selected_option == 'referees'" id="referees">
+         <opta-widget load="false" widget="referees" :competition="competition" :season="season" template="normal" show_fouls="true" show_penalties="true" show_cards_yellow="true" show_cards_red="true" show_offsides="true" show_cards_per_game="true" show_fouls_per_card="true" show_cards_icons="true" sorting="false" player_naming="full" show_logo="false" show_title="false" breakpoints="400" sport="football"></opta-widget>
+      </div>
+      <div v-show="selected_option == 'player_ranking'" id="player_ranking">
+         <opta-widget load="false" widget="player_ranking" :competition="competition" :season="season" template="normal" navigation="tabs_more" show_crests="false" show_images="false" show_ranks="true" show_appearances="true" visible_categories="goals,goals_conceded,passes,cards_yellow,cards_red,saves" limit="10" hide_zeroes="true" show_team_names="true" team_naming="full" player_naming="full" show_logo="false" show_title="false" breakpoints="400" sport="football"></opta-widget>
+      </div>
+      <div v-show="selected_option == 'player_compare'" id="player_compare">
+         <opta-widget load="false" widget="player_compare" :competition="competition" :season="season" template="dual" navigation="tabs_more" default_nav="1" show_selects="true" show_crests="false" show_images="false" show_graphs="true" graph_style="full" competition_naming="full" team_naming="full" player_naming="full" show_logo="false" show_title="false" breakpoints="400" sport="football"></opta-widget>
+      </div>
+      <div v-show="selected_option == 'decline'" id="decline">
+         <div class="flex">
+            <div class="w-1/2 flex"></div>
+            <div class="w-1/2 flex text-center justify-between pb-1 border-b" style="border-color: rgba(10,59,65,0.2);">
+               <div class="flex-1">Pts</div>
+               <div class="flex-1">Prom</div>
+               <div class="flex-1">PJ</div>
+            </div>
+         </div>
+         <div v-for="(row,index) in teams" class="ml-1 flex border-b-1 p-1 justify-between text-sm">
+            <div class="w-1/2 flex items-center">
+               <div class="w-1/6 text-center px-2"><strong>{{ row.pos }}</strong></div>
+               <div class="w-5/6 truncate ml-1">{{ row.name }}</div>
+            </div>
+            <div class="w-1/2 flex text-center justify-between pb-1 border-b" style="border-color: rgba(10,59,65,0.2);">
+               <div class="flex-1">{{ row.pt }}</div>
+               <div class="flex-1">{{ row.prom }}</div>
+               <div class="flex-1">{{ row.pj }}</div>
+            </div>
+         </div>
+      </div>
+      <div v-show="selected_option == 'reclassification'" id="reclassification">
+         <div class="flex">
+            <div class="w-1/2 flex"></div>
+            <div class="w-1/2 flex text-center justify-between pb-1 border-b" style="border-color: rgba(10,59,65,0.2);">
+               <div class="flex-1">Pts</div>
+               <div class="flex-1">PJ</div>
+               <div class="flex-1">GF</div>
+               <div class="flex-1">GC</div>
+               <div class="flex-1">DG</div>
+            </div>
+         </div>
+         <div v-for="(row,index) in teams" class="ml-1 flex border-b-1 p-1 justify-between text-sm">
+            <div class="w-1/2 flex items-center">
+               <div class="w-1/6 text-center px-2"><strong>{{ row.pos }}</strong></div>
+               <div class="w-5/6 truncate ml-1">{{ row.name }}</div>
+            </div>
+            <div class="w-1/2 flex text-center justify-between pb-1 border-b" style="border-color: rgba(10,59,65,0.2);">
+               <div class="flex-1">{{ row.pt }}</div>
+               <div class="flex-1">{{ row.pj }}</div>
+               <div class="flex-1">{{ row.gf }}</div>
+               <div class="flex-1">{{ row.gc }}</div>
+               <div class="flex-1">{{ row.gd }}</div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div v-else>
+      <div style="color:white;background-color: rgba(78,165,255,0.45);padding: 10px;">
+         <small>Opta fields not found or incorrect</small>
+      </div>
+   </div>
 </div>
