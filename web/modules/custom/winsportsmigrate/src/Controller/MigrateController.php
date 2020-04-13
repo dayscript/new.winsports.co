@@ -294,6 +294,7 @@ class MigrateController {
                    . 'Nuevos: ' . $results['new'] . '<br>Existentes: ' . $results['existing'] . '<br>Total: ' . $count . '/' . count($response['nodes']),
     ];
   }
+
   public function players() {
     $url     = 'https://admin.winsports.co/migrate/players';
     $res     = $this->client->get($url);
@@ -1063,13 +1064,16 @@ class MigrateController {
         $node->set('field_opta_match_id', $item['match_id']);
         $node->set('field_opta_id', $item['competition_id']);
         $node->set('field_opta_season', $item['season_id']);
-        $node->set('field_round', $item['round']);
-        $node->set('field_phase', $item['phase']);
         $node->set('field_home', $item['home']);
         $node->set('field_opta_home_id', $item['home_id']);
         $node->set('field_opta_away_id', $item['away_id']);
         $node->set('field_away', $item['away']);
         $node->set('field_date', $date);
+        //$node->set('field_phase', $item['phase']);
+        $this->attachPhases($node, $item['phase']);
+        //$node->set('field_round', $item['round']);
+        $this->attachRounds($node, $item['round']);
+
         $node->save();
         $query = \Drupal::entityQuery('node');
         $query->condition('field_opta_id', $item['competition_id']);
@@ -1114,4 +1118,43 @@ class MigrateController {
     ];
   }
 
+  public function attachRounds($node, $round) {
+    if (trim($round) == '') {
+      return FALSE;
+    }
+    $query = \Drupal::entityQuery('taxonomy_term');
+    $query->condition('name', $round);
+    $query->condition('vid', 'rounds');
+    $entity_ids = $query->execute();
+    if (count($entity_ids) == 0) {
+      $term = Term::create(['vid' => 'rounds']);
+      $term->setName($round);
+      $term->save();
+    }
+    else {
+      $term = Term::load(array_pop($entity_ids));
+    }
+    $node->field_tournament_round = $term;
+    $node->save();
+  }
+
+  public function attachPhases($node, $phase) {
+    if (trim($phase) == '') {
+      return FALSE;
+    }
+    $query = \Drupal::entityQuery('taxonomy_term');
+    $query->condition('name', $phase);
+    $query->condition('vid', 'phases');
+    $entity_ids = $query->execute();
+    if (count($entity_ids) == 0) {
+      $term = Term::create(['vid' => 'phases']);
+      $term->setName($phase);
+      $term->save();
+    }
+    else {
+      $term = Term::load(array_pop($entity_ids));
+    }
+    $node->field_tournament_phases = $term;
+    $node->save();
+  }
 }
