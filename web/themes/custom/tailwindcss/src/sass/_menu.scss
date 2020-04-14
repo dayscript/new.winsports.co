@@ -34,6 +34,14 @@
       a{
         @apply uppercase text-white px-6;
       }
+    }
+  }
+}
+
+#block-toplinks{
+  @apply text-sm;
+  ul:not(.contextual-links){
+    li{
       a.inicio{
         @apply tw-block;
         @screen md {
@@ -43,9 +51,7 @@
     }
   }
 }
-#block-toplinks{
-  @apply text-sm;
-}
+
 #block-futbolcolombiano,
 #block-futbolinternacional,
 .menu-secundario{

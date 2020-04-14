@@ -992,18 +992,18 @@ a {
   padding-right: 1.5rem;
 }
 
-#block-tailwindcss-main-menu ul:not(.contextual-links) li a.inicio {
+#block-toplinks {
+  font-size: 0.875rem;
+}
+
+#block-toplinks ul:not(.contextual-links) li a.inicio {
   display: block;
 }
 
 @media (min-width: 768px) {
-  #block-tailwindcss-main-menu ul:not(.contextual-links) li a.inicio {
+  #block-toplinks ul:not(.contextual-links) li a.inicio {
     display: none;
   }
-}
-
-#block-toplinks {
-  font-size: 0.875rem;
 }
 
 #block-futbolcolombiano ul:not(.contextual-links),
