@@ -1,17 +1,26 @@
-.mediastream.fixed-height{
-	@apply tw-mb-4;
-  @screen md {
-	@apply tw-mb-0;
-  	height: 550px !important;
-  	> div{
-  		height: 550px !important;
-	} 
-  }
-}
-.mediastream-player{
-  .image{
-    img{
-      @apply w-full;
+.mediastream.fixed-height {
+    /*height: 550px !important;*/
+    >div {
+        /*height: 550px !important;*/
+        margin-bottom: 1rem;
     }
-  }
+}
+
+.mediastream-player {
+    .image {
+        img {
+            @apply w-full;
+        }
+    }
+}
+
+#block-views-block-videos-block-4 {
+    margin-top: 1.3rem;
+}
+
+div[id*="block-views-block-videos-"] select {
+    margin-bottom: 5px;
+    padding: 0 25px;
+    height: 35px;
+    text-align: center;
 }

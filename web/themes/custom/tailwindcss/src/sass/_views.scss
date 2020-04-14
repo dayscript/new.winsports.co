@@ -1,149 +1,143 @@
 div.play-icon {
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.6) 35%, rgba(0, 0, 0, 0.1) 50%, rgba(255, 255, 255, 0.1) 100%)
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.6) 35%, rgba(0, 0, 0, 0.1) 50%, rgba(255, 255, 255, 0.1) 100%)
 }
 
 .gol-partido.video-player,
 .columna-blog.video-player {
-  @apply relative;
-  .image {
-    @apply mb-4 relative;
-    @screen md {
-      @apply mb-0;
-    }
-    img:not(.play-icon) {
-      opacity: 0.7;
-      @apply w-full;
-    }
-  }
-
-  .user.compact {
-    @apply leading-none max-w-xs w-40 mt-2;
+    @apply relative;
     .image {
-      img {
-        @apply w-auto;
-      }
+        @apply mb-4 relative;
+        @screen md {
+            @apply mb-0;
+        }
+        img:not(.play-icon) {
+            opacity: 0.7;
+            @apply w-full;
+        }
     }
-  }
-
-  @screen md {
-    .title {
-      bottom: 30px;
-      left: 30px;
-      font-family: $font-body;
-      line-height: 1.2em;
-      padding-left: 0rem;
-      padding-right: 0rem;
-      @screen md {
-        padding-left: 1rem;
-        padding-right: 1rem;
-      }
-      @apply absolute text-white text-3xl font-semibold;
-      a {
-        @apply text-white;
-      }
+    .user.compact {
+        @apply leading-none max-w-xs w-40 mt-2;
+        .image {
+            img {
+                @apply w-auto;
+            }
+        }
     }
-  }
-  .torneo {
-    @apply tw-relative tw-my-2 text-white text-base leading-none;
     @screen md {
-      @apply tw-absolute tw-font-semibold;
-      top: -30px;
+        .title {
+            bottom: 30px;
+            left: 30px;
+            font-family: $font-body;
+            line-height: 1.2em;
+            padding-left: 0rem;
+            padding-right: 0rem;
+            @screen md {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            @apply absolute text-white text-3xl font-semibold;
+            a {
+                @apply text-white;
+            }
+        }
     }
-    a {
-      color: #0b3b41;
-      @screen md {
-        @apply text-white;
-      }
+    .torneo {
+        @apply tw-relative tw-my-2 text-white text-base leading-none;
+        @screen md {
+            @apply tw-absolute tw-font-semibold;
+            top: -30px;
+        }
+        a {
+            color: #0b3b41;
+            @screen md {
+                @apply text-white;
+            }
+        }
     }
-  }
-
-  .category {
-    a {
-      text-transform: uppercase;
-      font-size: 0.75rem;
-      font-family: Source Sans Pro, sans-serif;
-      line-height: 1.5;
+    .category {
+        a {
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            font-family: Source Sans Pro, sans-serif;
+            line-height: 1.5;
+        }
     }
-  }
 }
 
 .columna-blog.resumen-vertical {
-  .user.compact {
-    .nombres {
-      color: #0b3b41 !important;
+    .user.compact {
+        .nombres {
+            color: #0b3b41 !important;
+        }
     }
-  }
 }
 
 .player-goles {
-  .views-element-container {
-    > div {
-      @apply overflow-y-hidden whitespace-no-wrap flex;
-      @screen md {
-        @apply overflow-auto whitespace-normal;
-      }
-      .views-row {
-        width: 40%;
-        margin-right: 1rem;
-        -webkit-flex: none;
-        white-space: normal;
-        @screen md {
-          @apply tw-w-full;
+    .views-element-container {
+        >div {
+            @apply overflow-y-hidden whitespace-no-wrap flex;
+            @screen md {
+                @apply overflow-auto whitespace-normal;
+            }
+            .views-row {
+                width: 40%;
+                margin-right: 1rem;
+                -webkit-flex: none;
+                white-space: normal;
+                @screen md {
+                    @apply tw-w-full;
+                }
+            }
         }
-      }
     }
-  }
 }
 
 .article.teaser {
-  .image {
-    @apply mb-3;
-  }
+    .image {
+        @apply mb-3;
+    }
 }
 
 .opinion.home-destacado {
-  .title {
-    font-family: $font-title;
-    @apply text-white;
-    a {
-      @apply text-white;
+    .title {
+        font-family: $font-title;
+        @apply text-white;
+        a {
+            @apply text-white;
+        }
     }
-  }
 }
 
 .opinion.teaser {
-  .image {
-    @apply mb-0;
-    @screen md {
-      @apply mb-4;
+    .image {
+        @apply mb-0;
+        @screen md {
+            @apply mb-4;
+        }
     }
-  }
 }
 
 div#footer-first {
-  > div {
-    @screen md {
-      @apply flex flex-wrap;
-    }
-  }
-
-  .menu-footer {
-    h2 {
-      @apply tw-text-lg tw-font-bold tw-text-white tw-normal-case;
-      font-family: $font-body;
-    }
-
-    ul:not(.contextual-links) {
-      li {
-        @apply tw-mb-3;
-        a {
-          @apply tw-text-sm tw-text-white;
+    >div {
+        @screen md {
+            @apply flex flex-wrap;
         }
-      }
     }
-  }
-
-  /*   > div {
+    .menu-footer {
+        h2 {
+            @apply tw-text-lg tw-font-bold tw-text-white tw-normal-case;
+            font-family: $font-body;
+        }
+        ul:not(.contextual-links) {
+            li {
+                @apply tw-mb-3;
+                a {
+                    @apply tw-text-sm tw-text-white;
+                }
+            }
+        }
+    }
+    /*   > div {
       @apply flex;
       #block-futbolcolombiano-2,
       #block-futbolinternacional-2{
@@ -165,862 +159,889 @@ div#footer-first {
 
 .gol-partido.teaser,
 .columna-blog.resumen-vertical {
-  .image {
-    @apply mb-0;
-    img {
-      @apply w-full;
+    .image {
+        @apply mb-0;
+        img {
+            @apply w-full;
+        }
     }
-  }
 }
 
 #block-views-block-opinion-block-2,
 #block-views-block-opinion-block-3 {
-  div div {
-    @apply flex flex-wrap;
-  }
+    div div {
+        @apply flex flex-wrap;
+    }
 }
 
 #block-views-block-opinion-block-2 {
-  .views-row {
-    @apply w-1/3 pr-10;
-  }
+    .views-row {
+        @apply w-1/3 pr-10;
+    }
 }
 
 #block-views-block-opinion-block-3 {
-  .views-row {
-    @apply w-1/3 pr-4;
-  }
+    .views-row {
+        @apply w-1/3 pr-4;
+    }
 }
 
 #block-views-block-goles-home-block-1,
 #block-views-block-videos-opinion-block-1 {
-  @apply border-b border-gray;
-  div div {
-    .views-row {
-      @apply pr-4 w-2/3;
+    @apply border-b border-gray;
+    div div {
+        .views-row {
+            @apply pr-4 w-2/3;
+        }
+        .views-element-container {
+            @apply w-1/3;
+            .views-row {
+                @apply w-full;
+            }
+            >div {
+                @apply flex flex-col h-full justify-between;
+            }
+        }
+        .more-link a {
+            @apply mx-auto;
+        }
     }
-
-    .views-element-container {
-      @apply w-1/3;
-      .views-row {
-        @apply w-full;
-      }
-
-      > div {
-        @apply flex flex-col h-full justify-between;
-      }
-    }
-
-    .more-link a {
-      @apply mx-auto;
-    }
-  }
 }
 
 #block-views-block-goles-home-block-3 {
-  .videos-special-2 {
-    @apply flex;
-    header {
-      @apply w-5/12 bg-black;
-    }
-
-    .views-view-grid.vertical {
-      @apply w-3/12 px-4;
-      .views-col {
-        @apply flex flex-col justify-between;
-        .views-row {
-          @apply overflow-hidden h-64 bg-black;
-          &.row-1 {
-            @apply mb-4;
-          }
-
-          .title {
-            display: none;
-          }
-
-          iframe {
-            height: 250px;
-          }
+    .videos-special-2 {
+        @apply flex;
+        header {
+            @apply w-5/12 bg-black;
         }
-      }
+        .views-view-grid.vertical {
+            @apply w-3/12 px-4;
+            .views-col {
+                @apply flex flex-col justify-between;
+                .views-row {
+                    @apply overflow-hidden h-64 bg-black;
+                    &.row-1 {
+                        @apply mb-4;
+                    }
+                    .title {
+                        display: none;
+                    }
+                    iframe {
+                        height: 250px;
+                    }
+                }
+            }
+        }
+        footer {
+            @apply w-4/12 bg-black;
+        }
     }
-
-    footer {
-      @apply w-4/12 bg-black;
-    }
-  }
 }
 
 #block-publicidad1-2,
 #block-publicidad1 {
-  @apply mb-4;
-  @apply pt-0;
+    @apply mb-4;
+    @apply pt-0;
 }
 
-.more-link, .js-pager__items.pager {
-  font-family: $font-title;
-  @apply text-center w-full;
-  a {
-    @apply inline-block whitespace-no-wrap mb-6 tw-text-xl text-center clear-both bg-secondary text-primary px-6 py-3 w-full mt-4;
-    @screen md {
-      @apply w-64;
-    }
-  }
-
-  &.full {
+.more-link,
+.js-pager__items.pager {
+    font-family: $font-title;
+    @apply text-center w-full;
     a {
-      @apply w-full mb-0;
+        @apply inline-block whitespace-no-wrap mb-6 tw-text-xl text-center clear-both bg-secondary text-primary px-6 py-3 w-full mt-4;
+        @screen md {
+            @apply w-64;
+        }
     }
-  }
+    &.full {
+        a {
+            @apply w-full mb-0;
+        }
+    }
 }
 
 .blocktabs {
-  @apply mb-6;
-  .ui-tabs-panel {
-    @apply p-0;
-    .views-row {
-      @screen md {
-        @apply mb-4 bg-primary text-white;
-      }
-      .views-field-title {
-        a {
-          @apply text-white;
+    @apply mb-6;
+    .ui-tabs-panel {
+        @apply p-0;
+        .views-row {
+            @screen md {
+                @apply mb-4 bg-primary text-white;
+            }
+            .views-field-title {
+                a {
+                    @apply text-white;
+                }
+            }
         }
-      }
     }
-  }
-
-  &.ui-widget-content {
-    @apply border-0;
-  }
-
-  &.ui-widget {
-    font-family: $font-body;
-  }
-
-  &.ui-tabs {
-    @apply p-0;
-  }
-
-  .ui-widget-header.ui-tabs-nav.ui-corner-all {
-    @apply border-0 bg-transparent rounded-none p-0 flex flex-no-wrap mb-4;
-    .ui-tabs-tab {
-      font-family: $font-title;
-      @apply bg-gray-650 m-0 text-white border-0 rounded-none flex-1;
-      a {
-        @apply text-white tw-w-full text-center py-4;
-      }
-
-      &.ui-state-active {
-        @apply bg-secondary p-0 m-0 border-0 rounded-none;
-        a {
-          @apply text-primary;
+    &.ui-widget-content {
+        @apply border-0;
+    }
+    &.ui-widget {
+        font-family: $font-body;
+    }
+    &.ui-tabs {
+        @apply p-0;
+    }
+    .ui-widget-header.ui-tabs-nav.ui-corner-all {
+        @apply border-0 bg-transparent rounded-none p-0 flex flex-no-wrap mb-4;
+        .ui-tabs-tab {
+            font-family: $font-title;
+            @apply bg-gray-650 m-0 text-white border-0 rounded-none flex-1;
+            a {
+                @apply text-white tw-w-full text-center py-4;
+            }
+            &.ui-state-active {
+                @apply bg-secondary p-0 m-0 border-0 rounded-none;
+                a {
+                    @apply text-primary;
+                }
+            }
         }
-      }
     }
-  }
 }
 
 //cvillamil
 #block-views-block-nomina-block-1 {
-  @apply my-8;
-  h2 {
-    @apply mb-10;
-  }
+    @apply my-8;
+    h2 {
+        @apply mb-10;
+    }
 }
 
 #block-views-block-videos-block-2 {
-  @apply my-8 pb-8;
-  h2 {
-    @apply mb-10;
-  }
-
-  .md--col--4 {
-    .views-row {
-      @apply flex items-center mb-4;
-      .views-field-field-image {
-        @apply w-5/12 mb-0;
-      }
-
-      .views-field-title {
-        @apply w-7/12 text-sm ml-4;
-      }
+    @apply my-8 pb-8;
+    h2 {
+        @apply mb-10;
     }
-  }
+    .md--col--4 {
+        .views-row {
+            @apply flex items-center mb-4;
+            .views-field-field-image {
+                @apply w-5/12 mb-0;
+            }
+            .views-field-title {
+                @apply w-7/12 text-sm ml-4;
+            }
+        }
+    }
 }
 
 #block-views-block-noticias-block-1 {
-  @apply my-8;
-  h2 {
-    @apply mb-10;
-  }
-
-  .md--col--4 {
-    .views-infinite-scroll-content-wrapper {
-      .views-row {
-        @apply flex items-center mb-4;
-        .views-field-field-image {
-          @apply w-5/12 mb-0;
-        }
-
-        .views-field-nothing {
-          @apply w-7/12 text-sm ml-4;
-          .category a {
-            font-size: 0.6rem;
-          }
-        }
-      }
+    @apply my-8;
+    h2 {
+        @apply mb-10;
     }
-  }
-
-  ul.js-pager__items {
-    @apply text-center;
-    li.pager__item {
-      a {
-        display: inline-block;
-        white-space: nowrap;
-        margin-bottom: 1.5rem;
-        text-align: center;
-        clear: both;
-        background-color: #0ef8c3;
-        color: #0b3b41;
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
-        padding-top: 0.75rem;
-        padding-bottom: 0.75rem;
-        width: 16rem;
-        margin-top: 1rem;
-      }
+    .md--col--4 {
+        .views-infinite-scroll-content-wrapper {
+            .views-row {
+                @apply flex items-center mb-4;
+                .views-field-field-image {
+                    @apply w-5/12 mb-0;
+                }
+                .views-field-nothing {
+                    @apply w-7/12 text-sm ml-4;
+                    .category a {
+                        font-size: 0.6rem;
+                    }
+                }
+            }
+        }
     }
-  }
+    ul.js-pager__items {
+        @apply text-center;
+        li.pager__item {
+            a {
+                display: inline-block;
+                white-space: nowrap;
+                margin-bottom: 1.5rem;
+                text-align: center;
+                clear: both;
+                background-color: #0ef8c3;
+                color: #0b3b41;
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+                padding-top: 0.75rem;
+                padding-bottom: 0.75rem;
+                width: 16rem;
+                margin-top: 1rem;
+            }
+        }
+    }
 }
 
 #block-views-block-nomina-block-2 {
-  .md--col--4 {
-    .views-infinite-scroll-content-wrapper {
-      @apply flex flex-wrap;
-      .views-row {
-        width: 25%;
-        padding: .5rem;
-      }
-    }
-
-    ul.js-pager__items {
-      @apply text-center;
-      li.pager__item {
-        a {
-          display: inline-block;
-          white-space: nowrap;
-          margin-bottom: 1.5rem;
-          text-align: center;
-          clear: both;
-          background-color: #0ef8c3;
-          color: #0b3b41;
-          padding-left: 1.5rem;
-          padding-right: 1.5rem;
-          padding-top: 0.75rem;
-          padding-bottom: 0.75rem;
-          width: 16rem;
-          margin-top: 1rem;
+    .md--col--4 {
+        .views-infinite-scroll-content-wrapper {
+            @apply flex flex-wrap;
+            .views-row {
+                width: 25%;
+                padding: .5rem;
+            }
         }
-      }
+        ul.js-pager__items {
+            @apply text-center;
+            li.pager__item {
+                a {
+                    display: inline-block;
+                    white-space: nowrap;
+                    margin-bottom: 1.5rem;
+                    text-align: center;
+                    clear: both;
+                    background-color: #0ef8c3;
+                    color: #0b3b41;
+                    padding-left: 1.5rem;
+                    padding-right: 1.5rem;
+                    padding-top: 0.75rem;
+                    padding-bottom: 0.75rem;
+                    width: 16rem;
+                    margin-top: 1rem;
+                }
+            }
+        }
     }
-  }
 }
 
 #block-views-block-noticias-block-2 {
-  .md--col--2 {
-    ul.js-pager__items {
-      @apply text-center;
-      li.pager__item {
-        a {
-          display: inline-block;
-          white-space: nowrap;
-          margin-bottom: 1.5rem;
-          text-align: center;
-          clear: both;
-          background-color: #0ef8c3;
-          color: #0b3b41;
-          padding-left: 1.5rem;
-          padding-right: 1.5rem;
-          padding-top: 0.75rem;
-          padding-bottom: 0.75rem;
-          width: 16rem;
-          margin-top: 1rem;
+    .md--col--2 {
+        ul.js-pager__items {
+            @apply text-center;
+            li.pager__item {
+                a {
+                    display: inline-block;
+                    white-space: nowrap;
+                    margin-bottom: 1.5rem;
+                    text-align: center;
+                    clear: both;
+                    background-color: #0ef8c3;
+                    color: #0b3b41;
+                    padding-left: 1.5rem;
+                    padding-right: 1.5rem;
+                    padding-top: 0.75rem;
+                    padding-bottom: 0.75rem;
+                    width: 16rem;
+                    margin-top: 1rem;
+                }
+            }
         }
-      }
     }
-  }
 }
 
 //Sección Selección colombia
 .seleccion-colombia {
-  @apply flex flex-wrap;
-  > .views-row {
     @apply flex flex-wrap;
-    padding-right: 1rem;
-    width: 66.666667%;
-  }
-
-  .views-element-container {
-    @apply w-1/3;
-    .views-row {
-      @apply w-full;
+    >.views-row {
+        @apply flex flex-wrap;
+        padding-right: 1rem;
+        width: 66.666667%;
     }
-
-    > div {
-      @apply flex flex-col h-full justify-between;
+    .views-element-container {
+        @apply w-1/3;
+        .views-row {
+            @apply w-full;
+        }
+        >div {
+            @apply flex flex-col h-full justify-between;
+        }
     }
-  }
 }
 
 @screen md {
-  #block-views-block-nomina-block-1 {
-    .md--col--4 {
-      @apply flex flex-wrap;
-      .views-row {
-        width: 8.333333%;
-        padding: .5rem;
-      }
-    }
-  }
-
-  #block-views-block-videos-block-2 {
-    .md--col--4 {
-      @apply flex flex-wrap;
-      .views-row {
-        @apply block;
-        width: 25%;
-        padding: .5rem;
-
-        .views-field-field-image {
-          @apply w-full mb-5;
+    #block-views-block-nomina-block-1 {
+        .md--col--4 {
+            @apply flex flex-wrap;
+            .views-row {
+                width: 8.333333%;
+                padding: .5rem;
+            }
         }
-
-        .views-field-title {
-          @apply w-full ml-0;
-        }
-      }
-
-      footer {
-        @apply w-full;
-      }
     }
-  }
-
-  #block-views-block-noticias-block-1 {
-    .md--col--4 {
-      .views-infinite-scroll-content-wrapper {
-        @apply flex flex-wrap;
-        .views-row {
-          @apply block;
-          width: 25%;
-          padding: .5rem;
-
-          .views-field-field-image {
-            @apply w-full;
-          }
-
-          .views-field-nothing {
-            @apply w-full ml-0;
-          }
+    #block-views-block-videos-block-2 {
+        .md--col--4 {
+            @apply flex flex-wrap;
+            .views-row {
+                @apply block;
+                width: 25%;
+                padding: .5rem;
+                .views-field-field-image {
+                    @apply w-full mb-5;
+                }
+                .views-field-title {
+                    @apply w-full ml-0;
+                }
+            }
+            footer {
+                @apply w-full;
+            }
         }
-      }
     }
-  }
-
-  #block-positionstableswidget-2 {
-    @apply w-6/12 float-left;
-  }
-
-  #block-views-block-noticias-block-2 {
-    @apply w-6/12 float-left;
-    .md--col--2 {
-      .views-infinite-scroll-content-wrapper {
-        @apply flex flex-wrap;
-        .views-row {
-          @apply w-6/12 p-2;
+    #block-views-block-noticias-block-1 {
+        .md--col--4 {
+            .views-infinite-scroll-content-wrapper {
+                @apply flex flex-wrap;
+                .views-row {
+                    @apply block;
+                    width: 25%;
+                    padding: .5rem;
+                    .views-field-field-image {
+                        @apply w-full;
+                    }
+                    .views-field-nothing {
+                        @apply w-full ml-0;
+                    }
+                }
+            }
         }
-      }
     }
-  }
+    #block-positionstableswidget-2 {
+        @apply w-6/12 float-left;
+    }
+    #block-views-block-noticias-block-2 {
+        @apply w-6/12 float-left;
+        .md--col--2 {
+            .views-infinite-scroll-content-wrapper {
+                @apply flex flex-wrap;
+                .views-row {
+                    @apply w-6/12 p-2;
+                }
+            }
+        }
+    }
 }
+
 #block-views-block-lo-ultimo-block-1,
 #block-views-block-lo-ultimo-block-2,
 #block-views-block-lo-ultimo-block-3,
 #block-views-block-lo-ultimo-block-4,
 #block-views-block-lo-ultimo-block-5 {
-  .home-destacado {
-    @apply mb-8;
-  }
-
-  .more-link {
-    @apply text-left;
-  }
+    .home-destacado {
+        @apply mb-8;
+    }
+    .more-link {
+        @apply text-left;
+    }
 }
 
 .owl-controls {
-  @apply mb-6;
-  .owl-buttons {
-    font-family: $font-title;
-
-    div.owl-next, div.owl-prev {
-      @apply text-primary absolute top-0 h-full rounded-none m-0 opacity-100 pt-24;
-      font-size: 2.5rem;
-      font-weight: 100;
-      width: 100px;
+    @apply mb-6;
+    .owl-buttons {
+        font-family: $font-title;
+        div.owl-next,
+        div.owl-prev {
+            @apply text-primary absolute top-0 h-full rounded-none m-0 opacity-100 pt-24;
+            font-size: 2.5rem;
+            font-weight: 100;
+            width: 100px;
+        }
+        div.owl-next {
+            @apply right-0 text-right;
+            background: linear-gradient(270deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 55, 0) 100%);
+        }
+        div.owl-prev {
+            display: none;
+            @apply left-0 text-left;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 55, 0) 100%);
+        }
     }
-
-    div.owl-next {
-      @apply right-0 text-right;
-      background: linear-gradient(270deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 55, 0) 100%);
-    }
-
-    div.owl-prev {
-      display: none;
-      @apply left-0 text-left;
-      background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 55, 0) 100%);
-    }
-  }
 }
 
 .front-page {
-  #block-contenidoprincipaldelapagina-3 {
-    @apply hidden;
-  }
+    #block-contenidoprincipaldelapagina-3 {
+        @apply hidden;
+    }
 }
 
 .block-title-no-caps {
-  h2 {
-    @apply normal-case;
-  }
+    h2 {
+        @apply normal-case;
+    }
 }
 
 #block-views-block-opinion-block-1 {
-  @apply bg-primary text-white mb-6 pt-4;
-  .views-row {
-    @apply px-6 pt-6;
-  }
-
-  h2 {
-    @apply text-white h-20 flex items-center p-6;
-  ;
-    background: url('/themes/custom/tailwindcss/images/icons/plus-plus-plus.png') no-repeat right center;
-  }
-
-  .more-link {
-    a {
-      @apply w-full mb-0;
+    @apply bg-primary text-white mb-6 pt-4;
+    .views-row {
+        @apply px-6 pt-6;
     }
-  }
+    h2 {
+        @apply text-white h-20 flex items-center p-6;
+        ;
+        background: url('/themes/custom/tailwindcss/images/icons/plus-plus-plus.png') no-repeat right center;
+    }
+    .more-link {
+        a {
+            @apply w-full mb-0;
+        }
+    }
 }
 
 #blocktabs-programacion,
 #blocktabs-widget_programacion {
-  .more-link {
-    a {
-      @apply w-full my-0;
+    .more-link {
+        a {
+            @apply w-full my-0;
+        }
     }
-  }
-
-  .views-row {
-    @apply relative p-4;
-    .views-field-title {
-      font-family: $font-title;
-      @apply text-xl;
-      padding-right: 6rem;
-      display: inline-block;
-      line-height: 1em;
+    .views-row {
+        @apply relative p-4;
+        .views-field-title {
+            font-family: $font-title;
+            @apply text-xl;
+            padding-right: 6rem;
+            display: inline-block;
+            line-height: 1em;
+        }
     }
-  }
-
-  .views-field-field-torneo {
-    a {
-      @apply uppercase text-secondary;
+    .views-field-field-torneo {
+        a {
+            @apply uppercase text-secondary;
+        }
     }
-  }
-
-  .views-field-nothing,
-  .views-field-field-canal {
-    @apply tw-absolute tw-right-0 tw-top-0 uppercase text-white text-center h-full;
-    font-family: $font-title;
-  }
-
-  .views-field-field-canal {
-    @apply tw-w-20 flex items-center justify-center;
-  }
-
-  .canal-winsports {
-    @apply h-full w-32;
-    background: url('/themes/custom/tailwindcss/images/logos/canal-winsports.png') no-repeat center center;
-  }
-
-  .canal-winsportsplus {
-    @apply h-full w-32;
-    background: url('/themes/custom/tailwindcss/images/logos/canal-winsportsplus.png') no-repeat center center;
-  }
+    .views-field-nothing,
+    .views-field-field-canal {
+        @apply tw-absolute tw-right-0 tw-top-0 uppercase text-white text-center h-full;
+        font-family: $font-title;
+    }
+    .views-field-field-canal {
+        @apply tw-w-20 flex items-center justify-center;
+    }
+    .canal-winsports {
+        @apply h-full w-32;
+        background: url('/themes/custom/tailwindcss/images/logos/canal-winsports.png') no-repeat center center;
+    }
+    .canal-winsportsplus {
+        @apply h-full w-32;
+        background: url('/themes/custom/tailwindcss/images/logos/canal-winsportsplus.png') no-repeat center center;
+    }
 }
 
 .torneo-videos-list,
 .torneo-noticias-list .views-infinite-scroll-content-wrapper {
-  @apply flex flex-wrap;
-  .views-row {
-    @apply w-1/2 pr-4 mb-4;
-  }
+    @apply flex flex-wrap;
+    .views-row {
+        @apply w-1/2 pr-4 mb-4;
+    }
 }
 
 .torneo-videos-list {
-  .views-field-field-image {
-    @apply mb-4;
-  }
+    .views-field-field-image {
+        @apply mb-4;
+    }
 }
 
 iframe.iframe-futbolred {
-  body {
-    padding: 0 !important;
-  }
+    body {
+        padding: 0 !important;
+    }
 }
 
 a.footer {
-  color: #0ef8c3;
-  padding: 0 1rem;
+    color: #0ef8c3;
+    padding: 0 1rem;
 }
 
-#block-views-block-opinion-block-3, #block-views-block-opinion-block-2 {
-  .nombres {
-    color: #0b3b41 !important;
-  }
+#block-views-block-opinion-block-3,
+#block-views-block-opinion-block-2 {
+    .nombres {
+        color: #0b3b41 !important;
+    }
 }
-
 
 div#block-contenidoprincipaldelapagina-3 {
-  header {
-    display: block;
-    width: 100%;
-  }
+    header {
+        display: block;
+        width: 100%;
+    }
 }
 
 #block-widgetprogrammingblock {
-  h3 {
-    font-family: $font-title;
-    @apply tw-text-primary text-3xl font-semibold;
-  }
-
-  .date {
-    text-align: center;
-    padding: 0.6rem;
-    background: #d4dbdc;
-    width: auto;
-    margin: 0 5px 0 0 !important;
-    @screen md {
-      padding: 1rem;
-      width: 11rem;
+    h3 {
+        font-family: $font-title;
+        @apply tw-text-primary text-3xl font-semibold;
     }
-    @apply text-base;
-    .weekday {
-      text-transform: uppercase;
-      font-size: 0.8rem;
-      @screen md {
-        font-size: 1rem;
-      }
+    .date {
+        text-align: center;
+        padding: 0.6rem;
+        background: #d4dbdc;
+        width: auto;
+        margin: 0 5px 0 0 !important;
+        @screen md {
+            padding: 1rem;
+            width: 11rem;
+        }
+        @apply text-base;
+        .weekday {
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            @screen md {
+                font-size: 1rem;
+            }
+        }
+        .day {
+            font-size: 1rem;
+            font-weight: 700;
+            line-height: 1em;
+            @screen md {
+                font-size: 2rem;
+            }
+        }
+        a {
+            color: #819A9F;
+            &:hover {
+                color: #0b3b41;
+            }
+        }
+        &.active {
+            background: #0b3b41;
+            a {
+                font-weight: 600;
+                color: white;
+            }
+        }
     }
-
-    .day {
-      font-size: 1rem;
-      font-weight: 700;
-      line-height: 1em;
-      @screen md {
-        font-size: 2rem;
-      }
+    .owl-buttons {
+        div.owl-prev,
+        div.owl-next {
+            display: block !important;
+            padding-top: 2rem;
+            width: 50px;
+        }
     }
-
-    a {
-      color: #819A9F;
-
-      &:hover {
-        color: #0b3b41;
-      }
-    }
-
-    &.active {
-      background: #0b3b41;
-
-      a {
-        font-weight: 600;
-        color: white;
-      }
-    }
-  }
-
-  .owl-buttons {
-    div.owl-prev, div.owl-next {
-      display: block !important;
-      padding-top: 2rem;
-      width: 50px;
-    }
-  }
 }
 
-
 #block-views-block-torneos-block-2 {
-  .owl-controls {
-    margin-bottom: 0 !important;
-  }
+    .owl-controls {
+        margin-bottom: 0 !important;
+    }
 }
 
 #header-page {
-  .tw-container {
-    @apply tw-p-2;
-    @screen md {
-      @apply tw-p-3;
+    .tw-container {
+        @apply tw-p-2;
+        @screen md {
+            @apply tw-p-3;
+        }
     }
-  }
-
-  #block-tailwindcss-branding {
-    img {
-      width: 60%;
-      @screen md {
-        width: 100%;
-      }
+    #block-tailwindcss-branding {
+        img {
+            width: 60%;
+            @screen md {
+                width: 100%;
+            }
+        }
     }
-  }
 }
 
 .eu-cookie-compliance-message {
-  max-width: 100%;
-  padding-top: 0.6rem;
-  @screen md {
-    max-width: 50%;
-  }
+    max-width: 100%;
+    padding-top: 0.6rem;
+    @screen md {
+        max-width: 50%;
+    }
 }
 
 .eu-cookie-compliance-message h2 {
-  font-size: 14px;
-  font-weight: 600;
+    font-size: 14px;
+    font-weight: 600;
 }
 
 .eu-cookie-compliance-message h2 a {
-  color: #0b3b41;
-  text-decoration: underline;
+    color: #0b3b41;
+    text-decoration: underline;
 }
 
 .eu-cookie-compliance-buttons {
-  max-width: 100%;
-  @screen md {
-    max-width: 50%;
-  }
+    max-width: 100%;
+    @screen md {
+        max-width: 50%;
+    }
 }
 
 .eu-cookie-compliance-agree-button {
-  font-weight: 500;
-  font-size: 13px;
-  text-transform: uppercase;
-  background-color: #0b3b41;
-  padding: 0.8rem;
-  color: #fff;
-  width: 100%;
-  @screen md {
-    width: auto;
-  }
+    font-weight: 500;
+    font-size: 13px;
+    text-transform: uppercase;
+    background-color: #0b3b41;
+    padding: 0.8rem;
+    color: #fff;
+    width: 100%;
+    @screen md {
+        width: auto;
+    }
 }
 
-form#views-exposed-form-opinion-block-2, form#views-exposed-form-opinion-block-3 {
-  margin-bottom: 2rem;
+form#views-exposed-form-opinion-block-2,
+form#views-exposed-form-opinion-block-3 {
+    margin-bottom: 2rem;
 }
 
 nav#block-envivo {
-  margin-right: 1rem;
-
-  a {
-    background-color: #0ef8c3;
-    background-color: #0ef8c3;
-    padding: 0.2rem 1rem !important;
-    color: #0b3b41 !important;
-    font-size: 0.9rem;
-  }
-
-  @screen md {
-    margin-right: 0;
-  }
+    margin-right: 1rem;
+    a {
+        background-color: #0ef8c3;
+        background-color: #0ef8c3;
+        padding: 0.2rem 1rem !important;
+        color: #0b3b41 !important;
+        font-size: 0.9rem;
+    }
+    @screen md {
+        margin-right: 0;
+    }
 }
 
-div#block-customadsblock, #block-customadsblock-4, #block-customadsblock-5, #block-customadsblock-6 {
-  margin-bottom: 2rem;
+div#block-customadsblock,
+#block-customadsblock-4,
+#block-customadsblock-5,
+#block-customadsblock-6 {
+    margin-bottom: 2rem;
 }
 
-#block-customadsblock-5, #block-customadsblock-6 {
-  margin-top: 2rem;
+#block-customadsblock-5,
+#block-customadsblock-6 {
+    margin-top: 2rem;
 }
 
 div#block-customadsblock-8 {
-  margin: 3rem auto 2rem auto;
+    margin: 3rem auto 2rem auto;
 }
 
 .funcionario {
-  margin: 2rem;
-
-  .imagen {
-    img {
-      border-radius: 4rem;
+    margin: 2rem;
+    .imagen {
+        img {
+            border-radius: 4rem;
+        }
     }
-  }
-
-  .content {
-    h3 {
-      font-weight: 600;
-      color: #0b3b41 !important;
-      font-size: 1.4rem;
+    .content {
+        h3 {
+            font-weight: 600;
+            color: #0b3b41 !important;
+            font-size: 1.4rem;
+        }
+        .cargo {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            margin-bottom: 0.8rem;
+        }
+        .mail,
+        .twitter {
+            color: #0b3b41 !important;
+            font-size: 0.9rem;
+        }
     }
-
-    .cargo {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      margin-bottom: 0.8rem;
-    }
-
-    .mail, .twitter {
-      color: #0b3b41 !important;
-      font-size: 0.9rem;
-    }
-  }
 }
 
 #owl-programming .items {
-  display: flex;
-  width: 100%;
-  margin-bottom: 0.4rem;
-  overflow-x: auto;
-  flex-wrap: nowrap;
+    display: flex;
+    width: 100%;
+    margin-bottom: 0.4rem;
+    overflow-x: auto;
+    flex-wrap: nowrap;
 }
 
 .img-jugador {
-  img {
-    @apply rounded-full m-auto;
-  }
+    img {
+        @apply rounded-full m-auto;
+    }
 }
 
 .menu-secundario .teams-list {
-  text-align: center;
-  overflow-x: scroll;
-  white-space: nowrap;
-
-  .team-item {
     text-align: center;
-    display: inline-block;
-    margin: auto 1rem;
-
-    a {
-      img {
-        display: inline-block !important;
-        height: 80px;
-      }
+    overflow-x: scroll;
+    white-space: nowrap;
+    .team-item {
+        text-align: center;
+        display: inline-block;
+        margin: auto 1rem;
+        a {
+            img {
+                display: inline-block !important;
+                height: 80px;
+            }
+        }
     }
-  }
 }
 
 .t-w-3-tercio {
-  width: 100% !important;
-  @screen md {
-    width: 33.333333% !important;
-  }
+    width: 100% !important;
+    @screen md {
+        width: 33.333333% !important;
+    }
 }
 
 .pos2 {
-  left: 0;
-  @screen md {
-    left: 33.333333% ;
-  }
+    left: 0;
+    @screen md {
+        left: 33.333333%;
+    }
 }
 
 .pos3 {
-  left: 0;
-  @screen md {
-    left: 66.666666% ;
-  }
+    left: 0;
+    @screen md {
+        left: 66.666666%;
+    }
 }
 
 #blocktabs-columnas_blogs-1,
 #blocktabs-columnas_blogs-2 {
-  .views-row {
-    span {
-      font-family: $font-title;
-      font-size: 1.5rem;
-      color: #0b3b41;
+    .views-row {
+        span {
+            font-family: $font-title;
+            font-size: 1.5rem;
+            color: #0b3b41;
+        }
+        .nombres {
+            color: #0b3b41 !important;
+        }
     }
-
-    .nombres {
-      color: #0b3b41 !important;
-    }
-  }
 }
 
 #block-views-block-torneos-block-1 {
-  .owl-carousel .owl-item {
-    text-align: center;
-  }
+    .owl-carousel .owl-item {
+        text-align: center;
+    }
 }
 
 .article.home-destacado {
-  margin-bottom: 2rem;
-
+    margin-bottom: 2rem;
 }
 
 .galeria.home-destacado {
-  img {
-    margin-bottom: 1rem;
-  }
+    img {
+        margin-bottom: 1rem;
+    }
 }
 
 div#block-socialmedialinks {
-  margin-bottom: 1.6rem;
-  display: block;
-  text-align: center;
-
-  .fa {
-    border: 2px solid;
-    padding: 0.4rem;
-    border-radius: 55px;
-    width: 3rem;
-    height: 3rem;
-  }
+    margin-bottom: 1.6rem;
+    display: block;
+    text-align: center;
+    .fa {
+        border: 2px solid;
+        padding: 0.4rem;
+        border-radius: 55px;
+        width: 3rem;
+        height: 3rem;
+    }
 }
 
-
 div#block-nike {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  padding-left: 2rem !important;
-  padding-right: 2rem !important;
-
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
 }
 
 .block-left {
-  padding-right: 0rem !important;
-  @screen md {
-    padding-right: 1.5rem !important;
-  }
+    padding-right: 0rem !important;
+    @screen md {
+        padding-right: 1.5rem !important;
+    }
 }
 
 .opta-widgets {
-  select {
-    height: 3rem;
-    background: white !important;
-  }
+    select {
+        height: 3rem;
+        background: white !important;
+    }
 }
 
 div#horizontal-results {
-  //padding-top: 0 !important;
-  @screen md {
-    padding-top: 1rem !important;
-  }
-} 
-.tool{
-  @screen md{
-    display: none;
-  }
+    //padding-top: 0 !important;
+    @screen md {
+        padding-top: 1rem !important;
+    }
 }
-div#block-horizontalresults{
-  img {
-    height: min-content !important;
+
+.tool {
+    @screen md {
+        display: none;
+    }
 }
+
+div#block-horizontalresults {
+    img {
+        height: min-content !important;
+    }
+}
+
+#block-views-block-goles-home-block-3-2 {
+    @apply hidden;
+    @screen md {
+        @apply block;
+    }
+    header,
+    footer {
+        .views-row {
+            width: 100%;
+        }
+    }
+    .vertical {
+        float: left;
+        max-width: 60%;
+        .views-col {
+            float: left;
+            max-width: 50
+        }
+        .cols-1,
+        .cols-2 {
+            max-width: 30%;
+        }
+        .col-1 {
+            padding-right: 1rem;
+            .mediastream-player {
+                img.tw-w-24 {
+                    width: 3rem !important;
+                    z-index: 3;
+                }
+                img.tw-h-24 {
+                    height: 3rem !important;
+                    margin-top: -85px;
+                }
+                >div>.image>div>a>img {
+                    min-height: 235px;
+                }
+            }
+            .row-1 {
+                margin-bottom: 1rem;
+            }
+        }
+        .views-col {
+            float: left;
+            max-width: 50%;
+        }
+        .col-2 {
+            .mediastream-player {
+                img,
+                iframe {
+                    height: 485px;
+                }
+            }
+        }
+    }
+    header {
+        float: left;
+        max-width: 40%;
+        .mediastream-player {
+            img,
+            iframe {
+                height: 485px;
+            }
+        }
+    }
+    .gol-partido {
+        .title {
+            padding-left: 0;
+            padding-right: 0;
+            bottom: 0;
+            left: 10px;
+            padding: 5px;
+            span {
+                font-size: 1.3rem;
+                line-height: 5px;
+            }
+        }
+    }
 }

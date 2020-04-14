@@ -1428,13 +1428,15 @@ div#footer-first .menu-footer ul:not(.contextual-links) li a {
   padding-top: 0;
 }
 
-.more-link, .js-pager__items.pager {
+.more-link,
+.js-pager__items.pager {
   font-family: "Passion One", cursive;
   text-align: center;
   width: 100%;
 }
 
-.more-link a, .js-pager__items.pager a {
+.more-link a,
+.js-pager__items.pager a {
   display: inline-block;
   white-space: nowrap;
   margin-bottom: 1.5rem;
@@ -1452,12 +1454,14 @@ div#footer-first .menu-footer ul:not(.contextual-links) li a {
 }
 
 @media (min-width: 768px) {
-  .more-link a, .js-pager__items.pager a {
+  .more-link a,
+  .js-pager__items.pager a {
     width: 16rem;
   }
 }
 
-.more-link.full a, .js-pager__items.pager.full a {
+.more-link.full a,
+.js-pager__items.pager.full a {
   width: 100%;
   margin-bottom: 0;
 }
@@ -1839,7 +1843,8 @@ div#footer-first .menu-footer ul:not(.contextual-links) li a {
   font-family: "Passion One", cursive;
 }
 
-.owl-controls .owl-buttons div.owl-next, .owl-controls .owl-buttons div.owl-prev {
+.owl-controls .owl-buttons div.owl-next,
+.owl-controls .owl-buttons div.owl-prev {
   color: #0b3b41;
   position: absolute;
   top: 0;
@@ -2006,7 +2011,8 @@ a.footer {
   padding: 0 1rem;
 }
 
-#block-views-block-opinion-block-3 .nombres, #block-views-block-opinion-block-2 .nombres {
+#block-views-block-opinion-block-3 .nombres,
+#block-views-block-opinion-block-2 .nombres {
   color: #0b3b41 !important;
 }
 
@@ -2078,7 +2084,8 @@ div#block-contenidoprincipaldelapagina-3 header {
   color: white;
 }
 
-#block-widgetprogrammingblock .owl-buttons div.owl-prev, #block-widgetprogrammingblock .owl-buttons div.owl-next {
+#block-widgetprogrammingblock .owl-buttons div.owl-prev,
+#block-widgetprogrammingblock .owl-buttons div.owl-next {
   display: block !important;
   padding-top: 2rem;
   width: 50px;
@@ -2155,7 +2162,8 @@ div#block-contenidoprincipaldelapagina-3 header {
   }
 }
 
-form#views-exposed-form-opinion-block-2, form#views-exposed-form-opinion-block-3 {
+form#views-exposed-form-opinion-block-2,
+form#views-exposed-form-opinion-block-3 {
   margin-bottom: 2rem;
 }
 
@@ -2177,11 +2185,15 @@ nav#block-envivo a {
   }
 }
 
-div#block-customadsblock, #block-customadsblock-4, #block-customadsblock-5, #block-customadsblock-6 {
+div#block-customadsblock,
+#block-customadsblock-4,
+#block-customadsblock-5,
+#block-customadsblock-6 {
   margin-bottom: 2rem;
 }
 
-#block-customadsblock-5, #block-customadsblock-6 {
+#block-customadsblock-5,
+#block-customadsblock-6 {
   margin-top: 2rem;
 }
 
@@ -2209,7 +2221,8 @@ div#block-customadsblock-8 {
   margin-bottom: 0.8rem;
 }
 
-.funcionario .content .mail, .funcionario .content .twitter {
+.funcionario .content .mail,
+.funcionario .content .twitter {
   color: #0b3b41 !important;
   font-size: 0.9rem;
 }
@@ -2353,6 +2366,91 @@ div#block-horizontalresults img {
   height: -webkit-min-content !important;
   height: -moz-min-content !important;
   height: min-content !important;
+}
+
+#block-views-block-goles-home-block-3-2 {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  #block-views-block-goles-home-block-3-2 {
+    display: block;
+  }
+}
+
+#block-views-block-goles-home-block-3-2 header .views-row,
+#block-views-block-goles-home-block-3-2 footer .views-row {
+  width: 100%;
+}
+
+#block-views-block-goles-home-block-3-2 .vertical {
+  float: left;
+  max-width: 60%;
+}
+
+#block-views-block-goles-home-block-3-2 .vertical .views-col {
+  float: left;
+  max-width: 50;
+}
+
+#block-views-block-goles-home-block-3-2 .vertical .cols-1,
+#block-views-block-goles-home-block-3-2 .vertical .cols-2 {
+  max-width: 30%;
+}
+
+#block-views-block-goles-home-block-3-2 .vertical .col-1 {
+  padding-right: 1rem;
+}
+
+#block-views-block-goles-home-block-3-2 .vertical .col-1 .mediastream-player img.tw-w-24 {
+  width: 3rem !important;
+  z-index: 3;
+}
+
+#block-views-block-goles-home-block-3-2 .vertical .col-1 .mediastream-player img.tw-h-24 {
+  height: 3rem !important;
+  margin-top: -85px;
+}
+
+#block-views-block-goles-home-block-3-2 .vertical .col-1 .mediastream-player > div > .image > div > a > img {
+  min-height: 235px;
+}
+
+#block-views-block-goles-home-block-3-2 .vertical .col-1 .row-1 {
+  margin-bottom: 1rem;
+}
+
+#block-views-block-goles-home-block-3-2 .vertical .views-col {
+  float: left;
+  max-width: 50%;
+}
+
+#block-views-block-goles-home-block-3-2 .vertical .col-2 .mediastream-player img,
+#block-views-block-goles-home-block-3-2 .vertical .col-2 .mediastream-player iframe {
+  height: 485px;
+}
+
+#block-views-block-goles-home-block-3-2 header {
+  float: left;
+  max-width: 40%;
+}
+
+#block-views-block-goles-home-block-3-2 header .mediastream-player img,
+#block-views-block-goles-home-block-3-2 header .mediastream-player iframe {
+  height: 485px;
+}
+
+#block-views-block-goles-home-block-3-2 .gol-partido .title {
+  padding-left: 0;
+  padding-right: 0;
+  bottom: 0;
+  left: 10px;
+  padding: 5px;
+}
+
+#block-views-block-goles-home-block-3-2 .gol-partido .title span {
+  font-size: 1.3rem;
+  line-height: 5px;
 }
 
 #block-futbolcolombiano-estadisticas, .opta-widgets {
@@ -2879,22 +2977,27 @@ div#block-horizontalresults img {
 }
 
 .mediastream.fixed-height {
-  margin-bottom: 1rem;
+  /*height: 550px !important;*/
 }
 
-@media (min-width: 768px) {
-  .mediastream.fixed-height {
-    margin-bottom: 0;
-    height: 550px !important;
-  }
-
-  .mediastream.fixed-height > div {
-    height: 550px !important;
-  }
+.mediastream.fixed-height > div {
+  /*height: 550px !important;*/
+  margin-bottom: 1rem;
 }
 
 .mediastream-player .image img {
   width: 100%;
+}
+
+#block-views-block-videos-block-4 {
+  margin-top: 1.3rem;
+}
+
+div[id*="block-views-block-videos-"] select {
+  margin-bottom: 5px;
+  padding: 0 25px;
+  height: 35px;
+  text-align: center;
 }
 
 .article.type-2876,
