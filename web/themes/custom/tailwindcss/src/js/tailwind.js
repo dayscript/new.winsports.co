@@ -12,6 +12,7 @@
      if($('#top-content #eplAdDivTop_Banner_NEW > a').length > 0){
        $('#top-content').addClass('tw-mt-12 md:tw-mt-29');
      }else{
+       $('#top-content').addClass('tw-hidden');
        $('#horizontal-results').addClass('tw-mt-12 md:tw-mt-29');
      }
      relocateView();
