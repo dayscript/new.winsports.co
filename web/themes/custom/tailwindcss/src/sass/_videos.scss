@@ -1,8 +1,12 @@
 .mediastream.fixed-height{
-  height: 550px !important;
-  > div{
-    height: 550px !important;
-  } 
+	@apply tw-mb-4;
+  @screen md {
+	@apply tw-mb-0;
+  	height: 550px !important;
+  	> div{
+  		height: 550px !important;
+	} 
+  }
 }
 .mediastream-player{
   .image{

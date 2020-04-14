@@ -2879,11 +2879,18 @@ div#block-horizontalresults img {
 }
 
 .mediastream.fixed-height {
-  height: 550px !important;
+  margin-bottom: 1rem;
 }
 
-.mediastream.fixed-height > div {
-  height: 550px !important;
+@media (min-width: 768px) {
+  .mediastream.fixed-height {
+    margin-bottom: 0;
+    height: 550px !important;
+  }
+
+  .mediastream.fixed-height > div {
+    height: 550px !important;
+  }
 }
 
 .mediastream-player .image img {
