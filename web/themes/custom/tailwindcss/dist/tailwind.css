@@ -992,18 +992,18 @@ a {
   padding-right: 1.5rem;
 }
 
-#block-tailwindcss-main-menu ul:not(.contextual-links) li a.inicio {
+#block-toplinks {
+  font-size: 0.875rem;
+}
+
+#block-toplinks ul:not(.contextual-links) li a.inicio {
   display: block;
 }
 
 @media (min-width: 768px) {
-  #block-tailwindcss-main-menu ul:not(.contextual-links) li a.inicio {
+  #block-toplinks ul:not(.contextual-links) li a.inicio {
     display: none;
   }
-}
-
-#block-toplinks {
-  font-size: 0.875rem;
 }
 
 #block-futbolcolombiano ul:not(.contextual-links),
@@ -2337,10 +2337,6 @@ div#block-nike {
   background: white !important;
 }
 
-div#horizontal-results {
-  padding-top: 0 !important;
-}
-
 @media (min-width: 768px) {
   div#horizontal-results {
     padding-top: 1rem !important;
@@ -2883,11 +2879,18 @@ div#block-horizontalresults img {
 }
 
 .mediastream.fixed-height {
-  height: 550px !important;
+  margin-bottom: 1rem;
 }
 
-.mediastream.fixed-height > div {
-  height: 550px !important;
+@media (min-width: 768px) {
+  .mediastream.fixed-height {
+    margin-bottom: 0;
+    height: 550px !important;
+  }
+
+  .mediastream.fixed-height > div {
+    height: 550px !important;
+  }
 }
 
 .mediastream-player .image img {
