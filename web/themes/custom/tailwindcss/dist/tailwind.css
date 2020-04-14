@@ -2337,10 +2337,6 @@ div#block-nike {
   background: white !important;
 }
 
-div#horizontal-results {
-  padding-top: 0 !important;
-}
-
 @media (min-width: 768px) {
   div#horizontal-results {
     padding-top: 1rem !important;
