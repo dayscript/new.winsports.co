@@ -18,7 +18,8 @@
     margin-top: 1.3rem;
 }
 
-div[id*="block-views-block-videos-"] select {
+div[id*="block-views-block-videos-"] select,
+div[id*="block-views-block-videos-block-"] select {
     margin-bottom: 15px;
     padding: 0 25px;
     height: 35px;
