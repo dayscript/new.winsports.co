@@ -848,12 +848,12 @@ div#block-customadsblock-8 {
 
 .menu-secundario .teams-list {
     text-align: center;
-    overflow-x: scroll;
+    /*overflow-x: scroll;*/
     white-space: nowrap;
     .team-item {
         text-align: center;
         display: inline-block;
-        margin: auto 1rem;
+        margin: auto 0.8rem;
         a {
             img {
                 display: inline-block !important;

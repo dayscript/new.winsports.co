@@ -2245,14 +2245,14 @@ div#block-customadsblock-8 {
 
 .menu-secundario .teams-list {
   text-align: center;
-  overflow-x: scroll;
+  /*overflow-x: scroll;*/
   white-space: nowrap;
 }
 
 .menu-secundario .teams-list .team-item {
   text-align: center;
   display: inline-block;
-  margin: auto 1rem;
+  margin: auto 0.8rem;
 }
 
 .menu-secundario .teams-list .team-item a img {
