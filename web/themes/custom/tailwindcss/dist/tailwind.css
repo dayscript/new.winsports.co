@@ -2577,17 +2577,20 @@ div#block-horizontalresults img {
   -webkit-overflow-scrolling: touch !important;
 }
 
-.overflow-x-auto::-webkit-scrollbar-button {
+.overflow-x-auto::-webkit-scrollbar-button,
+#block-futbolinternacional ul:not(.contextual-links)::-webkit-scrollbar-button {
   display: none !important;
 }
 
-.overflow-x-auto::-webkit-scrollbar {
+.overflow-x-auto::-webkit-scrollbar,
+#block-futbolinternacional ul:not(.contextual-links)::-webkit-scrollbar {
   background-color: #FFF;
   border-radius: 8px;
   height: 8px;
 }
 
-.overflow-x-auto::-webkit-scrollbar-thumb {
+.overflow-x-auto::-webkit-scrollbar-thumb,
+#block-futbolinternacional ul:not(.contextual-links)::-webkit-scrollbar-thumb {
   background-color: #0b3b41;
   border-radius: 10px;
   -webkit-border-radius: 10px;
