@@ -3026,6 +3026,11 @@ div[id*="block-views-block-opinion-"] select {
   max-height: 136.2px;
 }
 
+#block-contenidoprincipaldelapagina-3,
+.views-element-container {
+  max-width: 1280px;
+}
+
 .article.type-2876,
 .article.type-2882 {
   background-color: #e3e3e3;
