@@ -3021,6 +3021,11 @@ div[id*="block-views-block-opinion-"] select {
   background-color: #c1c1c1;
 }
 
+#block-views-block-noticias-block-1 img,
+#block-views-block-videos-block-2 img {
+  max-height: 136.2px;
+}
+
 .article.type-2876,
 .article.type-2882 {
   background-color: #e3e3e3;

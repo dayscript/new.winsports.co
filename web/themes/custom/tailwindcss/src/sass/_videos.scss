@@ -26,3 +26,10 @@ div[id*="block-views-block-opinion-"] select {
     text-align: center;
     background-color: #c1c1c1;
 }
+
+#block-views-block-noticias-block-1,
+#block-views-block-videos-block-2 {
+    img {
+        max-height: 136.2px;
+    }
+}
