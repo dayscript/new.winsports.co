@@ -14,13 +14,13 @@
       $(window).scroll(function() {
         let scroll = $(window).scrollTop();
         if (scroll >= 250 && scroll <= ($('#block-matchmenu').innerHeight() - 100)) {
-          $('#block-matchmenu').find('.tw-bg-gray').find('div:nth-child(2)').css({
+          $('#block-matchmenu').find('.tw-bg-gray').find('div[class*="tw-pl-6"]').css({
               'position': 'fixed',
               'right': '9.8%',
               'top': '20%',
           });
         } else {
-          $('#block-matchmenu').find('.tw-bg-gray').find('div:nth-child(2)').css({
+          $('#block-matchmenu').find('.tw-bg-gray').find('div[class*="tw-pl-6"]').css({
               'position': 'relative',
               'right': 'unset',
               'top': 'unset',
