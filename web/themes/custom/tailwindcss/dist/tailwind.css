@@ -2021,6 +2021,12 @@ div#block-contenidoprincipaldelapagina-3 header {
   width: 100%;
 }
 
+#owl-programming .items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 #block-widgetprogrammingblock h3 {
   font-family: "Passion One", cursive;
   color: #0b3b41;
@@ -2032,15 +2038,19 @@ div#block-contenidoprincipaldelapagina-3 header {
   text-align: center;
   padding: 0.6rem;
   background: #d4dbdc;
-  width: 2.8rem;
-  margin: 0 5px 0 0 !important;
+  margin-right: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   font-size: 1rem;
+}
+
+#block-widgetprogrammingblock .date:last-child {
+  margin-right: 0px;
 }
 
 @media (min-width: 768px) {
   #block-widgetprogrammingblock .date {
     padding: 1rem;
-    width: 11rem;
   }
 }
 
@@ -2225,17 +2235,6 @@ div#block-customadsblock-8 {
 .funcionario .content .twitter {
   color: #0b3b41 !important;
   font-size: 0.9rem;
-}
-
-#owl-programming .items {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  margin-bottom: 0.4rem;
-  overflow-x: auto;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
 }
 
 .img-jugador img {

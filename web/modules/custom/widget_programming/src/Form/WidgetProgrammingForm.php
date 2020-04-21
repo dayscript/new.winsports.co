@@ -43,7 +43,7 @@ class WidgetProgrammingForm extends FormBase {
       foreach ($month as $ks => $day) {
         $class_date = ($date_active == $day['value']) ? 'active' : '';
         $html_[] = '
-        <div class="date '.$class_date.'">
+        <div class="date flex-1 '.$class_date.'">
         <a href="programacion?date='.$day['value'].'">
           <div class="weekday">'.$day['weekday'].'</div>
           <div class="day">'.$day['day'].'</div>

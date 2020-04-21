@@ -655,20 +655,27 @@ div#block-contenidoprincipaldelapagina-3 {
     }
 }
 
+#owl-programming .items{
+    @apply flex;
+}
+
 #block-widgetprogrammingblock {
     h3 {
         font-family: $font-title;
         @apply tw-text-primary text-3xl font-semibold;
     }
-    .date {
+    .date{
         text-align: center;
         padding: 0.6rem;
         background: #d4dbdc;
-        width: 2.8rem;
-        margin: 0 5px 0 0 !important;
+        margin-right: 5px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        &:last-child{
+            margin-right: 0px;
+        }
         @screen md {
             padding: 1rem;
-            width: 11rem;
         }
         @apply text-base;
         .weekday {
@@ -830,14 +837,6 @@ div#block-customadsblock-8 {
             font-size: 0.9rem;
         }
     }
-}
-
-#owl-programming .items {
-    display: flex;
-    width: 100%;
-    margin-bottom: 0.4rem;
-    overflow-x: auto;
-    flex-wrap: nowrap;
 }
 
 .img-jugador {
