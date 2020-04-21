@@ -2815,7 +2815,10 @@ div#block-horizontalresults img {
 
 #block-views-block-videos-opinion-block-2 {
   display: block;
-  margin-bottom: 1rem;
+}
+
+#block-views-block-videos-opinion-block-2 .title {
+  margin-top: 1rem;
 }
 
 @media (min-width: 768px) {
