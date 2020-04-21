@@ -655,7 +655,7 @@ div#block-contenidoprincipaldelapagina-3 {
     }
 }
 
-#owl-programming .items{
+#owl-programming .items {
     @apply flex;
 }
 
@@ -664,14 +664,14 @@ div#block-contenidoprincipaldelapagina-3 {
         font-family: $font-title;
         @apply tw-text-primary text-3xl font-semibold;
     }
-    .date{
+    .date {
         text-align: center;
         padding: 0.6rem;
         background: #d4dbdc;
         margin-right: 5px;
         margin-top: 5px;
         margin-bottom: 5px;
-        &:last-child{
+        &:last-child {
             margin-right: 0px;
         }
         @screen md {
@@ -1040,6 +1040,13 @@ div#block-horizontalresults {
             span {
                 font-size: 1.3rem;
                 line-height: 5px;
+            }
+        }
+    }
+    #block-positionstableswidget {
+        .opta-feeds-widget-positions {
+            .scrollbar-w-2 {
+                max-height: 310px;
             }
         }
     }
