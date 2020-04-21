@@ -145,10 +145,7 @@
 }
 
 #block-views-block-videos-opinion-block-2{
-  @apply tw-block;
-  .title{
-  @apply tw-mt-4;
-  }
+    @apply tw-block tw-mb-4;
   @screen md{
     @apply tw-hidden;
   }
