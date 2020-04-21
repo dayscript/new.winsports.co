@@ -10,6 +10,7 @@
     Drupal.behaviors.tailwindcss = {
         attach: function(context, settings) {
             let path = window.location.pathname;
+            $('#block-positionstableswidget').find('.opta-feeds-widget-positions').find('.scrollbar-w-2').attr('style', 'max-height: 310px');
             if (path.indexOf('partidos') >= 0) {
                 /*$('#block-contenidoprincipaldelapagina-3').hide();
                 //$('.tw-p-4').attr('style', 'padding:0 !important;');
