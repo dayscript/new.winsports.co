@@ -1,6 +1,6 @@
 <div>
-    <div v-if="competition>0 && season>0 && team>0" class="tw-flex opta-widgets">
-        <div class="tw-flex-1"><opta-widget
+    <div v-if="competition>0 && season>0 && team>0" class="md:tw-flex opta-widgets">
+        <div class="md:tw-flex-1"><opta-widget
                 sport="football"
                 widget="team_compare"
                 :competition="competition"
@@ -18,7 +18,7 @@
                 title="Comparar equipos"
                 breakpoints="400">
         </opta-widget></div>
-        <div class="tw-flex-1 tw-pl-6">
+        <div class="md:tw-flex-1 md:tw-pl-6">
             <div class="widget_opta_v3">
                 <opta-widget
                         sport="football"
