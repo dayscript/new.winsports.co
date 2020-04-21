@@ -5,7 +5,8 @@ var opta_settings = {
     load_when_visible: false,
     link_callback: function (params) {
         var h = '';
-        h += '//test.winsports.co/';
+        //h += '//test.winsports.co/';
+        h += '//nuevo.winsports.co/';
         if (params.match) {
             h += 'matches/' + params.match;
         }
