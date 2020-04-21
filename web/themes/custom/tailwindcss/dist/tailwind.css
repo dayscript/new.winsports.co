@@ -2453,7 +2453,7 @@ div#block-horizontalresults img {
 }
 
 #block-views-block-goles-home-block-3-2 #block-positionstableswidget .opta-feeds-widget-positions .scrollbar-w-2 {
-  max-height: 310px;
+  max-height: 310px !important;
 }
 
 #block-futbolcolombiano-estadisticas, .opta-widgets {
