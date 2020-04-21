@@ -19,7 +19,8 @@
 }
 
 div[id*="block-views-block-videos-"] select,
-div[id*="block-views-block-opinion-"] select {
+div[id*="block-views-block-opinion-"] select,
+div#blocktabs-columnas_blogs select{
     height: 3rem;
     padding-left: 1rem;
     padding-right: 1rem;
