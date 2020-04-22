@@ -25,11 +25,11 @@ div[id*="block-views-block-videos-"]{
     .form-item{
         @apply relative;
         &:after {
-            background-image: url(/themes/custom/tailwindcss/images/icons/down.svg);
             content: "";
-            width: 14px;
-            //background-size: 9px 5px;
-            height: 14px;
+            background-image: url(/themes/custom/tailwindcss/images/icons/down.svg);
+            background-size: 9px 5px;
+            width: 9px;
+            height: 5px;
             top: 1.4rem;
             left: 7rem;
             position: absolute;
