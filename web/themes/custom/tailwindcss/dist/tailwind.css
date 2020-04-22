@@ -3022,10 +3022,10 @@ div#block-horizontalresults img {
   margin-top: 1.3rem;
 }
 
-#block-positionstableswidgetcolombia {
-  /*     select{
-        min-width: 130px;
-    } */
+#block-positionstableswidgetcolombia select {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
 
 #block-positionstableswidgetcolombia .form-item {
@@ -3038,8 +3038,8 @@ div#block-horizontalresults img {
   background-size: 9px 5px;
   width: 9px;
   height: 5px;
-  top: 1.4rem;
-  left: 7rem;
+  top: 2.4rem;
+  left: 21rem;
   position: absolute;
 }
 

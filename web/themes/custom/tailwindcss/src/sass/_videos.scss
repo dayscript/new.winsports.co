@@ -19,9 +19,9 @@
 }
 
 #block-positionstableswidgetcolombia{
-/*     select{
-        min-width: 130px;
-    } */
+     select{
+        @apply appearance-none;
+    }
     .form-item{
         @apply relative;
         &:after {
@@ -30,8 +30,8 @@
             background-size: 9px 5px;
             width: 9px;
             height: 5px;
-            top: 1.4rem;
-            left: 7rem;
+            top: 2.4rem;
+            left: 21rem;
             position: absolute;
         }
     }
