@@ -3022,6 +3022,27 @@ div#block-horizontalresults img {
   margin-top: 1.3rem;
 }
 
+#block-positionstableswidgetcolombia {
+  /*     select{
+        min-width: 130px;
+    } */
+}
+
+#block-positionstableswidgetcolombia .form-item {
+  position: relative;
+}
+
+#block-positionstableswidgetcolombia .form-item:after {
+  content: "";
+  background-image: url(/themes/custom/tailwindcss/images/icons/down.svg);
+  background-size: 9px 5px;
+  width: 9px;
+  height: 5px;
+  top: 1.4rem;
+  left: 7rem;
+  position: absolute;
+}
+
 div[id*="block-views-block-videos-"] select {
   min-width: 130px;
 }

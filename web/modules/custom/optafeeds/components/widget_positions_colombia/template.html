@@ -1,5 +1,5 @@
 <div class="opta-widgets" style="background-color: #ededed;">
-    <div class="p-4">
+    <div class="p-4 form-item">
         <select class="m-0 w-full py-3 px-4" @change="loadTable" v-model="tournament_season" name="id_tournament" id="widget_tournament_id">
             <option :value="tour.field_opta_id + '-' + tour.field_opta_season" v-for="tour in tournaments">{{ tour.title }}</option>
         </select>
