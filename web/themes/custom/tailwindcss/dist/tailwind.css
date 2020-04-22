@@ -3022,6 +3022,21 @@ div#block-horizontalresults img {
   margin-top: 1.3rem;
 }
 
+div[id*="block-views-block-videos-"] select {
+  min-width: 130px;
+}
+
+div[id*="block-views-block-videos-"] .form-item:after {
+  background-image: url(/themes/custom/tailwindcss/images/icons/down.svg);
+  content: "";
+  width: 9px;
+  background-size: 9px 5px;
+  height: 5px;
+  top: 1.4rem;
+  left: 7rem;
+  position: absolute;
+}
+
 div[id*="block-views-block-videos-"] select,
 div[id*="block-views-block-opinion-"] select,
 div#blocktabs-columnas_blogs select {
