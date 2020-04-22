@@ -23,6 +23,7 @@ div[id*="block-views-block-videos-"]{
         min-width: 130px;
     }
     .form-item{
+        @apply relative;
         &:after {
             background-image: url(/themes/custom/tailwindcss/images/icons/clock.png);
             content: "";

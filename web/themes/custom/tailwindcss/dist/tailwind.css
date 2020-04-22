@@ -3026,6 +3026,10 @@ div[id*="block-views-block-videos-"] select {
   min-width: 130px;
 }
 
+div[id*="block-views-block-videos-"] .form-item {
+  position: relative;
+}
+
 div[id*="block-views-block-videos-"] .form-item:after {
   background-image: url(/themes/custom/tailwindcss/images/icons/clock.png);
   content: "";
