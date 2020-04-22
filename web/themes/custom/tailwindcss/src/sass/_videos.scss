@@ -37,6 +37,29 @@ div[id*="block-views-block-videos-"]{
     }
 }
 
+div[id*="block-views-block-opinion-"],
+#blocktabs-columnas_blogs{
+    select{
+        min-width: 200px;
+        max-width: 200px;
+        @screen md{
+            min-width: 192px;
+        }
+    }
+    .form-item{
+        @apply relative;
+        &:after {
+            content: "";
+            background-image: url(/themes/custom/tailwindcss/images/icons/down.svg);
+            background-size: 9px 5px;
+            width: 9px;
+            height: 5px;
+            top: 1.4rem;
+            left: 11rem;
+            position: absolute;
+        }
+    }
+}
 
 div[id*="block-views-block-videos-"] select,
 div[id*="block-views-block-opinion-"] select,
@@ -48,8 +71,6 @@ div#blocktabs-columnas_blogs select{
     padding-top: .75rem;
     padding-bottom: .75rem;
     margin-bottom: 15px;
-    //padding: 0 25px;
-    //height: 35px;
     text-align: center;
     background-color: #c1c1c1;
 }

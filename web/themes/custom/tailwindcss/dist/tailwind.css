@@ -3041,6 +3041,36 @@ div[id*="block-views-block-videos-"] .form-item:after {
   position: absolute;
 }
 
+div[id*="block-views-block-opinion-"] select,
+#blocktabs-columnas_blogs select {
+  min-width: 200px;
+  max-width: 200px;
+}
+
+@media (min-width: 768px) {
+  div[id*="block-views-block-opinion-"] select,
+  #blocktabs-columnas_blogs select {
+    min-width: 192px;
+  }
+}
+
+div[id*="block-views-block-opinion-"] .form-item,
+#blocktabs-columnas_blogs .form-item {
+  position: relative;
+}
+
+div[id*="block-views-block-opinion-"] .form-item:after,
+#blocktabs-columnas_blogs .form-item:after {
+  content: "";
+  background-image: url(/themes/custom/tailwindcss/images/icons/down.svg);
+  background-size: 9px 5px;
+  width: 9px;
+  height: 5px;
+  top: 1.4rem;
+  left: 11rem;
+  position: absolute;
+}
+
 div[id*="block-views-block-videos-"] select,
 div[id*="block-views-block-opinion-"] select,
 div#blocktabs-columnas_blogs select {
