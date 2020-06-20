@@ -40,6 +40,7 @@
         "drupal/libraries": "^3.0@alpha",
         "drupal/link_attributes": "^1.10",
         "drupal/memcache": "^2.0",
+        "drupal/minifyhtml": "^1.10",
         "drupal/module_filter": "^3.1",
         "drupal/owlcarousel": "^1.0@alpha",
         "drupal/pathauto": "^1.6",
