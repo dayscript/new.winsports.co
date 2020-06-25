@@ -47,6 +47,7 @@
         "drupal/pdb": "^1.0@alpha",
         "drupal/pdb_vue": "^1.0@alpha",
         "drupal/redirect": "^1.5",
+        "drupal/redis": "^1.4",
         "drupal/responsive_menu": "^2.6",
         "drupal/single_image_formatter": "^1.5",
         "drupal/slick_extras": "^1.0@RC",
