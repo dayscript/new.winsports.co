@@ -2465,6 +2465,16 @@ div#block-customadsblock-8 {
   margin-bottom: 1rem;
 }
 
+.galeria.home-destacado .description {
+  margin-left: 0;
+}
+
+@media (min-width: 768px) {
+  .galeria.home-destacado .description {
+    margin-left: 1rem;
+  }
+}
+
 div#block-socialmedialinks {
   margin-bottom: 1.6rem;
   display: block;
