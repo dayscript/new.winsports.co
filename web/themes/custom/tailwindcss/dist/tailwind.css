@@ -2440,24 +2440,24 @@ div#block-customadsblock-8 {
 }
 
 .galeria.home-destacado {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: block;
 }
 
 @media (min-width: 768px) {
   .galeria.home-destacado {
-    display: block;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
 }
 
 .galeria.home-destacado .image {
-  width: 80%;
+  width: 100%;
 }
 
 @media (min-width: 768px) {
   .galeria.home-destacado .image {
-    width: 100%;
+    width: 80%;
   }
 }
 
