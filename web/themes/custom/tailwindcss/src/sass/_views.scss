@@ -908,8 +908,18 @@ div#block-customadsblock-8 {
 }
 
 .galeria.home-destacado {
-    img {
-        margin-bottom: 1rem;
+    @apply flex;
+    @screen md {
+        @apply block;
+    }
+    .image{
+        width: 80%;
+        @screen md {
+            width:100%;
+        }
+        img {
+            margin-bottom: 1rem;
+        }
     }
 }
 
