@@ -922,9 +922,9 @@ div#block-customadsblock-8 {
         }
     }
     .description{
-        @apply tw-ml-0;
         @screen md {
-            @apply tw-ml-4;
+            @apply ml-4;
+            //margin-left: 1rem;
         }
     }
 }
