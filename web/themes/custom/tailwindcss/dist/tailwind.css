@@ -1062,11 +1062,6 @@ a {
   }
 }
 
-#block-optageneralstats .menu-secundario {
-  overflow-x: scroll;
-  overflow-y: hidden;
-}
-
 #block-futbolcolombiano ul:not(.contextual-links),
 #block-futbolinternacional ul:not(.contextual-links),
 .menu-secundario ul:not(.contextual-links) {
@@ -3096,9 +3091,19 @@ div#block-horizontalresults img {
   }
 }
 
+#block-optageneralstats .menu-secundario {
+  overflow-x: auto;
+  overflow-y: auto;
+}
+
 /* RESPONSIVE */
 
 @media (min-width: 768px) {
+  #block-optageneralstats .menu-secundario {
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
+
   #block-toplinks {
     display: block;
   }

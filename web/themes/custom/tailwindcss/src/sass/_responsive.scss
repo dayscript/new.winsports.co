@@ -191,8 +191,21 @@
     }
 }
 
+#block-optageneralstats{
+  .menu-secundario{
+    overflow-x: auto;
+    overflow-y: auto;
+  }
+}
+
 /* RESPONSIVE */
 @screen md {
+  #block-optageneralstats{
+    .menu-secundario{
+      overflow-x: scroll;
+      overflow-y: hidden;
+    }
+  }
   #block-toplinks{
     @apply block;
   }
