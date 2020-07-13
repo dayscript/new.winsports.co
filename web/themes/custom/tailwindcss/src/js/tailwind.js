@@ -9,6 +9,9 @@
      */
     Drupal.behaviors.tailwindcss = {
         attach: function(context, settings) {
+            window.onload = function(){
+                $('.loading').hide(); // hide the .loading class with the loading animation gif
+            };
             let path = window.location.pathname;
             if (path.indexOf('partidos') >= 0) {
                 /*$('#block-contenidoprincipaldelapagina-3').hide();
