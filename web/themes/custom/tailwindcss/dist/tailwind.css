@@ -1062,6 +1062,11 @@ a {
   }
 }
 
+#block-optageneralstats .menu-secundario {
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
 #block-futbolcolombiano ul:not(.contextual-links),
 #block-futbolinternacional ul:not(.contextual-links),
 .menu-secundario ul:not(.contextual-links) {
