@@ -2616,13 +2616,13 @@ div#block-horizontalresults img {
 
 .list-category .list-tags {
   padding: 0 1rem;
+  margin-bottom: 2rem;
 }
 
 @media (min-width: 768px) {
   .list-category .list-tags {
     width: 25%;
     display: inline-table;
-    margin-bottom: 2rem;
   }
 }
 
