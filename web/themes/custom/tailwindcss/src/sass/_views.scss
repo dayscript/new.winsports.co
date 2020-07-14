@@ -1067,3 +1067,13 @@ div#block-horizontalresults {
         }
     }
 }
+.list-category{
+    .list-tags{
+            padding: 0 1rem;
+        @screen md {
+            width: 25%;
+            display: inline-table;
+            margin-bottom: 2rem;
+        }
+    }
+}

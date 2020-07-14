@@ -2614,6 +2614,18 @@ div#block-horizontalresults img {
   max-height: 310px !important;
 }
 
+.list-category .list-tags {
+  padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+  .list-category .list-tags {
+    width: 25%;
+    display: inline-table;
+    margin-bottom: 2rem;
+  }
+}
+
 #block-futbolcolombiano-estadisticas, .opta-widgets {
   --text-opacity: 1;
   color: #0b3b41;
