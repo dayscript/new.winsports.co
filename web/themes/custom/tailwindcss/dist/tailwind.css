@@ -3091,7 +3091,7 @@ div#block-horizontalresults img {
   }
 }
 
-#block-optageneralstats .menu-secundario {
+#block-optageneralstats .menu-secundario .teams-list {
   overflow-x: auto;
   overflow-y: auto;
 }

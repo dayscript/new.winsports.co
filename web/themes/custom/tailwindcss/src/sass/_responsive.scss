@@ -193,8 +193,10 @@
 
 #block-optageneralstats{
   .menu-secundario{
-    overflow-x: auto;
-    overflow-y: auto;
+    .teams-list{
+      overflow-x: auto;
+      overflow-y: auto;
+    }
   }
 }
 
