@@ -2626,6 +2626,10 @@ div#block-horizontalresults img {
   }
 }
 
+.list-category .feed-icon {
+  display: none;
+}
+
 #block-futbolcolombiano-estadisticas, .opta-widgets {
   --text-opacity: 1;
   color: #0b3b41;
