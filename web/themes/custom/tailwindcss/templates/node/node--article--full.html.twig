@@ -27,7 +27,7 @@
         {% if node.hasField('field_lead') %}
             <div class="lead my-2 tw-text-lg italic mb-8">{{ content.field_lead }}</div>
         {% endif %}
-        {% if node.hasField('field_mediastream') %}
+        {% if (node.hasField('field_mediastream') and node.field_mediastream.value) %}
             {{ content.field_mediastream }}
         {% elseif node.field_url.uri %}
             {{ content.field_url }}
