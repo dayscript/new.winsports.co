@@ -257,6 +257,9 @@
       }
     }
   }
+  nav#block-bottommenumobile{
+    display: none;
+  }
 }
 
 .tw-container{
@@ -272,4 +275,55 @@
 }
 .owl-item {
   width: auto;
+}
+nav#block-bottommenumobile{
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  ul{
+    text-align: center;
+    font-size: .9em;
+    letter-spacing: 0;
+    display: flex;
+    background-color: rgba(11, 59, 65, var(--bg-opacity)) !important;
+    > li{
+        display: block;
+        position: relative;
+        width: 33.3333%;
+        height: 70px;
+      a{
+        color: white;
+        position: relative;
+        transform: translateY(-35%);
+        top: 60%;
+        padding: .7rem .4rem;
+        &::after{
+          position: absolute;
+          content: "";
+          bottom: 34px;
+          left: 0;
+          right: 0;
+          margin: auto;
+          width: 25px;
+          height: 25px;
+        }
+      }
+      .goles{
+        &::after{
+          background-image: url('../images/icons/goles.png');
+        }
+      }
+      .partidos{
+        &::after{
+          background-image: url('../images/icons/tv.png');
+        }
+      }
+      .posiciones{
+        &::after{
+          background-image: url('../images/icons/posiciones.png');
+        }
+      }
+    }
+  }
 }

@@ -3218,6 +3218,10 @@ div#block-horizontalresults img {
         -ms-flex-pack: justify;
             justify-content: space-between;
   }
+
+  nav#block-bottommenumobile {
+    display: none;
+  }
 }
 
 .tw-container {
@@ -3239,6 +3243,62 @@ div#block-horizontalresults img {
 
 .owl-item {
   width: auto;
+}
+
+nav#block-bottommenumobile {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+
+nav#block-bottommenumobile ul {
+  text-align: center;
+  font-size: .9em;
+  letter-spacing: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: rgba(11, 59, 65, var(--bg-opacity)) !important;
+}
+
+nav#block-bottommenumobile ul > li {
+  display: block;
+  position: relative;
+  width: 33.3333%;
+  height: 70px;
+}
+
+nav#block-bottommenumobile ul > li a {
+  color: white;
+  position: relative;
+  -webkit-transform: translateY(-35%);
+          transform: translateY(-35%);
+  top: 60%;
+  padding: .7rem .4rem;
+}
+
+nav#block-bottommenumobile ul > li a::after {
+  position: absolute;
+  content: "";
+  bottom: 34px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 25px;
+  height: 25px;
+}
+
+nav#block-bottommenumobile ul > li .goles::after {
+  background-image: url("../images/icons/goles.png");
+}
+
+nav#block-bottommenumobile ul > li .partidos::after {
+  background-image: url("../images/icons/tv.png");
+}
+
+nav#block-bottommenumobile ul > li .posiciones::after {
+  background-image: url("../images/icons/posiciones.png");
 }
 
 .mediastream.fixed-height {
