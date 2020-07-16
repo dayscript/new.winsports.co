@@ -43,9 +43,17 @@
  * @see html.html.twig
  */
 #}
+<amp-sidebar id="sidebar"
+  class="amp-sidebar"
+  layout="nodisplay"
+  side="left">
+  <button on="tap:sidebar.close" class="side-button side-button-close"><span>×</span></button>
+  {{ page.menu }}
+</amp-sidebar>
 
 <header role="banner" class="amp-header">
   <div class="amp-header__content">
+  <button on="tap:sidebar.toggle" class="side-button side-button-toggle">☰</button>
     {{ page.header }}
   </div>
 </header>
@@ -64,3 +72,21 @@
     </div>
   </footer>
 {% endif %}
+
+<div class="footer-amp">
+    <div class="container">
+        <div class="img-footer">
+            <img src="/themes/custom/tailwindcss/images/logos/winsportsplus.png" alt="Winsports +">
+        </div>
+        <div class="copyright">
+            Copyright© 2020, Bogotá - Colombia. Todos los derechos reservados.  Está prohibida la reproducción total o parcial de la página
+        </div>
+        <div class="menu-footer-amp">
+            <a class="footer" href="/quienes-somos">Quiénes somos</a>
+            <a class="footer" href="/terminos-condiciones">Términos y Condiciones</a>
+            <a class="footer" href="https://winsports.zendesk.com/hc/es/requests/new" target="_blank">Soporte Técnico Win Sports Online</a> 
+            <a class="footer" href="/politica-de-cookies">Política de cookies</a>
+            <a class="footer" href="/sites/default/files/2020-03/manual_procedimiento_politica_y_tratamiento_de_la_informacion.pdf" target="_blank">Manual de Procedimientos y Políticas de Tratamiento de la Información</a>
+        </div>
+    </div>
+</div>
