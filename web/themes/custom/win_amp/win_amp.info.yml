@@ -1,7 +1,7 @@
-name: ExAMPle Subtheme
+name: Win AMP Subtheme
 type: theme
 base theme: amptheme
-description: The ExAMPle subtheme sets custom styles on AMP pages.
+description: The Win AMP subtheme sets custom styles on AMP pages.
 package: Custom
 # core: 8.x
 regions:
