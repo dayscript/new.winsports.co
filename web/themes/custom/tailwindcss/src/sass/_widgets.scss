@@ -67,7 +67,8 @@
 article.id-3{
   #schedules{
     div.match-events{
-      @apply tw-cursor-pointer pointer-events-auto;
+      cursor: pointer;
+      pointer-events: auto !important;
     }
   }
 }
