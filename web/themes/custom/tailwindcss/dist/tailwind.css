@@ -2770,7 +2770,7 @@ div#block-horizontalresults img {
 
 article.id-3 #schedules div.match-events {
   cursor: pointer;
-  pointer-events: auto;
+  pointer-events: auto !important;
 }
 
 .user.compact .image {
