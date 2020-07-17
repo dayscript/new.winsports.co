@@ -89,7 +89,29 @@
   {% endif %}
 
   <div{{ content_attributes }}>
-    {{ content }}
-  </div>
 
+  </div>
+  {% if node.field_url.uri %}
+      {{ content.field_url }} 
+  {% elseif (node.hasField('field_mediastream') and node.field_mediastream.value) %}
+      {% if node.field_mediastream.value %}
+        <div id="mediastream">
+            <div class="mediastream-video mediastream-{{ node.id }}">
+              <amp-iframe
+                width="600"
+                height="400"
+                sandbox="allow-scripts allow-same-origin allow-presentation"
+                layout="responsive"
+                frameborder="0"
+                src="https://mdstrm.com/embed/{{ content.field_mediastream.0 }}?jsapi=true&autoplay=false&mse=true">
+                <amp-img layout="fill" src="{{ file_url(content.field_image['#items'].entity.uri.value) }}" placeholder></amp-img>
+              </amp-iframe>
+
+            </div>
+        </div>
+      {% endif %}
+  {% elseif node.hasField('field_image') %}
+      <div class="tw-my-4">{{ content.field_image }}</div>
+      <div class="tw-text-gray-650 tw-text-sm tw-mb-4">{{ node.field_image.title }}</div>
+  {% endif %}
 </article>
