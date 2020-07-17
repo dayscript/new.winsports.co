@@ -62,5 +62,12 @@
       @apply text-3xl normal-case px-0;
     }
   }
-  
+}
+
+article.id-3{
+  #schedules{
+    div.match-events{
+      @apply tw-cursor-pointer pointer-events-auto;
+    }
+  }
 }

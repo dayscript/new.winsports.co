@@ -2768,6 +2768,11 @@ div#block-horizontalresults img {
   padding-right: 0;
 }
 
+article.id-3 #schedules div.match-events {
+  cursor: pointer;
+  pointer-events: auto;
+}
+
 .user.compact .image {
   margin-bottom: 0;
 }

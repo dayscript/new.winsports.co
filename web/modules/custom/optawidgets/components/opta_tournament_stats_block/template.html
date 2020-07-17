@@ -16,7 +16,7 @@
       <div v-show="selected_option === 'schedules'" id="schedules">
          <div v-for="(items,day) in matches" class="">
             <div class="tw-bg-primary tw-text-white tw-p-4 capitalize">{{ moment(day).format('MMMM D YYYY') }}</div>
-            <div v-for="match in items" @click="gotoMatch(match.id)" class="tw-border-b tw-border-white tw-p-2 tw-pointer-events-none">
+            <div v-for="match in items" @click="gotoMatch(match.id)" class="tw-border-b tw-border-white tw-p-2 tw-pointer-events-none match-events">
                <div class="tw-flex tw-items-center tw-justify-between tw-text-gray-700">
                   <div class="tw-w-5/12 tw-flex tw-items-center tw-justify-start tw-text-sm">
                      <img :src="'https://secure.omo.akamai.opta.net/image.php?secure=true&h=secure.omo.akamai.opta.net&sport=football&entity=team&description=badges&dimensions=65&id='+match.home.id" alt="" class="tw-h-8 tw-pr-2">
