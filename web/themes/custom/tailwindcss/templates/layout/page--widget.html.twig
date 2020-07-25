@@ -45,39 +45,13 @@
  * @ingroup themeable
  */
 #}
-<div><h1 class="mt-20">ES WIDGET</h1></div>
-<div class="tw-container tw-mx-auto tw-px-4">
-    {% if messages %}
-        <div class="help tw-p-2 tw-bg-green-200 tw-text-primary tw-border-primary tw-border tw-text-sm tw-m-2">
-            {{ page.highlighted }}
-        </div>
-    {% endif %}
-
-    {{ page.help }}
-
+<div class="tw-mx-auto tw-px-4">
     <main role="main" class="{{ is_front ? 'front-page':'' }}">
-        <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
-        <div>
-            {{ page.fullcontent }}
-        </div>
+        <a id="main-content" tabindex="-1"></a>
         <div class="md:tw-flex tw--mx-4" id="main-content-region">
-            {% if page.sidebar_first %}
-                <aside class="md:tw-w-1/3 tw-p-4" role="complementary">
-                    {{ page.sidebar_first }}
-                </aside>
-                <div class="md:tw-w-2/3 tw-p-4">
+            <div class="tw-p-4 tw-flex-1 tw-w-full">
                 {{ page.content }}
-                </div>{# /.layout-content #}
-            {% else %}
-                <div class="tw-p-4 tw-flex-1 tw-w-full">
-                {{ page.content }}
-                </div>{# /.layout-content #}
-            {% endif %}
-            {% if page.sidebar_second %}
-                <aside class="md:tw-w-1/4" role="complementary">
-                    {{ page.sidebar_second }}
-                </aside>
-            {% endif %}
+            </div>
         </div>
     </main>
 </div>
