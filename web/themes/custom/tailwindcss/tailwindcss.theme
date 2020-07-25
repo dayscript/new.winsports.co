@@ -17,7 +17,6 @@ function tailwindcss_preprocess_block(&$variables) {
   }
 }
 
-
 /**
  * Get the active theme.
  *
@@ -26,4 +25,14 @@ function tailwindcss_preprocess_block(&$variables) {
  */
 function tailwindcss_get_active_theme() {
   return \Drupal::service('theme.manager')->getActiveTheme()->getName();
+}
+
+/**
+ * Implements hook_theme_suggestions_page_alter().
+ */
+function tailwindcss_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+	$node = \Drupal::routeMatch()->getParameter('node');
+	if($node->id() == '12179') {
+		$suggestions[] = 'page__widget';
+	}
 }

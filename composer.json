@@ -22,6 +22,7 @@
         "drupal/admin_toolbar_links_access_filter": "^2.0",
         "drupal/admin_toolbar_tools": "^2.0",
         "drupal/advagg": "^4.0",
+        "drupal/allow_iframed_site": "^3.0",
         "drupal/amp": "^2.1",
         "drupal/amptheme": "^1.1",
         "drupal/better_exposed_filters": "^4.0@alpha",
