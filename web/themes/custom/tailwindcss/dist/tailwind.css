@@ -2778,6 +2778,11 @@ article.id-3 #schedules div.match-events {
   display: none;
 }
 
+.external-widget .menu-secundario li a,
+.external-widget .menu-secundario .team-item a {
+  pointer-events: none;
+}
+
 .external-widget .menu-secundario li:first-child,
 .external-widget .menu-secundario .team-item:first-child {
   display: block;
