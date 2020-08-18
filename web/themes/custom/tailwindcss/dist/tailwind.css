@@ -2773,6 +2773,16 @@ article.id-3 #schedules div.match-events {
   pointer-events: auto !important;
 }
 
+.external-widget .menu-secundario li,
+.external-widget .menu-secundario .team-item {
+  display: none;
+}
+
+.external-widget .menu-secundario li:first-child,
+.external-widget .menu-secundario .team-item:first-child {
+  display: block;
+}
+
 .user.compact .image {
   margin-bottom: 0;
 }
