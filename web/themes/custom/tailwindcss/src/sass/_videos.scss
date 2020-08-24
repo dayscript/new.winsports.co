@@ -97,6 +97,16 @@ div#blocktabs-columnas_blogs select{
 div[id*="block-views-block-videos-"]{
     input.hasDatepicker{
         max-width: 130px;
+        &:after {
+            content: "";
+            background-image: url(/themes/custom/tailwindcss/images/icons/calendar.png);
+            background-size: 9px 5px;
+            width: 9px;
+            height: 5px;
+            top: 1.4rem;
+            left: 11rem;
+            position: absolute;
+        }
     }
 }
 
