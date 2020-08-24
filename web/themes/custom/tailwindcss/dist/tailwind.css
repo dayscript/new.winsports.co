@@ -3374,11 +3374,11 @@ div[id*="block-views-block-videos-"] select {
   min-width: 130px;
 }
 
-div[id*="block-views-block-videos-"] .form-item {
+div[id*="block-views-block-videos-"] .js-form-type-select {
   position: relative;
 }
 
-div[id*="block-views-block-videos-"] .form-item:after {
+div[id*="block-views-block-videos-"] .js-form-type-select:after {
   content: "";
   background-image: url(/themes/custom/tailwindcss/images/icons/down.svg);
   background-size: 9px 5px;
@@ -3421,6 +3421,7 @@ div[id*="block-views-block-opinion-"] .form-item:after,
 
 div[id*="block-views-block-videos-"] select,
 div[id*="block-views-block-opinion-"] select,
+div[id*="block-views-block-opinion-"] .hasDatepicker,
 div#blocktabs-columnas_blogs select {
   -webkit-appearance: none;
      -moz-appearance: none;
@@ -3433,6 +3434,10 @@ div#blocktabs-columnas_blogs select {
   margin-bottom: 15px;
   text-align: center;
   background-color: #c1c1c1;
+}
+
+div[id*="block-views-block-opinion-"] .hasDatepicker input {
+  max-width: 130px;
 }
 
 #block-views-block-noticias-block-1 img,
