@@ -85,12 +85,32 @@
     }
   }
 }
-
 #block-socialmedialinks{
   ul.social-media-links--platforms{
     li{
       a{
         @apply tw-text-white;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 1280px) {
+  #block-toplinks{
+    ul:not(.contextual-links){
+      li{
+        a{
+          font-size: 1.1vw;
+        }
+      }
+    }
+  }
+  #block-tailwindcss-main-menu{
+    ul:not(.contextual-links){
+      li{
+        a{
+          font-size: 1.1vw;
+          padding: 0 0.8vw;
+        }
       }
     }
   }
