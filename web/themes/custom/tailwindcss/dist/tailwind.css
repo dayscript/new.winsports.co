@@ -3436,7 +3436,7 @@ div#blocktabs-columnas_blogs select {
   background-color: #c1c1c1;
 }
 
-div[id*="block-views-block-opinion-"] input.hasDatepicker {
+div[id*="block-views-block-videos-"] input.hasDatepicker {
   max-width: 130px;
 }
 
