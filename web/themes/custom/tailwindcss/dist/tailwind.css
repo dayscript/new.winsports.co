@@ -3420,8 +3420,8 @@ div[id*="block-views-block-opinion-"] .form-item:after,
 }
 
 div[id*="block-views-block-videos-"] select,
+div[id*="block-views-block-videos-"] .hasDatepicker,
 div[id*="block-views-block-opinion-"] select,
-div[id*="block-views-block-opinion-"] .hasDatepicker,
 div#blocktabs-columnas_blogs select {
   -webkit-appearance: none;
      -moz-appearance: none;
@@ -3436,7 +3436,7 @@ div#blocktabs-columnas_blogs select {
   background-color: #c1c1c1;
 }
 
-div[id*="block-views-block-opinion-"] .hasDatepicker input {
+div[id*="block-views-block-opinion-"] input.hasDatepicker {
   max-width: 130px;
 }
 

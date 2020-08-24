@@ -81,8 +81,8 @@ div[id*="block-views-block-opinion-"],
 }
 
 div[id*="block-views-block-videos-"] select,
+div[id*="block-views-block-videos-"] .hasDatepicker,
 div[id*="block-views-block-opinion-"] select,
-div[id*="block-views-block-opinion-"] .hasDatepicker,
 div#blocktabs-columnas_blogs select{
     @apply appearance-none;
     height: 3rem;
@@ -95,10 +95,8 @@ div#blocktabs-columnas_blogs select{
     background-color: #c1c1c1;
 }
 div[id*="block-views-block-opinion-"]{
-    .hasDatepicker{
-        input{
-            max-width: 130px;
-        }
+    input.hasDatepicker{
+        max-width: 130px;
     }
 }
 
