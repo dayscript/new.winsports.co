@@ -1,0 +1,26 @@
+<?php
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Form\FormStateInterface;
+
+function custom_playlist_help($route_name, RouteMatchInterface $route_match) {
+  if ($route_name == 'help.page.custom_playlist') {
+    $output = '';
+    $output .= '<h3>' . t('About') . '</h3>';
+    $output .= '<p>' . t('Playlist selected by default.') . '</p>';
+    return $output;
+  }
+}
+
+function custom_playlist_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $filter_liga = \Drupal::config('custom_playlist.settings')->get('filter_liga');
+  
+  switch ($form_id) {
+    case 'views-exposed-form-videos-block-1':
+    	if (empty($_GET['field_tournament_round_target_id']))  {
+        	$form_state['input']['field_tournament_round_target_id'] = $filter_liga;
+        }
+        break;
+
+  }
+}

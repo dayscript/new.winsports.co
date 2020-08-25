@@ -1,0 +1,7 @@
+custom_playlist.admin_config_custom_playlist:
+  path: /admin/config/system/custom-playlist
+  defaults:
+    _form: 'Drupal\custom_playlist\Form\CustomPlaylistSettings'
+    _title: 'Configuration Videos'
+  requirements:
+    _permission: 'administer site configuration'

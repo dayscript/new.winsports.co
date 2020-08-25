@@ -1,0 +1,11 @@
+name: Custom Playlist
+description: 'Playlist selected by default.'
+type: module
+libraries:
+  - custom_playlist/drupal.custom_playlist
+
+version: '1.x'
+core: '8.x'
+project: 'custom_playlist'
+datestamp: 1562018368
+package: 'dayscript'
