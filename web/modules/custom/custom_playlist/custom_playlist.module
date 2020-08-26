@@ -17,37 +17,25 @@ function custom_playlist_form_views_exposed_form_alter(&$form, FormStateInterfac
     case 'views-exposed-form-videos-block-1':
       if(empty($_GET)){
         $filter_value = \Drupal::config('custom_playlist.settings')->get('filter_liga');
-        dpm($filter_value);
-        if($filter_value !== 'All'){
-          $form_state->setUserInput(['field_tournament_round_target_id' => $filter_value]);
-        }
+        $form_state->setUserInput(['field_tournament_round_target_id' => $filter_value]);
       }
       break;
     case 'views-exposed-form-videos-block-4':
       if(empty($_GET)){
         $filter_value = \Drupal::config('custom_playlist.settings')->get('filter_torneo');
-        dpm($filter_value);
-        if($filter_value !== 'All'){
-          $form_state->setUserInput(['field_tournament_round_target_id' => $filter_value]);
-        }
+        $form_state->setUserInput(['field_tournament_round_target_id' => $filter_value]);
       }
       break;
     case 'views-exposed-form-videos-block-5':
       if(empty($_GET)){
         $filter_value = \Drupal::config('custom_playlist.settings')->get('filter_copa');
-        dpm($filter_value);
-        if($filter_value !== 'All'){
-          $form_state->setUserInput(['field_tournament_round_target_id' => $filter_value]);
-        }
+        $form_state->setUserInput(['field_tournament_round_target_id' => $filter_value]);
       }
       break;
     case 'views-exposed-form-videos-block-9':
       if(empty($_GET)){
         $filter_value = \Drupal::config('custom_playlist.settings')->get('filter_otros');
-        dpm($filter_value);
-        if($filter_value !== 'All'){
-          $form_state->setUserInput(['field_category_target_id_1' => $filter_value]);
-        }
+        $form_state->setUserInput(['field_category_target_id_1' => $filter_value]);
       }
       break;
   }
