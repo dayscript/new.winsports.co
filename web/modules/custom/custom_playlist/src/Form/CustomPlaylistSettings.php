@@ -27,7 +27,7 @@ class CustomPlaylistSettings extends ConfigFormBase implements ContainerInjectio
     $form = parent::buildForm($form, $form_state);
     
     $rounds = [];
-    $rounds['all'] = 'Seleccione';
+    $rounds['All'] = 'Seleccione';
     $terms = \Drupal::service('entity_type.manager')->getStorage("taxonomy_term")->loadTree('rounds', 0, 1, true);
     foreach ($terms as $term) {
       $rounds[$term->get('tid')->value] = $term->get('name')->value;
@@ -58,7 +58,7 @@ class CustomPlaylistSettings extends ConfigFormBase implements ContainerInjectio
     );
 
     $categoria = [];
-    $categoria['all'] = 'Seleccione';
+    $categoria['All'] = 'Seleccione';
     $terms = \Drupal::service('entity_type.manager')->getStorage("taxonomy_term")->loadTree('categoria', 0, 1, true);
     foreach ($terms as $term) {
       $categoria[$term->get('tid')->value] = $term->get('name')->value;
