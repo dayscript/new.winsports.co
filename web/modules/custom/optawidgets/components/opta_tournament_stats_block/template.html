@@ -4,15 +4,15 @@
          <div @click="selectOption(option.key)" v-for="option in options" class="whitespace-no-wrap py-3 px-4 font-title font-semibold cursor-pointer table-option" :class="selected_option == option.key?'active':''">{{ option.label }}</div>
       </div>
       <div v-if="selected_option === 'schedules'" class="flex flex-no-wrap overflow-x-auto w-full" style="background-color: #0ef8c3;">
-         <div @click="setMatches(round[1].round.id)" v-for="round in rounds" class="whitespace-no-wrap cursor-pointer phase p-2" :class="selected_round_id == round[1].round.id?'active':''">
-            {{ roundName(round[1].round.number) }}
-         </div>
-      </div>
-      <div v-else-if="phases && Object.keys(phases).length" class="flex flex-no-wrap overflow-x-auto w-full" style="background-color: #0ef8c3;">
-         <div @click="selectPhase(phase.phase.id)" v-for="phase in phases" v-if="phase.teams && Object.keys(phase.teams).length" class="whitespace-no-wrap cursor-pointer phase p-2" :class="selected_phase_id == phase.phase.id?'active':''">
-            {{ phaseName(phase.phase.type, phase.phase.number) }}
-         </div>
-      </div>
+        <div @click="setMatches(round.id)" v-for="round in rounds" class="whitespace-no-wrap cursor-pointer phase p-2" :class="selected_round_id == round.id?'active':''">
+            {{ roundName(round.number) }}
+        </div>
+    </div>
+    <div v-else-if="selected_option === 'positions' && phases && Object.keys(phases).length" class="flex flex-no-wrap overflow-x-auto w-full" style="background-color: #0ef8c3;">
+        <div @click="selectPhase(phase.id)" v-for="phase in phases" class="whitespace-no-wrap cursor-pointer phase p-2" :class="selected_phase_id == phase.id?'active':''">
+            {{ phaseName(phase.type, phase.number) }}
+        </div>
+    </div>
       <div v-show="selected_option === 'schedules'" id="schedules">
          <div v-for="(items,day) in matches" class="">
             <div class="tw-bg-primary tw-text-white tw-p-4 capitalize">{{ moment(day).format('MMMM D YYYY') }}</div>
@@ -30,38 +30,46 @@
                      <img :src="'https://secure.omo.akamai.opta.net/image.php?secure=true&h=secure.omo.akamai.opta.net&sport=football&entity=team&description=badges&dimensions=65&id='+match.away.id" alt="" class="tw-h-8 tw-pl-2">
                   </div>
                </div>
-               <div class="tw-flex tw-justify-center tw-text-xs tw-text-gray-600">
+               <div v-if="match.period === 'FullTime' || match.period === 'Full Time' || match.period === 'PreMatch' || match.period === 'Postponed' || match.period === 'TBC' || match.period === 'Abandoned'" class="tw-flex tw-justify-center tw-text-xs tw-text-gray-600">
                   {{ moment(match.date).format('h:mm a') }}
-               </div>
+              </div>
+              <div v-else class="tw-flex tw-justify-center tw-text-xs tw-text-gray-600">
+                  '{{match.minute.label}}
+              </div>
             </div>
          </div>
       </div>
       <div v-show="selected_option == 'positions'" id="positions">
-         <div class="flex">
-            <div class="w-1/2 flex"></div>
-            <div class="w-1/2 flex text-center justify-between pb-1 border-b" style="border-color: rgba(10,59,65,0.2);">
-               <div class="flex-1">Pts</div>
-               <div class="flex-1">J</div>
-               <div class="flex-1">V</div>
-               <div class="flex-1">D</div>
-               <div class="flex-1">E</div>
-               <div class="flex-1">GD</div>
+         <div v-for="(stage,si) in stages" v-if="stage.id === selected_phase_id && si<max_rows">
+                <div v-for="(group, gi) in stage.teams" v-if="gi<max_rows">
+                        <div  class="flex">
+                            <div class="w-1/2 flex"></div>
+                            <div class="w-1/2 flex text-center justify-between pb-1 border-b" style="border-color: rgba(10,59,65,0.2);">
+                                <div class="flex-1">J</div>
+                                <div class="flex-1">V</div>
+                                <div class="flex-1">D</div>
+                                <div class="flex-1">E</div>
+                                <div class="flex-1"><strong>Pts</strong></div>
+                                <div class="flex-1">GD</div>
+                            </div>
+                        </div>
+                        <div v-for="(row,index) in group" v-if="index<max_rows"class="ml-1 flex border-b-1 p-1 justify-between text-sm">
+                            <div class="w-1/2 flex items-center">
+                                <div class="w-1/6 text-center px-2"><strong>{{ row.pos }}</strong></div>
+                                <div class="w-5/6 truncate ml-1">{{ row.name }}</div>
+                            </div>
+                            <div class="w-1/2 flex text-center justify-between pb-1 border-b" style="border-color: rgba(10,59,65,0.2);">
+                                <div class="flex-1">{{ row.pj }}</div>
+                                <div class="flex-1">{{ row.pg }}</div>
+                                <div class="flex-1">{{ row.pp }}</div>
+                                <div class="flex-1">{{ row.pe }}</div>
+                                <div class="flex-1"><strong>{{ row.pt }}</strong></div>
+                                <div class="flex-1">{{ row.gd }}</div>
+                            </div>
+                        </div>
+                        <br>
+                </div>
             </div>
-         </div>
-         <div v-for="(row,index) in teams" class="ml-1 flex border-b-1 p-1 justify-between text-sm">
-            <div class="w-1/2 flex items-center">
-               <div class="w-1/6 text-center px-2">{{ row.pos }}</div>
-               <div class="w-5/6 truncate ml-1">{{ row.name }}</div>
-            </div>
-            <div class="w-1/2 flex text-center justify-between pb-1 border-b" style="border-color: rgba(10,59,65,0.2);">
-               <div class="flex-1">{{ row.pt }}</div>
-               <div class="flex-1">{{ row.pj }}</div>
-               <div class="flex-1">{{ row.pg }}</div>
-               <div class="flex-1">{{ row.pp }}</div>
-               <div class="flex-1">{{ row.pe }}</div>
-               <div class="flex-1">{{ row.gd }}</div>
-            </div>
-         </div>
       </div>
       <div v-show="selected_option == 'calendar'" id="calendar">
          <opta-widget load="false" sport="football" widget="fixtures" :competition="competition" :season="season" template="normal" live="true" show_venue="false" match_status="fixture" grouping="date" show_grouping="true" default_nav="1" start_on_current="true" switch_current="0" sub_grouping="date" show_subgrouping="false" order_by="date_ascending" show_crests="true" date_format="dddd D MMMM YYYY" time_format="hh:mm A" competition_naming="full" team_naming="full" pre_match="false" show_live="true" show_logo="false" show_title="false" breakpoints="400"></opta-widget>
@@ -85,50 +93,50 @@
          <opta-widget load="false" widget="player_compare" :competition="competition" :season="season" template="dual" navigation="tabs_more" default_nav="1" show_selects="true" show_crests="false" show_images="false" show_graphs="true" graph_style="full" competition_naming="full" team_naming="full" player_naming="full" show_logo="false" show_title="false" breakpoints="400" sport="football"></opta-widget>
       </div>
       <div v-show="selected_option == 'decline'" id="decline">
-         <div class="flex">
-            <div class="w-1/2 flex"></div>
-            <div class="w-1/2 flex text-center justify-between pb-1 border-b" style="border-color: rgba(10,59,65,0.2);">
-               <div class="flex-1">Pts</div>
-               <div class="flex-1">Prom</div>
-               <div class="flex-1">PJ</div>
+         <div v-if="teams && teams.length" class="ml-1 flex border-b-1 p-1 justify-between text-sm">
+                <div class="w-1/2 flex"></div>
+                <div class="w-1/2 flex text-center justify-between pb-1 border-b" style="border-color: rgba(10,59,65,0.2);">
+                    <div class="flex-1">Pts</div>
+                    <div class="flex-1">Prom</div>
+                    <div class="flex-1">PJ</div>
+                </div>
             </div>
-         </div>
-         <div v-for="(row,index) in teams" class="ml-1 flex border-b-1 p-1 justify-between text-sm">
-            <div class="w-1/2 flex items-center">
-               <div class="w-1/6 text-center px-2"><strong>{{ row.pos }}</strong></div>
-               <div class="w-5/6 truncate ml-1">{{ row.name }}</div>
+            <div v-for="(row,index) in teams" v-if="index<max_rows" class="ml-1 flex border-b-1 p-1 justify-between text-sm">
+                <div class="w-1/2 flex items-center">
+                    <div class="w-1/6 text-center px-2"><strong>{{ row.pos }}</strong></div>
+                    <div class="w-5/6 truncate ml-1">{{ row.name }}</div>
+                </div>
+                <div class="w-1/2 flex text-center justify-between pb-1 border-b" style="border-color: rgba(10,59,65,0.2);">
+                    <div class="flex-1">{{ row.pt }}</div>
+                    <div class="flex-1">{{ row.prom }}</div>
+                    <div class="flex-1">{{ row.pj }}</div>
+                </div>
             </div>
-            <div class="w-1/2 flex text-center justify-between pb-1 border-b" style="border-color: rgba(10,59,65,0.2);">
-               <div class="flex-1">{{ row.pt }}</div>
-               <div class="flex-1">{{ row.prom }}</div>
-               <div class="flex-1">{{ row.pj }}</div>
-            </div>
-         </div>
       </div>
       <div v-show="selected_option == 'reclassification'" id="reclassification">
-         <div class="flex">
-            <div class="w-1/2 flex"></div>
-            <div class="w-1/2 flex text-center justify-between pb-1 border-b" style="border-color: rgba(10,59,65,0.2);">
-               <div class="flex-1">Pts</div>
-               <div class="flex-1">PJ</div>
-               <div class="flex-1">GF</div>
-               <div class="flex-1">GC</div>
-               <div class="flex-1">DG</div>
+         <div v-if="teams && teams.length" class="ml-1 flex border-b-1 p-1 justify-between text-sm">
+                <div class="w-1/2 flex"></div>
+                <div class="w-1/2 flex text-center justify-between pb-1 border-b" style="border-color: rgba(10,59,65,0.2);">
+                    <div class="flex-1">Pts</div>
+                    <div class="flex-1">PJ</div>
+                    <div class="flex-1">GF</div>
+                    <div class="flex-1">GC</div>
+                    <div class="flex-1">DG</div>
+                </div>
             </div>
-         </div>
-         <div v-for="(row,index) in teams" class="ml-1 flex border-b-1 p-1 justify-between text-sm">
-            <div class="w-1/2 flex items-center">
-               <div class="w-1/6 text-center px-2"><strong>{{ row.pos }}</strong></div>
-               <div class="w-5/6 truncate ml-1">{{ row.name }}</div>
+            <div v-for="(row,index) in teams" v-if="index<max_rows" class="ml-1 flex border-b-1 p-1 justify-between text-sm">
+                <div class="w-1/2 flex items-center">
+                    <div class="w-1/6 text-center px-2"><strong>{{ row.pos }}</strong></div>
+                    <div class="w-5/6 truncate ml-1">{{ row.name }}</div>
+                </div>
+                <div class="w-1/2 flex text-center justify-between pb-1 border-b" style="border-color: rgba(10,59,65,0.2);">
+                    <div class="flex-1">{{ row.pt }}</div>
+                    <div class="flex-1">{{ row.pj }}</div>
+                    <div class="flex-1">{{ row.gf }}</div>
+                    <div class="flex-1">{{ row.gc }}</div>
+                    <div class="flex-1">{{ row.gd }}</div>
+                </div>
             </div>
-            <div class="w-1/2 flex text-center justify-between pb-1 border-b" style="border-color: rgba(10,59,65,0.2);">
-               <div class="flex-1">{{ row.pt }}</div>
-               <div class="flex-1">{{ row.pj }}</div>
-               <div class="flex-1">{{ row.gf }}</div>
-               <div class="flex-1">{{ row.gc }}</div>
-               <div class="flex-1">{{ row.gd }}</div>
-            </div>
-         </div>
       </div>
    </div>
    <div v-else>

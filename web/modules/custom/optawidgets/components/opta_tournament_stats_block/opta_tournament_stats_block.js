@@ -3,17 +3,17 @@ Vue.config.ignoredElements = ['opta-widget']
 new Vue({
   el: '.opta-tournament-stats',
   data: {
-    node: null,
-    competition: '',
-    season: '',
     loading: 0,
     moment: moment,
     max_rows: 30,
+    node: null,
+    tournaments: [],
     phases: [],
     teams: [],
     rounds: [],
     players: [],
     matches: [],
+    stages: [],
     selected_phase_id: '',
     selected_round_id: '',
     selected_option: '',
@@ -63,156 +63,143 @@ new Vue({
     },
   },
   methods: {
-    selectPhase (phase_id) {
-      this.selected_phase_id = phase_id
-      this.selectTableData()
-    },
-    selectOption (option_key) {
-      this.selected_option = option_key
-      if (option_key === 'schedules') {
-        this.loadResults()
-      }else if (this.selected_option === 'positions' || this.selected_option === 'decline') {
-        this.loadTable()
-      } else {
-        this.loadNewWidgets('#'+option_key)
-      }
+    loadTournaments () {
+      this.loading = true
+      this.selectOption('positions')
+      this.loading = false
+      
+      setInterval(function () {
+          this.selectOption(this.selected_option)
+      }.bind(this), 60* 1000);
     },
     loadResults () {
-      this.phases = []
       let url = 'https://s3.amazonaws.com/optafeeds-prod/schedules/' + this.competition + '/' + this.season + '/all.json';
-      this.loading++
-      axios.get(url).then(
-          ({data}) => {
-            if(data.phases) this.phases = data.phases
-            this.setRounds()
-            this.loading--
-            this.selected_phase_id = data.competition.active_phase_id
+      this.loading = true
 
-            this.setMatches(data.competition.active_round_id)
-          })
-    },
-    setMatches(round_id){
-      this.selected_round_id = round_id
-      let matches = []
-      let day = null
-      let items = this.rounds[round_id][1].matches
-      for (id in items) {
-        day = moment(items[id].date)
-        if (!matches[day.format('YYYYMMDD')]) {
-          matches[day.format('YYYYMMDD')] = []
-        }
-        matches[day.format('YYYYMMDD')].push(items[id])
-      }
-      const ordered = {};
-      Object.keys(matches).sort().forEach(function (key) {
-        ordered[key] = matches[key];
-      });
-      this.matches = ordered
-    },
-    setRounds(){
-      this.rounds = {}
-      Object.entries(this.phases).forEach((item)=>{
-        Object.entries(item[1].rounds).forEach((round)=>{
-          this.rounds[round[1].round.id] = round
-        })
+      axios.get(url).then(({data}) => {
+        if(data.phases) this.setPhases(data)
+        this.setRounds(data.competition.active_phase_id)
+        this.setMatches(this.selected_round_id !== '' ? this.selected_round_id : data.competition.active_round_id)
+        this.loading = false
+      }).catch((error) => {
+        console.log(error)
+        this.loading = false
       })
     },
-    loadTournaments () {
-      this. selected_option = 'positions';
-      this.loadTable();
-      /*axios.get('/api/torneos-colombia/json').then(
-          ({data}) => {
-            this.loading--
-            this.tournaments = data;
-            if (data.length > 0) {
-              this.tournament_season = data[0].field_opta_id + '-' + data[0].field_opta_season
-              this.selected_option = 'positions'
-              // this.loadTable()
-            }
-          }
-      ).catch(
-          (error) => {
-            this.loading--
-          }
-      )*/
-    },
-    selectTableData () {
-      let teams = []
-      let players = []
-      let items = Object.entries(this.phases[this.selected_phase_id].teams)
-      if (this.selected_option === 'decline') {
-        items.sort(function (a, b) { return b[1].pos - a[1].pos})
-      }
-      else {
-        items.sort(function (a, b) { return a[1].pos - b[1].pos})
-      }
-      if (this.selected_option === 'scorers') {
-        items.forEach(function (player) {
-          players.push(player[1])
-        })
-      }
-      else {
-        items.forEach(function (team) {
-          teams.push(team[1])
-        })
-      }
+    loadPositions () {
+      let url = 'https://s3.amazonaws.com/optafeeds-prod/positions/' + this.competition + '/' + this.season + '/all.json';
+      let stages = []
+      this.loading = true
 
-      this.players = players
-      this.teams = teams
+      axios.get(url).then(({data}) => {
+        if(data.phases) this.setPhases(data)
+        Object.entries(data.phases).forEach(function(item) {
+            if(typeof item[1].groups !== 'undefined' && Object.keys(item[1].groups).length > 0){
+              let teams = []
+              Object.entries(item[1].groups).forEach(function(group, key) {
+                var teamsgroup = [];
+                Object.entries(group[1]).forEach(function(team, key) {
+                  teamsgroup.push(item[1].teams[team[1]])
+                });
+                teamsgroup.sort(function (a, b) { return a.pos - b.pos})
+                teams.push(teamsgroup)
+              });
+              stages.push({
+                  id: item[1].phase.id,
+                  name: item[1].phase.type,
+                  teams: teams
+              });
+            }else {
+              let teams = []
+              let group = []
+              let teamsgroup = Object.entries(item[1].teams)
+              if(teamsgroup.length > 0){
+                teamsgroup.forEach(function (team) {
+                  group.push(team[1])
+                })
+                group.sort(function (a, b) { return a.pos - b.pos})
+              }
+              teams.push(group);
+              stages.push({
+                  id: item[1].phase.id,
+                  name: item[1].phase.type,
+                  teams: teams
+              });
+           }
+        });
+        this.stages = stages
+        this.loading = false
+      }).catch((error) => {
+        console.log(error)
+        this.loading = false
+      })
     },
-    loadTable () { 
-      let url = 'https://s3.amazonaws.com/optafeeds-prod/' + this.selected_option + '/' + this.competition + '/' + this.season + '/all.json';
-      this.loading++
-      axios.get(url).then(
-          ({data}) => {
-            this.loading--
-            let teams = []
-            let phases = []
-            let players = []
-            let items = null
-            if (typeof data.teams !== 'undefined') {
-              items = Object.entries(data.teams)
-            }
-            else if (typeof data.scorers !== 'undefined') {
-              items = Object.entries(data.scorers)
-            }
-            else {
-              this.selected_phase_id = data.competition.active_phase_id
-              if (typeof data.phases[this.selected_phase_id] === 'undefined') {
-                this.selected_phase_id = Object.keys(data.phases).pop()
-              }
-              phases = data.phases
-              if (this.selected_option === 'schedules') {
-                items = Object.entries(data.phases[this.selected_phase_id].rounds)
-              }
-              else {
-                items = Object.entries(data.phases[this.selected_phase_id].teams)
-              }
-            }
-            if (this.selected_option === 'decline') {
-              items.sort(function (a, b) { return b[1].pos - a[1].pos})
-            }
-            else if (this.selected_option === 'schedules') {
-              items.sort(function (a, b) { return b[1].number - a[1].number})
-            }
-            else {
-              items.sort(function (a, b) { return a[1].pos - b[1].pos})
-            }
-            if (this.selected_option === 'scorers') {
-              items.forEach(function (player) {
-                players.push(player[1])
-              })
-            }
-            else {
-              items.forEach(function (team) {
-                teams.push(team[1])
-              })
-            }
-            this.players = players
-            this.teams = teams
-            this.phases = phases
-          }
-      ).catch((error) => {this.loading--})
+    loadDecline () {
+      let url = 'https://s3.amazonaws.com/optafeeds-prod/decline/' + this.competition + '/' + this.season + '/all.json';
+      this.loading = true
+      
+      axios.get(url).then(({data}) => {
+        let teams = []
+        let items = null
+        
+        if (typeof data.teams !== 'undefined') {
+          items = Object.entries(data.teams)
+          items.sort(function (a, b) { return b[1].pos - a[1].pos})
+          items.forEach(function (team) {
+            teams.push(team[1])
+          })
+        }
+        this.teams = teams
+        this.loading = false
+      }).catch((error) => {
+        console.log(error)
+        this.loading = false
+      })
+    },
+    loadReclassification () {
+      let url = 'https://s3.amazonaws.com/optafeeds-prod/reclassification/' + this.competition + '/' + this.season + '/all.json';
+      this.loading = true
+
+      axios.get(url).then(({data}) => {
+        let teams = []
+        let items = null
+        
+        if (typeof data.teams !== 'undefined') {
+          items = Object.entries(data.teams)
+          items.sort(function (a, b) { return a[1].pos - b[1].pos})
+          items.forEach(function (team) {
+            teams.push(team[1])
+          })
+        }
+        this.teams = teams
+        this.loading = false
+      }).catch((error) => {
+        console.log(error)
+        this.loading = false
+      })
+    },
+    loadScorers () {
+      let url = 'https://s3.amazonaws.com/optafeeds-prod/scorers/' + this.competition + '/' + this.season + '/all.json';
+      this.loading = true
+
+      axios.get(url).then(({data}) => {
+        let players = []
+        let items = null
+        
+        if (typeof data.scorers !== 'undefined') {
+          items = Object.entries(data.scorers)
+          items.sort(function (a, b) { return a[1].pos - b[1].pos})
+
+          items.forEach(function (player) {
+            players.push(player[1])
+          })
+        }
+        this.players = players
+        this.loading = false
+      }).catch((error) => {
+        console.log(error)
+        this.loading = false
+      })
     },
     loadNewWidgets(dom) {
       var opta_widget_tags = jQuery(dom).find('opta-widget[load="false"]');
@@ -228,6 +215,99 @@ new Vue({
           Widget.resume(Widget.live, Widget.first_time);
           setTimeout(()=>{Widget.resize()},1000)
       }
+    },
+    selectPhase (phase_id) {
+      this.selected_phase_id = phase_id
+    },
+    selectOption (option_key) {
+      this.selected_option = option_key
+      this.selected_round_id = ''
+      if (option_key === 'schedules') {
+        this.loadResults()
+      }else if (option_key === 'positions') {
+        this.loadPositions()
+      }else if (option_key === 'decline') {
+        this.loadDecline()
+      }else {
+        this.loadNewWidgets('#'+option_key)
+      }
+    },
+    setMatches(round_id){
+      let url = 'https://s3.amazonaws.com/optafeeds-prod/schedules/' + this.competition + '/' + this.season + '/rounds/'+round_id+'.json';
+      let matches = []
+      let day = null
+      let items = []
+      this.selected_round_id = round_id
+      this.loading = true
+
+      axios.get(url).then(({data}) => {
+        Object.entries(data.matches).forEach(function (matches) {
+          items.push(matches[1])
+        })
+        for (id in items) {
+          day = moment(items[id].date)
+          if (!matches[day.format('YYYYMMDD')]) {
+            matches[day.format('YYYYMMDD')] = []
+          }
+          matches[day.format('YYYYMMDD')].push(items[id])
+        }
+        const ordered = {};
+        Object.keys(matches).sort().forEach(function (key) {
+          ordered[key] = matches[key];
+        });
+        this.matches = ordered
+        this.loading = false           
+      }).catch((error) => {
+        console.log(error)
+        this.loading = false
+      })
+    },
+    setPhases(data) {
+      this.phases = {};
+      this.selected_phase_id = data.competition.active_phase_id
+      if (typeof data.phases[this.selected_phase_id] === 'undefined') {
+        this.selected_phase_id = Object.keys(data.phases).pop()
+      }
+      let phases = Object.entries(data.phases).sort(function (a, b) { return a[1].phase.number - b[1].phase.number}) 
+      let index = 0
+      Object.entries(phases).forEach((phase)=>{
+          Object.entries(phase[1]).forEach((item)=>{
+          if(Object.keys(this.phases).length) {
+             Object.entries(this.phases).forEach((ph)=>{
+              if(ph.id === item[0]) {
+                if(item[1].teams && Object.keys(item[1].teams).length) ph.teams = item[1].teams
+                if(item[1].rounds && Object.keys(item[1].rounds).length) ph.rounds = item[1].rounds
+              }else {
+                if(item[1].teams && Object.keys(item[1].teams).length) item[1].phase.teams = item[1].teams
+                if(item[1].rounds && Object.keys(item[1].rounds).length) item[1].phase.rounds = item[1].rounds
+                if(typeof item[1].phase !== 'undefined') if(typeof item[1].phase.teams !== 'undefined' || typeof item[1].phase.rounds !== 'undefined') this.phases[index] = item[1].phase
+              }
+             })
+           }else {
+              if(item[1].teams && Object.keys(item[1].teams).length) item[1].phase.teams = item[1].teams
+              if(item[1].rounds && Object.keys(item[1].rounds).length) item[1].phase.rounds = item[1].rounds
+              if(typeof item[1].phase !== 'undefined') if(typeof item[1].phase.teams !== 'undefined' || typeof item[1].phase.rounds !== 'undefined') this.phases[index] = item[1].phase
+           }
+        })
+        index++
+      })
+    },
+    setRounds(phase_id) {
+      this.rounds = {}
+      this.selected_phase_id = phase_id
+      let index = 0
+      Object.entries(this.phases).forEach((item)=>{
+        let rounds = Object.entries(item[1].rounds).sort(function (a, b) { return a[1].round.number - b[1].round.number}) 
+        Object.entries(rounds).forEach((round)=>{
+          Object.entries(round[1]).forEach((item)=>{
+            if(item[1].matches && Object.keys(item[1].matches).length) item[1].round.matches = item[1].matches
+            if(typeof item[1].round !== 'undefined') {
+             this.rounds[index] = item[1].round
+             index++
+           }
+          })
+        })
+      })
     },
     gotoMatch (match_id) {
       document.location.href = '/matches/' + match_id

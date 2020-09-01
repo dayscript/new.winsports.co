@@ -199,6 +199,7 @@ new Vue({
     },
     selectOption (option_key) {
       this.selected_option = option_key
+      this.selected_round_id = ''
       if (option_key === 'schedules') {
         this.loadResults()
       }else if (option_key === 'positions') {
