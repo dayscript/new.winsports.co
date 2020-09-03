@@ -35,12 +35,42 @@
                     }
                 });*/
             }
-            if ($('#top-content #eplAdDivTop_Banner_NEW > a').length > 0) {
+            /*TopBanner Ads*/
+            if ($('#top-content #eplAdDivTop_Banner_NEW').length > 0) {/*Home Principal*/
                 $('#top-content').addClass('tw-mt-12 md:tw-mt-29');
-            } else {
+            }else {
                 $('#top-content').addClass('tw-hidden');
                 $('#horizontal-results').addClass('tw-mt-12 md:tw-mt-29');
             }
+
+            if ($('#top-content #Internas_TopBanner_728x90_Variable').length > 0) {/*Internas*/
+                $('#top-content').addClass('tw-mt-12 md:tw-mt-29');
+            }else {
+                $('#top-content').addClass('tw-hidden');
+                $('#horizontal-results').addClass('tw-mt-12 md:tw-mt-29');
+            }
+
+            if ($('#top-content #BILLBOARDGOLES2 > a').length > 0) {/*Videos*/
+                $('#top-content').addClass('tw-mt-12 md:tw-mt-29');
+            }else {
+                $('#top-content').addClass('tw-hidden');
+                $('#horizontal-results').addClass('tw-mt-12 md:tw-mt-29');
+            }
+
+            if ($('#top-content #Top_Banner').length > 0) {/*Estadisticas*/
+                $('#top-content').addClass('tw-mt-12 md:tw-mt-29');
+            }else {
+                $('#top-content').addClass('tw-hidden');
+                $('#horizontal-results').addClass('tw-mt-12 md:tw-mt-29');
+            }
+
+            if ($('#top-content #Home_Header_1260x150').length > 0) {/*Home Mobile*/
+                $('#top-content').addClass('tw-mt-12 md:tw-mt-29');
+            }else {
+                $('#top-content').addClass('tw-hidden');
+                $('#horizontal-results').addClass('tw-mt-12 md:tw-mt-29');
+            }
+            /*TopBanner Ads*/
             relocateView();
             $(window).resize(function() {
                 relocateView();
@@ -53,11 +83,12 @@
                     $('#block-customadsblock').insertAfter('#block-views-block-goles-home-block-2');
                     $('#block-customadsblock-4').insertAfter('#block-positionstableswidget');
                     $('#block-blocktabswidgetprogramacion').insertAfter('#block-customadsblock-4');
-                    $('#block-customadsblock-5').insertAfter('#block-views-block-lo-ultimo-block-1');
+                    $('#block-customadsblock-5').insertAfter('#block-customadsblock-6');
                     $('#block-views-block-opinion-block-1').insertBefore('#block-views-block-lo-ultimo-block-5');
                     $('#block-customadsblock-9').addClass('tw-pb-8').insertAfter('#block-views-block-lo-ultimo-block-2');
                     $('#block-customadsblock-10').addClass('tw-pb-8').insertAfter('#block-futbolred');
                     $('#block-customadsblock-6').insertAfter('#block-views-block-lo-ultimo-block-4');
+                    $('#block-customadsblock-25').insertAfter('.opta-tournament-stats');
                 }else{
                     $('#block-positionstableswidget').find('.opta-feeds-widget-positions').find('.scrollbar-w-2').attr('style', 'max-height: 310px');
                 }
