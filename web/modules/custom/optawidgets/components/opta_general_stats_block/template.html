@@ -1,11 +1,19 @@
 <div>
     <div class="menu-secundario mb-6">
-        <ul>
+        <ul v-if="type==='col'">
             <li>
-                <a @click="type='col'" :class="{'is-active':type==='col'}">Fútbol Colombiano</a>
+                <a @click="type='col'" class="is-active">Fútbol Colombiano</a>
             </li>
             <li>
-                <a @click="type='int'" :class="{'is-active':type==='int'}">Fútbol Internacional</a>
+                <a :href="paths.int">Fútbol Internacional</a>
+            </li>
+        </ul>
+        <ul v-if="type==='int'">
+            <li>
+                <a :href="paths.col">Fútbol Colombiano</a>
+            </li>
+            <li>
+                <a @click="type='int'" class="is-active">Fútbol Internacional</a>
             </li>
         </ul>
         <div class="tw-items-center teams-list">

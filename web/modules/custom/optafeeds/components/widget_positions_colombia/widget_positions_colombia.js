@@ -6,6 +6,8 @@ new Vue({
     moment: moment,
     max_rows: 30,
     tournament_season: '0-0',
+    competition: 0,
+    season: 0,
     tournaments: [],
     phases: [],
     teams: [],
@@ -46,6 +48,8 @@ new Vue({
         this.tournaments = data;
         if (data.length > 0) {
           this.tournament_season = data[0].field_opta_id + '-' + data[0].field_opta_season
+          this.competition = data[0].field_opta_id
+          this.season = data[0].field_opta_season
           this.selectOption('positions')
         }
         this.loading = false
@@ -59,7 +63,9 @@ new Vue({
     },
     loadResults () {
       let data = this.tournament_season.split('-')
-      let url = 'https://s3.amazonaws.com/optafeeds-prod/schedules/' + data[0] + '/' + data[1] + '/all.json';
+      this.competition = data[0]
+      this.season = data[1]
+      let url = 'https://s3.amazonaws.com/optafeeds-prod/schedules/' + this.competition + '/' + this.season + '/all.json';
       this.loading = true
 
       axios.get(url).then(({data}) => {
@@ -74,7 +80,9 @@ new Vue({
     },
     loadPositions () {
       let data = this.tournament_season.split('-')
-      let url = 'https://s3.amazonaws.com/optafeeds-prod/positions/' + data[0] + '/' + data[1] + '/all.json';
+      this.competition = data[0]
+      this.season = data[1]
+      let url = 'https://s3.amazonaws.com/optafeeds-prod/positions/' + this.competition + '/' + this.season + '/all.json';
       let stages = []
       this.loading = true
 
@@ -123,7 +131,9 @@ new Vue({
     },
     loadDecline () {
       let data = this.tournament_season.split('-')
-      let url = 'https://s3.amazonaws.com/optafeeds-prod/decline/' + data[0] + '/' + data[1] + '/all.json';
+      this.competition = data[0]
+      this.season = data[1]
+      let url = 'https://s3.amazonaws.com/optafeeds-prod/decline/' + this.competition + '/' + this.season + '/all.json';
       this.loading = true
       
       axios.get(url).then(({data}) => {
@@ -146,7 +156,9 @@ new Vue({
     },
     loadReclassification () {
       let data = this.tournament_season.split('-')
-      let url = 'https://s3.amazonaws.com/optafeeds-prod/reclassification/' + data[0] + '/' + data[1] + '/all.json';
+      this.competition = data[0]
+      this.season = data[1]
+      let url = 'https://s3.amazonaws.com/optafeeds-prod/reclassification/' + this.competition + '/' + this.season + '/all.json';
       this.loading = true
 
       axios.get(url).then(({data}) => {
@@ -169,7 +181,9 @@ new Vue({
     },
     loadScorers () {
       let data = this.tournament_season.split('-')
-      let url = 'https://s3.amazonaws.com/optafeeds-prod/scorers/' + data[0] + '/' + data[1] + '/all.json';
+      this.competition = data[0]
+      this.season = data[1]
+      let url = 'https://s3.amazonaws.com/optafeeds-prod/scorers/' + this.competition + '/' + this.season + '/all.json';
       this.loading = true
 
       axios.get(url).then(({data}) => {
@@ -196,7 +210,7 @@ new Vue({
     },
     selectOption (option_key) {
       this.selected_option = option_key
-      this.selected_round_id = ''
+      
       if (option_key === 'schedules') {
         this.loadResults()
       }else if (option_key === 'positions') {
@@ -211,7 +225,9 @@ new Vue({
     },
     setMatches(round_id){
       let data = this.tournament_season.split('-')
-      let url = 'https://s3.amazonaws.com/optafeeds-prod/schedules/' + data[0] + '/' + data[1] + '/rounds/'+round_id+'.json';
+      this.competition = data[0]
+      this.season = data[1]
+      let url = 'https://s3.amazonaws.com/optafeeds-prod/schedules/' + this.competition + '/' + this.season + '/rounds/'+round_id+'.json';
       let matches = []
       let day = null
       let items = []
@@ -291,11 +307,9 @@ new Vue({
       document.location.href = '/matches/' + match_id
     },
     phaseName (string, number){
-      let data = this.tournament_season.split('-')
-      let competition = data[0]
-      string = (competition === 589 && string === 'Ronda' && number === '1' || competition === 589 && string === 'Round' && number === '1') ? 'Cuadrangulares' : string;
-      string = (competition === 901 && string === 'Ronda' && number === '2' || competition === 901 && string === 'Round' && number === '2') ? 'Cuadrangulares' : string;
-      string = (competition === 664 && string === 'Ronda' && number === '1' || competition === 664 && string === 'Round' && number === '1') ? 'Todos contra Todos' : string;
+      string = (this.competition === 589 && string === 'Ronda' && number === '1' || this.competition === 589 && string === 'Round' && number === '1') ? 'Cuadrangulares' : string;
+      string = (this.competition === 901 && string === 'Ronda' && number === '2' || this.competition === 901 && string === 'Round' && number === '2') ? 'Cuadrangulares' : string;
+      string = (this.competition === 664 && string === 'Ronda' && number === '1' || this.competition === 664 && string === 'Round' && number === '1') ? 'Todos contra Todos' : string;
       switch(string){
         case 'All':
           return 'Todos contra Todos';
@@ -324,7 +338,51 @@ new Vue({
       }
     },
     roundName (number){
-      return 'Fecha ' + number
+      var idCompetition =  [371,589,625,901,128], phases = {};
+      if (this.competition == 371 || this.competition == 589) {
+        phases = {
+          21:['Cuadrangulares - Fecha 1'],
+          22:['Cuadrangulares - Fecha 2'],
+          23:['Cuadrangulares - Fecha 3'],
+          24:['Cuadrangulares - Fecha 4'],
+          25:['Cuadrangulares - Fecha 5'],
+          26:['Cuadrangulares - Fecha 6'],
+          27:['Final - Ida'],
+          28:['Final - Vuelta']
+        }
+      }else if (this.competition == 625 || this.competition == 901) {
+        phases = {
+          16:['Cuadrangulares - Fecha 1'],
+          17:['Cuadrangulares - Fecha 2'],
+          18:['Cuadrangulares - Fecha 3'],
+          19:['Cuadrangulares - Fecha 4'],
+          20:['Cuadrangulares - Fecha 5'],
+          21:['Cuadrangulares - Fecha 6'],
+          22:['Final - Ida'],
+          23:['Final - Vuelta']
+        }
+      }else if (this.competition == 128) {
+        phases = {
+          4:['Cuartos de final'],
+          5:['Semifinal'],
+          6:['3er y 4to'],
+          7:['Final'],
+        }
+      } else  {
+        phases = {
+          21:['Cuartos de final - Ida'],
+          22:['Cuartos de final - Vuelta'],
+          23:['Semifinal - Ida'],
+          24:['Semifinal - Vuelta'],
+          25:['Final - Ida'],
+          26:['Final - Vuelta']
+        }
+      }
+      if( idCompetition.indexOf( this.competition ) >= 0 && phases[number] ){
+        return phases[number][0]
+      }else{
+        return 'Fecha '+number
+      }
     }
   }
 });
