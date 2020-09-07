@@ -205,12 +205,24 @@ new Vue({
         this.loading = false
       })
     },
+    selectTournaments () {
+      this.selected_phase_id = ''
+      this.selected_round_id = ''
+      this.selected_option = ''
+      this.phases = []
+      this.rounds = []
+      this.teams = []
+      this.players = []
+      this.matches = []
+      this.stages = []
+      this.selectOption('positions')
+    },
     selectPhase (phase_id) {
       this.selected_phase_id = phase_id
     },
     selectOption (option_key) {
       this.selected_option = option_key
-      
+
       if (option_key === 'schedules') {
         this.loadResults()
       }else if (option_key === 'positions') {
