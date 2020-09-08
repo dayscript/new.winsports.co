@@ -70,6 +70,16 @@
                 $('#top-content').addClass('tw-hidden');
                 $('#horizontal-results').addClass('tw-mt-12 md:tw-mt-29');
             }
+            if ($(window).width() < 640) {
+                if($('#block-futbolinternacional ul li a.is-active').length){
+                    var x = $('#block-futbolinternacional ul li a.is-active').position();
+                    //alert("Top: " + x.top + " Left: " + x.left);
+                    var scrollLeft = x.left-100;
+                    $('#block-futbolinternacional ul').animate({
+                      scrollLeft: scrollLeft
+                    }, 400);
+                }
+            }
             /*TopBanner Ads*/
             relocateView();
             $(window).resize(function() {
@@ -89,14 +99,6 @@
                     $('#block-customadsblock-10').addClass('tw-pb-8').insertAfter('#block-futbolred');
                     $('#block-customadsblock-6').insertAfter('#block-views-block-lo-ultimo-block-4');
                     $('#block-customadsblock-25').insertAfter('.opta-tournament-stats');
-                    if($('#block-futbolinternacional ul li a.is-active').length){
-                        var x = $('#block-futbolinternacional ul li a.is-active').position();
-                        //alert("Top: " + x.top + " Left: " + x.left);
-                        var scrollLeft = x.left-100;
-                        $('#block-futbolinternacional ul').animate({
-                          scrollLeft: scrollLeft
-                        }, 400);
-                    }
                 }else{
                     $('#block-positionstableswidget').find('.opta-feeds-widget-positions').find('.scrollbar-w-2').attr('style', 'max-height: 310px');
                 }
