@@ -70,15 +70,13 @@
                 $('#top-content').addClass('tw-hidden');
                 $('#horizontal-results').addClass('tw-mt-12 md:tw-mt-29');
             }
-            if ($(window).width() < 640) {
-                if($('#block-futbolinternacional ul li a.is-active').length){
-                    var x = $('#block-futbolinternacional ul li a.is-active').position();
-                    //alert("Top: " + x.top + " Left: " + x.left);
-                    var scrollLeft = x.left-100;
-                    $('#block-futbolinternacional ul').animate({
-                      scrollLeft: scrollLeft
-                    }, 400);
-                }
+            if($('#block-futbolinternacional ul li a.is-active').length){
+                var x = $('#block-futbolinternacional ul li a.is-active').position();
+                //alert("Top: " + x.top + " Left: " + x.left);
+                var scrollLeft = x.left-100;
+                $('#block-futbolinternacional ul').animate({
+                  scrollLeft: scrollLeft
+                }, 400);
             }
             /*TopBanner Ads*/
             relocateView();
