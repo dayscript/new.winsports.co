@@ -1048,6 +1048,12 @@ a {
   padding-right: 1.5rem;
 }
 
+@media (min-width: 768px) {
+  #block-tailwindcss-main-menu ul:not(.contextual-links) li a.equipos {
+    display: none;
+  }
+}
+
 #block-toplinks {
   font-size: 0.875rem;
 }
@@ -2639,6 +2645,12 @@ div#block-horizontalresults img {
 
 .list-category .feed-icon {
   display: none;
+}
+
+.page-equipos .views-row {
+  max-width: 100px;
+  display: block;
+  margin: 0 auto;
 }
 
 #block-futbolcolombiano-estadisticas, .opta-widgets {
