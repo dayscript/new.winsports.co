@@ -10,80 +10,32 @@
                 </div>
                 <img class="ml-2" :src="'//secure.omo.akamai.opta.net/image.php?secure=true&h=secure.omo.akamai.opta.net&sport=football&entity=team&description=badges&dimensions=20&id='+ match.away.id" :alt="match.away.name" :title="match.away.name">
             </div>
-            <div v-if="match.period == 'TBC'" @click="goto('/matches/'+match.id)">
-                <div><small class="pl-1 text-xs font-medium lead" >{{ match.date | formatDate | capitalize }} - Por definir</small></div>
-                <div class="flex items-center justify-center">
-                    <a :href="urls[match.id]" target="_blank" class="flex" v-if="urls[match.id]">
-                        <img src="/sites/default/files/widgets/play_button.png" alt="Comprar">
-                        <span class="pl-1 text-xs font-medium title-color">Comprar partido</span>
-                    </a>
-                    <a :href="'/node/'+prevs[match.id]" class="flex" v-else-if="prevs[match.id]">
-                        <img src="/sites/default/files/widgets/play_button.png" alt="Previa">
-                        <span class="pl-1 text-xs font-medium title-color">Ver previa</span>
-                    </a>
-                    <a :href="'/matches/'+match.id" class="flex" v-else>
-                        <img src="/sites/default/files/widgets/play_button.png" alt="Resumen" width="19">
-                        <span class="pl-1 text-xs font-medium title-color">Ver resumen</span>
-                    </a>
-                </div>
+            <div v-if="match.period == 'TBC' || match.period == 'Postponed'" @click="goto('/matches/'+match.id)">
+                <small class="pl-1 text-xs font-medium lead" >{{ match.date | formatDate | capitalize }} - Por definir</small>
             </div>
-            <div v-else-if="match.period == 'Postponed'" @click="goto('/matches/'+match.id)">
-                <div><small class="pl-1 text-xs font-medium lead" >{{ match.date | formatDate | capitalize }} - Aplazado</small></div>
-                <a :href="urls[match.id]" target="_blank" class="flex" v-if="urls[match.id]">
-                    <img src="/sites/default/files/widgets/play_button.png" alt="Comprar">
-                    <span class="pl-1 text-xs font-medium title-color">Comprar partido</span>
-                </a>
-                <a :href="'/node/'+prevs[match.id]" class="flex" v-else-if="prevs[match.id]">
-                    <img src="/sites/default/files/widgets/play_button.png" alt="Previa">
-                    <span class="pl-1 text-xs font-medium title-color">Ver previa</span>
-                </a>
-                <a :href="'/matches/'+match.id" class="flex" v-else>
-                    <img src="/sites/default/files/widgets/play_button.png" alt="Resumen">
-                    <span class="pl-1 text-xs font-medium title-color">Ver resumen</span>
-                </a>
-            </div>
-            <div v-else-if="match.period == 'FullTime'">
-                <div><small class="pl-1 text-xs font-medium lead" >{{ match.date | formatDate | capitalize }} - Finalizado</small></div>
+            <div v-else-if="match.period == 'FullTime' || match.period == 'Full Time'">
+                <small class="pl-1 text-xs font-medium lead" >{{ match.date | formatDate | capitalize }} - Finalizado</small>
                 <div class="flex items-center justify-center">
-                    <a :href="urls[match.id]" target="_blank" class="flex" v-if="urls[match.id]">
-                        <img src="/sites/default/files/widgets/play_button.png" alt="Comprar">
-                        <span class="pl-1 text-xs font-medium title-color">Comprar partido</span>
-                    </a>
-                    <a :href="'/node/'+cronicles[match.id]" class="flex" v-else-if="cronicles[match.id]">
-                        <img src="/sites/default/files/widgets/play_button.png" alt="Resumen">
+                    <a :href="'/node/'+goals[match.id]" class="flex" v-if="goals[match.id]">
+                        <img src="/sites/default/files/widgets/play_button.png" alt="Ver goles" title="Ver goles">
                         <span class="pl-1 text-xs font-medium title-color">Ver goles</span>
                     </a>
-                    <a :href="'/matches/'+match.id" class="flex" v-else>
-                        <img src="/sites/default/files/widgets/play_button.png" alt="Resumen">
+                    <a :href="'/node/'+cronicles[match.id]" class="flex" v-else>
+                        <img src="/sites/default/files/widgets/play_button.png" alt="Ver resumen" title="Ver resumen">
                         <span class="pl-1 text-xs font-medium title-color">Ver resumen</span>
                     </a>
                 </div>
             </div>
-            <div v-else-if="match.period != 'TBC' && match.date != 0 && match.period != 'Postponed'" @click="goto('/matches/'+match.id)">
-                <div><small class="pl-1 text-xs font-medium lead" >{{ match.date | formatDate | capitalize }}, {{ match.date | formatHour }}</small></div>
-                <a :href="urls[match.id]" target="_blank" class="flex" v-if="urls[match.id]">
-                    <img src="/sites/default/files/widgets/play_button.png" alt="Comprar">
+            <div v-else>
+                <small class="pl-1 text-xs font-medium lead">{{ match.date | formatDate | capitalize }}, {{ match.date | formatHour }}</small>
+                <a v-if="urls[match.id]" :href="urls[match.id]" target="_blank" class="flex">
+                    <img src="/sites/default/files/widgets/play_button.png" alt="Comprar partido" title="Comprar partido">
                     <span class="pl-1 text-xs font-medium title-color">Comprar partido</span>
                 </a>
-                <a :href="'/matches/'+match.id" class="flex" v-else>
-                    <img src="/sites/default/files/widgets/play_button.png" alt="Resumen">
-                    <span class="pl-1 text-xs font-medium title-color">Minuto a minuto</span>
-                </a>
-            </div>
-            <div v-else @click="goto('/matches/'+match.id)">
-                <div><small>{{ match.date | formatDate | capitalize }} {{ match.period }}</small></div>
-                <a :href="urls[match.id]" target="_blank" class="flex" v-if="urls[match.id]">
-                    <img src="/sites/default/files/widgets/play_button.png" alt="Comprar">
-                    <span class="pl-1 text-xs font-medium title-color">Comprar partido</span>
-                </a>
-                <a :href="'/node/'+prevs[match.id]" class="flex" v-else-if="prevs[match.id]">
-                    <img src="/sites/default/files/widgets/play_button.png" alt="Previa">
-                    <span class="pl-1 text-xs font-medium title-color">Ver previa</span>
-                </a>
-                <a :href="'/matches/'+match.id" class="flex" v-else>
-                    <img src="/sites/default/files/widgets/play_button.png" alt="Resumen">
-                    <span class="pl-1 text-xs font-medium title-color">Ver resumen</span>
-                </a>
+                <div v-if="channels[match.id]" class="flex items-center justify-center">
+                    <img v-if="channel[match.id] === 'Win Sports'" src="/sites/default/files/taxonomy/canales/chn_tv_0.png" alt="Win Sports" title="Win Sports" width="48px">
+                    <img v-else src="/sites/default/files/taxonomy/canales/chn_tvm_0.png" alt="Win Sports +" title="Win Sports +" width="48px">
+                </div>
             </div>
         </div>
     </div>

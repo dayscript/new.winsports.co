@@ -58,8 +58,8 @@ new Vue({
       if (this.node['field_torneo_node'][0]['value']) {
         this.tournament_name = this.node['field_torneo_node'][0]['value']
       }
-      if (this.node['field_round'][0]['value']) {
-        this.round_name = this.node['field_round'][0]['value']
+      if (this.node['field_tournament_round'][0]['target_id']) {
+        this.round_name = this.node['field_tournament_round'][0]['target_id']
       }
       this.display = true
     }

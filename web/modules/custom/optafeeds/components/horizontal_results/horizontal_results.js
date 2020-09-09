@@ -28,6 +28,8 @@ new Vue({
     prevs: {},
     cronicles: {},
     urls: {},
+    goals: {},
+    channels: {}
   },
   beforeMount () {
     const id = this.$el.id
@@ -86,6 +88,8 @@ new Vue({
                   Vue.set(this.prevs, match_id, data[i].nid)
                 }
                 Vue.set(this.urls, match_id, data[i].field_url)
+                Vue.set(this.goals, match_id, data[i].field_url_goals)
+                Vue.set(this.channels, match_id, data[i].field_canal)
               }
             }
           }
