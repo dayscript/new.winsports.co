@@ -42,14 +42,20 @@ new Vue({
   methods: {
     loadTournaments () {
       let url = '/api/torneos-colombia/json'
+      let pos = 0
       this.loading = true
 
       axios.get(url).then(({data}) => {
         this.tournaments = data;
         if (data.length > 0) {
-          this.tournament_season = data[0].field_opta_id + '-' + data[0].field_opta_season
-          this.competition = data[0].field_opta_id
-          this.season = data[0].field_opta_season
+          data.forEach(function(item, key) {
+            if(item.field_default_widget === 'True'){
+              pos = key
+            }
+          });
+          this.tournament_season = data[pos].field_opta_id + '-' + data[pos].field_opta_season
+          this.competition = data[pos].field_opta_id
+          this.season = data[pos].field_opta_season
           this.selectOption('positions')
         }
         this.loading = false
