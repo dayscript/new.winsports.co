@@ -2,7 +2,7 @@ moment.locale('es')
 new Vue({
   el: '.opta-feeds-widget-positions',
   data: {
-    loading: 0,
+    loading: true,
     moment: moment,
     max_rows: 30,
     tournament_season: '0-0',
@@ -10,20 +10,21 @@ new Vue({
     season: 0,
     tournaments: [],
     phases: [],
-    teams: [],
     rounds: [],
+    teams: [],
     players: [],
     matches: [],
     stages: [],
     selected_phase_id: '',
     selected_round_id: '',
-    selected_option: '',
+    selected_option: 'positions',
     positions: {
       Forward: 'Delantero',
       Striker: 'Delantero',
       Midfielder: 'Volante',
       Defender: 'Defensa',
-    }
+    },
+    aux_round_id: 1
   },
   beforeMount () {
     const id = this.$el.id
@@ -59,7 +60,7 @@ new Vue({
           this.tournament_season = data[pos].field_opta_id + '-' + data[pos].field_opta_season
           this.competition = data[pos].field_opta_id
           this.season = data[pos].field_opta_season
-          this.selectOption('positions')
+          this.selectOption(this.selected_option)
         }
         this.loading = false
       }).catch((error) => {
@@ -78,9 +79,8 @@ new Vue({
       this.loading = true
 
       axios.get(url).then(({data}) => {
-        if(data.phases) this.setPhases(data)
-        this.setRounds(data.competition.active_phase_id)
-        this.setMatches(this.selected_round_id !== '' ? this.selected_round_id : data.competition.active_round_id)
+        if(data.phases) this.setRounds(data)
+        this.setMatches(this.selected_round_id)
         this.loading = false
       }).catch((error) => {
         console.log(error)
@@ -217,14 +217,14 @@ new Vue({
     selectTournaments () {
       this.selected_phase_id = ''
       this.selected_round_id = ''
-      this.selected_option = ''
+      this.selected_option = 'positions'
       this.phases = []
       this.rounds = []
       this.teams = []
       this.players = []
       this.matches = []
       this.stages = []
-      this.selectOption('positions')
+      this.selectOption(this.selected_option)
     },
     selectPhase (phase_id) {
       this.selected_phase_id = phase_id
@@ -280,46 +280,41 @@ new Vue({
     setPhases(data) {
       this.phases = {};
       this.selected_phase_id = data.competition.active_phase_id
-      if (typeof data.phases[this.selected_phase_id] === 'undefined') {
-        this.selected_phase_id = Object.keys(data.phases).pop()
-      }
-      let phases = Object.entries(data.phases).sort(function (a, b) { return a[1].phase.number - b[1].phase.number}) 
       let index = 0
+      let phases = Object.entries(data.phases).sort(function (a, b) { return a[1].phase.number - b[1].phase.number}) 
       Object.entries(phases).forEach((phase)=>{
-          Object.entries(phase[1]).forEach((item)=>{
-          if(Object.keys(this.phases).length) {
-             Object.entries(this.phases).forEach((ph)=>{
-              if(ph.id === item[0]) {
-                if(item[1].teams && Object.keys(item[1].teams).length) ph.teams = item[1].teams
-                if(item[1].rounds && Object.keys(item[1].rounds).length) ph.rounds = item[1].rounds
-              }else {
-                if(item[1].teams && Object.keys(item[1].teams).length) item[1].phase.teams = item[1].teams
-                if(item[1].rounds && Object.keys(item[1].rounds).length) item[1].phase.rounds = item[1].rounds
-                if(typeof item[1].phase !== 'undefined') if(typeof item[1].phase.teams !== 'undefined' || typeof item[1].phase.rounds !== 'undefined') this.phases[index] = item[1].phase
+        Object.entries(phase[1]).forEach((item)=>{
+          if(typeof item[1].phase !== 'undefined') {
+            if(typeof item[1].teams !== 'undefined' && Object.keys(item[1].teams).length){
+              this.phases[index] = item[1].phase
+              if(Number(item[1].phase.id) !== Number(this.selected_phase_id) && Number(item[1].phase.active) === 1) {
+                this.selected_phase_id = Number(item[1].phase.id)
               }
-             })
-           }else {
-              if(item[1].teams && Object.keys(item[1].teams).length) item[1].phase.teams = item[1].teams
-              if(item[1].rounds && Object.keys(item[1].rounds).length) item[1].phase.rounds = item[1].rounds
-              if(typeof item[1].phase !== 'undefined') if(typeof item[1].phase.teams !== 'undefined' || typeof item[1].phase.rounds !== 'undefined') this.phases[index] = item[1].phase
-           }
+            }
+          }
         })
         index++
       })
     },
-    setRounds(phase_id) {
+    setRounds(data) {
       this.rounds = {}
-      this.selected_phase_id = phase_id
+      let validate_round_id = this.selected_round_id !== '' ? 0 : 1
+      this.selected_round_id = this.selected_round_id !== '' ? this.selected_round_id : data.competition.active_round_id
       let index = 0
-      Object.entries(this.phases).forEach((item)=>{
-        let rounds = Object.entries(item[1].rounds).sort(function (a, b) { return a[1].round.number - b[1].round.number}) 
+      let phases = Object.entries(data.phases).sort(function (a, b) { return a[1].phase.number - b[1].phase.number}) 
+      phases.forEach((phase)=>{
+        let rounds = Object.entries(phase[1].rounds).sort(function (a, b) { return a[1].round.number - b[1].round.number}) 
         Object.entries(rounds).forEach((round)=>{
           Object.entries(round[1]).forEach((item)=>{
-            if(item[1].matches && Object.keys(item[1].matches).length) item[1].round.matches = item[1].matches
             if(typeof item[1].round !== 'undefined') {
-             this.rounds[index] = item[1].round
-             index++
-           }
+              if(typeof item[1].matches !== 'undefined' && Object.keys(item[1].matches).length) {
+                this.rounds[index] = item[1].round
+                if(Number(item[1].round.id) !== Number(this.selected_round_id) && Number(item[1].round.active) === 1 && Number(validate_round_id) === 1) {
+                  this.selected_round_id = Number(item[1].round.id)
+                }
+               index++
+              }
+            }
           })
         })
       })
