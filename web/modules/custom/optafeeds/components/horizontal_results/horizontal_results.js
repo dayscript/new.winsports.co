@@ -21,9 +21,9 @@ new Vue({
   el: '.opta-feeds-horizontal-results',
   data: {
     loading: 0,
-    id_tournament: 371,
-    active_round: '',
+    competition: 371,
     season: 2020,
+    active_round: '',
     matches: [],
     prevs: {},
     cronicles: {},
@@ -43,7 +43,7 @@ new Vue({
     },
     loadPhases () {
       this.loading++
-      axios.get('https://s3.amazonaws.com/optafeeds-prod/summary/' + this.id_tournament + '/' + this.season + '/all.json').then(
+      axios.get('https://s3.amazonaws.com/optafeeds-prod/summary/' + this.competition + '/' + this.season + '/all.json').then(
           ({data}) => {
             this.loading--
             this.active_round = data.competition.active_round_id
@@ -55,14 +55,24 @@ new Vue({
             this.loading--
           }
       )
+      setInterval(function () {
+          this.loadMatches()
+      }.bind(this), 60* 1000);
     },
     loadMatches () {
       this.loading++
-      axios.get('https://s3.amazonaws.com/optafeeds-prod/schedules/' + this.id_tournament + '/' + this.season + '/rounds/' + this.active_round + '.json').then(
+      axios.get('https://s3.amazonaws.com/optafeeds-prod/schedules/' + this.competition + '/' + this.season + '/rounds/' + this.active_round + '.json').then(
           ({data}) => {
             if (data.matches) {
               let vm = this
-              Object.entries(data.matches).sort((a, b) => new Date(a[1].date) - new Date(b[1].date)).forEach(function (match) {
+              vm.matches = []
+              let matches_order = {}
+              if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+                matches_order = Object.entries(data.matches).sort((a, b) => new Date(b[1].date) - new Date(a[1].date))
+              }else {
+                matches_order = Object.entries(data.matches).sort((a, b) => new Date(a[1].date) - new Date(b[1].date))
+              }
+              matches_order.forEach(function (match) {
                 vm.matches.push(match[1])
                 vm.loadCronicle(match[1].id)
               })
