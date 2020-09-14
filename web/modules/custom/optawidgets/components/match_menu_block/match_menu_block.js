@@ -94,6 +94,9 @@ new Vue({
       if (option_key === 'directo') {
         jQuery('#main-content-region').addClass('md:tw-hidden')
         this.loadEvents()
+        setInterval(function () {
+          this.loadEvents()
+        }.bind(this), 60* 1000);
         this.loading--
       }
     },
