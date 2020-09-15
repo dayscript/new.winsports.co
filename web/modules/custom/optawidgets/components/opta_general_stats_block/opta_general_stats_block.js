@@ -14,6 +14,10 @@ new Vue({
     selected_option: 'positions',
     selected_phase_id: '',
     teams: [],
+    paths: {
+      col: '',
+      int: '',
+    }
   },
   mounted() {
     var id = this.getParameterByName('id')
@@ -61,6 +65,7 @@ new Vue({
           ({data}) => {
             this.loading--
             this.tournaments.int = data;
+            this.paths.int = '/posiciones?id='+this.tournaments.int[0].field_opta_id + '-'+this.tournaments.int[0].field_opta_season
             if (this.tournaments.int.filter(function(item){
               return item.field_opta_id === this.competition && item.field_opta_season === this.season
             }.bind(this)).length > 0) {
@@ -73,6 +78,7 @@ new Vue({
           ({data}) => {
             this.loading--
             this.tournaments.col = data;
+            this.paths.col = '/posiciones?id='+this.tournaments.col[0].field_opta_id + '-'+this.tournaments.col[0].field_opta_season
           }
       ).catch(() => {this.loading--})
     },

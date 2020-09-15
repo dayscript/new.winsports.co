@@ -34,6 +34,11 @@
       a{
         @apply uppercase text-white px-6;
       }
+      a.equipos{
+        @screen md {
+          @apply tw-hidden;
+        }
+      }
     }
   }
 }

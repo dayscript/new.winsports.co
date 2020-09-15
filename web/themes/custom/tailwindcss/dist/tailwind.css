@@ -1048,6 +1048,12 @@ a {
   padding-right: 1.5rem;
 }
 
+@media (min-width: 768px) {
+  #block-tailwindcss-main-menu ul:not(.contextual-links) li a.equipos {
+    display: none;
+  }
+}
+
 #block-toplinks {
   font-size: 0.875rem;
 }
@@ -2091,6 +2097,18 @@ div#footer-first .menu-footer ul:not(.contextual-links) li a {
   text-align: center;
   height: 100%;
   font-family: "Passion One", cursive;
+  color: #333;
+}
+
+@media (min-width: 768px) {
+  #blocktabs-programacion .views-field-nothing,
+  #blocktabs-programacion .views-field-field-canal,
+  #blocktabs-widget_programacion .views-field-nothing,
+  #blocktabs-widget_programacion .views-field-field-canal {
+    --text-opacity: 1;
+    color: #fff;
+    color: rgba(255, 255, 255, var(--text-opacity));
+  }
 }
 
 #blocktabs-programacion .views-field-field-canal,
@@ -2639,6 +2657,12 @@ div#block-horizontalresults img {
 
 .list-category .feed-icon {
   display: none;
+}
+
+.page-equipos .views-row {
+  max-width: 100px;
+  display: block;
+  margin: 0 auto;
 }
 
 #block-futbolcolombiano-estadisticas, .opta-widgets {

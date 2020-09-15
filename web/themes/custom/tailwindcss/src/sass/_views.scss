@@ -602,6 +602,10 @@ div#footer-first {
     .views-field-field-canal {
         @apply tw-absolute tw-right-0 tw-top-0 uppercase text-white text-center h-full;
         font-family: $font-title;
+        color: #333;
+        @screen md {
+            @apply text-white;
+        }
     }
     .views-field-field-canal {
         @apply tw-w-20 flex items-center justify-center;
@@ -1078,5 +1082,12 @@ div#block-horizontalresults {
     }
     .feed-icon{
         display: none;
+    }
+}
+.page-equipos{
+    .views-row{
+        max-width: 100px;
+        display: block;
+        margin: 0 auto;
     }
 }

@@ -3,20 +3,20 @@ Vue.config.ignoredElements = ['opta-widget']
 new Vue({
   el: '.opta-tournament-stats',
   data: {
-    loading: 0,
+    loading: true,
     moment: moment,
     max_rows: 30,
     node: null,
     tournaments: [],
     phases: [],
-    teams: [],
     rounds: [],
+    teams: [],
     players: [],
     matches: [],
     stages: [],
     selected_phase_id: '',
     selected_round_id: '',
-    selected_option: '',
+    selected_option: 'positions',
     positions: {
       Forward: 'Delantero',
       Striker: 'Delantero',
@@ -65,7 +65,7 @@ new Vue({
   methods: {
     loadTournaments () {
       this.loading = true
-      this.selectOption('positions')
+      this.selectOption(this.selected_option)
       this.loading = false
       
       setInterval(function () {
@@ -77,9 +77,8 @@ new Vue({
       this.loading = true
 
       axios.get(url).then(({data}) => {
-        if(data.phases) this.setPhases(data)
-        this.setRounds(data.competition.active_phase_id)
-        this.setMatches(this.selected_round_id !== '' ? this.selected_round_id : data.competition.active_round_id)
+        if(data.phases) this.setRounds(data)
+        this.setMatches(this.selected_round_id)
         this.loading = false
       }).catch((error) => {
         console.log(error)
@@ -221,7 +220,7 @@ new Vue({
     },
     selectOption (option_key) {
       this.selected_option = option_key
-      this.selected_round_id = ''
+
       if (option_key === 'schedules') {
         this.loadResults()
       }else if (option_key === 'positions') {
@@ -265,46 +264,41 @@ new Vue({
     setPhases(data) {
       this.phases = {};
       this.selected_phase_id = data.competition.active_phase_id
-      if (typeof data.phases[this.selected_phase_id] === 'undefined') {
-        this.selected_phase_id = Object.keys(data.phases).pop()
-      }
-      let phases = Object.entries(data.phases).sort(function (a, b) { return a[1].phase.number - b[1].phase.number}) 
       let index = 0
+      let phases = Object.entries(data.phases).sort(function (a, b) { return a[1].phase.number - b[1].phase.number}) 
       Object.entries(phases).forEach((phase)=>{
-          Object.entries(phase[1]).forEach((item)=>{
-          if(Object.keys(this.phases).length) {
-             Object.entries(this.phases).forEach((ph)=>{
-              if(ph.id === item[0]) {
-                if(item[1].teams && Object.keys(item[1].teams).length) ph.teams = item[1].teams
-                if(item[1].rounds && Object.keys(item[1].rounds).length) ph.rounds = item[1].rounds
-              }else {
-                if(item[1].teams && Object.keys(item[1].teams).length) item[1].phase.teams = item[1].teams
-                if(item[1].rounds && Object.keys(item[1].rounds).length) item[1].phase.rounds = item[1].rounds
-                if(typeof item[1].phase !== 'undefined') if(typeof item[1].phase.teams !== 'undefined' || typeof item[1].phase.rounds !== 'undefined') this.phases[index] = item[1].phase
+        Object.entries(phase[1]).forEach((item)=>{
+          if(typeof item[1].phase !== 'undefined') {
+            if(typeof item[1].teams !== 'undefined' && Object.keys(item[1].teams).length){
+              this.phases[index] = item[1].phase
+              if(Number(item[1].phase.id) !== Number(this.selected_phase_id) && Number(item[1].phase.active) === 1) {
+                this.selected_phase_id = Number(item[1].phase.id)
               }
-             })
-           }else {
-              if(item[1].teams && Object.keys(item[1].teams).length) item[1].phase.teams = item[1].teams
-              if(item[1].rounds && Object.keys(item[1].rounds).length) item[1].phase.rounds = item[1].rounds
-              if(typeof item[1].phase !== 'undefined') if(typeof item[1].phase.teams !== 'undefined' || typeof item[1].phase.rounds !== 'undefined') this.phases[index] = item[1].phase
-           }
+            }
+          }
         })
         index++
       })
     },
-    setRounds(phase_id) {
+    setRounds(data) {
       this.rounds = {}
-      this.selected_phase_id = phase_id
+      let validate_round_id = this.selected_round_id !== '' ? 0 : 1
+      this.selected_round_id = this.selected_round_id !== '' ? this.selected_round_id : data.competition.active_round_id
       let index = 0
-      Object.entries(this.phases).forEach((item)=>{
-        let rounds = Object.entries(item[1].rounds).sort(function (a, b) { return a[1].round.number - b[1].round.number}) 
+      let phases = Object.entries(data.phases).sort(function (a, b) { return a[1].phase.number - b[1].phase.number}) 
+      phases.forEach((phase)=>{
+        let rounds = Object.entries(phase[1].rounds).sort(function (a, b) { return a[1].round.number - b[1].round.number}) 
         Object.entries(rounds).forEach((round)=>{
           Object.entries(round[1]).forEach((item)=>{
-            if(item[1].matches && Object.keys(item[1].matches).length) item[1].round.matches = item[1].matches
             if(typeof item[1].round !== 'undefined') {
-             this.rounds[index] = item[1].round
-             index++
-           }
+              if(typeof item[1].matches !== 'undefined' && Object.keys(item[1].matches).length) {
+                this.rounds[index] = item[1].round
+                if(Number(item[1].round.id) !== Number(this.selected_round_id) && Number(item[1].round.active) === 1 && Number(validate_round_id) === 1) {
+                  this.selected_round_id = Number(item[1].round.id)
+                }
+               index++
+              }
+            }
           })
         })
       })
@@ -313,10 +307,9 @@ new Vue({
       document.location.href = '/matches/' + match_id
     },
     phaseName (string, number){
-      let competition = this.competition
-      string = (competition === 589 && string === 'Ronda' && number === '1' || competition === 589 && string === 'Round' && number === '1') ? 'Cuadrangulares' : string;
-      string = (competition === 901 && string === 'Ronda' && number === '2' || competition === 901 && string === 'Round' && number === '2') ? 'Cuadrangulares' : string;
-      string = (competition === 664 && string === 'Ronda' && number === '1' || competition === 664 && string === 'Round' && number === '1') ? 'Todos contra Todos' : string;
+      string = (this.competition === 589 && string === 'Ronda' && number === '1' || this.competition === 589 && string === 'Round' && number === '1') ? 'Cuadrangulares' : string;
+      string = (this.competition === 901 && string === 'Ronda' && number === '2' || this.competition === 901 && string === 'Round' && number === '2') ? 'Cuadrangulares' : string;
+      string = (this.competition === 664 && string === 'Ronda' && number === '1' || this.competition === 664 && string === 'Round' && number === '1') ? 'Todos contra Todos' : string;
       switch(string){
         case 'All':
           return 'Todos contra Todos';
@@ -345,7 +338,51 @@ new Vue({
       }
     },
     roundName (number){
-      return 'Fecha ' + number
+      var idCompetition =  [371,589,625,901,128], phases = {};
+      if (this.competition == 371 || this.competition == 589) {
+        phases = {
+          21:['Cuadrangulares - Fecha 1'],
+          22:['Cuadrangulares - Fecha 2'],
+          23:['Cuadrangulares - Fecha 3'],
+          24:['Cuadrangulares - Fecha 4'],
+          25:['Cuadrangulares - Fecha 5'],
+          26:['Cuadrangulares - Fecha 6'],
+          27:['Final - Ida'],
+          28:['Final - Vuelta']
+        }
+      }else if (this.competition == 625 || this.competition == 901) {
+        phases = {
+          16:['Cuadrangulares - Fecha 1'],
+          17:['Cuadrangulares - Fecha 2'],
+          18:['Cuadrangulares - Fecha 3'],
+          19:['Cuadrangulares - Fecha 4'],
+          20:['Cuadrangulares - Fecha 5'],
+          21:['Cuadrangulares - Fecha 6'],
+          22:['Final - Ida'],
+          23:['Final - Vuelta']
+        }
+      }else if (this.competition == 128) {
+        phases = {
+          4:['Cuartos de final'],
+          5:['Semifinal'],
+          6:['3er y 4to'],
+          7:['Final'],
+        }
+      } else  {
+        phases = {
+          21:['Cuartos de final - Ida'],
+          22:['Cuartos de final - Vuelta'],
+          23:['Semifinal - Ida'],
+          24:['Semifinal - Vuelta'],
+          25:['Final - Ida'],
+          26:['Final - Vuelta']
+        }
+      }
+      if( idCompetition.indexOf( this.competition ) >= 0 && phases[number] ){
+        return phases[number][0]
+      }else{
+        return 'Fecha '+number
+      }
     }
   }
 });
