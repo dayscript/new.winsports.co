@@ -16,11 +16,11 @@
             <div v-else-if="match.period == 'FullTime' || match.period == 'Full Time'">
                 <small class="pl-1 text-xs font-medium lead" >{{ match.date | formatDate | capitalize }} - Finalizado</small>
                 <div class="flex items-center justify-center">
-                    <a :href="'/node/'+goals[match.id]" class="flex" v-if="goals[match.id]">
+                    <a v-if="goals[match.id]" :href="'/node/'+goals[match.id]" class="flex">
                         <img src="/sites/default/files/widgets/play_button.png" alt="Ver goles" title="Ver goles">
                         <span class="pl-1 text-xs font-medium title-color">Ver goles</span>
                     </a>
-                    <a :href="'/node/'+cronicles[match.id]" class="flex" v-else>
+                    <a v-else :href="'/node/'+cronicles[match.id]" class="flex">
                         <img src="/sites/default/files/widgets/play_button.png" alt="Ver resumen" title="Ver resumen">
                         <span class="pl-1 text-xs font-medium title-color">Ver resumen</span>
                     </a>
@@ -28,13 +28,15 @@
             </div>
             <div v-else>
                 <small class="pl-1 text-xs font-medium lead">{{ match.date | formatDate | capitalize }}, {{ match.date | formatHour }}</small>
-                <a v-if="urls[match.id]" :href="urls[match.id]" target="_blank" class="flex">
-                    <img src="/sites/default/files/widgets/play_button.png" alt="Comprar partido" title="Comprar partido">
-                    <span class="pl-1 text-xs font-medium title-color">Comprar partido</span>
-                </a>
-                <div v-if="channels[match.id]" class="flex items-center justify-center">
-                    <img v-if="channel[match.id] === 'Win Sports'" src="/sites/default/files/taxonomy/canales/chn_tv_0.png" alt="Win Sports" title="Win Sports" width="48px">
-                    <img v-else src="/sites/default/files/taxonomy/canales/chn_tvm_0.png" alt="Win Sports +" title="Win Sports +" width="48px">
+                <div class="flex items-center justify-center">
+                    <a v-if="urls[match.id]" :href="urls[match.id]" target="_blank" class="flex">
+                        <img src="/sites/default/files/widgets/play_button.png" alt="Comprar partido" title="Comprar partido">
+                        <span class="pl-1 text-xs font-medium title-color">Comprar partido</span>
+                    </a>
+                    <div v-if="channels[match.id]" class="flex">
+                        <img v-if="channel[match.id] === 'Win Sports'" src="/sites/default/files/taxonomy/canales/chn_tv_0.png" alt="Win Sports" title="Win Sports" width="48px">
+                        <img v-else src="/sites/default/files/taxonomy/canales/chn_tvm_0.png" alt="Win Sports +" title="Win Sports +" width="48px">
+                    </div>
                 </div>
             </div>
         </div>

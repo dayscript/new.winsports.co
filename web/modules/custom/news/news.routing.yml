@@ -1,0 +1,8 @@
+news:
+  path: '/wsnoticias'
+  defaults:
+    _controller: '\Drupal\news\Controller\NewsController::news' 
+  methods:
+    [POST]
+  requirements:
+    _access: 'TRUE'

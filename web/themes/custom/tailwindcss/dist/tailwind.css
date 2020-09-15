@@ -2097,6 +2097,18 @@ div#footer-first .menu-footer ul:not(.contextual-links) li a {
   text-align: center;
   height: 100%;
   font-family: "Passion One", cursive;
+  color: #333;
+}
+
+@media (min-width: 768px) {
+  #blocktabs-programacion .views-field-nothing,
+  #blocktabs-programacion .views-field-field-canal,
+  #blocktabs-widget_programacion .views-field-nothing,
+  #blocktabs-widget_programacion .views-field-field-canal {
+    --text-opacity: 1;
+    color: #fff;
+    color: rgba(255, 255, 255, var(--text-opacity));
+  }
 }
 
 #blocktabs-programacion .views-field-field-canal,

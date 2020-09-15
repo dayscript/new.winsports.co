@@ -16,7 +16,7 @@
           </div>  
     </div>
     <div class="flex flex-no-wrap overflow-x-auto w-full">
-        <div @click="selectOption(option.key)" v-for="option in options" class="flex-1 text-center py-3 px-6 font-title cursor-pointer table-option" :class="selected_option == option.key?'active':''">{{ option.label }}</div>
+        <div @click="selectOption(option.key)" v-for="option in options" class="flex-1 text-center py-3 font-title cursor-pointer table-option" :class="[selected_option == option.key?'active':'', competition == '371'?'px-2':'px-6']">{{ option.label }}</div>
     </div>
     <div v-if="selected_option === 'schedules'" class="flex flex-no-wrap overflow-x-auto w-full" style="background-color: #0ef8c3;">
         <div @click="setMatches(round.id)" v-for="round in rounds" class="whitespace-no-wrap cursor-pointer phase p-2" :class="selected_round_id == round.id?'active':''">
@@ -50,7 +50,7 @@
                         {{ moment(match.date).format('h:mm a') }}
                     </div>
                     <div v-else class="tw-flex tw-justify-center tw-text-xs tw-text-gray-600">
-                        '{{match.minute.label}}
+                        {{match.minute.label}}'
                     </div>
                 </div>
             </div>
