@@ -45,6 +45,7 @@
         "drupal/fb_instant_articles": "^2.2",
         "drupal/field_formatter_class": "^1.4",
         "drupal/field_group": "^3.0",
+        "drupal/google_index_api": "^1.2",
         "drupal/io": "^1.1",
         "drupal/lazy": "^3.4",
         "drupal/libraries": "^3.0@alpha",

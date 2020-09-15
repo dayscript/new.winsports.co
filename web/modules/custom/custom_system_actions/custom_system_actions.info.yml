@@ -1,0 +1,5 @@
+name: Custom System Actions
+description: 'Custom System Actions.'
+type: module
+core: 8.x
+package: 'dayscript'

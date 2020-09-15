@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node_google_index_action
+label: 'Google Index Content'
+type: node
+plugin: node_google_index_action
+configuration: {  }

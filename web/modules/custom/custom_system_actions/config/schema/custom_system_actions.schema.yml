@@ -1,0 +1,3 @@
+action.configuration.custom_system_actions:
+  type: node_google_index_action
+  label: 'Google Index Content'
