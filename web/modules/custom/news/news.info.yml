@@ -1,0 +1,9 @@
+name: Webservice noticias
+type: module
+description: Servicio para exponer noticias
+package: Custom
+type: module
+core: 8.x
+
+dependencies:
+  - drupal:node
