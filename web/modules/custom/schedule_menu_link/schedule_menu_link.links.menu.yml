@@ -1,0 +1,4 @@
+schedule_menu_link.schedule:
+  weight: -50
+  menu_name: top-links
+  class: Drupal\schedule_menu_link\Plugin\Menu\ScheduleMenuLink

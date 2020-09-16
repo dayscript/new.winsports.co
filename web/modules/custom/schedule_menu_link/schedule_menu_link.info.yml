@@ -1,0 +1,5 @@
+name: Schedule Menu Link
+description: 'Schedule Menu Custom Link.'
+type: module
+core: 8.x
+package: 'dayscript'
