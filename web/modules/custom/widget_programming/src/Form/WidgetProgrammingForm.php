@@ -58,6 +58,9 @@ class WidgetProgrammingForm extends FormBase {
       '#type' => 'markup',
       '#markup' => $html,
     ];
+    $form['#cache'] = [
+      'max-age' => 0
+    ];
     return $form;
   }
   
