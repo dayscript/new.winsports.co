@@ -1,6 +1,6 @@
 <div class="overflow-y-hidden whitespace-no-wrap md:overflow-auto md:whitespace-normal">
     <div class="flex" v-if="!loading && matches">
-        <div class="flex-1 text-center mr-8 md:mr-0 tw-cursor-pointer" v-for="match in matches">
+        <div v-for="match in matches" :class="match.playing == 5 ? 'is-active' : ''" class="flex-1 text-center mr-8 md:mr-0 tw-cursor-pointer">
             <div class="flex justify-center" @click="goto('/matches/'+match.id)">
                 <img class="mr-2" :src="'//secure.omo.akamai.opta.net/image.php?secure=true&h=secure.omo.akamai.opta.net&sport=football&entity=team&description=badges&dimensions=20&id='+ match.home.id" :alt="match.home.name" :title="match.home.name">
                 <div class="font-bold" :class="match.period == 'FullTime'?'text-red-700':'text-gray-500'">
@@ -33,9 +33,12 @@
                         <img src="/sites/default/files/widgets/play_button.png" alt="Comprar partido" title="Comprar partido">
                         <span class="pl-1 text-xs font-medium title-color">Comprar partido</span>
                     </a>
-                    <div v-if="channels[match.id]" class="flex">
-                        <img v-if="channel[match.id] === 'Win Sports'" src="/sites/default/files/taxonomy/canales/chn_tv_0.png" alt="Win Sports" title="Win Sports" width="48px">
-                        <img v-else src="/sites/default/files/taxonomy/canales/chn_tvm_0.png" alt="Win Sports +" title="Win Sports +" width="48px">
+                    <div v-else-if="channels[match.id]" class="flex">
+                        <img v-if="channel[match.id] === 'Win Sports'" src="/sites/default/files/taxonomy/canales/chn_tv.png" alt="Win Sports" title="Win Sports" height="17px" style="height: 17px!important;">
+                        <img v-else src="/sites/default/files/taxonomy/canales/chn_tvm.png" alt="Win Sports +" title="Win Sports +" height="17px" style="height: 17px!important;">
+                    </div>
+                    <div v-else>
+                        <img src="/sites/default/files/taxonomy/canales/chn_tvm.png" alt="Win Sports +" title="Win Sports +" height="17px" style="height: 17px!important;">
                     </div>
                 </div>
             </div>

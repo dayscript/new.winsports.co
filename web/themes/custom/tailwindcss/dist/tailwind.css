@@ -2918,7 +2918,8 @@ article.id-3 #schedules div.match-events {
   display: none;
 }
 
-#block-views-block-goles-home-block-2 .gol-partido.video-player .image img.play-icon {
+#block-views-block-goles-home-block-2 .gol-partido.video-player .image img.play-icon,
+#block-views-block-goles-home-block-4 .gol-partido.video-player .image img.play-icon {
   position: absolute;
   top: 3rem;
   left: 50%;
@@ -2926,7 +2927,8 @@ article.id-3 #schedules div.match-events {
           transform: translate(-50%, 0);
 }
 
-#block-views-block-goles-home-block-2 .gol-partido.video-player .title {
+#block-views-block-goles-home-block-2 .gol-partido.video-player .title, 
+#block-views-block-goles-home-block-4 .gol-partido.video-player .title {
   font-family: "Passion One", cursive;
   position: relative;
   top: 0;
@@ -2938,11 +2940,13 @@ article.id-3 #schedules div.match-events {
   font-weight: 400;
 }
 
-#block-views-block-goles-home-block-2 .gol-partido.video-player .title a {
+#block-views-block-goles-home-block-2 .gol-partido.video-player .title a,
+#block-views-block-goles-home-block-4 .gol-partido.video-player .title a {
   color: #0b3b41;
 }
 
-#block-views-block-goles-home-block-2 .goles-mobile {
+#block-views-block-goles-home-block-2 .goles-mobile,
+#block-views-block-goles-home-block-4 .goles-mobile {
   width: 40%;
   margin-right: 1rem;
   -webkit-flex: none;
@@ -3300,6 +3304,11 @@ article.id-3 #schedules div.match-events {
   width: auto;
 }
 
+@media (max-width: 640px){
+  .owl-item {
+    width: 152.95px !important;
+  }
+}
 nav#block-bottommenumobile {
   width: 100%;
   position: fixed;
