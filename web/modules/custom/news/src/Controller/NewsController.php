@@ -11,31 +11,14 @@ use Drupal\image\Entity\ImageStyle;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 
-/**
-* Clase controlador para módulo de publicaciones
-*
-* A través de varios tipos de contenido genera un servicio json con los datos necesarios
-* para que la aplicación móvil de inciradio funcione correctamente.
-*
-* @return object     Respuesta en json con datos de publicaciones
-* 
-* PHP version 7.2
-*
-* @category         Controlador
-* @package         controllers
-* @author            Pablo Villate <pablo.villate1@gmail.com>
-* @copyright        2019 Instituto Nacional Para Ciegos
-* @link                  http://inci.gov.co
-* @since               Archivo disponible desde la version 1.0.0
-**/
 class NewsController extends ControllerBase {
   
   protected $api_key = '8mKaTrQe6WsHWBz';
 
   public function news() {
-    $key = \Drupal::request()->query->get('key');
-    $limit = \Drupal::request()->query->get('limit');
-    $offset = \Drupal::request()->query->get('offset');
+    $key = \Drupal::request()->request->get('key');
+    $limit = \Drupal::request()->request->get('limit');
+    $offset = \Drupal::request()->request->get('offset');
     $range_offset = 0;
     $range_limit = 100;
 
