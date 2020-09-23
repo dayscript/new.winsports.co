@@ -75,13 +75,15 @@
                     }, 400);
                 }
             });
-            if($('#block-futbolinternacional ul li a.is-active').length){
-                var x = $('#block-futbolinternacional ul li a.is-active').position();
-                var scrollLeft = x.left-100;
-                $('#block-futbolinternacional ul').animate({
-                    scrollLeft: scrollLeft
-                }, 400);
-            }
+            setTimeout(function(){
+                if($('#block-futbolinternacional ul li a.is-active').length){
+                    var x = $('#block-futbolinternacional ul li a.is-active').position();
+                    var scrollLeft = x.left-100;
+                    $('#block-futbolinternacional ul').animate({
+                        scrollLeft: scrollLeft
+                    }, 400);
+                }
+            }, 1000);
             relocateView();
             $(window).resize(function() {
                 relocateView();
