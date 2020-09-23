@@ -1,7 +1,7 @@
 <div class="opta-widgets">
    <div v-if="competition>0 && season>0">
-      <div class="flex flex-no-wrap overflow-x-auto w-full mb-px tw-bg-gray">
-         <div @click="selectOption(option.key)" v-for="option in options" class="whitespace-no-wrap py-3 px-4 font-title font-semibold cursor-pointer table-option" :class="selected_option == option.key?'active':''">{{ option.label }}</div>
+      <div class="opta-widgets-menu flex flex-no-wrap overflow-x-auto w-full mb-px tw-bg-gray">
+         <div @click="selectOption(option.key)" v-for="option in options" class="whitespace-no-wrap py-3 px-2 md:px-4 font-title font-semibold cursor-pointer table-option" :class="selected_option == option.key?'active':''">{{ option.label }}</div>
       </div>
       <div v-if="selected_option === 'schedules'" class="flex flex-no-wrap overflow-x-auto w-full" style="background-color: #0ef8c3;">
         <div @click="setMatches(round.id)" v-for="round in rounds" class="whitespace-no-wrap cursor-pointer phase p-2" :class="selected_round_id == round.id?'active':''">
