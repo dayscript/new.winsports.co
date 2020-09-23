@@ -27,7 +27,7 @@
     <div class="opta-widgets">
         <div v-if="competition>0 && season>0">
             <div id="opta-widgets-menu" class="flex flex-no-wrap overflow-x-auto w-full mb-px">
-                <div @click="selectOption(option.key)" v-for="option in options" class="flex-1 text-center whitespace-no-wrap py-3 px-6 font-title font-semibold cursor-pointer table-option" :class="selected_option == option.key?'active':''">{{ option.label }}</div>
+                <div @click="selectOption(option.key)" v-for="option in options" class="flex-1 text-center whitespace-no-wrap py-3 px-2 md:px-6 font-title font-semibold cursor-pointer table-option" :class="selected_option == option.key?'active':''">{{ option.label }}</div>
             </div>
             <div v-show="selected_option == 'positions'" id="positions">
                 <opta-widget widget="standings" sport="football" :competition="competition" :season="season" template="normal" live="true" default_nav="1" side="combined" data_detail="full" show_key="true"
