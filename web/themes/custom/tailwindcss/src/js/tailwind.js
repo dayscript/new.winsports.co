@@ -66,16 +66,16 @@
                  }, 500);
             });
             
-            $('#block-horizontalresults').bind('DOMNodeInserted DOMNodeRemoved', function() {
-                if($('#block-horizontalresults div.is-active').length){
-                    var x = $('#block-horizontalresults div.is-active').position();
-                    var scrollLeft = x.left-155;
-                    $('#block-horizontalresults div').animate({
-                        scrollLeft: scrollLeft
-                    }, 400);
-                }
-            });
             setTimeout(function(){
+                $('#block-horizontalresults').bind('DOMNodeInserted DOMNodeRemoved', function() {
+                    if($('#block-horizontalresults div.is-active').length){
+                        var x = $('#block-horizontalresults div.is-active').position();
+                        var scrollLeft = x.left-155;
+                        $('#block-horizontalresults div').animate({
+                            scrollLeft: scrollLeft
+                        }, 400);
+                    }
+                });
                 if($('#block-futbolinternacional ul li a.is-active').length){
                     var x = $('#block-futbolinternacional ul li a.is-active').position();
                     var scrollLeft = x.left-100;
@@ -83,7 +83,7 @@
                         scrollLeft: scrollLeft
                     }, 400);
                 }
-            }, 1000);
+            }, 3000);
             $(".opta-widgets-menu > div:nth-child(3)").insertAfter(".opta-widgets-menu > div:nth-child(5)");
             relocateView();
             $(window).resize(function() {
