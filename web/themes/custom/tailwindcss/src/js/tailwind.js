@@ -83,6 +83,13 @@
                         scrollLeft: scrollLeft
                     }, 400);
                 }
+                if($('#block-futbolcolombiano ul li a.is-active').length){
+                    var x = $('#block-futbolcolombiano ul li a.is-active').position();
+                    var scrollLeft = x.left-100;
+                    $('#block-futbolcolombiano ul').animate({
+                        scrollLeft: scrollLeft
+                    }, 400);
+                }
             }, 3000);
             $(".opta-widgets-menu > div:nth-child(3)").insertAfter(".opta-widgets-menu > div:nth-child(5)");
             relocateView();
