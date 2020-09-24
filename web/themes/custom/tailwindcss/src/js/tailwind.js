@@ -90,12 +90,12 @@
                         scrollLeft: scrollLeft
                     }, 400);
                 }
+                $(".carousel-videos .owl-carousel").data('owlCarousel').reinit({
+                    items: 4.3,
+                    itemsMobile : [479,2.1],
+                });
             }, 3000);
             $(".opta-widgets-menu > div:nth-child(3)").insertAfter(".opta-widgets-menu > div:nth-child(5)");
-            $(".carousel-videos .owl-carousel").data('owlCarousel').reinit({
-                items: 4.3,
-                itemsMobile : [479,2.1],
-            });
             relocateView();
             $(window).resize(function() {
                 relocateView();
