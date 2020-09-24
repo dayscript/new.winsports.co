@@ -6,11 +6,3 @@ news:
     [POST]
   requirements:
     _access: 'TRUE'
-noticias:
-  path: '/wsnews'
-  defaults:
-    _controller: '\Drupal\news\Controller\NewsController::noticias' 
-  methods:
-    [POST]
-  requirements:
-    _access: 'TRUE'

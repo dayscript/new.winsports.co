@@ -66,25 +66,15 @@ new Vue({
           if (data.matches) {
             let matches = []
             Object.entries(data.matches).forEach(function (match, key) {
-              let date = match[1].date.split(' ')[0]
-              date = date.replace(/-/g, '')
-              match[1].playing = key
-              /*if(key == 4) match[1].playing = 1
-              if(match[1].period === 'FullTime' || match[1].period === 'Full Time' || match[1].period === 'Postponed' || match[1].period === 'TBC' || match[1].period === 'Abandoned'){
-                match[1].playing = 0//Number(3 + date)
-              }else if(match[1].period === 'PreMatch' ) {
-                match[1].playing = 0//Number(2 + date)
+              if(match[1].period === 'FullTime' || match[1].period === 'Full Time' || match[1].period === 'Postponed' || match[1].period === 'TBC' || match[1].period === 'Abandoned' || match[1].period === 'PreMatch') {
+                match[1].playing = 0
               }else {
-                match[1].playing = 1//Number(1 + date)
-              }*/
+                match[1].playing = 1
+              }
               matches.push(match[1])
             })
 
-            //if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-            //  matches = Object.entries(matches).sort((a, b) => new Date(a[1].order) - new Date(b[1].order))
-            //}else {
-              matches = Object.entries(matches).sort((a, b) => new Date(a[1].date) - new Date(b[1].date))
-            //}
+            matches = Object.entries(matches).sort((a, b) => new Date(a[1].date) - new Date(b[1].date))
 
             let vm = this
             vm.matches = []
