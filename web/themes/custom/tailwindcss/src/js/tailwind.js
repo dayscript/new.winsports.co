@@ -90,9 +90,29 @@
                         scrollLeft: scrollLeft
                     }, 400);
                 }
-                $(".carousel-videos .owl-carousel").data('owlCarousel').reinit({
+                $("#block-views-block-videos-block-1 .owl-carousel").data('owlCarousel').reinit({
                     items: 4.3,
-                    itemsMobile : [479,2.1],
+                    itemsMobile : [479,2.2],
+                });
+                $("#block-views-block-videos-block-4 .owl-carousel").data('owlCarousel').reinit({
+                    items: 4.3,
+                    itemsMobile : [479,2.2],
+                });
+                $("#block-views-block-videos-block-5 .owl-carousel").data('owlCarousel').reinit({
+                    items: 4.3,
+                    itemsMobile : [479,2.2],
+                });
+                $("#block-views-block-videos-block-6 .owl-carousel").data('owlCarousel').reinit({
+                    items: 4.3,
+                    itemsMobile : [479,2.2],
+                });
+                $("#block-views-block-videos-block-7 .owl-carousel").data('owlCarousel').reinit({
+                    items: 4.3,
+                    itemsMobile : [479,2.2],
+                });
+                $("#block-views-block-videos-block-9 .owl-carousel").data('owlCarousel').reinit({
+                    items: 4.3,
+                    itemsMobile : [479,2.2],
                 });
             }, 3000);
             $(".opta-widgets-menu > div:nth-child(3)").insertAfter(".opta-widgets-menu > div:nth-child(5)");
