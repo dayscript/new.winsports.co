@@ -338,11 +338,12 @@ class MigrateController {
             ];
           }
           else {
-            dd('No se cargo la imagen');
+            dd('No se cargo la imagen del jugador '.$item['title']);
           }
         }
         $node->field_opta_id = $item['field_id_opta'];
         $node->field_opta_team = $item['team'];
+        $node->field_posicion = $item['field_posicion'];
         $node->save();
         if ($results['new'] + $results['existing'] >= $this->limit) {
           break;
