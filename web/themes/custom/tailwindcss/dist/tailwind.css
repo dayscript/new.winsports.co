@@ -3173,7 +3173,7 @@ article.id-3 #schedules div.match-events {
 
 /* RESPONSIVE */
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   #block-optageneralstats .menu-secundario {
     overflow-x: scroll;
     overflow-y: hidden;
