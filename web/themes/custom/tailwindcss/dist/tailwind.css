@@ -3360,6 +3360,10 @@ nav#block-bottommenumobile ul > li .posiciones::after {
   margin: 0 auto;
 }
 
+.mediastream-player iframe {
+  width: 100%;
+}
+
 .mediastream.fixed-height {
   /*height: 550px !important;*/
 }
