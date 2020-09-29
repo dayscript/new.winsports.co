@@ -36,8 +36,6 @@
                 });*/
             }
             $( document ).ready(function() {
-                var headerHeight = $('#header-page').height();
-                $('#top-content').attr('style', 'margin-top:'+headerHeight+'px !important');
                 setTimeout(function(){ 
                     /*TopBanner Ads*/
                     if ($('#top-content #eplAdDivTop_Banner_NEW').length > 0) {/*Home Principal*/
@@ -130,6 +128,8 @@
             });
 
             function relocateView() {
+                var headerHeight = $('#header-page').height();
+                $('#top-content').attr('style', 'margin-top:'+headerHeight+'px !important');
                 if ($(window).width() <= 768) {
                     $('#block-positionstableswidget').find('.opta-feeds-widget-positions').find('.scrollbar-w-2').attr('style', 'max-height: auto');
                     $('#block-envivo').addClass('tw-right-0 tw-absolute').insertAfter('#header-page .tw-flex.tw-items-center > div:first-child');
