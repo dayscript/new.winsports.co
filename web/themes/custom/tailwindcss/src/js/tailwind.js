@@ -124,7 +124,7 @@
             function relocateView() {
                 var headerHeight = $('#header-page').height();
                 $('#top-content').attr('style', 'margin-top:'+headerHeight+'px !important');
-                if ($(window).width() < 640) {
+                if ($(window).width() < 768) {
                     $('#block-positionstableswidget').find('.opta-feeds-widget-positions').find('.scrollbar-w-2').attr('style', 'max-height: auto');
                     $('#block-envivo').addClass('tw-right-0 tw-absolute').insertAfter('#header-page .tw-flex.tw-items-center > div:first-child');
                     $('#block-customadsblock').insertAfter('#block-views-block-goles-home-block-2');
@@ -139,9 +139,9 @@
                 }else{
                     $('#block-positionstableswidget').find('.opta-feeds-widget-positions').find('.scrollbar-w-2').attr('style', 'max-height: 310px');
                 }
-                if ($(window).width() <= 768) {
+/*                if ($(window).width() <= 768) {
                     $('#block-envivo').addClass('tw-right-0 tw-absolute').insertAfter('#header-page .tw-flex.tw-items-center > div:first-child');
-                }
+                }*/
             }
         }
     };
