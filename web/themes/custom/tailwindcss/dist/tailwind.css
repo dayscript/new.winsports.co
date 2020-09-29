@@ -1317,7 +1317,7 @@ div.play-icon {
   white-space: normal;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .player-goles .views-element-container > div .views-row {
     width: 100%;
   }

@@ -84,7 +84,7 @@ div.play-icon {
                 margin-right: 1rem;
                 -webkit-flex: none;
                 white-space: normal;
-                @screen md {
+                @screen lg {
                     @apply tw-w-full;
                 }
             }
