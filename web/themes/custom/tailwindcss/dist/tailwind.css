@@ -1260,7 +1260,7 @@ div.play-icon {
   line-height: 1;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .gol-partido.video-player .torneo,
   .columna-blog.video-player .torneo {
     position: absolute;
