@@ -76,7 +76,7 @@ div.play-icon {
     .views-element-container {
         >div {
             @apply overflow-y-hidden whitespace-no-wrap flex;
-            @screen md {
+            @screen lg {
                 @apply overflow-auto whitespace-normal;
             }
             .views-row {
