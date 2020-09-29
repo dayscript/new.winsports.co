@@ -3352,6 +3352,14 @@ nav#block-bottommenumobile ul > li .posiciones::after {
   background-image: url("../images/icons/posiciones.png");
 }
 
+.ads-block a > img {
+  margin: 0 auto;
+}
+
+#block-views-block-opinion-block-1 .image a > img {
+  margin: 0 auto;
+}
+
 .mediastream.fixed-height {
   /*height: 550px !important;*/
 }
