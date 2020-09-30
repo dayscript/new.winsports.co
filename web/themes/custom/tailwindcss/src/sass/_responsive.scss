@@ -259,7 +259,7 @@
     main{
         #main-content-region{
             >div:first-of-type{
-                @apply w-9/12;
+              width: 75% !important;
             }
         }
     }
