@@ -255,6 +255,15 @@
   nav#block-bottommenumobile{
     display: none;
   }
+  .page-node-type-galeria{
+    main{
+        #main-content-region{
+            >div:first-of-type{
+                @apply w-9/12;
+            }
+        }
+    }
+  }
 }
 
 .tw-container{

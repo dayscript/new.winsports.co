@@ -3273,6 +3273,10 @@ article.id-3 #schedules div.match-events {
   nav#block-bottommenumobile {
     display: none;
   }
+
+  .page-node-type-galeria main #main-content-region > div:first-of-type {
+    width: 75%;
+  }
 }
 
 .tw-container {
