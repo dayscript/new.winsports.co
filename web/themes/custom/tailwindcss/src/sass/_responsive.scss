@@ -211,6 +211,22 @@
   }
   #block-views-block-goles-home-block-1{
     @apply block;
+    .player-goles{
+      >.views-row{
+        width: 66.666667% !important;
+      }
+    }
+    .gol-partido.video-player{
+      .title a{
+        color: #fff;
+      }
+    }
+    .views-element-container{
+      width: 33.333333% !important;
+      .views-row{
+        width: 100% !important;
+      }
+    }
   }
   #block-views-block-goles-home-block-2{
     @apply hidden;
@@ -349,5 +365,25 @@ nav#block-bottommenumobile{
 .mediastream-player{
   iframe {
     width: 100%;
+  }
+}
+
+
+#block-views-block-goles-home-block-1{
+  .player-goles{
+    >.views-row{
+      width: 100%;
+    }
+  }
+  .gol-partido.video-player{
+    .title a{
+      color: #0b3b41;
+    }
+  }
+  .views-element-container{
+    width: 100% !important;
+    .views-row{
+      width: 40% !important;
+    }
   }
 }

@@ -1431,49 +1431,51 @@ div#footer-first .menu-footer ul:not(.contextual-links) li a {
   padding-right: 1rem;
 }
 
-#block-views-block-goles-home-block-1,
-#block-views-block-videos-opinion-block-1 {
-  border-bottom-width: 1px;
-  --border-opacity: 1;
-  border-color: #e3e3e3;
-  border-color: rgba(227, 227, 227, var(--border-opacity));
-}
+@media (min-width: 1024px) {
+  #block-views-block-goles-home-block-1,
+  #block-views-block-videos-opinion-block-1 {
+    border-bottom-width: 1px;
+    --border-opacity: 1;
+    border-color: #e3e3e3;
+    border-color: rgba(227, 227, 227, var(--border-opacity));
+  }
 
-#block-views-block-goles-home-block-1 div div .views-row,
-#block-views-block-videos-opinion-block-1 div div .views-row {
-  padding-right: 1rem;
-  width: 66.666667%;
-}
+  #block-views-block-goles-home-block-1 div div .views-row,
+  #block-views-block-videos-opinion-block-1 div div .views-row {
+    padding-right: 1rem;
+    width: 66.666667%;
+  }
 
-#block-views-block-goles-home-block-1 div div .views-element-container,
-#block-views-block-videos-opinion-block-1 div div .views-element-container {
-  width: 33.333333%;
-}
+  #block-views-block-goles-home-block-1 div div .views-element-container,
+  #block-views-block-videos-opinion-block-1 div div .views-element-container {
+    width: 33.333333%;
+  }
 
-#block-views-block-goles-home-block-1 div div .views-element-container .views-row,
-#block-views-block-videos-opinion-block-1 div div .views-element-container .views-row {
-  width: 100%;
-}
+  #block-views-block-goles-home-block-1 div div .views-element-container .views-row,
+  #block-views-block-videos-opinion-block-1 div div .views-element-container .views-row {
+    width: 100%;
+  }
 
-#block-views-block-goles-home-block-1 div div .views-element-container > div,
-#block-views-block-videos-opinion-block-1 div div .views-element-container > div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  height: 100%;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
+  #block-views-block-goles-home-block-1 div div .views-element-container > div,
+  #block-views-block-videos-opinion-block-1 div div .views-element-container > div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: 100%;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
 
-#block-views-block-goles-home-block-1 div div .more-link a,
-#block-views-block-videos-opinion-block-1 div div .more-link a {
-  margin-left: auto;
-  margin-right: auto;
+  #block-views-block-goles-home-block-1 div div .more-link a,
+  #block-views-block-videos-opinion-block-1 div div .more-link a {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 #block-views-block-goles-home-block-3 .videos-special-2 {
@@ -3183,6 +3185,22 @@ article.id-3 #schedules div.match-events {
     display: block;
   }
 
+  #block-views-block-goles-home-block-1 .player-goles > .views-row {
+    width: 66.666667% !important;
+  }
+
+  #block-views-block-goles-home-block-1 .gol-partido.video-player .title a {
+    color: #fff;
+  }
+
+  #block-views-block-goles-home-block-1 .views-element-container {
+    width: 33.333333% !important;
+  }
+
+  #block-views-block-goles-home-block-1 .views-element-container .views-row {
+    width: 100% !important;
+  }
+
   #block-views-block-goles-home-block-2 {
     display: none;
   }
@@ -3366,6 +3384,22 @@ nav#block-bottommenumobile ul > li .posiciones::after {
 
 .mediastream-player iframe {
   width: 100%;
+}
+
+#block-views-block-goles-home-block-1 .player-goles > .views-row {
+  width: 100%;
+}
+
+#block-views-block-goles-home-block-1 .gol-partido.video-player .title a {
+  color: #0b3b41;
+}
+
+#block-views-block-goles-home-block-1 .views-element-container {
+  width: 100% !important;
+}
+
+#block-views-block-goles-home-block-1 .views-element-container .views-row {
+  width: 40% !important;
 }
 
 .mediastream.fixed-height {

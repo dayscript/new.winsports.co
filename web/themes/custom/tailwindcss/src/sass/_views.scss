@@ -186,28 +186,29 @@ div#footer-first {
     }
 }
 
-#block-views-block-goles-home-block-1,
-#block-views-block-videos-opinion-block-1 {
-    @apply border-b border-gray;
-    div div {
-        .views-row {
-            @apply pr-4 w-2/3;
-        }
-        .views-element-container {
-            @apply w-1/3;
+@screen lg {
+    #block-views-block-goles-home-block-1,
+    #block-views-block-videos-opinion-block-1 {
+        @apply border-b border-gray;
+        div div {
             .views-row {
-                @apply w-full;
+                @apply pr-4 w-2/3;
             }
-            >div {
-                @apply flex flex-col h-full justify-between;
+            .views-element-container {
+                @apply w-1/3;
+                .views-row {
+                    @apply w-full;
+                }
+                >div {
+                    @apply flex flex-col h-full justify-between;
+                }
             }
-        }
-        .more-link a {
-            @apply mx-auto;
+            .more-link a {
+                @apply mx-auto;
+            }
         }
     }
 }
-
 #block-views-block-goles-home-block-3 {
     .videos-special-2 {
         @apply flex;
