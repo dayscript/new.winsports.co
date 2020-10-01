@@ -3185,22 +3185,6 @@ article.id-3 #schedules div.match-events {
     display: block;
   }
 
-  #block-views-block-goles-home-block-1 .player-goles > .views-row {
-    width: 66.666667% !important;
-  }
-
-  #block-views-block-goles-home-block-1 .gol-partido.video-player .title a {
-    color: #fff;
-  }
-
-  #block-views-block-goles-home-block-1 .views-element-container {
-    width: 33.333333% !important;
-  }
-
-  #block-views-block-goles-home-block-1 .views-element-container .views-row {
-    width: 100% !important;
-  }
-
   #block-views-block-goles-home-block-2 {
     display: none;
   }
@@ -3400,6 +3384,24 @@ nav#block-bottommenumobile ul > li .posiciones::after {
 
 #block-views-block-goles-home-block-1 .views-element-container .views-row {
   width: 40% !important;
+}
+
+@media (min-width: 1024px) {
+  #block-views-block-goles-home-block-1 .player-goles > .views-row {
+    width: 66.666667% !important;
+  }
+
+  #block-views-block-goles-home-block-1 .gol-partido.video-player .title a {
+    color: #fff !important;
+  }
+
+  #block-views-block-goles-home-block-1 div div .views-element-container {
+    width: 33.333333% !important;
+  }
+
+  #block-views-block-goles-home-block-1 div div .views-element-container .views-row {
+    width: 100% !important;
+  }
 }
 
 .mediastream.fixed-height {
