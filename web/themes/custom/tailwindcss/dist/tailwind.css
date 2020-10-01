@@ -1215,7 +1215,7 @@ div.play-icon {
   width: auto;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .gol-partido.video-player .title,
   .columna-blog.video-player .title {
     bottom: 30px;
