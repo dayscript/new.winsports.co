@@ -3465,6 +3465,10 @@ div[id*="block-views-block-videos-"] .js-form-type-select:after {
   position: absolute;
 }
 
+div[id*="block-views-block-videos-"] #views-exposed-form-videos-block-9 .js-form-type-select:after {
+  left: 9rem;
+}
+
 div[id*="block-views-block-opinion-"] select,
 #blocktabs-columnas_blogs select {
   min-width: 200px;

@@ -58,6 +58,13 @@ div[id*="block-views-block-videos-"]{
             position: absolute;
         }
     }
+    #views-exposed-form-videos-block-9{
+        .js-form-type-select{
+            &:after {
+                left: 9rem;
+            }
+        }
+    }
 }
 
 div[id*="block-views-block-opinion-"],
