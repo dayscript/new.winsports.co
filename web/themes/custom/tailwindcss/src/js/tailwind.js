@@ -38,6 +38,13 @@
             $( document ).ready(function() {
                 setTimeout(function(){ 
                     var headerHeight = $('#header-page').height();
+                    if(headerHeight > 100) {
+                        if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                            headerHeight = 48;
+                        }else {
+                            headerHeight = 108;
+                        } 
+                    }
                     $('#top-content').attr('style', 'margin-top:'+headerHeight+'px !important');
                     /*TopBanner Ads*/
                     if ($('#top-content #eplAdDivTop_Banner_NEW').length > 0) {/*Home Principal*/
@@ -65,7 +72,7 @@
                         $('#horizontal-results').addClass('tw-mt-12 md:tw-mt-29');
                     }
                     /*TopBanner Ads*/
-                 }, 500);
+                 }, 3000);
             });
             
             setTimeout(function(){
@@ -123,6 +130,17 @@
                     itemsTablet: [768,2.3],
                 });
             }, 3000);
+
+            $('#block-horizontalresults').bind('DOMNodeInserted DOMNodeRemoved', function() {
+                if($('#block-horizontalresults div.is-active').length){
+                    var x = $('#block-horizontalresults div.is-active').position();
+                    var scrollLeft = x.left-155;
+                    $('#block-horizontalresults div').animate({
+                        scrollLeft: scrollLeft
+                    }, 400);
+                }
+            });
+
             $(".opta-widgets-menu > div:nth-child(3)").insertAfter(".opta-widgets-menu > div:nth-child(5)");
             relocateView();
             $(window).resize(function() {
