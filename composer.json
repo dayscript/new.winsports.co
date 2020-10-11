@@ -47,6 +47,7 @@
         "drupal/field_group": "^3.0",
         "drupal/focal_point": "^1.5",
         "drupal/google_index_api": "^1.2",
+        "drupal/google_tag": "^1.4",
         "drupal/io": "^1.1",
         "drupal/lazy": "^3.4",
         "drupal/libraries": "^3.0@alpha",
