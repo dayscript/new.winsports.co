@@ -851,6 +851,7 @@ class MigrateController {
       'La Polémica',
       'Motor',
       'Lo Mejor de La Fecha',
+      'Línea de 4',
     ];
     foreach (explode(',', $tournaments) as $tour_name) {
       if (trim($tour_name) == '' || in_array(trim($tour_name), $ignore)) {
