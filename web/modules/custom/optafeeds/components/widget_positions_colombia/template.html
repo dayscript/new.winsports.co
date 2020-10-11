@@ -38,7 +38,7 @@
                             <img :src="'https://secure.omo.akamai.opta.net/image.php?secure=true&h=secure.omo.akamai.opta.net&sport=football&entity=team&description=badges&dimensions=65&id='+match.home.id" alt="" class="tw-h-8 tw-pr-2">
                             <span>{{ match.home.name }}</span>
                         </div>
-                        <div class="tw-w-2/12 tw-text-center tw-text-primary">
+                        <div class="tw-w-2/12 tw-text-center font-bold" :class="[match.period === 'FullTime' || match.period === 'Full Time' ? 'text-red-700' : match.period === 'Postponed' || match.period === 'TBC' || match.period === 'Abandoned' ? 'text-gray-500' : match.period === 'PreMatch' ?  'tw-text-primary' : 'text-green-700']">
                             <span class="tw-font-bold">{{ match.home.score }}</span> - <span class="tw-font-bold">{{ match.away.score }}</span>
                         </div>
                         <div class="tw-w-5/12 tw-flex tw-items-center tw-justify-end tw-text-sm tw-text-right">
@@ -49,7 +49,7 @@
                    <div v-if="match.period === 'FullTime' || match.period === 'Full Time' || match.period === 'PreMatch' || match.period === 'Postponed' || match.period === 'TBC' || match.period === 'Abandoned'" class="tw-flex tw-justify-center tw-text-xs tw-text-gray-600">
                         {{ moment(match.date).format('h:mm a') }}
                     </div>
-                    <div v-else class="tw-flex tw-justify-center tw-text-xs tw-text-gray-600">
+                    <div v-else class="tw-flex tw-justify-center tw-text-xs tw-font-bold tw-text-primary">
                         {{match.minute.label}}'
                     </div>
                 </div>
