@@ -16,7 +16,7 @@
             <div v-else-if="match.period == 'FullTime' || match.period == 'Full Time'">
                 <small class="pl-1 text-xs font-medium lead" >{{ match.date | formatDate | capitalize }} - Finalizado</small>
                 <div class="flex items-center justify-center">
-                    <a v-if="goals[match.id]" :href="'/node/'+goals[match.id]" class="flex">
+                    <a v-if="goals[match.id]" :href="goals[match.id]" class="flex">
                         <img src="/sites/default/files/widgets/play_button.png" alt="Ver goles" title="Ver goles">
                         <span class="pl-1 text-xs font-medium title-color">Ver goles</span>
                     </a>
