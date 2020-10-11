@@ -75,7 +75,7 @@ new Vue({
       let data = this.tournament_season.split('-')
       this.competition = data[0]
       this.season = data[1]
-      let url = 'https://s3.amazonaws.com/optafeeds-prod/schedules/' + this.competition + '/' + this.season + '/all.json';
+      let url = 'https://optafeeds-produccion.s3-us-west-2.amazonaws.com/schedules/' + this.competition + '/' + this.season + '/all.json';
       this.loading = true
 
       axios.get(url).then(({data}) => {
@@ -91,7 +91,7 @@ new Vue({
       let data = this.tournament_season.split('-')
       this.competition = data[0]
       this.season = data[1]
-      let url = 'https://s3.amazonaws.com/optafeeds-prod/positions/' + this.competition + '/' + this.season + '/all.json';
+      let url = 'https://optafeeds-produccion.s3-us-west-2.amazonaws.com/positions/' + this.competition + '/' + this.season + '/all.json';
       let stages = []
       this.loading = true
 
@@ -142,7 +142,7 @@ new Vue({
       let data = this.tournament_season.split('-')
       this.competition = data[0]
       this.season = data[1]
-      let url = 'https://s3.amazonaws.com/optafeeds-prod/decline/' + this.competition + '/' + this.season + '/all.json';
+      let url = 'https://optafeeds-produccion.s3-us-west-2.amazonaws.com/decline/' + this.competition + '/' + this.season + '/all.json';
       this.loading = true
       
       axios.get(url).then(({data}) => {
@@ -167,7 +167,7 @@ new Vue({
       let data = this.tournament_season.split('-')
       this.competition = data[0]
       this.season = data[1]
-      let url = 'https://s3.amazonaws.com/optafeeds-prod/reclassification/' + this.competition + '/' + this.season + '/all.json';
+      let url = 'https://optafeeds-produccion.s3-us-west-2.amazonaws.com/reclassification/' + this.competition + '/' + this.season + '/all.json';
       this.loading = true
 
       axios.get(url).then(({data}) => {
@@ -192,7 +192,7 @@ new Vue({
       let data = this.tournament_season.split('-')
       this.competition = data[0]
       this.season = data[1]
-      let url = 'https://s3.amazonaws.com/optafeeds-prod/scorers/' + this.competition + '/' + this.season + '/all.json';
+      let url = 'https://optafeeds-produccion.s3-us-west-2.amazonaws.com/scorers/' + this.competition + '/' + this.season + '/all.json';
       this.loading = true
 
       axios.get(url).then(({data}) => {
@@ -248,7 +248,7 @@ new Vue({
       let data = this.tournament_season.split('-')
       this.competition = data[0]
       this.season = data[1]
-      let url = 'https://s3.amazonaws.com/optafeeds-prod/schedules/' + this.competition + '/' + this.season + '/rounds/'+round_id+'.json';
+      let url = 'https://optafeeds-produccion.s3-us-west-2.amazonaws.com/schedules/' + this.competition + '/' + this.season + '/rounds/'+round_id+'.json';
       let matches = []
       let day = null
       let items = []

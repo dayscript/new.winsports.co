@@ -43,7 +43,7 @@ new Vue({
     },
     loadPhases () {
       this.loading = true
-      axios.get('https://s3.amazonaws.com/optafeeds-prod/summary/' + this.competition + '/' + this.season + '/all.json').then(
+      axios.get('https://optafeeds-produccion.s3-us-west-2.amazonaws.com/summary/' + this.competition + '/' + this.season + '/all.json').then(
           ({data}) => {
             this.loading = false
             this.active_round = data.competition.active_round_id
@@ -61,7 +61,7 @@ new Vue({
     },
     loadMatches () {
       this.loading = true
-      axios.get('https://s3.amazonaws.com/optafeeds-prod/schedules/' + this.competition + '/' + this.season + '/rounds/' + this.active_round + '.json').then(
+      axios.get('https://optafeeds-produccion.s3-us-west-2.amazonaws.com/schedules/' + this.competition + '/' + this.season + '/rounds/' + this.active_round + '.json').then(
         ({data}) => {
           if (data.matches) {
             let matches = []

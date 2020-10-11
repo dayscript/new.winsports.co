@@ -121,7 +121,7 @@ new Vue({
       return decodeURIComponent(results[2].replace(/\+/g, ' '));
     },
     loadTable(option) {
-      let url = 'https://s3.amazonaws.com/optafeeds-prod/' + option + '/' + this.competition + '/' + this.season + '/all.json';
+      let url = 'https://optafeeds-produccion.s3-us-west-2.amazonaws.com/' + option + '/' + this.competition + '/' + this.season + '/all.json';
       this.loading++
       axios.get(url).then(
           ({data}) => {

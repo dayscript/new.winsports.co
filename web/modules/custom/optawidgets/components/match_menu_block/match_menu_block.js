@@ -101,7 +101,7 @@ new Vue({
       }
     },
     loadEvents () {
-      axios.get('https://s3.amazonaws.com/optafeeds-prod/gamecast/' + this.opta_competition + '/' + this.opta_season + '/matches/' + this.opta_match_id + '.json').then(
+      axios.get('https://optafeeds-produccion.s3-us-west-2.amazonaws.com/gamecast/' + this.opta_competition + '/' + this.opta_season + '/matches/' + this.opta_match_id + '.json').then(
           ({data}) => {
             if (data.events) {
               this.events = data.events
