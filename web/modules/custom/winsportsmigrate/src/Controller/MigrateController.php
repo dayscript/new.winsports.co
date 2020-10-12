@@ -1025,7 +1025,7 @@ class MigrateController {
   }
 
   public function matches() {
-    $opta_id     = 371;
+    $opta_id     = 625;
     $opta_season = 2020;
     $url         = 'https://winsports.dayscript.com/competitions/' . $opta_id . '/' . $opta_season . '/generate-winsports';
     $res         = $this->client->get($url);
