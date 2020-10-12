@@ -61,6 +61,7 @@
         "drupal/pathauto": "^1.6",
         "drupal/pdb": "^1.0@alpha",
         "drupal/pdb_vue": "^1.0@alpha",
+        "drupal/quick_node_clone": "^1.13",
         "drupal/redirect": "^1.5",
         "drupal/redis": "^1.4",
         "drupal/responsive_menu": "^2.6",
