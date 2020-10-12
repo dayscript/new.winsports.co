@@ -6,7 +6,7 @@ var opta_settings = {
     link_callback: function (params) {
         var h = '';
         //h += '//test.winsports.co/';
-        h += '//nuevo.winsports.co/';
+        h += '//winsports.co/';
         if (params.match) {
             h += 'matches/' + params.match;
         }
