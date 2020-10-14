@@ -41,6 +41,11 @@
             <div class="tw-text-primary tw-text-sm tw-mb-2">{{ node.field_image.title }}</div>
         {% endif %}
         <div class="body tw-text-xl">{{ content.body }}</div>
+        <div class="autor text-sm md:tw-text-base py-6">
+            <div {{ author_attributes }}>
+                {{ author_picture }}
+            </div>
+        </div>
         <div class="tags tw-flex tw-text-sm tw-items-center">
             <div class="tw-whitespace-no-wrap tw-p-2 uppercase label">Tags relacionados</div>
             <div>{{ content.field_tags }}</div>

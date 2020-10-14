@@ -70,6 +70,20 @@ select {
   color: #fff !important;
 }
 
+.page-node-type-columna-blog{
+  .autor{
+    .image{
+      img{
+        height: 3rem;
+        width: 3rem;
+      }
+    }
+    .nombres{
+      color: #0b3b41;
+    }
+  }
+}
+
 iframe.iframe-futbolred {
   body {
     padding: 0 !important;
