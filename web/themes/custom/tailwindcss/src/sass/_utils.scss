@@ -73,13 +73,14 @@ select {
 .page-node-type-columna-blog{
   .autor{
     .image{
+      width: 15% !important;
       img{
-        height: 3rem;
-        width: 3rem;
+        height: 3rem !important;
+        width: 3rem !important;
       }
     }
     .nombres{
-      color: #0b3b41;
+      color: #0b3b41 !important;
     }
   }
 }

@@ -752,13 +752,17 @@ select {
   color: #fff !important;
 }
 
+.page-node-type-columna-blog .autor .image {
+  width: 15% !important;
+}
+
 .page-node-type-columna-blog .autor .image img {
-  height: 3rem;
-  width: 3rem;
+  height: 3rem !important;
+  width: 3rem !important;
 }
 
 .page-node-type-columna-blog .autor .nombres {
-  color: #0b3b41;
+  color: #0b3b41 !important;
 }
 
 iframe.iframe-futbolred body {
