@@ -245,29 +245,30 @@ new Vue({
       this.competition = data[0]
       this.season = data[1]
       let url = 'https://optafeeds-produccion.s3-us-west-2.amazonaws.com/schedules/' + this.competition + '/' + this.season + '/rounds/'+round_id+'.json';
-      let matches = []
+      let matches = {}
       let day = null
-      let items = []
       this.selected_round_id = round_id
       this.loading = true
 
       axios.get(url).then(({data}) => {
-        Object.entries(data.matches).forEach(function (matches) {
-          items.push(matches[1])
+        let datamatches = []
+        Object.entries(data.matches).forEach(function (match) {
+          hour = moment(match[1].date)
+          match[1].order = Number(hour.format('Hmm'))
+          datamatches.push(match[1])
         })
-        for (id in items) {
-          day = moment(items[id].date)
+        datamatches = datamatches.sort(function (a, b) { return a.order - b.order})
+        
+        datamatches.forEach(function (match) {
+          day = moment(match.date)
           if (!matches[day.format('YYYYMMDD')]) {
             matches[day.format('YYYYMMDD')] = []
           }
-          matches[day.format('YYYYMMDD')].push(items[id])
-        }
-        const ordered = {};
-        Object.keys(matches).sort().forEach(function (key) {
-          ordered[key] = matches[key];
-        });
-        this.matches = ordered
-        this.loading = false           
+          matches[day.format('YYYYMMDD')].push(match)
+        })
+
+        this.matches = matches
+        this.loading = false          
       }).catch((error) => {
         console.log(error)
         this.loading = false

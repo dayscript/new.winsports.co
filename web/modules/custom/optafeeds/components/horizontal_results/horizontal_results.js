@@ -65,7 +65,13 @@ new Vue({
         ({data}) => {
           if (data.matches) {
             let matches = []
+            let count = 0
+            let size = Object.entries(data.matches).length
+
             Object.entries(data.matches).forEach(function (match, key) {
+              let day = moment(match[1].date)
+              match[1].order = Number(day.format('YYYYMMDDHmm'))
+              if(match[1].period === 'FullTime' || match[1].period === 'Full Time') count++
               if(match[1].period === 'FullTime' || match[1].period === 'Full Time' || match[1].period === 'Postponed' || match[1].period === 'TBC' || match[1].period === 'Abandoned' || match[1].period === 'PreMatch') {
                 match[1].playing = 0
               }else {
@@ -74,11 +80,12 @@ new Vue({
               matches.push(match[1])
             })
 
-            matches = Object.entries(matches).sort((a, b) => new Date(a[1].date) - new Date(b[1].date))
+            matches = Object.entries(matches).sort((a, b) => new Date(a[1].order) - new Date(b[1].order))
 
             let vm = this
             vm.matches = []
-            matches.forEach(function (match) {
+            matches.forEach(function (match, key) {
+              if(count === size && key === size-1) match[1].playing = 1
               vm.matches.push(match[1])
               vm.loadCronicle(match[1].id)
             })
