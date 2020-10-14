@@ -36,6 +36,20 @@
                 });*/
             }
             $( document ).ready(function() {
+                /*alter link /programacion*/
+                var today = new Date();
+                var dd = today.getDate();
+                var mm = today.getMonth()+1; 
+                var yyyy = today.getFullYear();
+                if(dd<10) {
+                    dd='0'+dd;
+                }
+                if(mm<10) {
+                    mm='0'+mm;
+                }
+                today = yyyy+'-'+mm+'-'+dd;
+                $('a[href="/programacion"]').attr('href', '/programacion?date='+today);
+                /*alter link /programacion*/
                 setTimeout(function(){ 
                     var headerHeight = $('#header-page').height();
                     if(headerHeight > 100) {
