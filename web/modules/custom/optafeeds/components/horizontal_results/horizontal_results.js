@@ -87,7 +87,7 @@ new Vue({
             matches.forEach(function (match, key) {
               if(count === size && key === size-1) match[1].playing = 1
               vm.matches.push(match[1])
-              vm.loadCronicle(match[1].id)
+              vm.loadDataMatches(match[1].id)
             })
           }
           this.loading = false
@@ -99,8 +99,8 @@ new Vue({
         }
       )
     },
-    loadCronicle (match_id) {
-      axios.get('/api/match/articles/' + match_id).then(
+    loadDataMatches(match_id) {
+      axios.get('/api/matches-horizontal-results/' + match_id).then(
         ({data}) => {
           if (data.length > 0) {
             for (let i = 0; i < data.length; i++) {
