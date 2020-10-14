@@ -48,7 +48,7 @@
                     mm='0'+mm;
                 }
                 today = yyyy+'-'+mm+'-'+dd;
-                $('a[href*="/programacion"]').attr('href', '/programacion?date='+today);
+                $('a[href="/programacion"]').attr('href', '/programacion?date='+today);
                 /*alter link /programacion*/
                 setTimeout(function(){ 
                     var headerHeight = $('#header-page').height();
