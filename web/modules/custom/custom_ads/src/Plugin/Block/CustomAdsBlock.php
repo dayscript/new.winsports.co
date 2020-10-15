@@ -83,7 +83,7 @@ class CustomAdsBlock extends BlockBase implements ContainerFactoryPluginInterfac
     case 'eplanning':
         $html = '';
         if(strpos($config['custom_ads']['title'], 'Robapagina Gamecast') !== 0){
-          $html = '<div id="eplAdDiv'.$config['custom_ads']['space'].'"></div>';
+          $html = '<div id="AdRef'.$config['custom_ads']['space'].'"></div>';
         }
         $form['ad_'+$this->getPluginId()] = [
           '#type' => 'markup',

@@ -1,7 +1,5 @@
 (function ($, Drupal, drupalSettings) {
 
-    'use strict';
-
     var eplDoc = document; 
     var eplLL = false;
     var eS1 = 'us.img.e-planning.net';
@@ -12,7 +10,7 @@
         sI:"11249",
         sec:"",
         eIs:[],
-        custom: {}
+        //custom: {}
     };
     var eplayer = false;
     var dugout = false;
@@ -81,6 +79,10 @@
     }
 
     function eplAD4M(eID,custF) {
+        if (custF) {
+            if (!eplArgs.custom) { eplArgs.custom = {}; }
+            eplArgs.custom[eID] = custF;
+        }
         eplSetAdM(eID, custF?true:false);
     }
 
@@ -100,29 +102,38 @@
         }
     }
 
+    function adsReady(ads) {
+        ads.forEach(function (element, key) {
+            let id = 'AdRef'+element;
+            let ad = 'eplAdDiv'+element;
+
+           // if($('#'+ad).length == 0) {
+                var div = document.createElement("div");
+                div.id = ad;
+                document.getElementById(id).appendChild(div);
+                if(key == 0) {
+                    var script = document.createElement("script");
+                    script.type = "text/javascript";
+                    script.innerHTML = "var eplDoc = document;";
+                    document.getElementById(id).appendChild(script);
+                }
+                eplAD4M(element);
+           // }
+        });
+    }
+
     Drupal.behaviors.custom_ads = {
         attach: function(context, settings) {
             if(typeof settings.settings.custom_ads !== 'undefined') {
-                var ads = settings.settings.custom_ads;
+                var ads = settings.settings.custom_ads, ads_ready;
                 Object.keys(ads).forEach(function (key) {
                     switch(ads[key].type){
                         case 'eplanning':
-                            var id = '', sp = '', ad = '';
-                            if(typeof ads[key].title !== 'undefined'){
-                                if(ads[key].title.indexOf("Robapagina Gamecast") > -1){
-                                    sp = ads[key].title.replace(' ', '');console.log(sp);
-                                    id = 'eplAdDiv'+sp;console.log(id);
-                                    ad = 'eplAdDiv'+ads[key].space;console.log(ad);
-                                    $('div[id*="'+id+'"]').attr("id", ad);
-                                }
-                            }
                             if(!eplArgs.eIs.includes(ads[key].space)){
                                 eplArgs.sec = ads[key].section;
                                 eplArgs.eIs.push(ads[key].space);
-                                eplArgs.custom[ads[key].space] = false;
-                                eplCheckStart(1);
+                                //eplArgs.custom[ads[key].space] = false;
                             }
-                            setTimeout(function(){ eplAD4M(ads[key].space); }, 500);
                             break;
                         case 'eplayer':
                             if(!eplayer){
@@ -148,6 +159,9 @@
                             break;
                     }
                 });
+
+                eplCheckStart(1);
+                setTimeout(function(){ adsReady(eplArgs.eIs)}, 1000);
             }
         }
     };
