@@ -1,0 +1,17 @@
+<?php
+/**
+ * Implements hook_theme().
+ */
+function dugout_formatter_theme($existing, $type, $theme, $path) {
+  return [
+    'dugout_player' => [
+      'template'  => 'dugout',
+      'variables' => [
+        'dugout_id' => NULL,
+        'autoplay'       => NULL,
+        'image'          => NULL,
+      ],
+    ],
+  ];
+}
+

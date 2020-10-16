@@ -346,7 +346,9 @@ nav#block-bottommenumobile{
   }
 }
 
-.mediastream-player{
+.mediastream-player,
+.dugout-player,
+.eplayer-player{
   iframe {
     width: 100%;
   }

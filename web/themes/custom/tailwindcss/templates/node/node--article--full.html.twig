@@ -30,6 +30,12 @@
         {% if (node.hasField('field_mediastream') and node.field_mediastream.value) %}
             {{ content.field_mediastream }}
             <div class="tw-text-gray-650 tw-text-sm tw-my-4">{{ node.field_image_h.title }}</div>
+        {% elseif (node.hasField('field_dugout') and node.field_dugout.value) %}
+            {{ content.field_dugout }}
+            <div class="tw-text-gray-650 tw-text-sm tw-my-4">{{ node.field_image_h.title }}</div>
+        {% elseif (node.hasField('field_eplayer') and node.field_eplayer.value) %}
+            {{ content.field_eplayer }}
+            <div class="tw-text-gray-650 tw-text-sm tw-my-4">{{ node.field_image_h.title }}</div>
         {% elseif node.field_url.uri %}
             {{ content.field_url }}
             <div class="tw-text-gray-650 tw-text-sm tw-my-4">{{ node.field_image_h.title }}</div>

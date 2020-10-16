@@ -3379,7 +3379,9 @@ nav#block-bottommenumobile ul > li .posiciones::after {
   margin: 0 auto;
 }
 
-.mediastream-player iframe {
+.mediastream-player iframe,
+.dugout-player iframe,
+.eplayer-player iframe {
   width: 100%;
 }
 
@@ -3426,7 +3428,9 @@ nav#block-bottommenumobile ul > li .posiciones::after {
   margin-bottom: 1rem;
 }
 
-.mediastream-player .image img {
+.mediastream-player .image img,
+.dugout-player .image img,
+.eplayer-player .image img {
   width: 100%;
 }
 

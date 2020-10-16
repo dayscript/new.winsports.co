@@ -1,0 +1,11 @@
+eplayer:
+  version: 1.x
+  js:
+    js/eplayer-player.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/jquery.once
+    - core/drupalSettings
+
+

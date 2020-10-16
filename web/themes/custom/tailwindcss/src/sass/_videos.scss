@@ -6,7 +6,9 @@
     }
 }
 
-.mediastream-player {
+.mediastream-player,
+.dugout-player,
+.eplayer-player{
     .image {
         img {
             @apply w-full;

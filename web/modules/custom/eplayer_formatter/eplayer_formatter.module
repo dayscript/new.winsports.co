@@ -1,0 +1,17 @@
+<?php
+/**
+ * Implements hook_theme().
+ */
+function eplayer_formatter_theme($existing, $type, $theme, $path) {
+  return [
+    'eplayer_player' => [
+      'template'  => 'eplayer',
+      'variables' => [
+        'eplayer_id' => NULL,
+        'autoplay'       => NULL,
+        'image'          => NULL,
+      ],
+    ],
+  ];
+}
+
