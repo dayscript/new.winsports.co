@@ -45,6 +45,9 @@
         {% elseif node.hasField('field_image') %}
             <div class="tw-mt-4 tw-mb-2">{{ content.field_image }}</div>
             <div class="tw-text-primary tw-text-sm tw-mb-2">{{ node.field_image.title }}</div>
+        {% elseif node.hasField('field_images') %}
+            <div class="tw-mt-4 tw-mb-2">{{ content.field_images }}</div>
+            <div class="tw-text-primary tw-text-sm tw-mb-2">{{ node.field_images.title }}</div>
         {% endif %}
         <div class="body tw-text-xl">{{ content.body }}</div>
         <div class="tags tw-flex tw-text-sm tw-items-center">
