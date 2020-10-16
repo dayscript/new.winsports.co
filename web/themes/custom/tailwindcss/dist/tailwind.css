@@ -2812,10 +2812,33 @@ div#block-horizontalresults img {
 }
 
 #block-futbolcolombiano-estadisticas .Opta h2 .Opta-Title, .opta-widgets .Opta h2 .Opta-Title {
-  font-size: 1.875rem;
+  height: auto;
+  white-space: normal;
+  font-size: 1.25rem;
   text-transform: none;
   padding-left: 0;
   padding-right: 0;
+}
+
+@media (min-width: 1024px) {
+  #block-futbolcolombiano-estadisticas .Opta h2, .opta-widgets .Opta h2 {
+    height: auto;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    --text-opacity: 1;
+    color: #0b3b41;
+    color: rgba(11, 59, 65, var(--text-opacity));
+    --bg-opacity: 1;
+    background-color: #fff;
+    background-color: rgba(255, 255, 255, var(--bg-opacity));
+  }
+
+  #block-futbolcolombiano-estadisticas .Opta h2 .Opta-Title, .opta-widgets .Opta h2 .Opta-Title {
+    font-size: 1.875rem;
+    text-transform: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 article.id-3 #schedules div.match-events {
@@ -3417,6 +3440,21 @@ nav#block-bottommenumobile ul > li .posiciones::after {
   #block-views-block-goles-home-block-1 div div .views-element-container .views-row {
     width: 100% !important;
   }
+}
+
+.Opta .Opta-Tabs .Opta-Nav > ul.Opta-Overflowed {
+  overflow-x: scroll;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  white-space: nowrap;
+}
+
+.Opta .Opta-Nav > ul li.Opta-Overflow {
+  display: block;
+  position: relative;
+  top: 0 !important;
+  width: 100% !important;
 }
 
 .mediastream.fixed-height {

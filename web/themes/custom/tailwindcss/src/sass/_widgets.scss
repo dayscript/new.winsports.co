@@ -55,10 +55,20 @@
   .Opta .Opta-Ranking-Bars .Opta-FeatureHeader td, .Opta .Opta-Ranking-Bars .Opta-FeatureHeader th {
     @apply bg-secondary text-primary;
   }
+
   .Opta h2{
-    @apply h-auto py-4 text-primary  bg-white;
+    @apply h-auto py-4 text-primary bg-white;
     .Opta-Title {
-      @apply text-3xl normal-case px-0;
+      @apply h-auto whitespace-normal tw-text-xl normal-case px-0;
+    }
+  }
+
+  @screen lg {
+    .Opta h2{
+      @apply h-auto py-4 text-primary bg-white;
+      .Opta-Title {
+        @apply text-3xl normal-case px-0;
+      }
     }
   }
 }
