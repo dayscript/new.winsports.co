@@ -5,7 +5,7 @@
       $('#dugout-player-' + drupalSettings.dugout_id + ' .image .play-icon', context).once('play-'+drupalSettings.dugout_id).click(function() {
         var $this = $(this);
         $('.title-' + drupalSettings.node_id).hide();
-        if (width === 0 || width >= 854) width = 816;
+        if (width === 0 || width >= 928) width = 928;
         var height = width * 9 / 16;
         var ifrm = document.createElement("iframe");
         ifrm.setAttribute("src", "https://embed.dugout.com/v2/?p="+drupalSettings.dugout_id);
