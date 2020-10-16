@@ -84,10 +84,30 @@ new Vue({
       if (option_key === 'cronica') {
         document.location.href = '/node/' + this.cron
       }
-      if (option_key === 'estadisticas' || option_key === 'alineaciones') {
+      if (option_key === 'estadisticas') {
         jQuery('#main-content-region').addClass('md:tw-hidden')
         let timer = setTimeout(() => {
           Opta.start()
+          this.loading--
+        }, 1000)
+      }
+      if (option_key === 'alineaciones') {
+        jQuery('#main-content-region').addClass('md:tw-hidden')
+
+        var opta_widget_tags = jQuery('#'+option_key).find('opta-widget[load="false"]');
+        if (opta_widget_tags.length) {
+            opta_widget_tags.removeAttr('load');
+            Opta.start();
+        }
+        var widget_containers = jQuery('#'+option_key).find('.Opta');
+        if (widget_containers['0']) {
+            var element = jQuery(widget_containers['0']),
+                widget_id = element.attr('id'),
+                Widget = Opta.widgets[widget_id];
+            Widget.resume(Widget.live, Widget.first_time);
+            setTimeout(()=>{Widget.resize()},1000)
+        }
+        let timer = setTimeout(() => {
           this.loading--
         }, 1000)
       }
