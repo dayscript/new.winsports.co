@@ -18,7 +18,6 @@
                 //$('.tw-p-4').attr('style', 'padding:0 !important;');
                 $(window).scroll(function() {
                     let scroll = $(window).scrollTop();
-                    //console.log(scroll);
                     if (scroll >= 550 && scroll <= ($('#block-matchmenu').innerHeight())) {
                         $('#block-matchmenu').find('.tw-bg-gray').find('div[class*="tw-pl-6"]').css({
                             'position': 'fixed',
@@ -161,7 +160,6 @@
             function scrollSilderWH(){
                 let x = $('#block-horizontalresults div.is-active').position();
                 let scrollLeft = x.left-155;
-                console.log('*f ', x);
                 $('#block-horizontalresults div').animate({scrollLeft: scrollLeft}, 400);
             }
         }
