@@ -71,18 +71,19 @@
                         $('#top-content').addClass('tw-hidden');
                         $('#horizontal-results').addClass('tw-mt-12 md:tw-mt-29');
                     }
-                    /*TopBanner Ads*/
+                    /*End TopBanner Ads*/
+                    if($('#block-horizontalresults').length){
+                        if($('#block-horizontalresults div.is-active').length){
+                            scrollSilderWH();
+                        }
+                    }
                  }, 3000);
             });
             
             setTimeout(function(){
                 $('#block-horizontalresults').bind('DOMNodeInserted DOMNodeRemoved', function() {
                     if($('#block-horizontalresults div.is-active').length){
-                        var x = $('#block-horizontalresults div.is-active').position();
-                        var scrollLeft = x.left-155;
-                        $('#block-horizontalresults div').animate({
-                            scrollLeft: scrollLeft
-                        }, 400);
+                        $('#block-horizontalresults div.flex').animate({scrollLeft: 0}, 0).before(scrollSilderWH());
                     }
                 });
                 if($('#block-futbolinternacional ul li a.is-active').length){
@@ -131,16 +132,6 @@
                 });
             }, 3000);
 
-            $('#block-horizontalresults').bind('DOMNodeInserted DOMNodeRemoved', function() {
-                if($('#block-horizontalresults div.is-active').length){
-                    var x = $('#block-horizontalresults div.is-active').position();
-                    var scrollLeft = x.left-155;
-                    $('#block-horizontalresults div').animate({
-                        scrollLeft: scrollLeft
-                    }, 400);
-                }
-            });
-
             $(".opta-widgets-menu > div:nth-child(3)").insertAfter(".opta-widgets-menu > div:nth-child(5)");
             relocateView();
             $(window).resize(function() {
@@ -163,9 +154,15 @@
                 }else{
                     $('#block-positionstableswidget').find('.opta-feeds-widget-positions').find('.scrollbar-w-2').attr('style', 'max-height: 310px');
                 }
-/*                if ($(window).width() <= 768) {
+                /*if ($(window).width() <= 768) {
                     $('#block-envivo').addClass('tw-right-0 tw-absolute').insertAfter('#header-page .tw-flex.tw-items-center > div:first-child');
                 }*/
+            }
+            function scrollSilderWH(){
+                let x = $('#block-horizontalresults div.is-active').position();
+                let scrollLeft = x.left-155;
+                console.log('*f ', x);
+                $('#block-horizontalresults div').animate({scrollLeft: scrollLeft}, 400);
             }
         }
     };
