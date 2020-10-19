@@ -40,5 +40,16 @@
         <div class="comments">
             <div class="fb-comments" data-href="https://www.winsports.co{{ url }}" data-width="100%" data-numposts="5"></div>
         </div>
+        {% if 'mediastream' in user.getRoles()  %}
+            {% if content.field_tag_video_embeb is not empty and node.field_tag_video_embeb.value == '1' %}
+            <div class="tags tw-flex tw-text-sm tw-items-center">
+                {% if node.field_mediastream is not empty %}
+                    <div class="uppercase label">Tag Video Embebido</div>
+                    {% set concatenated = "http://js.local/index.html?code="~node.field_mediastream.value %}
+                    <textarea class="tw-text-primary tw-text-sm tw-mx-4" name="textarea" rows="5" cols="100"><iframe src="{{concatenated}}" width="559" height="314" frameborder="0" allow="autoplay; fullscreen" allowscriptaccess="always" scrolling="no" style="width: 100%; height: 314.438px;"></iframe></textarea>
+                {% endif %}
+            </div>
+            {% endif %}
+        {% endif %}
     </div>
 </article>
