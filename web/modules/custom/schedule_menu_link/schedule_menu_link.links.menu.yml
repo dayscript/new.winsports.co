@@ -1,4 +1,11 @@
 schedule_menu_link.schedule:
+  title: 'Programación'
   weight: -50
   menu_name: top-links
+  class: Drupal\schedule_menu_link\Plugin\Menu\ScheduleMenuLink
+
+schedule_menu_link.schedule_bottom:
+  title: 'Partidos por TV'
+  weight: -50
+  menu_name: bottom-menu-mobile
   class: Drupal\schedule_menu_link\Plugin\Menu\ScheduleMenuLink

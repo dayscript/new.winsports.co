@@ -285,7 +285,7 @@ nav#block-bottommenumobile{
   position: fixed;
   left: 0;
   bottom: 0;
-  ul{
+  ul:not(.contextual-links){
     text-align: center;
     font-size: .9em;
     letter-spacing: 0;
@@ -318,11 +318,16 @@ nav#block-bottommenumobile{
           background-image: url('../images/icons/goles.png');
         }
       }
-      .partidos{
+      &:nth-child(2) > a{
         &::after{
           background-image: url('../images/icons/tv.png');
         }
       }
+/*       .partidos{
+        &::after{
+          background-image: url('../images/icons/tv.png');
+        }
+      } */
       .posiciones{
         &::after{
           background-image: url('../images/icons/posiciones.png');
