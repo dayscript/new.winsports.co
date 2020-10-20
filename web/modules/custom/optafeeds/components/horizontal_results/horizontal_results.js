@@ -24,6 +24,7 @@ new Vue({
     competition: 371,
     season: 2020,
     active_round: '',
+    active_tournament: '',
     matches: [],
     prevs: {},
     cronicles: {},
@@ -63,6 +64,7 @@ new Vue({
       this.loading = true
       axios.get('https://optafeeds-produccion.s3-us-west-2.amazonaws.com/schedules/' + this.competition + '/' + this.season + '/rounds/' + this.active_round + '.json').then(
         ({data}) => {
+          if(data.round) this.active_tournament = 'Liga BetPlay Dimayor 2020 - ' + this.roundName(data.round.number)
           if (data.matches) {
             let matches = []
             let count = 0
@@ -121,6 +123,23 @@ new Vue({
           console.log(error)
         }
       )
+    },
+    roundName (number){
+      var phases = {
+        21:['Cuadrangulares - Fecha 1'],
+        22:['Cuadrangulares - Fecha 2'],
+        23:['Cuadrangulares - Fecha 3'],
+        24:['Cuadrangulares - Fecha 4'],
+        25:['Cuadrangulares - Fecha 5'],
+        26:['Cuadrangulares - Fecha 6'],
+        27:['Final - Ida'],
+        28:['Final - Vuelta']
+      }
+      if(phases[number]){
+        return phases[number][0]
+      }else{
+        return 'Fecha '+number
+      }
     }
   }
 });
