@@ -2016,7 +2016,6 @@ div#footer-first .menu-footer ul:not(.contextual-links) li a {
 }
 
 .owl-controls .owl-buttons div.owl-prev {
-  display: none;
   left: 0;
   text-align: left;
   background: -webkit-gradient(linear, left top, right top, from(white), color-stop(50%, white), to(rgba(255, 255, 55, 0)));
