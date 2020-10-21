@@ -26,8 +26,6 @@ new Vue({
     active_round: '',
     active_tournament: '',
     matches: [],
-    prevs: {},
-    cronicles: {},
     urls: {},
     goals: {},
     channels: {}
@@ -49,6 +47,7 @@ new Vue({
             this.loading = false
             this.active_round = data.competition.active_round_id
             this.loadMatches()
+            this.loadDataMatches()
           }
       ).catch(
           (error) => {
@@ -57,7 +56,7 @@ new Vue({
           }
       )
       setInterval(function () {
-          this.loadMatches()
+        this.loadMatches()
       }.bind(this), 60* 1000);
     },
     loadMatches () {
@@ -89,7 +88,6 @@ new Vue({
             matches.forEach(function (match, key) {
               if(count === size && key === size-1) match[1].playing = 1
               vm.matches.push(match[1])
-              vm.loadDataMatches(match[1].id)
             })
           }
           this.loading = false
@@ -101,20 +99,14 @@ new Vue({
         }
       )
     },
-    loadDataMatches(match_id) {
-      axios.get('/api/matches-horizontal-results/' + match_id).then(
+    loadDataMatches() {
+      axios.get('/api/matches/opta/' + this.competition + '/' + this.season).then(
         ({data}) => {
           if (data.length > 0) {
             for (let i = 0; i < data.length; i++) {
-              if (data[i].field_tipo_de_articulo === 'Crónica') {
-                Vue.set(this.cronicles, match_id, data[i].nid)
-              }
-              else if (data[i].field_tipo_de_articulo === 'Previa') {
-                Vue.set(this.prevs, match_id, data[i].nid)
-              }
-              Vue.set(this.urls, match_id, data[i].field_url)
-              Vue.set(this.goals, match_id, data[i].field_url_goals)
-              Vue.set(this.channels, match_id, data[i].field_canal)
+              Vue.set(this.urls, data[i].field_opta_match_id, data[i].field_url)
+              Vue.set(this.goals, data[i].field_opta_match_id, data[i].field_url_goals)
+              Vue.set(this.channels, data[i].field_opta_match_id, data[i].field_canal)
             }
           }
         }

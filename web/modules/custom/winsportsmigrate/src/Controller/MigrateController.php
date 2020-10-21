@@ -23,6 +23,10 @@ class MigrateController {
 
   public $period;
 
+  public $opta_id;
+
+  public $opta_season;
+
   public function __construct() {
     if (isset($_REQUEST['limit'])) {
       $this->limit = $_REQUEST['limit'];
@@ -41,6 +45,18 @@ class MigrateController {
     }
     else {
       $this->period = '202004';
+    }
+    if (isset($_REQUEST['opta_id'])) {
+      $this->opta_id = $_REQUEST['opta_id'];
+    }
+    else {
+      $this->opta_id = '';
+    }
+    if (isset($_REQUEST['opta_season'])) {
+      $this->opta_season = $_REQUEST['opta_season'];
+    }
+    else {
+      $this->opta_season = '';
     }
     $this->client = new Client();
   }
@@ -1025,9 +1041,7 @@ class MigrateController {
   }
 
   public function matches() {
-    $opta_id     = 342;
-    $opta_season = 112022;
-    $url         = 'https://winsports.dayscript.com/competitions/' . $opta_id . '/' . $opta_season . '/generate-winsports';
+    $url         = 'https://winsports.dayscript.com/competitions/' . $this->opta_id . '/' . $this->opta_season . '/generate-winsports';
     $res         = $this->client->get($url);
     $results     = [
       'new'      => 0,

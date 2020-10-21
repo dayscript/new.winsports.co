@@ -2673,6 +2673,24 @@ div#block-horizontalresults img {
   margin: 0 auto;
 }
 
+.opta-feeds-horizontal-results .font-title {
+  color: #0b3b41;
+}
+
+.channel-logo-win {
+  width: 2rem;
+  height: 1rem;
+  background: url(/themes/custom/tailwindcss/images/logos/logowin.png) no-repeat;
+  background-size: 2rem;
+}
+
+.channel-logo-win-plus {
+  width: 2.5rem;
+  height: 1rem;
+  background: url(/themes/custom/tailwindcss/images/logos/logowinplus.png) no-repeat;
+  background-size: 2.5rem;
+}
+
 #block-futbolcolombiano-estadisticas, .opta-widgets {
   --text-opacity: 1;
   color: #0b3b41;

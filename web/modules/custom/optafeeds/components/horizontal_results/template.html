@@ -15,12 +15,13 @@
                 </div>
                 <img class="ml-2" :src="'//secure.omo.akamai.opta.net/image.php?secure=true&h=secure.omo.akamai.opta.net&sport=football&entity=team&description=badges&dimensions=20&id='+ match.away.id" :alt="match.away.name" :title="match.away.name">
             </div>
-            <div v-if="match.period == 'TBC' || match.period == 'Postponed'" @click="goto('/matches/'+match.id)">
-                <small class="pl-1 text-xs font-medium lead" >{{ match.date | formatDate | capitalize }} - Por definir</small>
+            <div class="flex justify-center">
+                <small v-if="match.period == 'TBC' || match.period == 'Postponed'" class="pl-1 text-xs font-medium lead" >{{ match.date | formatDate | capitalize }} - Por definir</small>
+                <small v-else-if="match.period == 'FullTime' || match.period == 'Full Time'" class="pl-1 text-xs font-medium lead" >{{ match.date | formatDate | capitalize }} - Finalizado</small>
+                <small v-else class="pl-1 text-xs font-medium lead">{{ match.date | formatDate | capitalize }}, {{ match.date | formatHour }}</small>
             </div>
-            <div v-else-if="match.period == 'FullTime' || match.period == 'Full Time'">
-                <small class="pl-1 text-xs font-medium lead" >{{ match.date | formatDate | capitalize }} - Finalizado</small>
-                <div class="flex items-center justify-center">
+            <div class="flex justify-center">
+                <div v-if="match.period == 'FullTime' || match.period == 'Full Time'">
                     <a v-if="goals[match.id]" :href="goals[match.id]" class="flex">
                         <img src="/sites/default/files/widgets/play_button.png" alt="Ver goles" title="Ver goles">
                         <span class="pl-1 text-xs font-medium title-color">Ver goles</span>
@@ -30,20 +31,19 @@
                         <span class="pl-1 text-xs font-medium title-color">Ver resumen</span>
                     </div>
                 </div>
-            </div>
-            <div v-else>
-                <small class="pl-1 text-xs font-medium lead">{{ match.date | formatDate | capitalize }}, {{ match.date | formatHour }}</small>
-                <div class="flex items-center justify-center">
-                    <a v-if="urls[match.id]" :href="urls[match.id]" target="_blank" class="flex">
-                        <img src="/sites/default/files/widgets/play_button.png" alt="Comprar partido" title="Comprar partido">
-                        <span class="pl-1 text-xs font-medium title-color">Comprar partido</span>
-                    </a>
-                    <div v-else-if="channels[match.id]" class="flex">
-                        <img v-if="channel[match.id] === 'Win Sports'" src="/sites/default/files/taxonomy/canales/chn_tv.png" alt="Win Sports" title="Win Sports" height="17px" style="height: 17px!important;">
-                        <img v-else src="/sites/default/files/taxonomy/canales/chn_tvm.png" alt="Win Sports +" title="Win Sports +" height="17px" style="height: 17px!important;">
+                <div v-else>
+                    <div v-if="urls[match.id]">
+                        <a :href="urls[match.id]" target="_blank" class="flex">
+                            <img src="/sites/default/files/widgets/play_button.png" alt="Comprar partido" title="Comprar partido">
+                            <span class="pl-1 text-xs font-medium title-color">Comprar partido</span>
+                        </a>
                     </div>
-                    <div v-else>
-                        <img src="/sites/default/files/taxonomy/canales/chn_tvm.png" alt="Win Sports +" title="Win Sports +" height="17px" style="height: 17px!important;">
+                    <div v-else-if="channels[match.id]" class="tw-flex tw-justify-center">
+                        <div v-if="channels[match.id] === 'Win Sports' || channels[match.id] === 'Win Sports, Win Sports +' || channels[match.id] === 'Win Sports +, Win Sports'" class="channel-logo-win"></div>
+                        <div v-if="channels[match.id] === 'Win Sports +' || channels[match.id] === 'Win Sports +, Win Sports'  || channels[match.id] === 'Win Sports, Win Sports +'" class="channel-logo-win-plus"></div>
+                    </div>
+                    <div v-else class="tw-flex tw-justify-center">
+                         <div class="channel-logo-win-plus"></div>
                     </div>
                 </div>
             </div>

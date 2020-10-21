@@ -15,6 +15,7 @@ new Vue({
     players: [],
     matches: [],
     stages: [],
+    channels: {},
     selected_phase_id: '',
     selected_round_id: '',
     selected_option: 'positions',
@@ -23,8 +24,7 @@ new Vue({
       Striker: 'Delantero',
       Midfielder: 'Volante',
       Defender: 'Defensa',
-    },
-    aux_round_id: 1
+    }
   },
   beforeMount () {
     const id = this.$el.id
@@ -61,6 +61,7 @@ new Vue({
           this.competition = data[pos].field_opta_id
           this.season = data[pos].field_opta_season
           this.selectOption(this.selected_option)
+          this.loadDataMatches()
         }
         this.loading = false
       }).catch((error) => {
@@ -68,7 +69,7 @@ new Vue({
         this.loading = false
       })
       setInterval(function () {
-          this.selectOption(this.selected_option)
+          //this.selectOption(this.selected_option)
       }.bind(this), 60* 1000);
     },
     loadResults () {
@@ -208,6 +209,25 @@ new Vue({
           })
         }
         this.players = players
+        this.loading = false
+      }).catch((error) => {
+        console.log(error)
+        this.loading = false
+      })
+    },
+    loadDataMatches () {
+      let data = this.tournament_season.split('-')
+      this.competition = data[0]
+      this.season = data[1]
+      let url = '/api/matches/opta/' + this.competition + '/' + this.season
+      this.loading = true
+
+      axios.get(url).then(({data}) => {
+        if (data.length > 0) {
+          for (let i = 0; i < data.length; i++) {
+            Vue.set(this.channels, data[i].field_opta_match_id, data[i].field_canal)
+          }
+        }
         this.loading = false
       }).catch((error) => {
         console.log(error)
