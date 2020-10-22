@@ -69,7 +69,7 @@ new Vue({
         this.loading = false
       })
       setInterval(function () {
-          //this.selectOption(this.selected_option)
+          this.selectOption(this.selected_option)
       }.bind(this), 60* 1000);
     },
     loadResults () {
