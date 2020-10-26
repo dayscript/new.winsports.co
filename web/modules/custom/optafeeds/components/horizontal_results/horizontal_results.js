@@ -66,13 +66,15 @@ new Vue({
           if(data.round) this.active_tournament = 'Liga BetPlay Dimayor 2020 - ' + this.roundName(data.round.number)
           if (data.matches) {
             let matches = []
-            let count = 0
+            let countft = 0
+            let countpm = 0
             let size = Object.entries(data.matches).length
 
             Object.entries(data.matches).forEach(function (match, key) {
               let day = moment(match[1].date)
               match[1].order = Number(day.format('YYYYMMDDHmm'))
-              if(match[1].period === 'FullTime' || match[1].period === 'Full Time') count++
+              if(match[1].period === 'FullTime' || match[1].period === 'Full Time') countft++
+              if(match[1].period === 'PreMatch') countpm++
               if(match[1].period === 'FullTime' || match[1].period === 'Full Time' || match[1].period === 'Postponed' || match[1].period === 'TBC' || match[1].period === 'Abandoned' || match[1].period === 'PreMatch') {
                 match[1].playing = 0
               }else {
@@ -86,7 +88,8 @@ new Vue({
             let vm = this
             vm.matches = []
             matches.forEach(function (match, key) {
-              if(count === size && key === size-1) match[1].playing = 1
+              if(countft === size && key === size-1) match[1].playing = 1
+              if(countft > 2 && (countft + countpm) === size && key === countft) match[1].playing = 1
               vm.matches.push(match[1])
             })
           }
