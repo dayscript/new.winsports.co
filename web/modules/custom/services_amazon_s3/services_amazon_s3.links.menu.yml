@@ -1,0 +1,18 @@
+services_amazon_s3.dimayor:
+  title: 'Logos Dimayor'
+  description: 'Actualiza los logos de los canales'
+  parent: system.admin_config_services
+  route_name: amazon.widget.dimayor
+  weight: 100
+services_amazon_s3.futbolred:
+  title: 'Widget Futbolred'
+  description: 'Actualizar widget para Futbolred'
+  parent: system.admin_config_services
+  route_name: amazon.widget.futbolred
+  weight: 100
+services_amazon_s3.winsportsonline:
+  title: 'Widget Winsports online'
+  description: 'Actualiza widget para Winsports online'
+  parent: system.admin_config_services
+  route_name: amazon.widget.winsportsonline
+  weight: 100
