@@ -41,7 +41,7 @@ class ServicesAmazonS3 {
 
   public function futbolred() {
 
-  	$contents = file_get_contents('https://winsports.co/api/futbol-red/json');
+  	$contents = file_get_contents('https://www.winsports.co/api/futbol-red/json');
 
 	$client = new S3Client([
 	    'region' => 'us-west-2',
@@ -66,7 +66,7 @@ class ServicesAmazonS3 {
 
   public function winsportsOnline() {
 
-  	$contents = file_get_contents('https://winsports.co/api/futbol-red/json');
+  	$contents = file_get_contents('https://www.winsports.co/api/rcn/json');
 
 	$client = new S3Client([
 	    'region' => 'us-west-2',
