@@ -1,0 +1,21 @@
+amazon.widget.dimayor:
+  path: '/amazon-widget-dimayor'
+  defaults:
+    _controller: '\Drupal\services_amazon_s3\Controller\ServicesAmazonS3::dimayor'
+    _title: 'Winsports widget Dimayor'
+  requirements:
+    _permission: 'access content'
+amazon.widget.futbolred:
+  path: '/amazon-widget-futbolred'
+  defaults:
+    _controller: '\Drupal\services_amazon_s3\Controller\ServicesAmazonS3::futbolred'
+    _title: 'Winsports widget Futbolred'
+  requirements:
+    _permission: 'access content'
+amazon.widget.winsportsonline:
+  path: '/amazon-widget-winsportsonline'
+  defaults:
+    _controller: '\Drupal\services_amazon_s3\Controller\ServicesAmazonS3::winsportsOnline'
+    _title: 'Winsports widget Win sports online'
+  requirements:
+    _permission: 'access content'

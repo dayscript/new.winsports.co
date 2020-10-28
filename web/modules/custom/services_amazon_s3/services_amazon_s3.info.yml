@@ -1,0 +1,5 @@
+name: Services amazon s3
+description: 'Servicio para subir widgets al bucket de Amazon'
+package: Custom
+type: module
+core: 8.x
