@@ -16,15 +16,15 @@
           </div>  
     </div>
     <div class="flex flex-no-wrap overflow-x-auto w-full">
-        <div @click="selectOption(option.key)" v-for="option in options" class="flex-1 text-center py-3 font-title cursor-pointer table-option" :class="[selected_option == option.key?'active':'', competition == '371'?'px-2':'px-6']">{{ option.label }}</div>
+        <div @click="selectOption(option.key)" v-for="option in options" class="flex-1 text-center py-3 font-title cursor-pointer table-option" :class="[selected_option == option.key?'active':'', competition == '371'||competition == '589'?'px-2':'px-6']">{{ option.label }}</div>
     </div>
-    <div v-if="selected_option === 'schedules'" class="flex flex-no-wrap overflow-x-auto w-full" style="background-color: #0ef8c3;">
-        <div @click="setMatches(round.id)" v-for="round in rounds" class="whitespace-no-wrap cursor-pointer phase p-2" :class="selected_round_id == round.id?'active':''">
+    <div v-if="selected_option === 'schedules'" class="flex flex-no-wrap overflow-x-auto w-full" id="content-phases" style="background-color: #0ef8c3;">
+        <div @click="setMatches(round.id)" v-for="round in rounds" class="whitespace-no-wrap cursor-pointer phase p-2" :class="[selected_round_id == round.id?'active':'',selected_round_id == round.id?'phase-active':'']">
             {{ roundName(round.number) }}
         </div>
     </div>
-    <div v-else-if="selected_option === 'positions' && phases && Object.keys(phases).length" class="flex flex-no-wrap overflow-x-auto w-full" style="background-color: #0ef8c3;">
-        <div @click="selectPhase(phase.id)" v-for="phase in phases" class="whitespace-no-wrap cursor-pointer phase p-2" :class="selected_phase_id == phase.id?'active':''">
+    <div v-else-if="selected_option === 'positions' && phases && Object.keys(phases).length" class="flex flex-no-wrap overflow-x-auto w-full" id="content-phases" style="background-color: #0ef8c3;">
+        <div @click="selectPhase(phase.id)" v-for="phase in phases" class="whitespace-no-wrap cursor-pointer phase p-2" :class="[selected_phase_id == phase.id?'active':'', selected_phase_id == phase.id?'phase-active':'']">
             {{ phaseName(phase.type, phase.number) }}
         </div>
     </div>

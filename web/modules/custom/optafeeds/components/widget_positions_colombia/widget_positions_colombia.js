@@ -15,6 +15,7 @@ new Vue({
     players: [],
     matches: [],
     stages: [],
+    channels: {},
     selected_phase_id: '',
     selected_round_id: '',
     selected_option: 'positions',
@@ -57,6 +58,7 @@ new Vue({
           this.competition = data[pos].field_opta_id
           this.season = data[pos].field_opta_season
           this.selectOption(this.selected_option)
+          this.loadDataMatches()
         }
         this.loading = false
       }).catch((error) => {
@@ -210,6 +212,25 @@ new Vue({
         this.loading = false
       })
     },
+    loadDataMatches () {
+      let data = this.tournament_season.split('-')
+      this.competition = data[0]
+      this.season = data[1]
+      let url = '/api/matches/opta/' + this.competition + '/' + this.season
+      this.loading = true
+
+      axios.get(url).then(({data}) => {
+        if (data.length > 0) {
+          for (let i = 0; i < data.length; i++) {
+            Vue.set(this.channels, data[i].field_opta_match_id, data[i].field_canal)
+          }
+        }
+        this.loading = false
+      }).catch((error) => {
+        console.log(error)
+        this.loading = false
+      })
+    },
     selectTournaments () {
       this.selected_phase_id = ''
       this.selected_round_id = ''
@@ -220,6 +241,7 @@ new Vue({
       this.players = []
       this.matches = []
       this.stages = []
+      this.loadDataMatches()
       this.selectOption('positions')
     },
     selectPhase (phase_id) {
@@ -239,6 +261,7 @@ new Vue({
       }else if (option_key === 'scorers') {
         this.loadScorers()
       }
+      this.scrollLeftPhases()
     },
     setMatches(round_id){
       let data = this.tournament_season.split('-')
@@ -396,6 +419,15 @@ new Vue({
       }else{
         return 'Fecha '+number
       }
+    },
+    scrollLeftPhases(){
+      setTimeout(function() {
+          var active = document.getElementsByClassName("phase-active","div",document.getElementById("block-positionstableswidgetcolombia"));
+          if(active.length == 1) {        
+            var pos = active[0].offsetLeft-240;
+            var element = document.getElementById("content-phases").scrollLeft = pos;
+          }
+        }, 1000, this);
     }
   }
 });

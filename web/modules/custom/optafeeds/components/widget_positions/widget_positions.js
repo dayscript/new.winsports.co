@@ -244,6 +244,7 @@ new Vue({
       this.players = []
       this.matches = []
       this.stages = []
+      this.loadDataMatches()
       this.selectOption(this.selected_option)
     },
     selectPhase (phase_id) {
@@ -263,6 +264,7 @@ new Vue({
       }else if (option_key === 'scorers') {
         this.loadScorers()
       }
+      this.scrollLeftPhases()
     },
     setMatches(round_id){
       let data = this.tournament_season.split('-')
@@ -420,6 +422,15 @@ new Vue({
       }else{
         return 'Fecha '+number
       }
+    },
+    scrollLeftPhases(){
+      setTimeout(function() {
+          var active = document.getElementsByClassName("phase-active","div",document.getElementById("block-positionstableswidget"));
+          if(active.length == 1) {        
+            var pos = active[0].offsetLeft-240;
+            var element = document.getElementById("content-phases").scrollLeft = pos;
+          }
+        }, 1000, this);
     }
   }
 });
