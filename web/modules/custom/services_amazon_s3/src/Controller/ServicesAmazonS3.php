@@ -16,7 +16,13 @@ class ServicesAmazonS3 {
 
   public function dimayor() {
 
-  	$contents = file_get_contents('https://www.winsports.co/api/partidos-torneo/json?torneo=3');
+  	$domain = 'https://winsports.co/';
+  	$tournaments = [
+  		'371-2020' => '/api/partidos-torneo/json?torneo=3',
+  		'625-2020' => '/api/partidos-torneo/json?torneo=3526',
+  		'664-2020' => '/api/partidos-torneo/json?torneo=3527',
+  		'847-2020' => '/api/partidos-torneo/json?torneo=14842',
+  	];
 
 	$client = new S3Client([
 	    'region' => 'us-west-2',
@@ -27,21 +33,24 @@ class ServicesAmazonS3 {
 	    ],
 	]);
 
-	$client->putObject([
-	    'Bucket' => 'news-winsports',
-	    'Key' => 'dimayor.json',
-	    'Body' => $contents
-	]);
+	foreach ($tournaments as $key => $url) {
+		$contents = file_get_contents($domain . $url);
+		$client->putObject([
+		    'Bucket' => 'news-winsports',
+		    'Key' => $key.'.json',
+		    'Body' => $contents
+		]);
+	}
 
     return [
       '#type'   => 'markup',
-      '#markup' => t('Logos actualizados para Dimayor'),
+      '#markup' => t('Logos actualizados'),
     ];
   }
 
   public function futbolred() {
 
-  	$contents = file_get_contents('https://www.winsports.co/api/futbol-red/json');
+  	$contents = file_get_contents('https://winsports.co/api/widget-ms/json');
 
 	$client = new S3Client([
 	    'region' => 'us-west-2',
@@ -54,19 +63,44 @@ class ServicesAmazonS3 {
 
 	$client->putObject([
 	    'Bucket' => 'news-winsports',
-	    'Key' => 'futbolred.json',
+	    'Key' => 'widgetMs.json',
 	    'Body' => $contents
 	]);
 
     return [
       '#type'   => 'markup',
-      '#markup' => t('Widget actualizado para Futbolred'),
+      '#markup' => t('Widget actualizado.'),
     ];
   }
 
   public function winsportsOnline() {
 
-  	$contents = file_get_contents('https://www.winsports.co/api/rcn/json');
+  	$domain = 'https://winsports.co/';
+  	$teams = [
+  		'2605' => '/api/noticias-winsports-online/json?team=2605',
+  		'2670' => '/api/noticias-winsports-online/json?team=2670',
+  		'2869' => '/api/noticias-winsports-online/json?team=2869',
+  		'3067' => '/api/noticias-winsports-online/json?team=3067',
+  		'2672' => '/api/noticias-winsports-online/json?team=2672',
+  		'3123' => '/api/noticias-winsports-online/json?team=3123',
+  		'2837' => '/api/noticias-winsports-online/json?team=2837',
+  		'5147' => '/api/noticias-winsports-online/json?team=5147',
+  		'2992' => '/api/noticias-winsports-online/json?team=2992',
+  		'2727' => '/api/noticias-winsports-online/json?team=2727',
+  		'2944' => '/api/noticias-winsports-online/json?team=2944',
+  		'2781' => '/api/noticias-winsports-online/json?team=2781',
+  		'2699' => '/api/noticias-winsports-online/json?team=2699',
+  		'3033' => '/api/noticias-winsports-online/json?team=3033',
+  		'3094' => '/api/noticias-winsports-online/json?team=3094',
+  		'2858' => '/api/noticias-winsports-online/json?team=2858',
+  		'5177' => '/api/noticias-winsports-online/json?team=5177',
+  		'2923' => '/api/noticias-winsports-online/json?team=2923',
+  		'3002' => '/api/noticias-winsports-online/json?team=3002',
+  		'2573' => '/api/noticias-winsports-online/json?team=2573',
+  		'2640' => '/api/noticias-winsports-online/json?team=2640',
+  		'1784' => '/api/noticias-winsports-online/json?team=1784',
+  		'5178' => '/api/noticias-winsports-online/json?team=5178',
+  	];
 
 	$client = new S3Client([
 	    'region' => 'us-west-2',
@@ -77,15 +111,18 @@ class ServicesAmazonS3 {
 	    ],
 	]);
 
-	$client->putObject([
-	    'Bucket' => 'news-winsports',
-	    'Key' => 'winsportsOnline.json',
-	    'Body' => $contents
-	]);
+	foreach ($teams as $key => $url) {
+		$contents = file_get_contents($domain . $url);
+		$client->putObject([
+		    'Bucket' => 'news-winsports',
+		    'Key' => $key.'.json',
+		    'Body' => $contents
+		]);
+	}
 
     return [
       '#type'   => 'markup',
-      '#markup' => t('Widget actualizado para Winsports online'),
+      '#markup' => t('Widget actualizado.'),
     ];
   }
 }
