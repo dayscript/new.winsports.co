@@ -43,14 +43,17 @@ class WidgetProgrammingForm extends FormBase {
       foreach ($month as $ks => $day) {
         $class_date = ($date_active == $day['value']) ? 'active' : '';
         $html_[] = '
+        <div class="flex-1">
+        <h3>'.$day['month'].'</h3>
         <div class="date flex-1 '.$class_date.'">
         <a href="programacion?date='.$day['value'].'">
           <div class="weekday">'.$day['weekday'].'</div>
           <div class="day">'.$day['day'].'</div>
         </a>
+        </div>
         </div>';
       }
-      $html_owl[] = '<div class="item" data-merge="'.count($month).'"><h3>'.$km.'</h3><div class="items">'.implode($html_).'</div></div>';
+      $html_owl[] = '<div class="item" data-merge="'.count($month).'"><div class="items">'.implode($html_).'</div></div>';
     }
     $html .= '<div id="owl-programming" class="owl-carousel">'.implode($html_owl).'</div>';
 

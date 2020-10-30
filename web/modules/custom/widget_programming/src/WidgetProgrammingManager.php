@@ -28,13 +28,34 @@ class WidgetProgrammingManager implements WidgetProgrammingManagerInterface {
         $current_day = date('j');
       }
       if($current_month == date('n')){
-        $dates[$months[$month]] = [];
+        $dates[$current_year] = [];
         for ($i=$current_day; $i <= cal_days_in_month(CAL_GREGORIAN, $current_month, $current_year) ; $i++) { 
           if($pos < $view){
-            $dates[$months[$month]][] = ['day' => $i, 'weekday'=> $weekday[date('D', mktime(0, 0, 0, $current_month, $i, $current_year))], 'value' => date('Y-m-d', mktime(0, 0, 0, $current_month, $i, $current_year))];
+            $dates[$current_year][] = ['day' => $i, 'month' => $pos == 0 ? $months[$month] : '&nbsp;', 'weekday'=> $weekday[date('D', mktime(0, 0, 0, $current_month, $i, $current_year))], 'value' => date('Y-m-d', mktime(0, 0, 0, $current_month, $i, $current_year))];
           }
           $pos++;
         }    
+      }
+    }
+
+    if(count($dates[$current_year]) <= 6) {
+      $view = 7-count($dates[$current_year]);
+      $pos = 0;
+
+      foreach (array_keys($months) as $key => $month) {
+        $current_month = $key+1;
+        $current_day = 1;
+        if($current_month == ( date('n')+1 )){
+          $current_day = 1;
+        }
+        if($current_month == ( date('n')+1 )){
+          for ($i=$current_day; $i <= cal_days_in_month(CAL_GREGORIAN, $current_month, $current_year) ; $i++) { 
+            if($pos < $view){
+              $dates[$current_year][] = ['day' => $i, 'month' => $pos == 0 ? $months[$month] : '&nbsp;', 'weekday'=> $weekday[date('D', mktime(0, 0, 0, $current_month, $i, $current_year))], 'value' => date('Y-m-d', mktime(0, 0, 0, $current_month, $i, $current_year))];
+            }
+            $pos++;
+          }    
+        }
       }
     }
     return $dates;
