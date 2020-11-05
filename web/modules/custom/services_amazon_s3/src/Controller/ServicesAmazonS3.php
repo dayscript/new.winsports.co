@@ -62,8 +62,8 @@ class ServicesAmazonS3 {
 	]);
 
 	$client->putObject([
-	    'Bucket' => 'news-winsports',
-	    'Key' => 'widgetMs.json',
+	    'Bucket' => 'widget-futbolred',
+	    'Key' => 'videos.json',
 	    'Body' => $contents
 	]);
 
