@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "73e55a7382a5118c024f56d342c97952",
+    "content-hash": "6c4c771807e03c59e55ce5b918bd20b2",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -3975,61 +3975,6 @@
             }
         },
         {
-            "name": "drupal/domain_googlenews_sitemap",
-            "version": "1.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/domain_googlenews_sitemap.git",
-                "reference": "8.x-1.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/domain_googlenews_sitemap-8.x-1.1.zip",
-                "reference": "8.x-1.1",
-                "shasum": "18223bb947715c8706576714403f6bc11d2bbab8"
-            },
-            "require": {
-                "drupal/core": "~8.0"
-            },
-            "require-dev": {
-                "drupal/domain_access": "*",
-                "drupal/domain_source": "*"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "8.x-1.1",
-                    "datestamp": "1559500685",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "cchanana",
-                    "homepage": "https://www.drupal.org/user/3162379"
-                },
-                {
-                    "name": "i-trokhanenko",
-                    "homepage": "https://www.drupal.org/user/3546872"
-                },
-                {
-                    "name": "sushilpal",
-                    "homepage": "https://www.drupal.org/user/1460054"
-                }
-            ],
-            "homepage": "https://www.drupal.org/project/domain_googlenews_sitemap",
-            "support": {
-                "source": "https://git.drupalcode.org/project/domain_googlenews_sitemap"
-            }
-        },
-        {
             "name": "drupal/ds",
             "version": "3.7.0",
             "source": {
@@ -6201,6 +6146,50 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/views_extras",
                 "issues": "https://www.drupal.org/project/issues/views_extras"
+            }
+        },
+        {
+            "name": "drupal/views_googlenews",
+            "version": "1.0.0-alpha1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/views_googlenews.git",
+                "reference": "8.x-1.0-alpha1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/views_googlenews-8.x-1.0-alpha1.zip",
+                "reference": "8.x-1.0-alpha1",
+                "shasum": "c56e8149cf28dc58292db33c8080c0d32ee3a24e"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.0-alpha1",
+                    "datestamp": "1503515343",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Berdir",
+                    "homepage": "https://www.drupal.org/user/214652"
+                }
+            ],
+            "description": "Views Googlenews",
+            "homepage": "https://www.drupal.org/project/views_googlenews",
+            "support": {
+                "source": "https://git.drupalcode.org/project/views_googlenews"
             }
         },
         {
@@ -13713,12 +13702,14 @@
         "drupal/pdb": 15,
         "drupal/pdb_vue": 15,
         "drupal/slick_extras": 5,
-        "drupal/tamper": 15
+        "drupal/tamper": 15,
+        "drupal/views_googlenews": 15
     },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": ">=7.0.8"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }
