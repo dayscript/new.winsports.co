@@ -16,7 +16,7 @@ class ServicesAmazonS3 {
 
   public function dimayor() {
 
-  	$domain = 'https://winsports.co/';
+  	$domain = 'https://www.winsports.co/';
   	$tournaments = [
   		'371-2020' => '/api/partidos-torneo/json?torneo=3',
   		'625-2020' => '/api/partidos-torneo/json?torneo=3526',
@@ -50,7 +50,7 @@ class ServicesAmazonS3 {
 
   public function futbolred() {
 
-  	$contents = file_get_contents('https://winsports.co/api/widget-ms/json');
+  	$contents = file_get_contents('https://www.winsports.co/api/widget-ms/json');
 
 	$client = new S3Client([
 	    'region' => 'us-west-2',
@@ -75,7 +75,7 @@ class ServicesAmazonS3 {
 
   public function winsportsOnline() {
 
-  	$domain = 'https://winsports.co/';
+  	$domain = 'https://www.winsports.co/';
   	$teams = [
   		'2605' => '/api/noticias-winsports-online/json?team=2605',
   		'2670' => '/api/noticias-winsports-online/json?team=2670',

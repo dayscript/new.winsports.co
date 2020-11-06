@@ -9,3 +9,17 @@
 function win_amp_preprocess_html(&$variables) {
 
 }
+
+/**
+ * Implements hook_page_attachments_alter().
+ */
+function win_amp_page_attachments_alter(&$attachments) {
+  if (isset($attachments['#attached']['html_head'])) {
+    $list = $attachments['#attached']['html_head'];
+    foreach ($list as $key => $attachment) {
+      if (isset($attachment[1]) && $attachment[1] == 'eu-cookie-compliance-css') {
+        unset($attachments['#attached']['html_head'][$key]);
+      }
+    }
+  }
+}
