@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "52f67b8ab4d74b08fdfa855dbf2fa5c7",
+    "content-hash": "73e55a7382a5118c024f56d342c97952",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2122,6 +2122,7 @@
                 "reflection",
                 "static"
             ],
+            "abandoned": "roave/better-reflection",
             "time": "2020-03-27T11:06:43+00:00"
         },
         {
@@ -3971,6 +3972,61 @@
             "homepage": "https://www.drupal.org/project/dfp",
             "support": {
                 "source": "https://git.drupalcode.org/project/dfp"
+            }
+        },
+        {
+            "name": "drupal/domain_googlenews_sitemap",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/domain_googlenews_sitemap.git",
+                "reference": "8.x-1.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/domain_googlenews_sitemap-8.x-1.1.zip",
+                "reference": "8.x-1.1",
+                "shasum": "18223bb947715c8706576714403f6bc11d2bbab8"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "require-dev": {
+                "drupal/domain_access": "*",
+                "drupal/domain_source": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.1",
+                    "datestamp": "1559500685",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "cchanana",
+                    "homepage": "https://www.drupal.org/user/3162379"
+                },
+                {
+                    "name": "i-trokhanenko",
+                    "homepage": "https://www.drupal.org/user/3546872"
+                },
+                {
+                    "name": "sushilpal",
+                    "homepage": "https://www.drupal.org/user/1460054"
+                }
+            ],
+            "homepage": "https://www.drupal.org/project/domain_googlenews_sitemap",
+            "support": {
+                "source": "https://git.drupalcode.org/project/domain_googlenews_sitemap"
             }
         },
         {

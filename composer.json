@@ -40,6 +40,7 @@
         "drupal/csp": "^1.12",
         "drupal/devel": "^2.1",
         "drupal/dfp": "^1.0@alpha",
+        "drupal/domain_googlenews_sitemap": "^1.1",
         "drupal/ds": "^3.7",
         "drupal/entityqueue": "^1.0@beta",
         "drupal/eu_cookie_compliance": "^1.8",
