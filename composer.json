@@ -78,6 +78,7 @@
         "drupal/views_extras": "^1.1",
         "drupal/views_googlenews": "^1.0@alpha",
         "drupal/views_infinite_scroll": "^1.6",
+        "drupal/x_frame_options": "^1.1",
         "drupal/xmlsitemap": "^1.0",
         "drush/drush": "^9.7.1 | ^10.0.0",
         "vlucas/phpdotenv": "^4.0",
