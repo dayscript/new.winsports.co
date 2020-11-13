@@ -824,6 +824,7 @@ h2, .title {
   line-height: 1;
 }
 
+h1.title-news,
 h2.title-news {
   font-family: "Passion One", cursive;
   font-size: 1.875rem;
@@ -836,6 +837,7 @@ h2.title-news {
 }
 
 @media (min-width: 768px) {
+  h1.title-news,
   h2.title-news {
     font-size: 3rem;
     margin-bottom: 1rem;
