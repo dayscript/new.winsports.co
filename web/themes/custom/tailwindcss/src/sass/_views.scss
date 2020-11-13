@@ -1092,15 +1092,29 @@ div#block-horizontalresults {
 }
 
 .channel-logo-win {
-    width: 2rem;
+    width: 2.5rem;
     height: 1rem;
     background: url(/themes/custom/tailwindcss/images/logos/logowin.png) no-repeat;
-    background-size: 2rem;
+    background-size: 2.5rem;
 }
 
 .channel-logo-win-plus {
     width: 2.5rem;
     height: 1rem;
     background: url(/themes/custom/tailwindcss/images/logos/logowinplus.png) no-repeat;
+    background-size: 2.5rem;
+}
+
+.channel-logo-win-online {
+    width: 2.5rem;
+    height: 1rem;
+    background: url(/themes/custom/tailwindcss/images/logos/logowinonline.png) no-repeat;
+    background-size: 2.5rem;
+}
+
+.channel-logo-win-co {
+    width: 2.5rem;
+    height: 1rem;
+    background: url(/themes/custom/tailwindcss/images/logos/logowinco.png) no-repeat;
     background-size: 2.5rem;
 }

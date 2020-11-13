@@ -225,7 +225,11 @@ new Vue({
       axios.get(url).then(({data}) => {
         if (data.length > 0) {
           for (let i = 0; i < data.length; i++) {
-            Vue.set(this.channels, data[i].field_opta_match_id, data[i].field_canal)
+            let ch = []
+            if(data[i].field_canal){
+              ch = data[i].field_canal.split(',')
+            }
+            Vue.set(this.channels, data[i].field_opta_match_id, ch)
           }
         }
         this.loading = false

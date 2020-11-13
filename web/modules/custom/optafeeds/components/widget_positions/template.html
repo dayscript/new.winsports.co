@@ -48,12 +48,14 @@
                     </div>
                    <div v-if="match.period === 'FullTime' || match.period === 'Full Time' || match.period === 'PreMatch' || match.period === 'Postponed' || match.period === 'TBC' || match.period === 'Abandoned'" class="tw-flex tw-justify-center tw-text-xs tw-text-gray-600">
                         {{ moment(match.date).format('h:mm a') }}
-
-                    <div v-if="channels[match.id]" class="flex px-2">
-                        <div v-if="channels[match.id] === 'Win Sports' || channels[match.id] === 'Win Sports, Win Sports +' || channels[match.id] === 'Win Sports +, Win Sports'" class="channel-logo-win"></div>
-                        <div v-if="channels[match.id] === 'Win Sports +' || channels[match.id] === 'Win Sports +, Win Sports'  || channels[match.id] === 'Win Sports, Win Sports +'" class="channel-logo-win-plus"></div>
-                    </div>
-
+                        <div v-if="channels[match.id]" class="flex px-2">
+                            <div v-for="channel in channels[match.id]">
+                                <div v-if="channel === 'Win Sports' || channel === 'WinSports'" class="channel-logo-win"></div>
+                                <div v-if="channel === 'Win Sports +' || channel === 'WinSports +' || channel === 'Win Sports+' || channel === 'WinSports+'" class="channel-logo-win-plus"></div>
+                                <div v-if="channel === 'Win Sports Online' || channel === 'WinSports Online'" class="channel-logo-win-online"></div>
+                                <div v-if="channel === 'Win Sports.co' || channel === 'WinSports.co'" class="channel-logo-win-co"></div>
+                            </div>
+                        </div>
                     </div>
                     <div v-else class="tw-flex tw-justify-center tw-text-xs tw-font-bold tw-text-primary">
                         {{match.minute.label}}'
