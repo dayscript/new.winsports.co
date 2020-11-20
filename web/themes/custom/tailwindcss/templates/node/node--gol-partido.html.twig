@@ -7,7 +7,7 @@
     {% endif %}
     {{ title_suffix }}
     <div{{ content_attributes.addClass('node-content') }}>
-        <h2 class="title-news">{{ label }}</h2>
+        <h1 class="title-news">{{ label }}</h1>
         <div class="tw-flex tw-items-center tw-text-primary tw-text-sm tw-my-4">
             <div class="tw-mr-6 published_date">{{ node.getCreatedTime() | format_date('complete_date') }}</div>
             {% if node.hasField('field_source') %}
