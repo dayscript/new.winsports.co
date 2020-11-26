@@ -2887,6 +2887,13 @@ article.id-3 #schedules div.match-events {
   display: block;
 }
 
+/*brackets*/
+
+.bk-16-8 .img-bk {
+  display: none;
+  position: absolute;
+}
+
 .user.compact .image {
   margin-bottom: 0;
 }

@@ -350,69 +350,91 @@ new Vue({
       document.location.href = '/matches/' + match_id
     },
     phaseName (string, number){
-      string = (this.competition === 589 && string === 'Ronda' && number === '1' || this.competition === 589 && string === 'Round' && number === '1') ? 'Cuadrangulares' : string;
-      string = (this.competition === 901 && string === 'Ronda' && number === '2' || this.competition === 901 && string === 'Round' && number === '2') ? 'Cuadrangulares' : string;
-      string = (this.competition === 664 && string === 'Ronda' && number === '1' || this.competition === 664 && string === 'Round' && number === '1') ? 'Todos contra Todos' : string;
-      switch(string){
-        case 'All':
-          return 'Todos contra Todos';
-          break;
-        case 'Semi-Finals':
-          return 'Semifinales';
-          break;
-        case 'Quarter-Finals':
-          return 'Cuartos de Final';
-          break;
-        case 'Round of 16':
-          return 'Octavos de final';
-          break;
-        case 'Ronda de 16':
-          return 'Octavos de final';
-          break;
-        case 'Ronda':
-          return (number && number != 1)?'Ronda '+number:'Todos contra Todos';
-          break;
-        case 'Round':
-          return 'Ronda '+number;
-          break;
-        default:
-          return string;
-          break;
+      string = (string === 'Round') ? 'Ronda' : string;
+      var idCompetition =  ['371','589','625','901'], phases = {};
+      if (this.competition == '371' || this.competition == '589') {
+        phases = {
+          Ronda: {
+            1: ['Todos'],
+            2: ['Liguilla']
+          }
+        }
+      }else if (this.competition == '625' || this.competition == '901') {
+        phases = {
+          Ronda: {
+            1: ['Todos'],
+            2: ['Cuadrangulares']
+          }
+        }
+      }
+      if( idCompetition.indexOf( this.competition ) >= 0 && typeof phases.Ronda[number] !== 'undefined'){
+        return phases.Ronda[number][0]
+      }else{
+        switch(string){
+          case 'All':
+            return 'Todos contra Todos';
+            break;
+          case 'Semi-Finals':
+            return 'Semifinales';
+            break;
+          case 'Quarter-Finals':
+            return 'Cuartos de Final';
+            break;
+          case 'Round of 16':
+            return 'Octavos de final';
+            break;
+          case 'Ronda de 16':
+            return 'Octavos de final';
+            break;
+          case 'Ronda':
+            return 'Ronda '+number;
+            break;
+          case 'Round':
+            return 'Ronda '+number;
+            break;
+          default:
+            return string;
+            break;
+        }
       }
     },
     roundName (number){
-      var idCompetition =  [371,589,625,901,128], phases = {};
-      if (this.competition == 371 || this.competition == 589) {
-        phases = {
-          21:['Cuadrangulares - Fecha 1'],
-          22:['Cuadrangulares - Fecha 2'],
-          23:['Cuadrangulares - Fecha 3'],
-          24:['Cuadrangulares - Fecha 4'],
-          25:['Cuadrangulares - Fecha 5'],
-          26:['Cuadrangulares - Fecha 6'],
-          27:['Final - Ida'],
-          28:['Final - Vuelta']
+      var idCompetition =  ['371','589','625','901','128'], rounds = {};
+      if (this.competition == '371' || this.competition == '589') {
+        rounds = {
+          21:['Liguilla - Fecha 1'],
+          22:['Liguilla - Fecha 2'],
+          23:['Liguilla - Fecha 3'],
+          24:['Fecha 24'],
+          25:['Fecha 25'],
+          26:['Fecha 26'],
+          27:['Cuartos de Final - Ida'],
+          28:['Cuartos de Final - Vuelta'],
+          29:['Semifinales - Ida'],
+          30:['Semifinales - Vuelta'],
+          31:['Final - Ida'],
+          32:['Final - Vuelta']
         }
-      }else if (this.competition == 625 || this.competition == 901) {
-        phases = {
-          16:['Cuadrangulares - Fecha 1'],
-          17:['Cuadrangulares - Fecha 2'],
-          18:['Cuadrangulares - Fecha 3'],
-          19:['Cuadrangulares - Fecha 4'],
-          20:['Cuadrangulares - Fecha 5'],
-          21:['Cuadrangulares - Fecha 6'],
-          22:['Final - Ida'],
-          23:['Final - Vuelta']
+      }else if (this.competition == '625' || this.competition == '901') {
+        rounds = {
+          19:['Cuadrangulares - Fecha 1'],
+          20:['Cuadrangulares - Fecha 2'],
+          21:['Cuadrangulares - Fecha 3'],
+          22:['Cuadrangulares - Fecha 4'],
+          23:['Cuadrangulares - Fecha 5'],
+          24:['Cuadrangulares - Fecha 6'],
+          25:['Final - Ida'],
+          26:['Final - Vuelta']
         }
-      }else if (this.competition == 128) {
-        phases = {
+      }else if (this.competition == '128') {
+        rounds = {
           4:['Cuartos de final'],
           5:['Semifinal'],
           6:['3er y 4to'],
           7:['Final'],
         }
       } else  {
-        phases = {
+        rounds = {
           21:['Cuartos de final - Ida'],
           22:['Cuartos de final - Vuelta'],
           23:['Semifinal - Ida'],
@@ -421,8 +443,8 @@ new Vue({
           26:['Final - Vuelta']
         }
       }
-      if( idCompetition.indexOf( this.competition ) >= 0 && phases[number] ){
-        return phases[number][0]
+      if( idCompetition.indexOf( this.competition ) >= 0 && typeof rounds[number] !== 'undefined'){
+        return rounds[number][0]
       }else{
         return 'Fecha '+number
       }

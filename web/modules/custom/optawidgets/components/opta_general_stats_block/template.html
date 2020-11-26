@@ -5,19 +5,19 @@
                 <a @click="type='col'" class="is-active">Fútbol Colombiano</a>
             </li>
             <li>
-                <a :href="paths.int">Fútbol Internacional</a>
+                <a :href="tournaments.int.path">Fútbol Internacional</a>
             </li>
         </ul>
         <ul v-if="type==='int'">
             <li>
-                <a :href="paths.col">Fútbol Colombiano</a>
+                <a :href="tournaments.col.path">Fútbol Colombiano</a>
             </li>
             <li>
                 <a @click="type='int'" class="is-active">Fútbol Internacional</a>
             </li>
         </ul>
         <div class="tw-items-center teams-list">
-            <div v-for="tournament in tournaments[type]" class="team-item">
+            <div v-for="tournament in tournaments[type].list" class="team-item">
                 <a :class="{'is-active':tournament.field_opta_id === competition}" :href="'/posiciones?id='+tournament.field_opta_id + '-'+tournament.field_opta_season">
                     <img :src="tournament.field_image_h" :alt="tournament.title">
                 </a>
@@ -38,16 +38,95 @@
                 <div @click="selectOption(option.key)" v-for="option in options" class="flex-1 text-center whitespace-no-wrap py-3 px-2 md:px-6 font-title font-semibold cursor-pointer table-option" :class="selected_option == option.key?'active':''">{{ option.label }}</div>
             </div>
             <div v-show="selected_option == 'positions'" id="positions">
-                <opta-widget widget="standings" sport="football" :competition="competition" :season="season" template="normal" live="true" default_nav="1" side="combined" data_detail="full" show_key="true"
-                             show_crests="true" points_in_first_column="true" lose_before_draw="true" competition_naming="full" team_naming="full" date_format="dddd D MMMM YYYY" sorting="false" show_live="true" show_relegation_average="false" show_logo="false" show_title="false"
-                             time_format="hh:mm A" breakpoints="400">
-                </opta-widget>
+                <div v-if="selected_playoffs === true" id="brackets" class="pb-16">
+                    <div class="flex flex-no-wrap overflow-x-auto w-full">
+                        <div  v-for="(rounds,index) in playoffs.A" class="flex-1">
+                            <div v-if="rounds.type == 'final'" class="flex text-base font-title uppercase justify-center pt-16">
+                                Campeón
+                            </div>
+                            <div v-if="rounds.type == 'final'" class="flex justify-center">
+                                <div class="flex table-option active p-8">
+                                    <img :src="'//secure.omo.akamai.opta.net/image.php?secure=true&h=secure.omo.akamai.opta.net&sport=football&entity=team&description=badges&dimensions=65&id='+ playoffs.C.id" :alt="playoffs.C.name" :title="playoffs.C.name">
+                                </div>
+                            </div>
+                            <div class="flex text-base font-title uppercase" :class="{'pb-3 justify-start': rounds.type === 'ronda_de_16', 'pt-24 pb-3 justify-start': rounds.type === 'cuartos_de_final', 'pt-64 pb-3 justify-start': rounds.type === 'semifinal', 'pt-10 pb-3 justify-center': rounds.type === 'final'}">
+                                {{rounds.name}}
+                            </div>
+                            <div  v-for="(match, key, index) in rounds.matches" class="flex" :class="{'pb-12': rounds.type === 'ronda_de_16' && index === 0,'pb-8 pt-12': rounds.type === 'ronda_de_16' && index === 1, 'pb-16 pt-12': rounds.type === 'ronda_de_16' && index === 2,'pb-12 pt-6': rounds.type === 'ronda_de_16' && index === 3, 
+                            'pb-32': rounds.type == 'cuartos_de_final' && index === 0, 'pt-32': rounds.type == 'cuartos_de_final' && index > 0}" :id="[rounds.type === 'ronda_de_16' ? 'r16l'+index : rounds.type === 'cuartos_de_final' && playoffs.r16 === true ? 'cfl'+index : rounds.type === 'cuartos_de_final' && playoffs.r16 === false ? 'r8l'+index : rounds.type === 'semifinal' ? 'sfl'+index  : '']">
+                                <div class="flex-1">
+                                    <div class="flex tw-pb-1" :class="rounds.type == 'final' ? 'justify-center' : 'justify-start'">
+                                        <div class="flex tw-bg-teal-900 tw-text-white tw-py-2 tw-px-3">
+                                            <img :src="'//secure.omo.akamai.opta.net/image.php?secure=true&h=secure.omo.akamai.opta.net&sport=football&entity=team&description=badges&dimensions=65&id='+ match.home_team_id" :alt="match.home_team_name" :title="match.home_team_name" class="tw-h-8">
+                                        </div>
+                                        <div class="flex tw-bg-primary tw-text-white tw-font-bold tw-py-2" :class="match.home_pen_score > 0 || match.away_pen_score > 0 ? 'tw-px-3' : 'tw-px-6'">
+                                             {{ match.home_score }} <small v-if="match.home_pen_score > 0 || match.away_pen_score > 0" class="p-1">({{ match.home_pen_score }})</small>
+                                        </div>
+                                        <div v-if="match.back" class="flex tw-bg-primary tw-text-white tw-font-bold tw-py-2" :class="match.back.home_pen_score > 0 || match.back.away_pen_score > 0 ? 'tw-px-3' : 'tw-px-6'">
+                                            {{ match.back.away_score }} <small v-if="match.back.home_pen_score > 0 || match.back.away_pen_score > 0" class="p-1">({{ match.back.away_pen_score }})</small>
+                                        </div>
+                                    </div>
+                                    <div class="flex" :class="rounds.type == 'final' ? 'justify-center' : 'justify-start'">
+                                        <div class="flex tw-bg-gray tw-text-white tw-py-2 tw-px-3">
+                                            <img :src="'//secure.omo.akamai.opta.net/image.php?secure=true&h=secure.omo.akamai.opta.net&sport=football&entity=team&description=badges&dimensions=65&id='+ match.away_team_id" :alt="match.away_team_name" :title="match.away_team_name" class="tw-h-8">
+                                        </div>
+                                        <div class="flex tw-bg-primary tw-text-white tw-font-bold tw-py-2" :class="match.home_pen_score > 0 || match.away_pen_score > 0 ? 'tw-px-3' : 'tw-px-6'">
+                                            {{ match.away_score }} <small v-if="match.home_pen_score > 0 || match.away_pen_score > 0" class="p-1">({{ match.away_pen_score }})</small>
+                                        </div>
+                                        <div v-if="match.back"  class="flex tw-bg-primary tw-text-white tw-font-bold tw-py-2" :class="match.back.home_pen_score > 0 || match.back.away_pen_score > 0 ? 'tw-px-3' : 'tw-px-6'">
+                                            {{ match.back.away_score }} <small v-if="match.back.home_pen_score > 0 || match.back.away_pen_score > 0" class="p-1">({{ match.back.away_pen_score }})</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div  v-for="(rounds,index) in playoffs.B" class="flex-1">
+                            <div class="flex text-base font-title uppercase" :class="{'pb-3 justify-end': rounds.type === 'ronda_de_16', 'pt-24 pb-3 justify-end': rounds.type === 'cuartos_de_final', 'pt-64 pb-3 justify-end': rounds.type === 'semifinal', 'pt-10 pb-3 justify-center': rounds.type === 'final'}">
+                                {{rounds.name}}
+                            </div>
+                            <div  v-for="(match, key, index) in rounds.matches" class="flex" :class="{'pb-12': rounds.type === 'ronda_de_16' && index === 0,'pb-8 pt-12': rounds.type === 'ronda_de_16' && index === 1, 'pb-16 pt-12': rounds.type === 'ronda_de_16' && index === 2,'pb-12 pt-6': rounds.type === 'ronda_de_16' && index === 3, 'pb-32': rounds.type == 'cuartos_de_final' && index === 0, 'pt-32': rounds.type == 'cuartos_de_final' && index > 0}" :id="[rounds.type === 'ronda_de_16' ? 'r16r'+index : rounds.type === 'cuartos_de_final' && playoffs.r16 === true ? 'cfr'+index : rounds.type === 'cuartos_de_final' && playoffs.r16 === false ? 'r8r'+index : rounds.type === 'semifinal' ? 'sfr'+index  : '']">
+                                <div class="flex-1">
+                                    <div class="flex tw-pb-1" :class="rounds.type == 'final' ? 'justify-center' : 'justify-end'">
+                                        <div v-if="match.back" class="flex tw-bg-primary tw-text-white tw-font-bold tw-py-2" :class="match.back.home_pen_score > 0 || match.back.away_pen_score > 0 ? 'tw-px-3' : 'tw-px-6'">
+                                            {{ match.back.away_score }} <small v-if="match.back.home_pen_score > 0 || match.back.away_pen_score > 0" class="p-1">({{ match.back.away_pen_score }})</small>
+                                        </div>
+                                        <div class="flex tw-bg-primary tw-text-white tw-font-bold tw-py-2" :class="match.home_pen_score > 0 || match.away_pen_score > 0 ? 'tw-px-3' : 'tw-px-6'">
+                                             {{ match.home_score }} <small v-if="match.home_pen_score > 0 || match.away_pen_score > 0" class="p-1">({{ match.home_pen_score }})</small>
+                                        </div>
+                                        <div class="flex tw-bg-teal-900 tw-text-white tw-py-2 tw-px-3">
+                                            <img :src="'//secure.omo.akamai.opta.net/image.php?secure=true&h=secure.omo.akamai.opta.net&sport=football&entity=team&description=badges&dimensions=65&id='+ match.home_team_id" :alt="match.home_team_name" :title="match.home_team_name" class="tw-h-8">
+                                        </div>
+                                    </div>
+                                    <div class="flex" :class="rounds.type == 'final' ? 'justify-center' : 'justify-end'">
+                                        <div v-if="match.back"  class="flex tw-bg-primary tw-text-white tw-font-bold tw-py-2" :class="match.back.home_pen_score > 0 || match.back.away_pen_score > 0 ? 'tw-px-3' : 'tw-px-6'">
+                                            {{ match.back.away_score }} <small v-if="match.back.home_pen_score > 0 || match.back.away_pen_score > 0" class="p-1">({{ match.back.away_pen_score }})</small>
+                                        </div>
+                                        <div class="flex tw-bg-primary tw-text-white tw-font-bold tw-py-2" :class="match.home_pen_score > 0 || match.away_pen_score > 0 ? 'tw-px-3' : 'tw-px-6'">
+                                            {{ match.away_score }} <small v-if="match.home_pen_score > 0 || match.away_pen_score > 0" class="p-1">({{ match.away_pen_score }})</small>
+                                        </div>
+                                        <div class="flex tw-bg-gray tw-text-white tw-py-2 tw-px-3">
+                                            <img :src="'//secure.omo.akamai.opta.net/image.php?secure=true&h=secure.omo.akamai.opta.net&sport=football&entity=team&description=badges&dimensions=65&id='+ match.away_team_id" :alt="match.away_team_name" :title="match.away_team_name" class="tw-h-8">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bk-16-8">
+                        <img src="/sites/default/files/playoffs/r16l.svg" id="ir16l" class="img-bk">
+                        <img src="/sites/default/files/playoffs/r8l.svg" id="ir8l" class="img-bk">
+                        <img src="/sites/default/files/playoffs/cfl.svg" id="icfl" class="img-bk">
+                        <img src="/sites/default/files/playoffs/sfl.svg" id="isfl" class="img-bk">
+                        <img src="/sites/default/files/playoffs/r16r.svg" id="ir16r" class="img-bk">
+                        <img src="/sites/default/files/playoffs/r8r.svg" id="ir8r" class="img-bk">
+                        <img src="/sites/default/files/playoffs/cfr.svg" id="icfr" class="img-bk">
+                        <img src="/sites/default/files/playoffs/sfr.svg" id="isfr" class="img-bk">
+                    </div>
+                </div>
+                <opta-widget widget="standings" sport="football" :competition="competition" :season="season" template="normal" live="true" default_nav="1" side="combined" data_detail="full" show_key="true" show_crests="true" points_in_first_column="true" lose_before_draw="true" competition_naming="full" team_naming="full" date_format="dddd D MMMM YYYY" sorting="false" show_live="true" show_relegation_average="false" show_logo="false" show_title="false" time_format="hh:mm A" breakpoints="400"></opta-widget>
             </div>
             <div v-show="selected_option == 'calendar'" id="calendar">
-                <opta-widget load="false" sport="football" widget="fixtures" :competition="competition" :season="season" template="normal" live="true" show_venue="false" match_status="fixture" grouping="date" show_grouping="true"
-                             default_nav="1" start_on_current="true" switch_current="0" sub_grouping="date" show_subgrouping="false" order_by="date_ascending" show_crests="true" date_format="dddd D MMMM YYYY" time_format="hh:mm A" competition_naming="full" team_naming="full"
-                             pre_match="false" show_live="true" show_logo="false" show_title="false" breakpoints="400">
-                </opta-widget>
+                <opta-widget load="false" sport="football" widget="fixtures" :competition="competition" :season="season" template="normal" live="true" show_venue="false" match_status="fixture" grouping="date" show_grouping="true" default_nav="1" start_on_current="true" switch_current="0" sub_grouping="date" show_subgrouping="false" order_by="date_ascending" show_crests="true" date_format="dddd D MMMM YYYY" time_format="hh:mm A" competition_naming="full" team_naming="full" pre_match="false" show_live="true" show_logo="false" show_title="false" breakpoints="400"></opta-widget>
             </div>
             <div v-show="selected_option == 'results'" id="results">
                 <opta-widget load="false" widget="fixtures" :competition="competition" :season="season" template="normal" live="true" show_venue="true" match_status="result,live" grouping="date" show_grouping="true" navigation="none" default_nav="1" start_on_current="true" sub_grouping="date" show_subgrouping="true" order_by="date_descending" show_crests="true" date_format="dddd D MMMM YYYY" time_format="hh:mm A" month_date_format="MMMM" competition_naming="full" team_naming="full" pre_match="false" show_live="true" show_logo="false" show_title="false" breakpoints="400" sport="football">

@@ -63,7 +63,7 @@ new Vue({
       this.loading = true
       axios.get('https://optafeeds-produccion.s3-us-west-2.amazonaws.com/schedules/' + this.competition + '/' + this.season + '/rounds/' + this.active_round + '.json').then(
         ({data}) => {
-          if(data.round) this.active_tournament = 'Liga BetPlay Dimayor 2020 - ' + this.roundName(data.round.number)
+          if(data.round) this.active_tournament = this.roundName(data.round.number)
           if (data.matches) {
             let matches = []
             let countft = 0
@@ -124,20 +124,27 @@ new Vue({
       )
     },
     roundName (number){
-      var phases = {
-        21:['Cuadrangulares - Fecha 1'],
-        22:['Cuadrangulares - Fecha 2'],
-        23:['Cuadrangulares - Fecha 3'],
-        24:['Cuadrangulares - Fecha 4'],
-        25:['Cuadrangulares - Fecha 5'],
-        26:['Cuadrangulares - Fecha 6'],
-        27:['Final - Ida'],
-        28:['Final - Vuelta']
+      var idCompetition =  [371,589], phases = {};
+      if (this.competition == 371 || this.competition == 589) {
+        phases = {
+          21:['Liguilla Betplay Dimayor - Fecha 1'],
+          22:['Liguilla Betplay Dimayor - Fecha 2'],
+          23:['Liguilla Betplay Dimayor - Fecha 3'],
+          24:['Liga BetPlay Dimayor 2020 - Fecha 24'],
+          25:['Liga BetPlay Dimayor 2020 - Fecha 25'],
+          26:['Liga BetPlay Dimayor 2020 - Fecha 26'],
+          27:['Liga BetPlay Dimayor 2020 - Cuartos de Final - Ida'],
+          28:['Liga BetPlay Dimayor 2020 - Cuartos de Final - Vuelta'],
+          29:['Liga BetPlay Dimayor 2020 - Semifinales - Ida'],
+          30:['Liga BetPlay Dimayor 2020 - Semifinales - Vuelta'],
+          31:['Liga BetPlay Dimayor 2020 - Final - Ida'],
+          32:['Liga BetPlay Dimayor 2020 - Final - Vuelta']
+        }
       }
-      if(phases[number]){
+      if( idCompetition.indexOf( this.competition ) >= 0 && phases[number] ){
         return phases[number][0]
       }else{
-        return 'Fecha '+number
+        return 'Liga BetPlay Dimayor 2020 - Fecha '+number
       }
     }
   }
