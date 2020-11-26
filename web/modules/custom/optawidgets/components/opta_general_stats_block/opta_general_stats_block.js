@@ -99,11 +99,11 @@ new Vue({
             this.loading--
             let t = {list: {}, path: ''}
             if (data.length > 0) {
-            data.forEach(function(i, ik){
-              i.field_opta_id = Number(i.field_opta_id)
-              i.field_opta_season = Number(i.field_opta_season)
-              i.field_active_playoffs = Number(i.field_active_playoffs)
-              Vue.set(t.list, i.field_opta_id+'-'+i.field_opta_season, i)
+              data.forEach(function(i, ik){
+                i.field_opta_id = Number(i.field_opta_id)
+                i.field_opta_season = Number(i.field_opta_season)
+                i.field_active_playoffs = Number(i.field_active_playoffs)
+                Vue.set(t.list, i.field_opta_id+'-'+i.field_opta_season, i)
                 if(ik === 0){
                   if(id === null || id === '') {
                     competition_id = i.field_opta_id
@@ -118,16 +118,20 @@ new Vue({
                   }
                 }
               });
+              if (data.filter(function(item){
+                return Number(item.field_opta_id) === competition_id && Number(item.field_opta_season) === season_id
+              }.bind(this)).length > 0) {
+                this.type = 'col'
+              }
               this.tournaments.col = t
             }
            
-            
-
             this.competition = competition_id
             this.season = season_id
             this.selected_playoffs = selected_playoffs
-            this.loadPlayoffs()
-
+            if(selected_playoffs === true){
+              this.loadPlayoffs()
+            }
           }
       ).catch(() => {this.loading--})
     },
