@@ -181,7 +181,7 @@ new Vue({
           ({data}) => {
             this.loading--
             let response_playoff = data
-              url = 'https://nuevo.winsports.co/sites/default/files/playoffs/playoffs-config.json'
+              url = 'https://www.winsports.co/sites/default/files/playoffs/playoffs-config.json'
               axios.get(url).then(
                   ({data}) => {
                     this.loading--
