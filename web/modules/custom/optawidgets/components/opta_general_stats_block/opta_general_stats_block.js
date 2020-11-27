@@ -113,9 +113,6 @@ new Vue({
                 }
                 if(i.field_opta_id === competition_id && i.field_opta_season === season_id && i.field_active_playoffs === 1){
                   selected_playoffs = true;
-                  if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-                     selected_playoffs = false;
-                  }
                 }
               });
               if (data.filter(function(item){
@@ -134,6 +131,11 @@ new Vue({
             }
           }
       ).catch(() => {this.loading--})
+      setInterval(function () {
+        if(selected_playoffs === true){
+            this.loadPlayoffs()
+        }
+      }.bind(this), 60* 1000);
     },
     loadNewWidgets(dom) {
       var opta_widget_tags = jQuery(dom).find('opta-widget[load="false"]');
@@ -172,7 +174,7 @@ new Vue({
     },
     loadPlayoffs(){
       let competition_id = this.competition, season_id = this.season
-      let url = 'https://optafeeds-produccion.s3-us-west-2.amazonaws.com/playoff/'+ competition_id +'/'+ this.season +'/all.json';
+      let url = 'https://optafeeds-produccion.s3-us-west-2.amazonaws.com/playoff/'+ competition_id +'/'+ season_id +'/all.json';
       this.loading++
 
       axios.get(url).then(
@@ -188,7 +190,7 @@ new Vue({
                     Object.keys(response_playoff).forEach(function(r, rk) {
                       if(r !== 'champion'){
                         let response_config = data
-                        config = response_config
+                        playoffs.config = response_config
                         let configA = response_config.competition[competition_id][season_id].A
                         let configB = response_config.competition[competition_id][season_id].B
                         let pos = 0
@@ -278,7 +280,6 @@ new Vue({
                     playoffs.B = playoffs.B.sort(function (a, b) { return b.order - a.order})
                     this.playoffs = playoffs
                     this.loading++
-                    this.brackets(playoffs.r16)
                   }
               ).catch((error) => {this.loading--})
 
@@ -307,71 +308,6 @@ new Vue({
         return '';
       }
       return decodeURIComponent(results[2].replace(/\+/g, ' '));
-    },
-    brackets(r16){
-      setTimeout(function() {
-        if(r16) {
-          var r16l = document.getElementById("r16l0");    
-          var element = document.getElementById("ir16l");
-          element.style.display = "block";
-          element.style.top = (r16l.offsetTop+20)+"px";
-          element.style.left = (r16l.offsetLeft+120)+"px";
-
-          var cfl = document.getElementById("cfl0");    
-          var element = document.getElementById("icfl");
-          element.style.display = "block";
-          element.style.top = (cfl.offsetTop+20)+"px";
-          element.style.left = (cfl.offsetLeft+120)+"px";
-
-          var sfl = document.getElementById("sfl0");    
-          var element = document.getElementById("isfl");
-          element.style.display = "block";
-          element.style.top = (sfl.offsetTop+20)+"px";
-          element.style.left = (sfl.offsetLeft+120)+"px";
-
-          var r16r = document.getElementById("r16r0");    
-          var element = document.getElementById("ir16r");
-          element.style.display = "block";
-          element.style.top = (r16r.offsetTop+20)+"px";
-          element.style.left = r16r.offsetLeft+"px";
-
-          var cfr = document.getElementById("cfr0");    
-          var element = document.getElementById("icfr");
-          element.style.display = "block";
-          element.style.top = (cfr.offsetTop+20)+"px";
-          element.style.left = cfr.offsetLeft+"px";
-
-          var sfr = document.getElementById("sfr0");    
-          var element = document.getElementById("isfr");
-          element.style.display = "block";
-          element.style.top = (sfr.offsetTop+20)+"px";
-          element.style.left = (sfr.offsetLeft-76)+"px";
-        }else {
-          var r8l = document.getElementById("r8l0");    
-          var element = document.getElementById("ir8l");
-          element.style.display = "block";
-          element.style.top = (r8l.offsetTop+14)+"px";
-          element.style.left = (r8l.offsetLeft+174)+"px";
-
-          var sfl = document.getElementById("sfl0");    
-          var element = document.getElementById("isfl");
-          element.style.display = "block";
-          element.style.top = (sfl.offsetTop+16)+"px";
-          element.style.left = (sfl.offsetLeft+150)+"px";
-
-          var r8r = document.getElementById("r8r0");    
-          var element = document.getElementById("ir8r");
-          element.style.display = "block";
-          element.style.top = (r8r.offsetTop+14)+"px";
-          element.style.left = (r8r.offsetLeft+6)+"px";
-
-          var sfr = document.getElementById("sfr0");    
-          var element = document.getElementById("isfr");
-          element.style.display = "block";
-          element.style.top = (sfr.offsetTop+16)+"px";
-          element.style.left = (sfr.offsetLeft-45)+"px";
-        }
-      }, 1000, this);
     }
   }
 });
