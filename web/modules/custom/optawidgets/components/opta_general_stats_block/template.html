@@ -74,7 +74,7 @@
                                                 {{ match.away_score }} <small v-if="match.home_pen_score > 0 || match.away_pen_score > 0" class="p-1">({{ match.away_pen_score }})</small>
                                             </div>
                                             <div v-if="match.back"  class="flex tw-bg-primary tw-text-white tw-font-bold tw-py-2" :class="match.back.home_pen_score > 0 || match.back.away_pen_score > 0 ? 'tw-px-3' : 'tw-px-6'">
-                                                {{ match.back.away_score }} <small v-if="match.back.home_pen_score > 0 || match.back.away_pen_score > 0" class="p-1">({{ match.back.away_pen_score }})</small>
+                                                {{ match.back.home_score }} <small v-if="match.back.home_pen_score > 0 || match.back.away_pen_score > 0" class="p-1">({{ match.back.home_pen_score }})</small>
                                             </div>
                                         </div>
                                     </div>
@@ -123,7 +123,7 @@
                                         </div>
                                         <div class="flex" :class="rounds.type === 'final' ? 'justify-center' : 'justify-end'">
                                             <div v-if="match.back"  class="flex tw-bg-primary tw-text-white tw-font-bold tw-py-2" :class="match.back.home_pen_score > 0 || match.back.away_pen_score > 0 ? 'tw-px-3' : 'tw-px-6'">
-                                                {{ match.back.away_score }} <small v-if="match.back.home_pen_score > 0 || match.back.away_pen_score > 0" class="p-1">({{ match.back.away_pen_score }})</small>
+                                                {{ match.back.home_score }} <small v-if="match.back.home_pen_score > 0 || match.back.away_pen_score > 0" class="p-1">({{ match.back.home_pen_score }})</small>
                                             </div>
                                             <div class="flex tw-bg-primary tw-text-white tw-font-bold tw-py-2" :class="match.home_pen_score > 0 || match.away_pen_score > 0 ? 'tw-px-3' : 'tw-px-6'">
                                                 {{ match.away_score }} <small v-if="match.home_pen_score > 0 || match.away_pen_score > 0" class="p-1">({{ match.away_pen_score }})</small>
