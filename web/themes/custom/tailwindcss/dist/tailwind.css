@@ -2889,9 +2889,15 @@ article.id-3 #schedules div.match-events {
 
 /*brackets*/
 
-.bk-16-8 .img-bk {
+#brackets .bk-16-8 .img-bk {
   display: none;
   position: absolute;
+}
+
+/*Temporal*/
+
+#block-contenidoprincipaldelapagina-3 div.quickedit-field {
+  display: none;
 }
 
 .user.compact .image {
