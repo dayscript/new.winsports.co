@@ -399,7 +399,7 @@ new Vue({
       }
     },
     roundName (number){
-      var idCompetition =  ['371','589','625','901','128'], rounds = {};
+      var idCompetition =  ['371','589','625','901', '847', '128'], rounds = {};
       if (this.competition == '371' || this.competition == '589') {
         rounds = {
           21:['Liguilla - Fecha 1'],
@@ -425,6 +425,15 @@ new Vue({
           24:['Cuadrangulares - Fecha 6'],
           25:['Final - Ida'],
           26:['Final - Vuelta']
+        }
+      }else if (this.competition == '847') {
+        rounds = {
+          11:['Cuartos de Final - Ida'],
+          12:['Cuartos de Final - Vuelta'],
+          13:['Semifinales - Ida'],
+          14:['Semifinales - Vuelta'],
+          15:['Final - Ida'],
+          16:['Final - Vuelta']
         }
       }else if (this.competition == '128') {
         rounds = {
