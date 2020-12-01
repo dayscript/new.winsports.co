@@ -35,6 +35,36 @@
                 });*/
             }
             $( document ).ready(function() {
+
+                /* Add Menu is-active class if get parameter*/
+
+                let location = window.location.pathname;
+                if (location.indexOf('liga-betplay-dimayor') >= 0){
+                    $(".liga-betplay-dimayor").addClass('is-active');
+                }else if(location.indexOf('torneo-betplay-dimayor') >= 0){
+                    $(".torneo-betplay-dimayor").addClass('is-active');
+                }else if(location.indexOf('copa-betplay-dimayor') >= 0){
+                    $(".copa-betplay-dimayor").addClass('is-active');
+                }else if(location.indexOf('liga-femenina') >= 0){
+                    $(".liga-femenina").addClass('is-active');
+                }else if(location.indexOf('copa-conmebol-libertadores') >= 0){
+                    $(".copa-conmebol-libertadores").addClass('is-active');
+                }else if(location.indexOf('copa-conmebol-sudamericana') >= 0){
+                    $(".copa-conmebol-sudamericana").addClass('is-active');
+                }else if(location.indexOf('laliga-espana') >= 0){
+                    $(".laliga-espana").addClass('is-active');
+                }else if(location.indexOf('premier-league') >= 0){
+                    $(".premier-league").addClass('is-active');
+                }else if(location.indexOf('serie') >= 0){
+                    $(".serie").addClass('is-active');
+                }else if(location.indexOf('uefa-champions-league') >= 0){
+                    $(".uefa-champions-league").addClass('is-active');
+                }else if(location.indexOf('uefa-europa-league') >= 0){
+                    $(".uefa-europa-league").addClass('is-active');
+                }else if(location.indexOf('superliga-de-turquia') >= 0){
+                    $(".superliga-de-turquia").addClass('is-active');
+                }
+
                 setTimeout(function(){ 
                     var headerHeight = $('#header-page').height();
                     if(headerHeight > 100) {
