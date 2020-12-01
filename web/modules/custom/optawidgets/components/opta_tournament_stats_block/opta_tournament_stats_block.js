@@ -246,7 +246,6 @@ new Vue({
       this.selected_phase_id = phase_id
     },
     selectOption (option_key) {
-      // console.log('le di click a una opcion',option_key);
       this.selected_option = option_key
 
       if(option_key == "positions"){
@@ -277,7 +276,6 @@ new Vue({
       window.location.href = url_location
     },
     getLocationtOption (option_key) {
-      console.log('le di click a una opcion',option_key);
       this.selected_option = option_key
 
       if (option_key === 'schedules') {
@@ -286,6 +284,8 @@ new Vue({
         this.loadPositions()
       }else if (option_key === 'decline') {
         this.loadDecline()
+      }else if(option_key === 'reclassification'){
+        this.loadReclassification();
       }else {
         this.loadNewWidgets('#'+option_key)
       }
