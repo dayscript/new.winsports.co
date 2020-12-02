@@ -1,0 +1,30 @@
+<div class="flex">
+    <div class="flex-1 text-center font-title table-option uppercase pb-3 px-2">
+        
+    </div>
+</div>
+<div class=" whitespace-no-wrap">
+    <div class="flex flex-no-wrap overflow-x-auto w-full" v-if="!loading && matches">
+        <div v-for="(match, index, key) in matches" :class="match.playing == 1 ? 'is-active' : ''" class="flex-1 text-center mr-8 lg:mr-0 tw-cursor-pointer">
+            <div v-if="match && match.home && match.away" class="flex justify-center"><!-- @click="goto('/matches/'+match.id)"-->
+                <img class="mr-2" :src="'//secure.omo.akamai.opta.net/image.php?secure=true&h=secure.omo.akamai.opta.net&sport=football&entity=team&description=badges&dimensions=20&id='+ match.home.id" :alt="match.home.name" :title="match.home.name">
+                <div class="font-bold" :class="match.period === 'FullTime' || match.period === 'Full Time' ? 'text-red-700' : match.period === 'Postponed' || match.period === 'TBC' || match.period === 'Abandoned' ? 'text-gray-500' : match.period === 'PreMatch' ?  'text-gray-500' : 'text-green-700'">
+                    <small v-if="(match.home.pen_score > 0 || match.away.pen_score > 0)">({{ match.home.pen_score }})</small>
+                    {{ match.home.score }} : {{ match.away.score }}
+                    <small v-if="(match.home.pen_score > 0 || match.away.pen_score > 0)">({{ match.away.pen_score }})</small>
+                </div>
+                <img class="ml-2" :src="'//secure.omo.akamai.opta.net/image.php?secure=true&h=secure.omo.akamai.opta.net&sport=football&entity=team&description=badges&dimensions=20&id='+ match.away.id" :alt="match.away.name" :title="match.away.name">
+            </div>
+            <div class="flex justify-center">
+                <small v-if="match.period == 'TBC' || match.period == 'Postponed'" class="pl-1 text-xs font-medium lead" >{{ match.date | formatDate | capitalize }} - Por definir</small>
+                <small v-else-if="match.period == 'FullTime' || match.period == 'Full Time'" class="pl-1 text-xs font-medium lead" >{{ match.date | formatDate | capitalize }} - Finalizado</small>
+                <small v-else class="pl-1 text-xs font-medium lead">{{ match.date | formatDate | capitalize }}, {{ match.date | formatHour }}</small>
+            </div>
+            <div class="flex justify-center">
+                    <div class="tw-flex pl-1 text-xs font-medium lead">
+                         {{match.tournament}}
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>

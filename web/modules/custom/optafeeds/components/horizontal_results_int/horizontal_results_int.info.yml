@@ -1,0 +1,16 @@
+name: Horizontal results Internationals
+machine_name: opta-feeds-horizontal-results-int
+type: pdb
+description: 'Display horizontal results internationals'
+package: Vue
+core: '8.x'
+module_status: active
+template: template.html
+presentation: vue
+add_js:
+  footer:
+    'horizontal_results_int.js': {}
+libraries:
+  - optafeeds/axios
+  - optafeeds/tailwindcss
+  - optafeeds/momentjs
