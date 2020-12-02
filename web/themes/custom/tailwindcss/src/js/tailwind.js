@@ -51,7 +51,7 @@
                     $(".copa-conmebol-libertadores").addClass('is-active');
                 }else if(location.indexOf('copa-conmebol-sudamericana') >= 0){
                     $(".copa-conmebol-sudamericana").addClass('is-active');
-                }else if(location.indexOf('laliga-espana') >= 0){
+                }else if(location.indexOf('laliga-espana') >= 0 || location.indexOf('laliga') >= 0){
                     $(".laliga-espana").addClass('is-active');
                 }else if(location.indexOf('premier-league') >= 0){
                     $(".premier-league").addClass('is-active');
@@ -63,6 +63,8 @@
                     $(".uefa-europa-league").addClass('is-active');
                 }else if(location.indexOf('superliga-de-turquia') >= 0){
                     $(".superliga-de-turquia").addClass('is-active');
+                }else if(location.indexOf('bundesliga') >= 0){
+                    $(".bundesliga").addClass('is-active');
                 }
 
                 setTimeout(function(){ 
