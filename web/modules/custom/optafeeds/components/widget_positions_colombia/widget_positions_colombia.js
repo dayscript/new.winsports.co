@@ -422,12 +422,12 @@ new Vue({
     },
     scrollLeftPhases(){
       setTimeout(function() {
-          var active = document.getElementsByClassName("phase-active","div",document.getElementById("block-positionstableswidgetcolombia"));
+          var active = document.getElementsByClassName("phase-active","div",document.getElementById("content-phases"));
           if(active.length == 1) {        
             var pos = active[0].offsetLeft-240;
             var element = document.getElementById("content-phases").scrollLeft = pos;
           }
-        }, 1000, this);
+        }, 1500, this);
     }
   }
 });

@@ -289,6 +289,7 @@ new Vue({
       }else {
         this.loadNewWidgets('#'+option_key)
       }
+      this.scrollLeftPhases()
     },
     setMatches(round_id){
       let url = 'https://optafeeds-produccion.s3-us-west-2.amazonaws.com/schedules/' + this.competition + '/' + this.season + '/rounds/'+round_id+'.json';
@@ -477,7 +478,7 @@ new Vue({
     },
     scrollLeftPhases(){
       setTimeout(function() {
-          var active = document.getElementsByClassName("phase-active","div",document.getElementById("block-contenidoprincipaldelapagina-3"));
+          var active = document.getElementsByClassName("phase-active","div",document.getElementById("content-phases"));
           if(active.length == 1) {        
             var pos = active[0].offsetLeft-240;
             var element = document.getElementById("content-phases").scrollLeft = pos;

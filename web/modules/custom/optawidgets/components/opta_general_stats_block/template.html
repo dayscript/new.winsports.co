@@ -138,7 +138,48 @@
                         </div>
                     </div>
                 </div>
-                <opta-widget widget="standings" sport="football" :competition="competition" :season="season" template="normal" live="true" default_nav="1" side="combined" data_detail="full" show_key="true" show_crests="true" points_in_first_column="true" lose_before_draw="true" competition_naming="full" team_naming="full" date_format="dddd D MMMM YYYY" sorting="false" show_live="true" show_relegation_average="false" show_logo="false" show_title="false" time_format="hh:mm A" breakpoints="400"></opta-widget>
+                <div v-if="validateCompetition(competition)">
+                    <div v-if="phases && Object.keys(phases).length" class="flex flex-no-wrap overflow-x-auto w-full" id="content-phases" style="background-color: #0ef8c3;">
+                        <div @click="selectPhase(phase.id)" v-for="phase in phases" class="whitespace-no-wrap cursor-pointer phase p-2" :class="[selected_phase_id == phase.id?'active':'', selected_phase_id == phase.id?'phase-active':'']">
+                            {{ phaseName(phase.type, phase.number) }}
+                        </div>
+                    </div>
+                    <div id="positions">
+                         <div v-for="(stage,si) in stages" v-if="stage.id === selected_phase_id && si<max_rows">
+                                <div v-for="(group, gi) in stage.teams" v-if="gi<max_rows">
+                                        <div  class="flex">
+                                            <div class="w-1/2 flex"></div>
+                                            <div class="w-1/2 flex text-center justify-between pb-1 border-b" style="border-color: rgba(10,59,65,0.2);">
+                                                <div class="flex-1">J</div>
+                                                <div class="flex-1">V</div>
+                                                <div class="flex-1">D</div>
+                                                <div class="flex-1">E</div>
+                                                <div class="flex-1"><strong>Pts</strong></div>
+                                                <div class="flex-1">GD</div>
+                                            </div>
+                                        </div>
+                                        <div v-for="(row,index) in group" v-if="index<max_rows"class="ml-1 flex border-b-1 p-1 justify-between text-sm">
+                                            <div class="w-1/2 flex items-center">
+                                                <div class="w-1/6 text-center px-2"><strong>{{ row.pos }}</strong></div>
+                                                <div class="w-5/6 truncate ml-1">{{ row.name }}</div>
+                                            </div>
+                                            <div class="w-1/2 flex text-center justify-between pb-1 border-b" style="border-color: rgba(10,59,65,0.2);">
+                                                <div class="flex-1">{{ row.pj }}</div>
+                                                <div class="flex-1">{{ row.pg }}</div>
+                                                <div class="flex-1">{{ row.pp }}</div>
+                                                <div class="flex-1">{{ row.pe }}</div>
+                                                <div class="flex-1"><strong>{{ row.pt }}</strong></div>
+                                                <div class="flex-1">{{ row.gd }}</div>
+                                            </div>
+                                        </div>
+                                        <br>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <div v-if="!validateCompetition(competition)">
+                    <opta-widget widget="standings" sport="football" :competition="competition" :season="season" template="normal" live="true" default_nav="1" side="combined" data_detail="full" show_key="true" show_crests="true" points_in_first_column="true" lose_before_draw="true" competition_naming="full" team_naming="full" date_format="dddd D MMMM YYYY" sorting="false" show_live="true" show_relegation_average="false" show_logo="false" show_title="false" time_format="hh:mm A" breakpoints="400"></opta-widget>
+                </div>
             </div>
             <div v-show="selected_option == 'calendar'" id="calendar">
                 <opta-widget load="false" sport="football" widget="fixtures" :competition="competition" :season="season" template="normal" live="true" show_venue="false" match_status="fixture" grouping="date" show_grouping="true" default_nav="1" start_on_current="true" switch_current="0" sub_grouping="date" show_subgrouping="false" order_by="date_ascending" show_crests="true" date_format="dddd D MMMM YYYY" time_format="hh:mm A" competition_naming="full" team_naming="full" pre_match="false" show_live="true" show_logo="false" show_title="false" breakpoints="400"></opta-widget>

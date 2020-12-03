@@ -5,17 +5,21 @@ new Vue({
     node: null,
     type: 'col',
     loading: 0,
+    max_rows: 30,
     tournaments: {
       col: {},
       int: [],
     },
     teams: [],
+    phases: [],
+    stages: [],
+    playoffs: {},
     competition: '0',
     season: '0',
     selected_option: 'positions',
     selected_phase_id: '',
-    playoffs: {},
-    selected_playoffs: false
+    selected_playoffs: false, 
+    competition_allowed: [371,589,625,901,664,847,747]
   },
   mounted() {
     this.loadTournaments()
@@ -129,11 +133,17 @@ new Vue({
             if(selected_playoffs === true){
               this.loadPlayoffs()
             }
+            if(this.selected_option === 'positions' && this.competition_allowed.indexOf( this.competition ) > -1){
+              this.loadPositions()
+            }
           }
       ).catch(() => {this.loading--})
       setInterval(function () {
         if(selected_playoffs === true){
             this.loadPlayoffs()
+        }
+        if(this.selected_option === 'positions' && this.competition_allowed.indexOf( this.competition ) > -1){
+          this.loadPositions()
         }
       }.bind(this), 60* 1000);
     },
@@ -172,6 +182,54 @@ new Vue({
           }
       ).catch((error) => {this.loading--})
     },
+    loadPositions () {
+      let url = 'https://optafeeds-produccion.s3-us-west-2.amazonaws.com/positions/' + this.competition + '/' + this.season + '/all.json';
+      let stages = []
+      this.loading = true
+
+      axios.get(url).then(({data}) => {
+        if(data.phases) this.setPhases(data)
+        Object.entries(data.phases).forEach(function(item) {
+            if(typeof item[1].groups !== 'undefined' && Object.keys(item[1].groups).length > 0){
+              let teams = []
+              Object.entries(item[1].groups).forEach(function(group, key) {
+                var teamsgroup = [];
+                Object.entries(group[1]).forEach(function(team, key) {
+                  teamsgroup.push(item[1].teams[team[1]])
+                });
+                teamsgroup.sort(function (a, b) { return a.pos - b.pos})
+                teams.push(teamsgroup)
+              });
+              stages.push({
+                  id: item[1].phase.id,
+                  name: item[1].phase.type,
+                  teams: teams
+              });
+            }else {
+              let teams = []
+              let group = []
+              let teamsgroup = Object.entries(item[1].teams)
+              if(teamsgroup.length > 0){
+                teamsgroup.forEach(function (team) {
+                  group.push(team[1])
+                })
+                group.sort(function (a, b) { return a.pos - b.pos})
+              }
+              teams.push(group);
+              stages.push({
+                  id: item[1].phase.id,
+                  name: item[1].phase.type,
+                  teams: teams
+              });
+           }
+        });
+        this.stages = stages
+        this.loading = false
+      }).catch((error) => {
+        console.log(error)
+        this.loading = false
+      })
+    },
     loadPlayoffs(){
       let competition_id = this.competition, season_id = this.season
       let url = 'https://optafeeds-produccion.s3-us-west-2.amazonaws.com/playoff/'+ competition_id +'/'+ season_id +'/all.json';
@@ -181,7 +239,7 @@ new Vue({
           ({data}) => {
             this.loading--
             let response_playoff = data
-              url = 'https://www.winsports.co/sites/default/files/playoffs/playoffs-config.json'
+              url = 'https://nuevo.winsports.co/sites/default/files/playoffs/playoffs-config.json'
               axios.get(url).then(
                   ({data}) => {
                     this.loading--
@@ -291,7 +349,82 @@ new Vue({
       if (option_key === 'decline' || option_key === 'reclassification') {
         this.loadTable(option_key)
       } else {
+        if(option_key === 'positions' && this.competition_allowed.indexOf( this.competition ) > -1){
+          this.loadPositions()
+        }
         this.loadNewWidgets('#'+option_key)
+      }
+      this.scrollLeftPhases()
+    },
+    selectPhase (phase_id) {
+      this.selected_phase_id = phase_id
+    },
+    setPhases(data) {
+      this.phases = {};
+      this.selected_phase_id = data.competition.active_phase_id
+      let index = 0
+      let phases = Object.entries(data.phases).sort(function (a, b) { return a[1].phase.number - b[1].phase.number}) 
+      Object.entries(phases).forEach((phase)=>{
+        Object.entries(phase[1]).forEach((item)=>{
+          if(typeof item[1].phase !== 'undefined') {
+            if(typeof item[1].teams !== 'undefined' && Object.keys(item[1].teams).length){
+              this.phases[index] = item[1].phase
+              if(Number(item[1].phase.id) !== Number(this.selected_phase_id) && Number(item[1].phase.active) === 1) {
+                this.selected_phase_id = Number(item[1].phase.id)
+              }
+            }
+          }
+        })
+        index++
+      })
+    },
+    phaseName (string, number){
+      string = (string === 'Round') ? 'Ronda' : string;
+      var idCompetition =  [371, 589, 625, 901], phases = {};
+      if (this.competition == 371 || this.competition == 589) {
+        phases = {
+          Ronda: {
+            1: ['Todos'],
+            2: ['Liguilla']
+          }
+        }
+      }else if (this.competition == 625 || this.competition == 901) {
+        phases = {
+          Ronda: {
+            1: ['Todos'],
+            2: ['Cuadrangulares']
+          }
+        }
+      }
+      if( idCompetition.indexOf( this.competition ) >= 0 && typeof phases.Ronda[number] !== 'undefined'){
+        return phases.Ronda[number][0]
+      }else{
+        switch(string){
+          case 'All':
+            return 'Todos contra Todos';
+            break;
+          case 'Semi-Finals':
+            return 'Semifinales';
+            break;
+          case 'Quarter-Finals':
+            return 'Cuartos de Final';
+            break;
+          case 'Round of 16':
+            return 'Octavos de final';
+            break;
+          case 'Ronda de 16':
+            return 'Octavos de final';
+            break;
+          case 'Ronda':
+            return 'Ronda '+number;
+            break;
+          case 'Round':
+            return 'Ronda '+number;
+            break;
+          default:
+            return string;
+            break;
+        }
       }
     },
     getParameterByName(name, url) {
@@ -308,6 +441,18 @@ new Vue({
         return '';
       }
       return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    },
+    validateCompetition(id){
+      return (this.competition_allowed.indexOf(id) > -1) ? true : false
+    },
+    scrollLeftPhases(){
+      setTimeout(function() {
+          var active = document.getElementsByClassName("phase-active","div",document.getElementById("content-phases"));
+          if(active.length == 1) {        
+            var pos = active[0].offsetLeft-240;
+            var element = document.getElementById("content-phases").scrollLeft = pos;
+          }
+        }, 1000, this);
     }
   }
 });
