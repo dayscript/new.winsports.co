@@ -25,7 +25,8 @@ new Vue({
     matches: [], 
     scroll: false,
     tlength: 0,
-    tcount: 0
+    tcount: 0, 
+    result: false
   },
   beforeMount () {
     const id = this.$el.id
@@ -39,9 +40,12 @@ new Vue({
     },
     load(){
       this.loadTournaments()
-      
+      if(this.loading){
+        this.scrollLeftMatches()
+      }
       setInterval(function () {
-        //vm.loadTournaments()
+        this.loadTournaments()
+        this.scrollLeftMatches()
       }.bind(this), 60* 1000);
     },
     loadTournaments () {
@@ -121,12 +125,13 @@ new Vue({
     scrollLeftMatches(){
       setTimeout(function() {
         var active = document.getElementsByClassName("match-active","div",document.getElementById("content-matches"));
-        if(active.length >= 1) {        
-          var pos = active[0].offsetLeft-150;
+        this.result = active.length
+        if(active.length > 0) {        
+          var pos = active[0].offsetLeft-300;
           var element = document.getElementById("content-matches").scrollLeft = pos;
-          this.scroll = true
         }
-      }, 1000, this);
+          this.scroll = true
+      }, 6000, this);
     }
   }
 });
