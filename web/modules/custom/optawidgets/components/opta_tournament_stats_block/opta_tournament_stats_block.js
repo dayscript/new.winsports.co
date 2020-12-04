@@ -483,7 +483,7 @@ new Vue({
             var pos = active[0].offsetLeft-240;
             var element = document.getElementById("content-phases").scrollLeft = pos;
           }
-        }, 1000, this);
+        }, 5000, this);
     }
   }
 });

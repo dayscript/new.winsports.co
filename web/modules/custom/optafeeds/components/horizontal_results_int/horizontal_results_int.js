@@ -22,11 +22,7 @@ new Vue({
   data: {
     loading: true,
     tournaments: {},
-    matches: [], 
-    scroll: false,
-    tlength: 0,
-    tcount: 0, 
-    result: false
+    matches: []
   },
   beforeMount () {
     const id = this.$el.id
@@ -56,13 +52,14 @@ new Vue({
       let countpm = 0
       let size = 0
       let tlength = 0
+      vm.loading = true
 
       axios.get('/api/torneos-posinternacional/json').then(({data}) => {
         if (data.length > 0) {
           tlength = data.length
-          vm.tlength = data.length
+
           data.forEach(function(i, ik){
-          vm.tcount = ik
+
             i.field_opta_id = Number(i.field_opta_id)
             i.field_opta_season = Number(i.field_opta_season)
             
@@ -96,7 +93,7 @@ new Vue({
                       match[1].tournament = tournament
                       match[1].tournament_url = tournament_url
                       if(match[1].period === 'FullTime' || match[1].period === 'Full Time') countft++
-                      if(match[1].period === 'PreMatch') countpm++
+                      if(match[1].period === 'PreMatch' || match[1].period === 'TBC' || match[1].period === 'Postponed') countpm++
                       if(match[1].period === 'FullTime' || match[1].period === 'Full Time' || match[1].period === 'Postponed' || match[1].period === 'TBC' || match[1].period === 'Abandoned' || match[1].period === 'PreMatch') {
                         match[1].playing = 0
                       }else {
@@ -125,13 +122,11 @@ new Vue({
     scrollLeftMatches(){
       setTimeout(function() {
         var active = document.getElementsByClassName("match-active","div",document.getElementById("content-matches"));
-        this.result = active.length
         if(active.length > 0) {        
-          var pos = active[0].offsetLeft-300;
+          var pos = active[0].offsetLeft-150;
           var element = document.getElementById("content-matches").scrollLeft = pos;
         }
-          this.scroll = true
-      }, 6000, this);
+      }, 5000, this);
     }
   }
 });
