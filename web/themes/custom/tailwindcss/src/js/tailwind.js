@@ -182,6 +182,14 @@
                     $('#block-customadsblock-10').addClass('tw-pb-8').insertAfter('#block-futbolred');
                     $('#block-customadsblock-6').insertAfter('#block-views-block-lo-ultimo-block-4');
                     $('#block-customadsblock-25').insertAfter('.opta-tournament-stats');
+
+                    /*Height YouTube Player Block Videos Home*/
+                    let obj = jQuery("[id*=youtube-player-] iframe");
+                    if(obj.length > 0){
+                        let pytw = jQuery("[id*=youtube-player-] iframe").width() * 9 / 16;
+                        jQuery("[id*=youtube-player-] iframe").attr("height", pytw);
+                    }
+
                 }else{
                     $('#block-positionstableswidget').find('.opta-feeds-widget-positions').find('.scrollbar-w-2').attr('style', 'max-height: 310px');
                 }
