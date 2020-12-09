@@ -1,6 +1,13 @@
 (function($, Drupal, drupalSettings) {
   Drupal.behaviors.msplayer = {
     attach: function (context, settings) {
+      let type = "media", mediastream_id = drupalSettings.mediastream_id
+      if(drupalSettings.mediastream_id.indexOf('-live') > -1){
+          const regex = /-live/gi;
+          type = "live"
+          mediastream_id = drupalSettings.mediastream_id.replace(regex, '');
+      }
+
       var width = $('#mediastream-player-' + drupalSettings.mediastream_id).width();
       $('#mediastream-player-' + drupalSettings.mediastream_id + ' .image .play-icon', context).once('play-'+drupalSettings.mediastream_id).click(function() {
         var $this = $(this);
@@ -11,8 +18,8 @@
           width: width,
           height: height,
           mse: true,
-          type: "media",
-          id: drupalSettings.mediastream_id,
+          type: type,
+          id: mediastream_id,
           autoplay: drupalSettings.autoplay === '1',
           mute: drupalSettings.mute||false,
           events: { // Callbacks to be triggered when certain actions are executed by the player. All optional.
