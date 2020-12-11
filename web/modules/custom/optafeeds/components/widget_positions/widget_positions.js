@@ -405,7 +405,7 @@ new Vue({
           21:['Liguilla - Fecha 1'],
           22:['Liguilla - Fecha 2'],
           23:['Liguilla - Fecha 3'],
-          24:['Fecha 24'],
+          24:['Liguilla - Semifinales'],
           25:['Fecha 25'],
           26:['Fecha 26'],
           27:['Cuartos de Final - Ida'],
