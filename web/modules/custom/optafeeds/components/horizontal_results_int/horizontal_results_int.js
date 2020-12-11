@@ -66,7 +66,7 @@ new Vue({
             Vue.set(t, i.field_opta_id+'-'+i.field_opta_season, i)
 
             let competition = Number(i.field_opta_id)
-            let season = 2020//Number(i.field_opta_season)
+            let season = Number(i.field_opta_season)
             let tournament = ''
             let tournament_url = i.view_node
             
