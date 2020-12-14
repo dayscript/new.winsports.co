@@ -40,3 +40,12 @@ function tailwindcss_theme_suggestions_page_alter(array &$suggestions, array $va
 		$suggestions[] = 'page__widget';
 	}*/
 }
+
+/**
+ * Implements template_preprocess_field().
+ */
+function tailwindcss_preprocess_field(&$variables, $hook) {
+    if ($variables['element']['#field_name'] == 'field_default_widget' || $variables['element']['#field_name'] == 'field_active_playoffs') {
+    	$variables['attributes']['class'][] = 'hidden';
+  }
+}
