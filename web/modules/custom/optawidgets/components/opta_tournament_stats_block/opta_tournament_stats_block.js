@@ -435,14 +435,14 @@ new Vue({
         }
       }else if (this.competition == '625' || this.competition == '901') {
         rounds = {
-          19:['Cuadrangulares - Fecha 1'],
-          20:['Cuadrangulares - Fecha 2'],
-          21:['Cuadrangulares - Fecha 3'],
-          22:['Cuadrangulares - Fecha 4'],
-          23:['Cuadrangulares - Fecha 5'],
-          24:['Cuadrangulares - Fecha 6'],
-          25:['Final - Ida'],
-          26:['Final - Vuelta']
+          18:['Cuadrangulares - Fecha 1'],
+          19:['Cuadrangulares - Fecha 2'],
+          20:['Cuadrangulares - Fecha 3'],
+          21:['Cuadrangulares - Fecha 4'],
+          22:['Cuadrangulares - Fecha 5'],
+          23:['Cuadrangulares - Fecha 6'],
+          24:['Final - Ida'],
+          25:['Final - Vuelta']
         }
       }else if (this.competition == '847') {
         rounds = {
