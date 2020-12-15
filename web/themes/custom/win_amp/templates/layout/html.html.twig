@@ -38,8 +38,12 @@
     <script async src="https://cdn.ampproject.org/v0.js"></script>
     <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
     <script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
+    <!-- AMP Analytics -->
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
   </head>
   <body{{ attributes }}>
+    <!-- Google Tag Manager -->
+  <amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-P3XT4WL&gtm.url=SOURCE_URL" data-credentials="include"></amp-analytics>
     {% if amp_skip_link %}
       {{ amp_skip_link }}
     {% endif %}
