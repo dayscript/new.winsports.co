@@ -49,7 +49,7 @@ class MediastreamFormatter extends FormatterBase {
     $view_mode = $this->getSetting('view_mode');
     $view_mode = $view_mode == 'home' ? 'video_player' : 'default';
     $autoplay = $this->getSetting('autoplay');
-    $image = $items->getParent()->getValue()->field_image->view($view_mode);
+    $image = $items->getParent()->getValue()->field_image_h->view($view_mode);
     $nodeid = $items->getParent()->getValue()->id();
     $elements = [];
     foreach ($items as $delta => $item) {
