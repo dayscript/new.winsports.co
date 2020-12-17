@@ -34,6 +34,7 @@
         "drupal/block_class": "^1.1",
         "drupal/blocktabs": "^1.0@beta",
         "drupal/cdn": "^3.5",
+        "drupal/config_delete": "^1.17",
         "drupal/console": "^1.0.2",
         "drupal/core": "^8.8.0",
         "drupal/core-composer-scaffold": "^8.8.0",
