@@ -71,7 +71,7 @@ new Vue({
 
 
       /* Selected option to show */
-      var url_location = window.location.pathname;
+      var url_location = '/posiciones/liga-betplay-dimayor-2020-i' /* window.location.pathname */;
       var url_segmented = url_location.split('/')
       let option_tab = url_segmented[1];
       this.competition_selected = url_segmented[2];
@@ -414,6 +414,8 @@ new Vue({
         this.url_parameter = '/posiciones'
       }else if(option_key == "schedules"){
         this.url_parameter = '/resultados'
+      }else if(option_key == "results"){
+        this.url_parameter = '/resultados'
       }else if(option_key == "calendar"){
         this.url_parameter = '/calendario'
       }else if(option_key == "decline"){
@@ -433,7 +435,6 @@ new Vue({
       }else if(option_key == "player_compare"){
         this.url_parameter = '/duelo'
       }
-
       var new_location = window.location.origin + this.url_parameter + '/' + this.competition_selected;
       window.location.href = new_location
     },
