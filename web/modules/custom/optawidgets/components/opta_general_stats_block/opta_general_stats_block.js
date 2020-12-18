@@ -71,7 +71,7 @@ new Vue({
 
 
       /* Selected option to show */
-      var url_location = /* '/posiciones/liga-betplay-dimayor-2020-i' */ window.location;
+      var url_location = /* '/posiciones/liga-betplay-dimayor-2020-i' */ window.location.pathname;
       var url_segmented = url_location.split('/')
       let option_tab = url_segmented[0];
       this.competition_selected = url_segmented[2];
