@@ -16,11 +16,19 @@ new Vue({
     playoffs: {},
     competition: '0',
     season: '0',
+    url_parameter: '',
+    competition_selected: '',
     selected_option: 'positions',
     selected_phase_id: '',
     selected_playoffs: false, 
     competition_allowed: [371,589,625,901,664,847,747]
   },
+
+  // beforeMount () {
+  //   this.node = drupalSettings.pdb.contexts['entity:node'];
+  //   this.competition = this.node['field_opta_id'][0]['value'];
+  //   this.season = this.node['field_opta_season'][0]['value'];
+  // },
   mounted() {
     this.loadTournaments()
   },
@@ -61,6 +69,38 @@ new Vue({
       let season_id = 0
       let selected_playoffs = false
 
+
+      /* Selected option to show */
+      var url_location = /* '/posiciones/liga-betplay-dimayor-2020-i' */ window.location;
+      var url_segmented = url_location.split('/')
+      let option_tab = url_segmented[0];
+      this.competition_selected = url_segmented[2];
+      if(option_tab !== null || option_tab !== ""){
+        if(option_tab.indexOf("/posiciones") >= 0){
+          this.selected_option = 'positions'
+        }else if(option_tab.indexOf("/resultados") >= 0){
+          this.selected_option = 'schedules'
+        }else if(option_tab.indexOf("/calendario") >= 0){
+          this.selected_option = 'calendar'
+        }else if(option_tab.indexOf("/descenso") >= 0){
+          this.selected_option = 'decline'
+        }else if(option_tab.indexOf("/reclasificacion") >= 0){
+          this.selected_option = 'reclassification'
+        }else if(option_tab.indexOf("/goleadores") >= 0){
+          this.selected_option = 'scorers'
+        }else if(option_tab.indexOf("/arbiros") >= 0){
+          this.selected_option = 'referees'
+        }else if(option_tab.indexOf("/curva") >= 0){
+          this.selected_option = 'season_standings'
+        }else if(option_tab.indexOf("/ranking_equipos") >= 0){
+          this.selected_option = 'team_ranking'
+        }else if(option_tab.indexOf("/ranking_jugadores") >= 0){
+          this.selected_option = 'player_ranking'
+        }else if(option_tab.indexOf("/duelo") >= 0){
+          this.selected_option = 'player_compare'
+        }
+      }
+
       if (id) {
         let data = id.split('-')
         competition_id = Number(data[0])
@@ -97,6 +137,7 @@ new Vue({
             this.season = season_id
           }
       ).catch(() => {this.loading--})
+      console.log(this.tournaments);
       this.loading++
       axios.get('/api/torneos-poscolombia/json').then(
           ({data}) => {
@@ -135,7 +176,12 @@ new Vue({
             }
             if(this.selected_option === 'positions' && this.competition_allowed.indexOf( this.competition ) > -1){
               this.loadPositions()
+            } else if (this.selected_option === 'decline' || this.selected_option === 'reclassification') {
+              this.loadTable(this.selected_option)
+            }else {
+              this.loadNewWidgets('#'+this.selected_option)
             }
+            console.log(this.competition);
           }
       ).catch(() => {this.loading--})
       setInterval(function () {
@@ -144,6 +190,10 @@ new Vue({
         }
         if(this.selected_option === 'positions' && this.competition_allowed.indexOf( this.competition ) > -1){
           this.loadPositions()
+        } else if (this.selected_option === 'decline' || this.selected_option === 'reclassification') {
+          this.loadTable(this.selected_option)
+        }else {
+          this.loadNewWidgets('#'+this.selected_option)
         }
       }.bind(this), 60* 1000);
     },
@@ -355,6 +405,37 @@ new Vue({
         this.loadNewWidgets('#'+option_key)
       }
       this.scrollLeftPhases()
+    },
+
+    selectOptionNew (option_key) {
+      this.selected_option = option_key
+
+      if(option_key == "positions"){
+        this.url_parameter = '/posiciones'
+      }else if(option_key == "schedules"){
+        this.url_parameter = '/resultados'
+      }else if(option_key == "calendar"){
+        this.url_parameter = '/calendario'
+      }else if(option_key == "decline"){
+        this.url_parameter = '/descenso'
+      }else if(option_key == "reclassification"){
+        this.url_parameter = '/reclasificacion'
+      }else if(option_key == "scorers"){
+        this.url_parameter = '/goleadores'
+      }else if(option_key == "referees"){
+        this.url_parameter = '/arbiros'
+      }else if(option_key == "season_standings"){
+        this.url_parameter = '/curva'
+      }else if(option_key == "team_ranking"){
+        this.url_parameter = '/ranking_equipos'
+      }else if(option_key == "player_ranking"){
+        this.url_parameter = '/ranking_jugadores'
+      }else if(option_key == "player_compare"){
+        this.url_parameter = '/duelo'
+      }
+
+      var new_location = window.location.origin + this.url_parameter + '/' + this.competition_selected;
+      window.location.href = new_location
     },
     selectPhase (phase_id) {
       this.selected_phase_id = phase_id
