@@ -26,8 +26,8 @@ new Vue({
 
   beforeMount () {
     this.node = drupalSettings.pdb.contexts['entity:node'];
-    this.competition = 371 /* this.node['field_torneo_opta_id'][0]['value'] */;
-    this.season = 2020 /* this.node['field_torneo_season_opta'][0]['value'] */;
+    this.competition = '371' /* this.node['field_torneo_opta_id'][0]['value'] */;
+    this.season = '2020' /* this.node['field_torneo_season_opta'][0]['value'] */;
   },
   mounted() {
     this.loadTournaments()
@@ -103,8 +103,8 @@ new Vue({
 
       // if (id) {
         // let data = id.split('-')
-        competition_id = this.competition;
-        season_id = this.season;
+        competition_id = 371;
+        season_id = 2020;
       // }
 
       this.loading++
