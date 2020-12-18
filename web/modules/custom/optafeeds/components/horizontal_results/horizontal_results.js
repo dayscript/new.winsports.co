@@ -130,7 +130,7 @@ new Vue({
           21:['Liguilla Betplay Dimayor - Fecha 1'],
           22:['Liguilla Betplay Dimayor - Fecha 2'],
           23:['Liguilla Betplay Dimayor - Fecha 3'],
-          24:['Liga BetPlay Dimayor 2020 - Fecha 24'],
+          24:['Liguilla Betplay Dimayor - Semifinales'],
           25:['Liga BetPlay Dimayor 2020 - Fecha 25'],
           26:['Liga BetPlay Dimayor 2020 - Fecha 26'],
           27:['Liga BetPlay Dimayor 2020 - Cuartos de Final - Ida'],
