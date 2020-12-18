@@ -71,9 +71,9 @@ new Vue({
 
 
       /* Selected option to show */
-      var url_location = /* '/posiciones/liga-betplay-dimayor-2020-i' */ window.location.pathname;
+      var url_location = window.location.pathname;
       var url_segmented = url_location.split('/')
-      let option_tab = url_segmented[0];
+      let option_tab = url_segmented[1];
       this.competition_selected = url_segmented[2];
       if(option_tab !== null || option_tab !== ""){
         if(option_tab.indexOf("/posiciones") >= 0){
@@ -394,7 +394,7 @@ new Vue({
           }
       ).catch((error) => {this.loading--})
     },
-    selectOption (option_key) {
+    selectOptionNew (option_key) {
       this.selected_option = option_key
       if (option_key === 'decline' || option_key === 'reclassification') {
         this.loadTable(option_key)
@@ -407,7 +407,7 @@ new Vue({
       this.scrollLeftPhases()
     },
 
-    selectOptionNew (option_key) {
+    selectOption (option_key) {
       this.selected_option = option_key
 
       if(option_key == "positions"){
