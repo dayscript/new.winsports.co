@@ -24,11 +24,11 @@ new Vue({
     competition_allowed: [371,589,625,901,664,847,747]
   },
 
-  // beforeMount () {
-  //   this.node = drupalSettings.pdb.contexts['entity:node'];
-  //   this.competition = this.node['field_opta_id'][0]['value'];
-  //   this.season = this.node['field_opta_season'][0]['value'];
-  // },
+  beforeMount () {
+    this.node = drupalSettings.pdb.contexts['entity:node'];
+    this.competition = this.node['field_opta_id'][0]['value'];
+    this.season = this.node['field_opta_season'][0]['value'];
+  },
   mounted() {
     this.loadTournaments()
   },
@@ -101,11 +101,11 @@ new Vue({
         }
       }
 
-      if (id) {
-        let data = id.split('-')
-        competition_id = Number(data[0])
-        season_id = Number(data[1])
-      }
+      // if (id) {
+        // let data = id.split('-')
+        competition_id = this.competition;
+        season_id = this.season;
+      // }
 
       this.loading++
       axios.get('/api/torneos-posinternacional/json').then(
