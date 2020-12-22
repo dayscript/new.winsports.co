@@ -467,7 +467,9 @@ new Vue({
         phases = {
           Ronda: {
             1: ['Todos'],
-            2: ['Liguilla']
+            2: ['Liguilla'],
+            3: ['Liguilla - Semifinal'],
+            4: ['Liguilla - Final']
           }
         }
       }else if (this.competition == 625 || this.competition == 901) {

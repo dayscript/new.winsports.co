@@ -19,3 +19,10 @@ amazon.widget.winsportsonline:
     _title: 'Winsports widget Win sports online'
   requirements:
     _permission: 'access content'
+amazon.widget.widgetwinsportsnews:
+  path: '/amazon-widget-winsportsnews'
+  defaults:
+    _controller: '\Drupal\services_amazon_s3\Controller\ServicesAmazonS3::widgetWinsportsNews'
+    _title: 'Widget Winsports news'
+  requirements:
+    _permission: 'access content'

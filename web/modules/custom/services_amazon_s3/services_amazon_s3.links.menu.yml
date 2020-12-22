@@ -16,3 +16,9 @@ services_amazon_s3.winsportsonline:
   parent: system.admin_config_services
   route_name: amazon.widget.winsportsonline
   weight: 100
+services_amazon_s3.widgetwinsportsnews:
+  title: 'Widget Winsports news'
+  description: 'Actualiza widget para Winsports news'
+  parent: system.admin_config_services
+  route_name: amazon.widget.widgetwinsportsnews
+  weight: 100
