@@ -15,7 +15,6 @@ class ServicesAmazonS3 {
   public function __construct() {}
 
   public function dimayor() {
-
   	$domain = 'https://www.winsports.co/';
   	$tournaments = [
   		'371-2020' => '/api/partidos-torneo/json?torneo=3',
@@ -24,23 +23,23 @@ class ServicesAmazonS3 {
   		'847-2020' => '/api/partidos-torneo/json?torneo=14842',
   	];
 
-	$client = new S3Client([
-	    'region' => 'us-west-2',
-	    'version' => '2006-03-01',
-	    'credentials' => [
-	        'key' => Settings::get('amazons3.key'),
-	        'secret' => Settings::get('amazons3.secret')
-	    ],
-	]);
+  	$client = new S3Client([
+  	    'region' => 'us-west-2',
+  	    'version' => '2006-03-01',
+  	    'credentials' => [
+  	        'key' => Settings::get('amazons3.key'),
+  	        'secret' => Settings::get('amazons3.secret')
+  	    ],
+  	]);
 
-	foreach ($tournaments as $key => $url) {
-		$contents = file_get_contents($domain . $url);
-		$client->putObject([
-		    'Bucket' => 'news-winsports',
-		    'Key' => $key.'.json',
-		    'Body' => $contents
-		]);
-	}
+  	foreach ($tournaments as $key => $url) {
+  		$contents = file_get_contents($domain . $url);
+  		$client->putObject([
+  		    'Bucket' => 'news-winsports',
+  		    'Key' => $key.'.json',
+  		    'Body' => $contents
+  		]);
+  	}
 
     return [
       '#type'   => 'markup',
@@ -49,23 +48,22 @@ class ServicesAmazonS3 {
   }
 
   public function futbolred() {
-
   	$contents = file_get_contents('https://www.winsports.co/api/widget-ms/json');
 
-	$client = new S3Client([
-	    'region' => 'us-west-2',
-	    'version' => '2006-03-01',
-	    'credentials' => [
-	        'key' => Settings::get('amazons3.key'),
-	        'secret' => Settings::get('amazons3.secret')
-	    ],
-	]);
+  	$client = new S3Client([
+  	    'region' => 'us-west-2',
+  	    'version' => '2006-03-01',
+  	    'credentials' => [
+  	        'key' => Settings::get('amazons3.key'),
+  	        'secret' => Settings::get('amazons3.secret')
+  	    ],
+  	]);
 
-	$client->putObject([
-	    'Bucket' => 'widget-futbolred',
-	    'Key' => 'videos.json',
-	    'Body' => $contents
-	]);
+  	$client->putObject([
+  	    'Bucket' => 'widget-futbolred',
+  	    'Key' => 'videos.json',
+  	    'Body' => $contents
+  	]);
 
     return [
       '#type'   => 'markup',
@@ -102,23 +100,47 @@ class ServicesAmazonS3 {
   		'5178' => '/api/noticias-winsports-online/json?team=5178',
   	];
 
-	$client = new S3Client([
-	    'region' => 'us-west-2',
-	    'version' => '2006-03-01',
-	    'credentials' => [
-	        'key' => Settings::get('amazons3.key'),
-	        'secret' => Settings::get('amazons3.secret')
-	    ],
-	]);
+  	$client = new S3Client([
+  	    'region' => 'us-west-2',
+  	    'version' => '2006-03-01',
+  	    'credentials' => [
+  	        'key' => Settings::get('amazons3.key'),
+  	        'secret' => Settings::get('amazons3.secret')
+  	    ],
+  	]);
 
-	foreach ($teams as $key => $url) {
-		$contents = file_get_contents($domain . $url);
-		$client->putObject([
-		    'Bucket' => 'news-winsports',
-		    'Key' => $key.'.json',
-		    'Body' => $contents
-		]);
-	}
+  	foreach ($teams as $key => $url) {
+  		$contents = file_get_contents($domain . $url);
+  		$client->putObject([
+  		    'Bucket' => 'news-winsports',
+  		    'Key' => $key.'.json',
+  		    'Body' => $contents
+  		]);
+  	}
+
+    return [
+      '#type'   => 'markup',
+      '#markup' => t('Widget actualizado.'),
+    ];
+  }
+
+  public function widgetWinsportsNews() {
+    $contents = file_get_contents('https://www.winsports.co/api/widget-winsports-news/json');
+
+    $client = new S3Client([
+        'region' => 'us-east-1',
+        'version' => '2006-03-01',
+        'credentials' => [
+            'key' => Settings::get('amazons3.key'),
+            'secret' => Settings::get('amazons3.secret')
+        ],
+    ]);
+
+    $client->putObject([
+        'Bucket' => 'widget-winsports-news',
+        'Key' => 'news.json',
+        'Body' => $contents
+    ]);
 
     return [
       '#type'   => 'markup',
