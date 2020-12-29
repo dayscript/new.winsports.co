@@ -62,7 +62,7 @@ class WidgetProgrammingManager implements WidgetProgrammingManagerInterface {
           $current_year = (int) date('Y') + 1;
         }
         //if($current_month == ( date('n')+1 )){
-          for ($i=$current_day; $i <= cal_days_in_month(CAL_GREGORIAN, $current_month, $current_year) ; $i++) { 
+          for ($i = $current_day; $i <= cal_days_in_month(CAL_GREGORIAN, $current_month, $current_year); $i++) { 
             if($pos < $view){
               $dates[$current_year][] = [
                 'day' => $i, 
