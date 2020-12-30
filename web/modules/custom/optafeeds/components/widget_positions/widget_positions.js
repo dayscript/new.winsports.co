@@ -358,7 +358,8 @@ new Vue({
             1: ['Todos'],
             2: ['Liguilla'],
             3: ['Liguilla - Semifinal'],
-            4: ['Liguilla - Final']
+            4: ['Liguilla - Final'],
+            5: ['Liguilla - Repechaje']
           }
         }
       }else if (this.competition == '625' || this.competition == '901') {
