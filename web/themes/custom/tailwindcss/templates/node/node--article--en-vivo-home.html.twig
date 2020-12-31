@@ -1,0 +1,16 @@
+<div class="article home-destacado md:flex md:mb-8" {{ attributes.addClass(classes) }}>
+    <div class="image md:tw-w-8/12">
+        {% if node.hasField('field_image') %}
+            {{ content.field_image }}
+        {% endif %}
+    </div>
+    <div class="md:ml-4 md:tw-w-4/12">
+        {% if node.hasField('field_category') %}
+            <div class="torneo category">{{ content.field_category }}</div>
+        {% endif %}
+        <div class="title-article md:max-w-xl"><a href="{{ url }}">{{ label }}</a></div>
+        <div class="lead md:tw-my-4">{{ content.field_lead }}</div>
+        <div class="published_date">{{ node.getCreatedTime() | format_date('complete_date') }}</div>
+    </div>
+    
+</div>
