@@ -22,7 +22,7 @@ new Vue({
   data: {
     loading: true,
     competition: 371,
-    season: 2020,
+    season: 2021,
     active_round: '',
     active_tournament: '',
     matches: [],
