@@ -8,7 +8,7 @@ new Vue({
     max_rows: 30,
     tournaments: {
       col: {},
-      int: [],
+      int: {},
     },
     teams: [],
     phases: [],
@@ -20,7 +20,7 @@ new Vue({
     competition_selected: '',
     selected_option: 'positions',
     selected_phase_id: '',
-    selected_playoffs: false, 
+    selected_playoffs: {}, 
     competition_allowed: [371,589,625,901,664,847,747],
     path: ''
   },
@@ -69,7 +69,7 @@ new Vue({
       let id = this.getParameterByName('id')
       let competition_id = 0
       let season_id = 0
-      let selected_playoffs = false
+      let selected_playoffs = {}
 
       /*if (id) {
         let data = id.split('-')
@@ -154,9 +154,9 @@ new Vue({
                     t.path = i.view_node
                   }
                   if(i.field_opta_id === competition_id && i.field_opta_season === season_id && i.field_active_playoffs === 1){
-                    selected_playoffs = true;
+                    Vue.set(selected_playoffs, i.field_opta_id, true);
                   }else {
-                    selected_playoffs = false;
+                    Vue.set(selected_playoffs, i.field_opta_id, false)
                   }
                 });
                 if (data.filter(function(item){
@@ -168,7 +168,7 @@ new Vue({
               }
 
               this.selected_playoffs = selected_playoffs
-              if(selected_playoffs === true){
+              if(selected_playoffs[this.competition] === true){
                 this.loadPlayoffs()
               }
               if(this.selected_option === 'positions' && this.competition_allowed.indexOf( this.competition ) > -1){
@@ -184,7 +184,7 @@ new Vue({
       ).catch(() => {this.loading--})
 
       setInterval(function () {
-        if(selected_playoffs === true){
+        if(selected_playoffs[this.competition] === true){
             this.loadPlayoffs()
         }
         if(this.selected_option === 'positions' && this.competition_allowed.indexOf( this.competition ) > -1){

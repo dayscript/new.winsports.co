@@ -38,7 +38,7 @@
                 <div @click="selectOption(option.key)" v-for="option in options" class="flex-1 text-center whitespace-no-wrap py-3 px-2 md:px-6 font-title font-semibold cursor-pointer table-option" :class="selected_option == option.key?'active':''">{{ option.label }}</div>
             </div>
             <div v-show="selected_option == 'positions'" id="positions">
-                <div v-if="selected_playoffs" id="brackets">
+                <div v-if="selected_playoffs[competition]" id="brackets">
                     <div class="flex flex-no-wrap overflow-x-auto w-full pb-16">
                         <div  v-for="(rounds, index) in playoffs.A" class="flex">
                             <div class="flex-1" :class="rounds.type === 'cuartos_de_final' && playoffs.r16 === false ? 'tw-p-3' : ''">
