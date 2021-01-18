@@ -155,6 +155,8 @@ new Vue({
                   }
                   if(i.field_opta_id === competition_id && i.field_opta_season === season_id && i.field_active_playoffs === 1){
                     selected_playoffs = true;
+                  }else {
+                    selected_playoffs = false;
                   }
                 });
                 if (data.filter(function(item){
