@@ -97,13 +97,13 @@ new Vue({
           this.selected_option = 'scorers'
         }else if(url_location.indexOf("/arbiros/") >= 0){
           this.selected_option = 'referees'
-        }else if(url_location.indexOf("/curva/") >= 0){
+        }else if(url_location.indexOf("/curva-de-rendimiento/") >= 0){
           this.selected_option = 'season_standings'
-        }else if(url_location.indexOf("/ranking_equipos/") >= 0){
+        }else if(url_location.indexOf("/ranking-de-equipos/") >= 0){
           this.selected_option = 'team_ranking'
-        }else if(url_location.indexOf("/ranking_jugadores/") >= 0){
+        }else if(url_location.indexOf("/ranking-de-jugadores/") >= 0){
           this.selected_option = 'player_ranking'
-        }else if(url_location.indexOf("/duelo/") >= 0){
+        }else if(url_location.indexOf("/duelos/") >= 0){
           this.selected_option = 'player_compare'
         }
       }
@@ -424,13 +424,13 @@ new Vue({
       }else if(option_key == "referees"){
         this.url_parameter = '/arbiros'
       }else if(option_key == "season_standings"){
-        this.url_parameter = '/curva'
+        this.url_parameter = '/curva-de-rendimiento'
       }else if(option_key == "team_ranking"){
-        this.url_parameter = '/ranking_equipos'
+        this.url_parameter = '/ranking-de-equipos'
       }else if(option_key == "player_ranking"){
-        this.url_parameter = '/ranking_jugadores'
+        this.url_parameter = '/ranking-de-jugadores'
       }else if(option_key == "player_compare"){
-        this.url_parameter = '/duelo'
+        this.url_parameter = '/duelos'
       }
       var new_location = window.location.origin + this.url_parameter + '/' + this.competition_selected;
       window.location.href = new_location
