@@ -14,20 +14,22 @@ new Vue({
     phases: [],
     stages: [],
     playoffs: {},
-    competition: '0',
-    season: '0',
+    competition: 0,
+    season: 0,
     url_parameter: '',
     competition_selected: '',
     selected_option: 'positions',
     selected_phase_id: '',
     selected_playoffs: false, 
-    competition_allowed: [371,589,625,901,664,847,747]
+    competition_allowed: [371,589,625,901,664,847,747],
+    path: ''
   },
 
   beforeMount () {
     this.node = drupalSettings.pdb.contexts['entity:node'];
-    this.competition = '371' /* this.node['field_torneo_opta_id'][0]['value'] */;
-    this.season = '2021' /* this.node['field_torneo_season_opta'][0]['value'] */;
+    this.competition = Number(this.node['field_opta_id'][0]['value']);
+    this.season = Number(this.node['field_opta_season'][0]['value']);
+    this.path = this.node['path'][0]['alias'];
   },
   mounted() {
     this.loadTournaments()
@@ -38,26 +40,26 @@ new Vue({
       items.push({key: 'positions', label: 'Posiciones'})
       items.push({key: 'results', label: 'Resultados'})
       items.push({key: 'calendar', label: 'Calendario'})
-      if (this.competition === '371') items.push({key: 'decline', label: 'Descenso'})
-      if (this.competition === '625' || this.competition === '371') items.push({key: 'reclassification', label: 'Reclasificación'})
-      if (this.competition === '371') items.push({key: 'scorers', label: 'Goleadores'})
-      if (this.competition === '371') items.push({key: 'referees', label: 'Árbitros'})
-      if (this.competition !== '625'  // torneo
-          && this.competition !== '664'  // copa
-          && this.competition !== '847' // femenino
-          && this.competition !== '115' // Turca 
-          && this.competition !== '369' // sudamericana 
+      if (this.competition === 371) items.push({key: 'decline', label: 'Descenso'})
+      if (this.competition === 625 || this.competition === 371) items.push({key: 'reclassification', label: 'Reclasificación'})
+      if (this.competition === 371) items.push({key: 'scorers', label: 'Goleadores'})
+      if (this.competition === 371) items.push({key: 'referees', label: 'Árbitros'})
+      if (this.competition !== 625  // torneo
+          && this.competition !== 664  // copa
+          && this.competition !== 847 // femenino
+          && this.competition !== 115 // Turca 
+          && this.competition !== 369 // sudamericana 
       )
         items.push({key: 'season_standings', label: 'Curva de rendimiento'})
-      if (this.competition !== '625'  // torneo
-          && this.competition !== '664'  // copa
-          && this.competition !== '847' // femenino
-          && this.competition !== '369' // sudamericana 
+      if (this.competition !== 625  // torneo
+          && this.competition !== 664  // copa
+          && this.competition !== 847 // femenino
+          && this.competition !== 369 // sudamericana 
       ) {
         items.push({key: 'team_ranking', label: 'Ranking de equipos'})
         items.push({key: 'player_ranking', label: 'Ranking de jugadores'})
       }
-      if (this.competition === '371') items.push({key: 'player_compare', label: 'Duelo'})
+      if (this.competition === 371) items.push({key: 'player_compare', label: 'Duelo'})
 
       return items
     }
@@ -69,120 +71,116 @@ new Vue({
       let season_id = 0
       let selected_playoffs = false
 
-      if (id) {
+      /*if (id) {
         let data = id.split('-')
         competition_id = Number(data[0])
         season_id = Number(data[1])
-      }
+      }*/
 
       /* Selected option to show */
-      var url_location = '/posiciones/liga-betplay-dimayor-2021-i' /* window.location.pathname */;
+      var url_location = this.path;
       var url_segmented = url_location.split('/')
-      let option_tab = url_segmented[1];
+      //let option_tab = url_segmented[1];
       this.competition_selected = url_segmented[2];
-      if(option_tab !== null || option_tab !== ""){
-        if(option_tab.indexOf("/posiciones") >= 0){
+      if(url_location !== null || url_location !== ""){
+        if(url_location.indexOf("/posiciones/") >= 0){
           this.selected_option = 'positions'
-        }else if(option_tab.indexOf("/resultados") >= 0){
-          this.selected_option = 'schedules'
-        }else if(option_tab.indexOf("/calendario") >= 0){
+        }else if(url_location.indexOf("/resultados/") >= 0){
+          this.selected_option = 'results'
+        }else if(url_location.indexOf("/calendario/") >= 0){
           this.selected_option = 'calendar'
-        }else if(option_tab.indexOf("/descenso") >= 0){
+        }else if(url_location.indexOf("/descenso/") >= 0){
           this.selected_option = 'decline'
-        }else if(option_tab.indexOf("/reclasificacion") >= 0){
+        }else if(url_location.indexOf("/reclasificacion/") >= 0){
           this.selected_option = 'reclassification'
-        }else if(option_tab.indexOf("/goleadores") >= 0){
+        }else if(url_location.indexOf("/goleadores/") >= 0){
           this.selected_option = 'scorers'
-        }else if(option_tab.indexOf("/arbiros") >= 0){
+        }else if(url_location.indexOf("/arbiros/") >= 0){
           this.selected_option = 'referees'
-        }else if(option_tab.indexOf("/curva") >= 0){
+        }else if(url_location.indexOf("/curva/") >= 0){
           this.selected_option = 'season_standings'
-        }else if(option_tab.indexOf("/ranking_equipos") >= 0){
+        }else if(url_location.indexOf("/ranking_equipos/") >= 0){
           this.selected_option = 'team_ranking'
-        }else if(option_tab.indexOf("/ranking_jugadores") >= 0){
+        }else if(url_location.indexOf("/ranking_jugadores/") >= 0){
           this.selected_option = 'player_ranking'
-        }else if(option_tab.indexOf("/duelo") >= 0){
+        }else if(url_location.indexOf("/duelo/") >= 0){
           this.selected_option = 'player_compare'
         }
       }
 
       this.loading++
       axios.get('/api/torneos-posinternacional/json').then(
-          ({data}) => {
-            this.loading--
-            let t = {list: {}, path: ''}
-            if (data.length > 0) {
-              data.forEach(function(i, ik){
-                i.field_opta_id = Number(i.field_opta_id)
-                i.field_opta_season = Number(i.field_opta_season)
-                i.field_active_playoffs = Number(i.field_active_playoffs)
-                Vue.set(t.list, i.field_opta_id+'-'+i.field_opta_season, i)
-                if(ik === 0){
-                  if(id === null || id === '') {
-                    competition_id = i.field_opta_id
-                    season_id = i.field_opta_season
-                  }
-                  t.path = '/posiciones?id='+i.field_opta_id + '-'+ i.field_opta_season
+        ({data}) => {
+          this.loading--
+          let t = {list: {}, path: ''}
+          if (data.length > 0) {
+            data.forEach(function(i, ik){
+              i.field_opta_id = Number(i.field_opta_id)
+              i.field_opta_season = Number(i.field_opta_season)
+              i.field_active_playoffs = Number(i.field_active_playoffs)
+              i.view_node = i.view_node.replace(/estadisticas\//i, '')
+              Vue.set(t.list, i.field_opta_id+'-'+i.field_opta_season, i)
+              if(ik === 0){
+                if(id === null || id === '') {
+                  competition_id = i.field_opta_id
+                  season_id = i.field_opta_season
                 }
-              });
-              if (data.filter(function(item){
-                return Number(item.field_opta_id) === competition_id && Number(item.field_opta_season) === season_id
-              }.bind(this)).length > 0) {
-                this.type = 'int'
+                t.path = i.view_node
               }
-              this.tournaments.int = t
+            });
+            if (data.filter(function(item){
+              return Number(item.field_opta_id) === competition_id && Number(item.field_opta_season) === season_id
+            }.bind(this)).length > 0) {
+              this.type = 'int'
             }
-            this.competition = competition_id
-            this.season = season_id
+            this.tournaments.int = t
           }
-      ).catch(() => {this.loading--})
-      console.log(this.tournaments);
-      this.loading++
-      axios.get('/api/torneos-poscolombia/json').then(
-          ({data}) => {
-            this.loading--
-            let t = {list: {}, path: ''}
-            if (data.length > 0) {
-              data.forEach(function(i, ik){
-                i.field_opta_id = Number(i.field_opta_id)
-                i.field_opta_season = Number(i.field_opta_season)
-                i.field_active_playoffs = Number(i.field_active_playoffs)
-                Vue.set(t.list, i.field_opta_id+'-'+i.field_opta_season, i)
-                if(ik === 0){
-                  if(id === null || id === '') {
-                    competition_id = i.field_opta_id
-                    season_id = i.field_opta_season
+          axios.get('/api/torneos-poscolombia/json').then(
+            ({data}) => {
+              this.loading--
+              let t = {list: {}, path: ''}
+              if (data.length > 0) {
+                data.forEach(function(i, ik){
+                  i.field_opta_id = Number(i.field_opta_id)
+                  i.field_opta_season = Number(i.field_opta_season)
+                  i.field_active_playoffs = Number(i.field_active_playoffs)
+                  i.view_node = i.view_node.replace(/estadisticas\//i, '')
+                  Vue.set(t.list, i.field_opta_id+'-'+i.field_opta_season, i)
+                  if(ik === 0){
+                    if(id === null || id === '') {
+                      competition_id = i.field_opta_id
+                      season_id = i.field_opta_season
+                    }
+                    t.path = i.view_node
                   }
-                  t.path = '/posiciones?id='+i.field_opta_id + '-'+ i.field_opta_season
+                  if(i.field_opta_id === competition_id && i.field_opta_season === season_id && i.field_active_playoffs === 1){
+                    selected_playoffs = true;
+                  }
+                });
+                if (data.filter(function(item){
+                  return Number(item.field_opta_id) === competition_id && Number(item.field_opta_season) === season_id
+                }.bind(this)).length > 0) {
+                  this.type = 'col'
                 }
-                if(i.field_opta_id === competition_id && i.field_opta_season === season_id && i.field_active_playoffs === 1){
-                  selected_playoffs = true;
-                }
-              });
-              if (data.filter(function(item){
-                return Number(item.field_opta_id) === competition_id && Number(item.field_opta_season) === season_id
-              }.bind(this)).length > 0) {
-                this.type = 'col'
+                this.tournaments.col = t
               }
-              this.tournaments.col = t
+
+              this.selected_playoffs = selected_playoffs
+              if(selected_playoffs === true){
+                this.loadPlayoffs()
+              }
+              if(this.selected_option === 'positions' && this.competition_allowed.indexOf( this.competition ) > -1){
+                this.loadPositions()
+              } else if (this.selected_option === 'decline' || this.selected_option === 'reclassification') {
+                this.loadTable(this.selected_option)
+              }else {
+                this.loadNewWidgets('#'+this.selected_option)
+              }
             }
-           
-            this.competition = competition_id
-            this.season = season_id
-            this.selected_playoffs = selected_playoffs
-            if(selected_playoffs === true){
-              this.loadPlayoffs()
-            }
-            if(this.selected_option === 'positions' && this.competition_allowed.indexOf( this.competition ) > -1){
-              this.loadPositions()
-            } else if (this.selected_option === 'decline' || this.selected_option === 'reclassification') {
-              this.loadTable(this.selected_option)
-            }else {
-              this.loadNewWidgets('#'+this.selected_option)
-            }
-            console.log(this.competition);
-          }
+          ).catch(() => {this.loading--})
+        }
       ).catch(() => {this.loading--})
+
       setInterval(function () {
         if(selected_playoffs === true){
             this.loadPlayoffs()
@@ -411,7 +409,7 @@ new Vue({
 
       if(option_key == "positions"){
         this.url_parameter = '/posiciones'
-      }else if(option_key == "schedules"){
+      }else if(option_key == "positions"){
         this.url_parameter = '/resultados'
       }else if(option_key == "results"){
         this.url_parameter = '/resultados'

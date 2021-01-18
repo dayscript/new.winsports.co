@@ -2352,21 +2352,26 @@ form#views-exposed-form-opinion-block-3 {
 }
 
 nav#block-envivo {
-  margin-right: 1rem;
-}
-
-nav#block-envivo a {
-  background-color: #0ef8c3;
-  background-color: #0ef8c3;
-  padding: 0.2rem 1rem !important;
-  color: #0b3b41 !important;
-  font-size: 0.9rem;
+  margin-right: .5rem;
 }
 
 @media (min-width: 1024px) {
   nav#block-envivo {
     margin-right: 0;
   }
+}
+
+nav#block-envivo ul:not(.contextual-links) li:first-child a {
+  margin-right: .5rem;
+  background-color: #FACB38;
+}
+
+nav#block-envivo ul:not(.contextual-links) li a {
+  background-color: #0ef8c3;
+  background-color: #0ef8c3;
+  padding: 0.2rem .5rem !important;
+  color: #0b3b41 !important;
+  font-size: 0.8rem;
 }
 
 div#block-customadsblock,
@@ -2706,6 +2711,126 @@ div#block-horizontalresults img {
   background-size: 2.5rem;
 }
 
+#block-views-block-en-vivo-block-1 .destacado {
+  margin-left: -1rem;
+  margin-right: -1rem;
+}
+
+@media (min-width: 768px) {
+  #block-views-block-en-vivo-block-1 .destacado {
+    margin-left: 0rem;
+    margin-right: 0rem;
+  }
+}
+
+#block-views-block-en-vivo-block-1 .destacado .live {
+  background-color: #153b41;
+  padding: .8rem 1rem;
+  text-transform: uppercase;
+  color: white;
+  font-weight: 600;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#block-views-block-en-vivo-block-1 .destacado .live span {
+  padding: .2rem .6rem;
+  background-color: #EC563D;
+  margin-right: 1rem;
+}
+
+#block-views-block-en-vivo-block-1 .destacado .article .image img {
+  width: 100%;
+}
+
+#block-views-block-en-vivo-block-1 .article-details {
+  background-color: #EFEFEF;
+}
+
+#block-views-block-en-vivo-block-1 .article-details .category {
+  margin-bottom: 1rem;
+}
+
+#block-views-block-en-vivo-block-1 .article-details .category a {
+  font-size: .9rem;
+}
+
+#block-views-block-en-vivo-block-1 .article-details .title-article a {
+  font-size: 2.75rem;
+}
+
+#block-views-block-en-vivo-block-1 .article-details .lead {
+  font-size: 1.2rem;
+}
+
+#block-views-block-en-vivo-block-1 .views-element-container .category a {
+  font-size: .6rem;
+}
+
+@media (min-width: 768px) {
+  #block-views-block-en-vivo-block-1 .views-element-container .category a {
+    font-size: .75rem;
+  }
+}
+
+#block-views-block-contenido-especial-block-1 .destacado {
+  margin-left: -1rem;
+  margin-right: -1rem;
+}
+
+@media (min-width: 768px) {
+  #block-views-block-contenido-especial-block-1 .destacado {
+    margin-left: 0rem;
+    margin-right: 0rem;
+  }
+}
+
+#block-views-block-contenido-especial-block-1 .destacado .article .image img {
+  width: 100%;
+}
+
+#block-views-block-contenido-especial-block-1 .article-details {
+  --bg-opacity: 1;
+  background-color: #0b3b41;
+  background-color: rgba(11, 59, 65, var(--bg-opacity));
+}
+
+#block-views-block-contenido-especial-block-1 .article-details .category {
+  margin-bottom: 1rem;
+}
+
+#block-views-block-contenido-especial-block-1 .article-details .category a {
+  --text-opacity: 1;
+  color: #fff;
+  color: rgba(255, 255, 255, var(--text-opacity));
+  font-size: .9rem;
+}
+
+#block-views-block-contenido-especial-block-1 .article-details .title-article a {
+  font-size: 2.75rem;
+  color: white;
+}
+
+#block-views-block-contenido-especial-block-1 .article-details .lead {
+  color: white;
+  font-size: 1.2rem;
+}
+
+#block-views-block-contenido-especial-block-1 .article-details .published_date {
+  color: white;
+}
+
+#block-views-block-contenido-especial-block-1 .views-element-container .category a {
+  font-size: .6rem;
+}
+
+@media (min-width: 768px) {
+  #block-views-block-contenido-especial-block-1 .views-element-container .category a {
+    font-size: .75rem;
+  }
+}
+
 #block-futbolcolombiano-estadisticas, .opta-widgets {
   --text-opacity: 1;
   color: #0b3b41;
@@ -2896,9 +3021,9 @@ article.id-3 #schedules div.match-events {
 
 /*Temporal*/
 
-/*#block-contenidoprincipaldelapagina-3 div.quickedit-field {
+#block-contenidoprincipaldelapagina-3 div.quickedit-field {
   display: none;
-}*/
+}
 
 .user.compact .image {
   margin-bottom: 0;

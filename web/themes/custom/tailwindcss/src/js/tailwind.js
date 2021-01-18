@@ -202,6 +202,17 @@
                 let scrollLeft = x.left-155;
                 $('#block-horizontalresults div').animate({scrollLeft: scrollLeft}, 400);
             }
+            $(".contenido-especial-slider").owlCarousel({
+                loop: true,
+                margin: 0,
+                dots: true,
+                items: 6.4,
+                itemsMobile : [479,2.25],
+                center: true,
+                nav: false,
+                autoplay: true,
+                pagination: false,
+            });
         }
     };
 })(jQuery, Drupal);

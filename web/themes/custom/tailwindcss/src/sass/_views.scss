@@ -789,16 +789,26 @@ form#views-exposed-form-opinion-block-3 {
 }
 
 nav#block-envivo {
-    margin-right: 1rem;
-    a {
-        background-color: #0ef8c3;
-        background-color: #0ef8c3;
-        padding: 0.2rem 1rem !important;
-        color: #0b3b41 !important;
-        font-size: 0.9rem;
-    }
+    margin-right: .5rem;
     @screen lg {
         margin-right: 0;
+    }
+    ul:not(.contextual-links){
+        li:first-child{
+            a{
+                margin-right: .5rem;
+                background-color: #FACB38;
+            }
+        }
+        li{
+            a {
+                background-color: #0ef8c3;
+                background-color: #0ef8c3;
+                padding: 0.2rem .5rem !important;
+                color: #0b3b41 !important;
+                font-size: 0.8rem;
+            }
+        }
     }
 }
 
@@ -1117,4 +1127,115 @@ div#block-horizontalresults {
     height: 1rem;
     background: url(/themes/custom/tailwindcss/images/logos/logowinco.png) no-repeat;
     background-size: 2.5rem;
+}
+
+#block-views-block-en-vivo-block-1{
+    .destacado{
+        margin-left: -1rem;
+        margin-right: -1rem;
+        @screen md {
+            margin-left: 0rem;
+            margin-right: 0rem;
+        }
+        .live{
+            background-color: #153b41;
+            padding: .8rem 1rem;
+            text-transform: uppercase;
+            color: white;
+            font-weight: 600;
+            align-items: center;
+            span{
+                padding: .2rem .6rem;
+                background-color: #EC563D;
+                margin-right: 1rem;
+            }
+        }
+        .article{
+            .image{
+                img {
+                    @apply w-full;
+                }
+            }
+        }
+    }
+    .article-details{
+        background-color: #EFEFEF;
+        .category {
+            margin-bottom: 1rem;
+            a{
+                font-size: .9rem;
+            }
+        }
+        .title-article{
+            a{
+                font-size: 2.75rem;
+            }
+        }
+        .lead{
+            font-size: 1.2rem;
+        }
+        .published_date{
+        }
+    }
+    .views-element-container{
+        .category{
+            a{
+                font-size: .6rem;
+                @screen md {
+                    font-size: .75rem;
+                }
+            }
+        }
+    }
+}
+
+#block-views-block-contenido-especial-block-1{
+    .destacado{
+        margin-left: -1rem;
+        margin-right: -1rem;
+        @screen md {
+            margin-left: 0rem;
+            margin-right: 0rem;
+        }
+        .article{
+            .image{
+                img {
+                    @apply w-full;
+                }
+            }
+        }
+    }
+    .article-details{
+        @apply bg-primary; 
+        .category {
+            margin-bottom: 1rem;
+            a{
+                @apply text-white;
+                font-size: .9rem;
+            }
+        }
+        .title-article{
+            a{
+                font-size: 2.75rem;
+                color: white;
+            }
+        }
+        .lead{
+            color: white;
+            font-size: 1.2rem;
+        }
+        .published_date{
+            color: white;
+        }
+    }
+    .views-element-container{
+        .category{
+            a{
+                font-size: .6rem;
+                @screen md {
+                    font-size: .75rem;
+                }
+            }
+        }
+    }
 }

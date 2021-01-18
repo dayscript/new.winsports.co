@@ -18,7 +18,7 @@
         </ul>
         <div class="tw-items-center teams-list">
             <div v-for="tournament in tournaments[type].list" class="team-item">
-                <a :class="{'is-active':tournament.field_opta_id === competition}" :href="'/posiciones?id='+tournament.field_opta_id + '-'+tournament.field_opta_season">
+                <a :class="{'is-active':tournament.field_opta_id === competition}" :href="tournament.view_node">
                     <img :src="tournament.field_image_h" :alt="tournament.title">
                 </a>
             </div>
