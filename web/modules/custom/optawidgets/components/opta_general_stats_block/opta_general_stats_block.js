@@ -70,17 +70,12 @@ new Vue({
       let competition_id = 0
       let season_id = 0
       let selected_playoffs = {}
-
-      /*if (id) {
-        let data = id.split('-')
-        competition_id = Number(data[0])
-        season_id = Number(data[1])
-      }*/
+      let datai = []
+      let datac = []
 
       /* Selected option to show */
       var url_location = this.path;
       var url_segmented = url_location.split('/')
-      //let option_tab = url_segmented[1];
       this.competition_selected = url_segmented[2];
       if(url_location !== null || url_location !== ""){
         if(url_location.indexOf("/posiciones/") >= 0){
@@ -127,10 +122,10 @@ new Vue({
                 }
                 t.path = i.view_node
               }
+              datai.push(i.field_opta_id)
             });
-            if (data.filter(function(item){
-              return Number(item.field_opta_id) === competition_id && Number(item.field_opta_season) === season_id
-            }.bind(this)).length > 0) {
+
+            if(datai.indexOf( this.competition ) > -1){
               this.type = 'int'
             }
             this.tournaments.int = t
@@ -158,10 +153,10 @@ new Vue({
                   }else {
                     Vue.set(selected_playoffs, i.field_opta_id, false)
                   }
+                  datac.push(i.field_opta_id)
                 });
-                if (data.filter(function(item){
-                  return Number(item.field_opta_id) === competition_id && Number(item.field_opta_season) === season_id
-                }.bind(this)).length > 0) {
+
+                if(datac.indexOf( this.competition ) > -1){
                   this.type = 'col'
                 }
                 this.tournaments.col = t
