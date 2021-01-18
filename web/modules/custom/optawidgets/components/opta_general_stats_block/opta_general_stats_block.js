@@ -27,7 +27,7 @@ new Vue({
   beforeMount () {
     this.node = drupalSettings.pdb.contexts['entity:node'];
     this.competition = '371' /* this.node['field_torneo_opta_id'][0]['value'] */;
-    this.season = '2020' /* this.node['field_torneo_season_opta'][0]['value'] */;
+    this.season = '2021' /* this.node['field_torneo_season_opta'][0]['value'] */;
   },
   mounted() {
     this.loadTournaments()
@@ -69,9 +69,14 @@ new Vue({
       let season_id = 0
       let selected_playoffs = false
 
+      if (id) {
+        let data = id.split('-')
+        competition_id = Number(data[0])
+        season_id = Number(data[1])
+      }
 
       /* Selected option to show */
-      var url_location = '/posiciones/liga-betplay-dimayor-2020-i' /* window.location.pathname */;
+      var url_location = '/posiciones/liga-betplay-dimayor-2021-i' /* window.location.pathname */;
       var url_segmented = url_location.split('/')
       let option_tab = url_segmented[1];
       this.competition_selected = url_segmented[2];
@@ -100,12 +105,6 @@ new Vue({
           this.selected_option = 'player_compare'
         }
       }
-
-      // if (id) {
-        // let data = id.split('-')
-        competition_id = 371;
-        season_id = 2020;
-      // }
 
       this.loading++
       axios.get('/api/torneos-posinternacional/json').then(
