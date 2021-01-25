@@ -144,7 +144,7 @@ new Vue({
       if( idCompetition.indexOf( this.competition ) >= 0 && phases[number] ){
         return phases[number][0]
       }else{
-        return 'Liga BetPlay Dimayor 2020 - Fecha '+number
+        return 'Liga BetPlay Dimayor 2021 - Fecha '+number
       }
     }
   }
