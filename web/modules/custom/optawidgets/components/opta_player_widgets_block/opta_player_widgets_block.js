@@ -3,7 +3,7 @@ new Vue({
     el: '.opta-player-widgets',
     data: {
         competition: '371',
-        season: '2020',
+        season: '2021',
         player: '',
         team: '',
         node: null

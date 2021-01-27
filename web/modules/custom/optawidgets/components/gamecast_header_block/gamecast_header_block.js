@@ -6,7 +6,7 @@ new Vue({
     opta_season: '',
     opta_match_id: null,
     drupal_match_id: null,
-    tournament_name: 'Liga BetPlay Dimayor 2020-I',
+    tournament_name: 'Liga BetPlay Dimayor 2021-I',
     round_name: '',
     node: null,
     loading: 0
