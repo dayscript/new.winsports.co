@@ -191,8 +191,6 @@ smartadserver.com,2441,RESELLER
 google.com, pub-1164657388058914, DIRECT, f08c47fec0942fa0
 smartclip.net, 11597, DIRECT
 smartclip.net, 11598, DIRECT
-aol.com, 57545, RESELLER, e1a5b5b6e3255540
-Yahoo.com, 57545, RESELLER, e1a5b5b6e3255540
 districtm.io, 101289, DIRECT, 3fd707be9c4527c3
 appnexus.com, 1908, RESELLER, f5ab79cb980f11d1
 sonobi.com, 8efb591506, DIRECT, d1a215d9eb5aee9e
@@ -203,3 +201,8 @@ advertising.com, 7574, DIRECT
 appnexus.com, 8233, DIRECT
 rubiconproject.com, 13510, DIRECT
 appnexus.com, 3153, RESELLER, f5ab79cb980f11d1
+appnexus.com, 10273, RESELLER, f5ab79cb980f11d1
+indexexchange.com, 192922, RESELLER, 50b1c356f2c5c8fc
+sonobi.com, 4d443a3ea2, RESELLER, d1a215d9eb5aee9e
+aol.com, 57992, RESELLER, e1a5b5b6e3255540
+Yahoo.com, 57992, RESELLER, e1a5b5b6e3255540
