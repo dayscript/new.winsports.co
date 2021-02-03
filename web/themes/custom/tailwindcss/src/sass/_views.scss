@@ -1138,12 +1138,16 @@ div#block-horizontalresults {
             margin-right: 0rem;
         }
         .live{
+            font-size: .8rem;
             background-color: #153b41;
             padding: .8rem 1rem;
             text-transform: uppercase;
             color: white;
             font-weight: 600;
             align-items: center;
+            @screen md{
+                font-size: 1rem;
+            }
             span{
                 padding: .2rem .6rem;
                 background-color: #EC563D;
@@ -1158,6 +1162,13 @@ div#block-horizontalresults {
             }
         }
     }
+    .en-vivo{
+        .mediastream-player{
+            > div{
+                margin-bottom: 0rem;
+            }
+        }
+    }
     .article-details{
         background-color: #EFEFEF;
         .category {
@@ -1168,7 +1179,9 @@ div#block-horizontalresults {
         }
         .title-article{
             a{
-                font-size: 2.75rem;
+                @screen md{
+                    font-size: 2.75rem;
+                }
             }
         }
         .lead{
@@ -1204,28 +1217,38 @@ div#block-horizontalresults {
                 }
             }
         }
-    }
-    .article-details{
-        @apply bg-primary; 
-        .category {
-            margin-bottom: 1rem;
-            a{
-                @apply text-white;
-                font-size: .9rem;
+        .article-details{
+            @apply bg-primary; 
+            .category {
+                margin-bottom: 1rem;
+                a{
+                    @apply text-white;
+                    font-size: .9rem;
+                }
             }
-        }
-        .title-article{
-            a{
-                font-size: 2.75rem;
+            .title-article{
+                a{
+                    @screen md{
+                        font-size: 2.75rem;
+                    }
+                    color: white;
+                }
+            }
+            .lead{
+                color: white;
+                font-size: 1.2rem;
+            }
+            .published_date{
                 color: white;
             }
         }
-        .lead{
-            color: white;
-            font-size: 1.2rem;
-        }
-        .published_date{
-            color: white;
+    }
+    .owl-carousel{
+        .owl-controls{
+            display: none !important;
+            @screen md {
+                display: block !important;
+            }
         }
     }
     .views-element-container{

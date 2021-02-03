@@ -53,15 +53,17 @@ class WidgetProgrammingManager implements WidgetProgrammingManagerInterface {
       foreach (array_keys($months) as $key => $month) {
         $current_month = $key+1;
         $current_day = 1;
-
+        $add=false;
         if($current_month == ( date('n') + 1)){
           $current_day = 1;
-        } elseif($current_month == ( date('n') + 1) > 12) {
+          $add=true;
+        } elseif($current_month == ( date('n') + 1) && ( date('n') + 1)  > 12) {
           $current_day = 1;
           $current_month = 1;
           $current_year = (int) date('Y') + 1;
+          $add=true;
         }
-        //if($current_month == ( date('n')+1 )){
+        if($add == true){
           for ($i = $current_day; $i <= cal_days_in_month(CAL_GREGORIAN, $current_month, $current_year); $i++) { 
             if($pos < $view){
               $dates[$current_year][] = [
@@ -73,7 +75,7 @@ class WidgetProgrammingManager implements WidgetProgrammingManagerInterface {
             }
             $pos++;
           }    
-        //}
+       }
       }
     }
     return $dates;

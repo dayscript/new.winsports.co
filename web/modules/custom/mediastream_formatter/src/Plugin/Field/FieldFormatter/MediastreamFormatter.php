@@ -67,10 +67,10 @@ class MediastreamFormatter extends FormatterBase {
         $elements[$delta]['#attributes'] += $item->_attributes;
         unset($item->_attributes);
       }
-      $elements[$delta]['#attached']['drupalSettings']['autoplay'] = $autoplay;
-      $elements[$delta]['#attached']['drupalSettings']['view_mode'] = $view_mode;
-      $elements[$delta]['#attached']['drupalSettings']['mediastream_id'] = $mediastream_id;
-      $elements[$delta]['#attached']['drupalSettings']['node_id'] = $nodeid;
+      $elements[$delta]['#attached']['drupalSettings']['settings']['mediastream_formatter'][$nodeid]['autoplay'] = $autoplay;
+      $elements[$delta]['#attached']['drupalSettings']['settings']['mediastream_formatter'][$nodeid]['view_mode'] = $view_mode;
+      $elements[$delta]['#attached']['drupalSettings']['settings']['mediastream_formatter'][$nodeid]['mediastream_id'] = $mediastream_id;
+      $elements[$delta]['#attached']['drupalSettings']['settings']['mediastream_formatter'][$nodeid]['node_id'] = $nodeid;
     }
 
     return $elements;
