@@ -17,8 +17,8 @@ class ServicesAmazonS3 {
   public function dimayor() {
   	$domain = 'https://www.winsports.co/';
   	$tournaments = [
-  		'371-2020' => '/api/partidos-torneo/json?torneo=3',
-  		'625-2020' => '/api/partidos-torneo/json?torneo=3526',
+  		'371-2021' => '/api/partidos-torneo/json?torneo=21866',
+  		'625-2021' => '/api/partidos-torneo/json?torneo=21731',
   		'664-2020' => '/api/partidos-torneo/json?torneo=3527',
   		'847-2020' => '/api/partidos-torneo/json?torneo=14842',
   	];
