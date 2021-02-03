@@ -1,0 +1,34 @@
+<div class="flex live"><span>En vivo</span>
+    {{ content.field_pretitle }}
+</div>
+<div class="en-vivo home-destacado md:flex md:mb-8" {{ attributes.addClass(classes) }}>
+    <div class="image md:tw-w-8/12">
+        {% if node.field_url.uri %}
+            {{ content.field_url }}
+        {% elseif node.hasField('field_mediastream') %}
+            {{ content.field_mediastream }}
+        {% endif %}
+    </div>
+    <div class="md:tw-w-4/12 tw-px-6 tw-py-6 md:tw-py-12 article-details">
+        {% if node.hasField('field_category') %}
+            <div class="torneo category pointer-events-none">{{ content.field_category }}</div>
+        {% endif %}
+        <div class="title-article md:max-w-xl pointer-events-none"><a href="{{ url }}">{{ label }}</a></div>
+        <div class="lead md:tw-my-4">{{ content.field_lead }}</div>
+        <div class="published_date tw-py-2">{{ node.getCreatedTime() | format_date('complete_date') }}</div>
+    </div>
+</div>
+
+{# <div class="gol-partido video-player" {{ attributes.addClass(classes) }}>
+    {% if node.field_url.uri %}
+        {{ content.field_url }}
+    {% elseif node.hasField('field_mediastream') %}
+        {{ content.field_mediastream }}
+    {% endif %}
+    <div class="title title-{{ node.id }}">
+        <div class="tw-relative">
+            <div class="torneo category left-0">{{ content.field_category }}</div>
+            <a href="{{ url }}">{{ label }}</a>
+        </div>
+    </div>
+</div> #}
