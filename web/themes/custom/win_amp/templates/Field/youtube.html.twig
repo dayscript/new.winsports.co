@@ -1,4 +1,4 @@
-<div id="youtube-player-{{ url }}" class="youtube-player py-7">
+<div id="youtube-player-{{ url }}" class="youtube-player">
     <div id="video-{{ url }}">
     	<amp-iframe
 			width="600"
@@ -7,6 +7,7 @@
 			layout="responsive"
 			frameborder="0"
 			src="{{ url }}">
+			<amp-img layout="fill" src="/" placeholder></amp-img>
 		</amp-iframe>
     </div>
 </div>
