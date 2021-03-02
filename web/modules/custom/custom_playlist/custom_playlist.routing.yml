@@ -5,4 +5,3 @@ custom_playlist.admin_config_custom_playlist:
     _title: 'Configuration Videos'
   requirements:
     _permission: 'administer site configuration'
-    _role: 'administrator,editor'
