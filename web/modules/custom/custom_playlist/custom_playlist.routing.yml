@@ -4,4 +4,4 @@ custom_playlist.admin_config_custom_playlist:
     _form: 'Drupal\custom_playlist\Form\CustomPlaylistSettings'
     _title: 'Configuration Videos'
   requirements:
-    _permission: 'administer site configuration'
+    _permission: 'administer site configuration,access content'
