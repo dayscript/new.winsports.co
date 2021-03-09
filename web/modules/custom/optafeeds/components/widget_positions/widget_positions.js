@@ -439,11 +439,19 @@ new Vue({
           16:['Final - Vuelta']
         }
       }else if (this.competition == '664') {
-        rounds = {
-          7:['Octavos de Final'],
-          8:['Cuartos de Final'],
-          9:['Semifinal'],
-          10:['Final']
+        if(this.season == '2020') {
+          rounds = {
+            7:['Octavos de Final'],
+            8:['Cuartos de Final'],
+            9:['Semifinal'],
+            10:['Final']
+          }
+        }
+        if(this.season == '2021') {
+          rounds = {
+            1:['Fase 1 - Ida'],
+            2:['Fase 1 - Vuelta'],
+          }
         }
       }else if (this.competition == '128') {
         rounds = {
