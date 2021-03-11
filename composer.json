@@ -24,7 +24,7 @@
         "drupal/admin_toolbar_tools": "^2.0",
         "drupal/advagg": "^4.0",
         "drupal/allow_iframed_site": "^3.0",
-        "drupal/amp": "^2.1",
+        "drupal/amp": "^3.5",
         "drupal/amptheme": "^1.1",
         "drupal/better_exposed_filters": "^4.0@alpha",
         "drupal/better_social_sharing_buttons": "^2.1",
