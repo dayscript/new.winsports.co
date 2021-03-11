@@ -1,0 +1,57 @@
+.owl-theme{
+    .owl-controls{
+        margin: 1.5rem 0;
+        .owl-buttons {
+            font-family: $font-title;
+            .owl-prev,
+            .owl-next{
+                @apply bg-primary;
+                opacity: 1;
+                font-size: 1.5rem;
+                padding: 0rem 0.875rem;
+            }
+        }
+    }
+}
+
+#block-views-block-contenido-especial-block-1{
+    .owl-carousel{
+        .owl-controls{
+            display: none !important;
+            @screen md {
+                display: block !important;
+            }
+        }
+    }
+}
+
+/*
+.owl-controls {
+    @apply mb-6;
+    .owl-buttons {
+        font-family: $font-title;
+        div.owl-next,
+        div.owl-prev {
+            @apply text-primary absolute top-0 h-full rounded-none m-0 opacity-100 pt-24;
+            font-size: 2.5rem;
+            font-weight: 100;
+            width: 100px;
+        }
+        div.owl-next {
+            @apply right-0 text-right;
+            background: linear-gradient(270deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 55, 0) 100%);
+        }
+        div.owl-prev {
+            //display: none;
+            @apply left-0 text-left;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 55, 0) 100%);
+        }
+    }
+}
+
+#block-views-block-torneos-block-2 {
+    .owl-controls {
+        margin-bottom: 0 !important;
+    }
+}
+*/

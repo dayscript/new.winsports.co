@@ -211,7 +211,7 @@
                 loop: true,
                 margin: 0,
                 dots: true,
-                items: 6.4,
+                items: 6,
                 itemsMobile : [479,2.25],
                 center: true,
                 nav: false,
