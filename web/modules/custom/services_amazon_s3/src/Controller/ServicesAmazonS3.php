@@ -19,7 +19,7 @@ class ServicesAmazonS3 {
   	$tournaments = [
   		'371-2021' => '/api/partidos-torneo/json?torneo=21866',
   		'625-2021' => '/api/partidos-torneo/json?torneo=21731',
-  		'664-2020' => '/api/partidos-torneo/json?torneo=3527',
+  		'664-2021' => '/api/partidos-torneo/json?torneo=25860',
   		'847-2020' => '/api/partidos-torneo/json?torneo=14842',
   	];
 
