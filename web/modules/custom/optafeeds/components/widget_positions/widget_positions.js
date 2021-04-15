@@ -451,6 +451,8 @@ new Vue({
           rounds = {
             1:['Fase 1 - Ida'],
             2:['Fase 1 - Vuelta'],
+            3:['Fase 2 - Ida'],
+            4:['Fase 2 - Vuelta'],
           }
         }
       }else if (this.competition == '128') {
