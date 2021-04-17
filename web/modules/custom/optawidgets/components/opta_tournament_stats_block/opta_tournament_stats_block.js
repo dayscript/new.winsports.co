@@ -422,30 +422,44 @@ new Vue({
     roundName (number){
       var idCompetition =  ['371','589','625','901', '847', '664','128'], rounds = {};
       if (this.competition == '371' || this.competition == '589') {
-        rounds = {
-          21:['Liguilla - Fecha 1'],
-          22:['Liguilla - Fecha 2'],
-          23:['Liguilla - Fecha 3'],
-          24:['Liguilla - Semifinales'],
-          25:['Liguilla - Final'],
-          26:['Liguilla - Repechaje'],
-          27:['Cuartos de Final - Ida'],
-          28:['Cuartos de Final - Vuelta'],
-          29:['Semifinales - Ida'],
-          30:['Semifinales - Vuelta'],
-          31:['Final - Ida'],
-          32:['Final - Vuelta']
+        if(this.season == '2020') {
+          rounds = {
+            21:['Liguilla - Fecha 1'],
+            22:['Liguilla - Fecha 2'],
+            23:['Liguilla - Fecha 3'],
+            24:['Liguilla - Semifinales'],
+            25:['Liguilla - Final'],
+            26:['Liguilla - Repechaje'],
+            27:['Cuartos de Final - Ida'],
+            28:['Cuartos de Final - Vuelta'],
+            29:['Semifinales - Ida'],
+            30:['Semifinales - Vuelta'],
+            31:['Final - Ida'],
+            32:['Final - Vuelta']
+          }
         }
       }else if (this.competition == '625' || this.competition == '901') {
-        rounds = {
-          18:['Cuadrangulares - Fecha 1'],
-          19:['Cuadrangulares - Fecha 2'],
-          20:['Cuadrangulares - Fecha 3'],
-          21:['Cuadrangulares - Fecha 4'],
-          22:['Cuadrangulares - Fecha 5'],
-          23:['Cuadrangulares - Fecha 6'],
-          24:['Final - Ida'],
-          25:['Final - Vuelta']
+        if(this.season == '2020') {
+          rounds = {
+            18:['Cuadrangulares - Fecha 1'],
+            19:['Cuadrangulares - Fecha 2'],
+            20:['Cuadrangulares - Fecha 3'],
+            21:['Cuadrangulares - Fecha 4'],
+            22:['Cuadrangulares - Fecha 5'],
+            23:['Cuadrangulares - Fecha 6'],
+            24:['Final - Ida'],
+            25:['Final - Vuelta']
+          }
+        }
+        if(this.season == '2021') {
+          rounds = {
+            16:['Cuadrangulares - Fecha 1'],
+            17:['Cuadrangulares - Fecha 2'],
+            18:['Cuadrangulares - Fecha 3'],
+            19:['Cuadrangulares - Fecha 4'],
+            20:['Cuadrangulares - Fecha 5'],
+            21:['Cuadrangulares - Fecha 6']
+          }
         }
       }else if (this.competition == '847') {
         rounds = {
