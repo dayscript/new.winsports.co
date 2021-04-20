@@ -371,13 +371,23 @@ new Vue({
       string = (string === 'Round') ? 'Ronda' : string;
       var idCompetition =  ['371','589','625','901'], phases = {};
       if (this.competition == '371' || this.competition == '589') {
-        phases = {
-          Ronda: {
-            1: ['Todos'],
-            2: ['Liguilla'],
-            3: ['Liguilla - Semifinal'],
-            4: ['Liguilla - Final'],
-            5: ['Liguilla - Repechaje']
+        if(this.season == '2020') {
+          phases = {
+            Ronda: {
+              1: ['Todos'],
+              2: ['Liguilla'],
+              3: ['Liguilla - Semifinal'],
+              4: ['Liguilla - Final'],
+              5: ['Liguilla - Repechaje']
+            }
+          }
+        }
+        if(this.season == '2021') {
+          phases = {
+            Ronda: {
+              1: ['Todos'],
+              2: ['Cuartos de Final'],
+            }
           }
         }
       }else if (this.competition == '625' || this.competition == '901') {
